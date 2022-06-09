@@ -1,22 +1,64 @@
+//编译时用到的依赖
+buildscript {
+    ext {
+        //定义一个变量，统一规定springboot的版本
+        springBootVersion = '2.7.0.RELEASE'
+        springCloudVersion = 'Finchley.SR4'
+    }
+    repositories {
+        mavenLocal()        //本地仓库
+        maven { url 'https://maven.aliyun.com/repository/central' }
+        mavenCentral()      //中心仓库
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.4.5")
+    }
+}
+
 plugins {
-    id 'org.springframework.boot' version '2.7.0'
-    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'org.springframework.boot' version '2.7.0'  // 使用spring boot的版本
+    id 'io.spring.dependency-management' version '1.0.10.RELEASE'  // 使用spring boot的自动依赖管理
     id 'java'
+    id 'idea'
 }
 
-group = 'com.example'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
-
-repositories {
-    mavenCentral()
+//project全局的版本及相关插件
+allprojects {
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/central' }
+        jcenter()
+        mavenCentral()
+    }
+    //指定编码格式
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
+    }
 }
 
-dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+
+//设定当前模块项目中的配置
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    //spring boot 插件
+    apply plugin: 'org.springframework.boot'
+    //A Gradle plugin that provides Maven-like dependency management functionality
+    apply plugin: 'io.spring.dependency-management'
+    dependencies {
+
+
+    }
+    dependencyManagement {
+        imports {
+            //spring bom helps us to declare dependencies without specifying version numbers.
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:Finchley.SR4"
+        }
+    }
+    jar {
+        manifest.attributes provider: 'gradle'
+    }
 }
 
-tasks.named('test') {
-    useJUnitPlatform()
-}
