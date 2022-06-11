@@ -3,6 +3,7 @@ package com.example.provider.service.base;
 import com.example.provider.entiry.User;
 
 import java.util.List;
+import java.util.Map;
 
 public interface UserService {
 

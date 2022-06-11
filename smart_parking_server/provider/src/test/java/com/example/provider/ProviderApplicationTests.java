@@ -3,6 +3,7 @@ package com.example.provider;
 import com.example.provider.entiry.User;
 import com.example.provider.service.base.UserService;
 import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.List;
+import java.util.Map;
 
 //spring-test来初始化单元测试用的IOC容器
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -19,7 +21,7 @@ class ProviderApplicationTests {
     @Autowired
     public UserService userService;
 
-    @Before
+    @BeforeEach
     public void clearUser(){
         userService.deleteAllUsers();
     }
