@@ -3,42 +3,26 @@ package com.example.provider.service.base;
 import com.example.provider.entiry.User;
 
 import java.util.List;
-import java.util.Map;
 
-public interface UserService {
+public interface ControllerService {
 
     /**
-     * 增加一个用户
+     * 增加一个超级管理员
      *
      * @return*/
     String add_User(String user_name, String password, String user_id);
 
     /**
-     * 用户登录
+     * 超级管理员登录
      * */
     String login_User(String user_name, String password);
 
 
     /**
-     * 查找用户
+     * 查找超级管理员
      * */
     User find_User(String user_name);
 
 
-    /**
-     * 获取用户总量
-     */
-    Integer getAllUsersNumber();
 
-    /**
-     * 获取用户列表
-     * @return
-     */
-    List<User> getAllUsers();
-
-
-    /**
-     * 删除所有用户
-     */
-    void deleteAllUsers();
 }

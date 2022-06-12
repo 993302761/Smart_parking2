@@ -2,7 +2,7 @@
 buildscript {
     ext {
         //定义一个变量，统一规定springboot的版本
-        springBootVersion = '2.7.0.RELEASE'
+        springBootVersion = '2.5.6.RELEASE'
         springCloudVersion = 'Finchley.SR4'
     }
     repositories {
@@ -16,7 +16,7 @@ buildscript {
 }
 
 plugins {
-    id 'org.springframework.boot' version '2.7.0'  // 使用spring boot的版本
+    id 'org.springframework.boot' version '2.5.6'  // 使用spring boot的版本
     id 'io.spring.dependency-management' version '1.0.10.RELEASE'  // 使用spring boot的自动依赖管理
     id 'java'
     id 'idea'
