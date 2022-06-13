@@ -5,9 +5,11 @@ import com.example.provider.entiry.User;
 import com.example.provider.service.base.ControllerService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.annotation.Resource;
+
 public class ControllerServiceImpl implements ControllerService {
 
-    @Autowired
+    @Autowired(required = false)
     private Controller controller;
 
     @Override

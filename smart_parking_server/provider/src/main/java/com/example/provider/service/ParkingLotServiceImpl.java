@@ -5,11 +5,12 @@ import com.example.provider.entiry.User;
 import com.example.provider.service.base.ParkingLotService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 public class ParkingLotServiceImpl implements ParkingLotService {
 
-    @Autowired
+    @Autowired(required = false)
     private Parking_lot_information parkingLotInformation;
 
 
