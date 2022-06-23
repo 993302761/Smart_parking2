@@ -121,12 +121,12 @@ insert into Parking_lot_information values("123","123","天津市xx停车场","1
 create table Controller(ctr_id varchar(11) primary key,
                         ctr_password varchar(50) not null);
 
-}
+
 
 
 insert into Controller values("123","123");
 
-
+}
 
 =========================================================================
 
