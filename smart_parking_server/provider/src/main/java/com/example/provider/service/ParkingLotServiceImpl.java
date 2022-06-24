@@ -6,10 +6,12 @@ import com.example.provider.service.base.ParkingLotService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
 
+@Service
 public class ParkingLotServiceImpl implements ParkingLotService {
 
     @Autowired(required = false)
@@ -40,7 +42,7 @@ public class ParkingLotServiceImpl implements ParkingLotService {
     @Override
     public Parking_lot_information find_Parking(String pctr_id) {
         try {
-            Parking_lot_information parkingLotInformation=jdbcTemplate.queryForObject("select * from Parking_lot_information where user_name= ?",new BeanPropertyRowMapper<>(Parking_lot_information.class),pctr_id);
+            Parking_lot_information parkingLotInformation=jdbcTemplate.queryForObject("select * from Parking_lot_information where pctr_id= ?",new BeanPropertyRowMapper<>(Parking_lot_information.class),pctr_id);
             return parkingLotInformation;
         }catch (Exception e){
             return null;

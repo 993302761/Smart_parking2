@@ -13,7 +13,6 @@ import org.springframework.data.relational.core.mapping.Table;
 public class User {
 
 
-    @Id
     private String user_name;   //用户名
     private String password;   //密码
     private String user_id;    //身份证号
