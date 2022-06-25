@@ -1,6 +1,28 @@
 package com.example.provider.controller;
 
+import com.example.provider.service.ParkingLotServiceImpl;
+import com.example.provider.service.UserServiceImpl;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@Api(tags = "注册模块")
+@RequestMapping("/Register")
 public class RegisterController {
+
+    @Autowired(required = false)
+    private ParkingLotServiceImpl parkingLotService;
+
+
+    @Autowired(required = false)
+    private UserServiceImpl userService;
 
     //app注册1
     public void app_register1(){
@@ -14,9 +36,27 @@ public class RegisterController {
     }
 
 
-    //停车场管理员注册
-    public void parking_register(){
-
+    @ApiOperation(value = "停车场管理员注册")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "latitude", value = "纬度", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "longitude", value = "经度", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "billing_rules", value = "计费规则  (元/小时)", required = true, dataType = "float",example = "0"),
+            @ApiImplicitParam(name = "parking_spaces_num", value = "车位数量", required = true, dataType = "int",example = "0"),
+            @ApiImplicitParam(name = "Parking_in_the_city", value = "停车场所在地", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "parking_lot_name", value = "停车场名", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "pctr_password", value = "密码", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "pctr_id", value = "停车场管理员账号", required = true, dataType = "String")
+    })
+    @PostMapping(value = "/parking_register", produces = "text/plain;charset=utf-8")
+    public String parking_register(String pctr_id,
+                                 String pctr_password,
+                                 String parking_lot_name,
+                                 String Parking_in_the_city,
+                                 Integer parking_spaces_num,
+                                 float billing_rules,
+                                 String longitude,
+                                 String latitude){
+        return parkingLotService.add_Parking(pctr_id,pctr_password,parking_lot_name,Parking_in_the_city,parking_spaces_num,billing_rules,longitude,latitude);
     }
 
 

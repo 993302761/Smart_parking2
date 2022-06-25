@@ -86,6 +86,7 @@ create table Order_information( order_number varchar(50)  primary key,
         pctr_id：停车场管理员账号
         pctr_password：停车场管理员密码
         parking_lot_name：停车场名
+        Parking_in_the_city :停车场所在城市
         parking_lot_number：停车场编号
         parking_spaces_num：车位数量
         billing_rules：计费规则  (元/小时)
@@ -97,34 +98,34 @@ create table Order_information( order_number varchar(50)  primary key,
 create table Parking_lot_information(pctr_id varchar(11) primary key,
                                      pctr_password varchar(50) not null,
                                      parking_lot_name varchar(50) not null,
-                                     parking_lot_number varchar(20) not null,
+                                     Parking_in_the_city varchar(50) not null,
                                      parking_spaces_num int not null,
-                                     billing_rules float,
+                                     billing_rules float not null,
                                      longitude varchar(20) not null,
                                      latitude varchar(20)  not null)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 
-insert into Parking_lot_information values("123","123","天津市xx停车场","1001-1",10,5.0,"39.064976","117.302938"),
-                        ("456","456","北京市xx停车场","1000-1",20,10.0,"39.821263","117.442708");
+insert into Parking_lot_information values("123","123","天津市xx停车场","天津",10,5.0,"39.064976","117.302938"),
+                                           ("456","456","北京市xx停车场","北京",20,10.0,"39.821263","117.442708");
 
 
 =======================================================================
 
-        Controller                  //超级管理员
+        Administrators                  //超级管理员
         {
         ctr_id：管理员账号
         ctr_password：管理员密码
         }
 
 
-create table Controller(ctr_id varchar(11) primary key,
-                        ctr_password varchar(50) not null);
+create table Administrators(ctr_id varchar(11) primary key,
+                            ctr_password varchar(50) not null);
 
 
 
 
-insert into Controller values("123","123");
+insert into Administrators values("123","123");
 
 }
 

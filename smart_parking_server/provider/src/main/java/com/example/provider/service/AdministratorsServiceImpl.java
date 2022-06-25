@@ -1,18 +1,14 @@
 package com.example.provider.service;
 
-import com.example.provider.entiry.Controller;
-import com.example.provider.entiry.Parking_lot_information;
-import com.example.provider.entiry.User;
+import com.example.provider.entiry.Administrators;
 import com.example.provider.service.base.ControllerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
-
 @Service
-public class ControllerServiceImpl implements ControllerService {
+public class AdministratorsServiceImpl implements ControllerService {
 
     @Autowired(required = false)
     private JdbcTemplate jdbcTemplate;
@@ -23,7 +19,7 @@ public class ControllerServiceImpl implements ControllerService {
         if (ctr_id.equals("")||ctr_password.equals("")){
             return "用户名或密码为空";
         }
-        Controller controller=find_Ctl(ctr_id);
+        Administrators controller=find_Ctl(ctr_id);
         if (controller==null){
             return "用户未注册";
         }
@@ -35,9 +31,9 @@ public class ControllerServiceImpl implements ControllerService {
     }
 
     @Override
-    public Controller find_Ctl(String ctr_id) {
+    public Administrators find_Ctl(String ctr_id) {
         try {
-            Controller controller=jdbcTemplate.queryForObject("select * from Controller where ctr_id= ?",new BeanPropertyRowMapper<>(Controller.class),ctr_id);
+            Administrators controller=jdbcTemplate.queryForObject("select * from Administrators where ctr_id= ?",new BeanPropertyRowMapper<>(Administrators.class),ctr_id);
             return controller;
         }catch (Exception e){
             return null;

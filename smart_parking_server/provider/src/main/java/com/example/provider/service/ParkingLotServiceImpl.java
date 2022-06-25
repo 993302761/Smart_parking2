@@ -19,9 +19,30 @@ public class ParkingLotServiceImpl implements ParkingLotService {
 
 
     @Override
-    public String add_Parking(String pctr_id, String pctr_password, String parking_lot_name, String parking_lot_number, Integer parking_spaces_num, float billing_rules, String longitude, String latitude) {
-        return null;
+    public String add_Parking(String pctr_id,
+                              String pctr_password,
+                              String parking_lot_name,
+                              String Parking_in_the_city,
+                              Integer parking_spaces_num,
+                              float billing_rules,
+                              String longitude,
+                              String latitude) {
+        if (pctr_id.equals("")||pctr_password.equals("")||parking_lot_name.equals("")||Parking_in_the_city.equals("")||parking_spaces_num.equals("")||longitude.equals("")||latitude.equals("")){
+            return "请输入完整信息";
+        }
+        Parking_lot_information parkingLotInformation=find_Parking(pctr_id);
+        if (parkingLotInformation!=null){
+            return "该用户已注册";
+        }
+        int update = jdbcTemplate.update("insert into Parking_lot_information values(?,?,?,?,?,?,?,?);", pctr_id, pctr_password, parking_lot_name, Parking_in_the_city, parking_spaces_num, billing_rules, longitude, latitude);
+        if (update>0)
+        {
+            return "注册成功";
+        }else {
+            return "注册失败";
+        }
     }
+
 
     @Override
     public String login_Parking(String pctr_id, String pctr_password) {

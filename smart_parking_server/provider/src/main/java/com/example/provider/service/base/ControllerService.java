@@ -1,9 +1,6 @@
 package com.example.provider.service.base;
 
-import com.example.provider.entiry.Controller;
-import com.example.provider.entiry.User;
-
-import java.util.List;
+import com.example.provider.entiry.Administrators;
 
 public interface ControllerService {
 
@@ -17,7 +14,7 @@ public interface ControllerService {
     /**
      * 查找超级管理员
      * */
-    Controller find_Ctl(String ctr_id);
+    Administrators find_Ctl(String ctr_id);
 
 
 

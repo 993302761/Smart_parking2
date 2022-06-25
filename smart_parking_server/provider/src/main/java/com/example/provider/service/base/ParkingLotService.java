@@ -11,7 +11,7 @@ public interface ParkingLotService {
      * 增加一个停车场管理员
      *
      * @return*/
-    String add_Parking(String pctr_id, String pctr_password, String parking_lot_name,String parking_lot_number,Integer parking_spaces_num,float billing_rules,String longitude,String latitude);
+    String add_Parking(String pctr_id, String pctr_password, String parking_lot_name,String Parking_in_the_city,Integer parking_spaces_num,float billing_rules,String longitude,String latitude);
 
     /**
      * 停车场管理员登录
