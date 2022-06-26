@@ -1,35 +1,30 @@
 package com.example.provider.service;
 
+import com.example.provider.dao.UserDao;
 import com.example.provider.entiry.User;
-import com.example.provider.service.base.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Service;
-
 import javax.annotation.Resource;
 import java.util.List;
-import java.util.Map;
-
-import static org.springframework.boot.Banner.Mode.LOG;
 
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl  {
 
-    @Autowired(required = false)
-    private JdbcTemplate jdbcTemplate;
+    @Resource
+    private UserDao userDao;
 
-    @Override
+
+    /**
+     * 添加一名用户
+     * */
     public String add_User(String user_name, String password, String user_id) {
         if (user_name.equals("")||password.equals("")||user_id.equals("")){
             return "所填信息不完整";
         }
-        User user = find_User(user_name);
+        User user = userDao.find_User(user_name);
         if (user!=null){
             return "用户已注册";
         }
-        int i= jdbcTemplate.update("insert into User values(?,?,?)",user_name,password,user_id);
+        int i= userDao.add_User(user_name,password,user_id);
         if (i<=0){
             return "注册失败";
         }
@@ -38,12 +33,11 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-    @Override
     public String login_User(String user_name, String password) {
         if (user_name.equals("")||password.equals("")){
             return "用户名或密码为空";
         }
-        User user=find_User(user_name);
+        User user=userDao.find_User(user_name);
         if (user==null){
             return "用户未注册";
         }
@@ -54,28 +48,14 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-    @Override
-    public User find_User(String user_name) {
-        try {
-            User user=jdbcTemplate.queryForObject("select * from User where user_name= ?",new BeanPropertyRowMapper<>(User.class),user_name);
-            return user;
-        }catch (Exception e){
-            return null;
-        }
-    }
 
-    @Override
     public Integer getAllUsersNumber() {
-        return jdbcTemplate.queryForObject("select count(1) from User", Integer.class);
+        return userDao.getAllUsersNumber();
     }
 
-    @Override
+
     public List<User> getAllUsers() {
-        return jdbcTemplate.query("select * from User",new BeanPropertyRowMapper<>(User.class));
+        return userDao.getAllUsers();
     }
 
-    @Override
-    public void deleteAllUsers() {
-        jdbcTemplate.update("delete from User ");
-    }
 }

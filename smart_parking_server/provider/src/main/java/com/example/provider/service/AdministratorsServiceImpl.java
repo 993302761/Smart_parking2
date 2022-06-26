@@ -1,5 +1,6 @@
 package com.example.provider.service;
 
+import com.example.provider.dao.AdministratorsDao;
 import com.example.provider.entiry.Administrators;
 import com.example.provider.service.base.ControllerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,19 +8,20 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
 @Service
-public class AdministratorsServiceImpl implements ControllerService {
+public class AdministratorsServiceImpl  {
 
-    @Autowired(required = false)
-    private JdbcTemplate jdbcTemplate;
+    @Resource
+    private AdministratorsDao administratorsDao;
 
 
-    @Override
     public String login_Ctl(String ctr_id, String ctr_password) {
         if (ctr_id.equals("")||ctr_password.equals("")){
             return "用户名或密码为空";
         }
-        Administrators controller=find_Ctl(ctr_id);
+        Administrators controller=administratorsDao.find_Adm(ctr_id);
         if (controller==null){
             return "用户未注册";
         }
@@ -29,15 +31,6 @@ public class AdministratorsServiceImpl implements ControllerService {
             return "密码错误";
         }
     }
-
-    @Override
-    public Administrators find_Ctl(String ctr_id) {
-        try {
-            Administrators controller=jdbcTemplate.queryForObject("select * from Administrators where ctr_id= ?",new BeanPropertyRowMapper<>(Administrators.class),ctr_id);
-            return controller;
-        }catch (Exception e){
-            return null;
-        }    }
 
 
 }

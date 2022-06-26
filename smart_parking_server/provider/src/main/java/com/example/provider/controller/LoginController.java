@@ -36,7 +36,6 @@ public class LoginController {
     })
     @GetMapping(value = "/parking_login", produces = "text/plain;charset=utf-8")
     public String parking_login( String pctr_id, String pctr_password){
-        System.out.printf(pctr_id+' '+pctr_password);
         return parkingLotService.login_Parking(pctr_id,pctr_password);
     }
 

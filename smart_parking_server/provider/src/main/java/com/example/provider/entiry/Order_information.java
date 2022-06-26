@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import java.sql.Timestamp;
 
 @Data                   //生成get set equals toString等方法
-@AllArgsConstructor     //生成一个全属性构造方法
 @NoArgsConstructor      //生成无参构造方法
 public class Order_information {
 
