@@ -2,10 +2,7 @@ package com.example.provider.service;
 
 import com.example.provider.dao.AdministratorsDao;
 import com.example.provider.entiry.Administrators;
-import com.example.provider.service.base.ControllerService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
+
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

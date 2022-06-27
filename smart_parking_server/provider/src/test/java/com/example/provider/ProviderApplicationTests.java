@@ -5,6 +5,7 @@ import com.example.provider.dao.UserDao;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,14 +25,14 @@ public class ProviderApplicationTests {
 
 
     @Resource
-    private UserDao userMapper;
+    private RedisTemplate<String, Integer> redisTemplate;
 
     @Test
     @Rollback
     //使用回滚注解@Rollback，配合事务注解@Transactional，来实现回滚事务。
     public void contextLoads() {
-        List user=userMapper.getAllUsers();
-        System.out.printf(user.toString());
+        redisTemplate.opsForValue().set("123",5);
+        System.out.println(redisTemplate.opsForValue().get("123"));
     }
 
 }

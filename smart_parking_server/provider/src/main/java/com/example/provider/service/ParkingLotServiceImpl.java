@@ -17,18 +17,19 @@ public class ParkingLotServiceImpl  {
                               String pctr_password,
                               String parking_lot_name,
                               String parking_in_the_city,
+                              String parking_lot_number,
                               Integer parking_spaces_num,
                               float billing_rules,
                               String longitude,
                               String latitude) {
-        if (pctr_id.equals("")||pctr_password.equals("")||parking_lot_name.equals("")||parking_in_the_city.equals("")||parking_spaces_num.equals("")||longitude.equals("")||latitude.equals("")){
+        if (pctr_id.equals("")||pctr_password.equals("")||parking_lot_number.equals("")||parking_lot_name.equals("")||parking_in_the_city.equals("")||parking_spaces_num.equals("")||longitude.equals("")||latitude.equals("")){
             return "请输入完整信息";
         }
         Parking_lot_information parkingLotInformation=parkingLotDao.find_Parking(pctr_id);
         if (parkingLotInformation!=null){
             return "该用户已注册";
         }
-        int update = parkingLotDao.add_Parking(pctr_id,pctr_password,parking_lot_name,parking_in_the_city,parking_spaces_num,billing_rules,longitude,latitude);
+        int update = parkingLotDao.add_Parking(pctr_id,pctr_password,parking_lot_name,parking_in_the_city,parking_lot_number,parking_spaces_num,billing_rules,longitude,latitude);
         if (update>0)
         {
             return "注册成功";

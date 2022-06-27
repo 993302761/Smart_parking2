@@ -51,12 +51,13 @@ public class RegisterController {
     public String parking_register(String pctr_id,
                                  String pctr_password,
                                  String parking_lot_name,
-                                 String Parking_in_the_city,
+                                 String parking_in_the_city,
+                                   String  parking_lot_number,
                                  Integer parking_spaces_num,
                                  float billing_rules,
                                  String longitude,
                                  String latitude){
-        return parkingLotService.add_Parking(pctr_id,pctr_password,parking_lot_name,Parking_in_the_city,parking_spaces_num,billing_rules,longitude,latitude);
+        return parkingLotService.add_Parking(pctr_id,pctr_password,parking_lot_name,parking_in_the_city,parking_lot_number,parking_spaces_num,billing_rules,longitude,latitude);
     }
 
 

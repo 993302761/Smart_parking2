@@ -99,6 +99,7 @@ create table Parking_lot_information(pctr_id varchar(11) primary key,
                                      pctr_password varchar(50) not null,
                                      parking_lot_name varchar(50) not null,
                                      Parking_in_the_city varchar(50) not null,
+                                     parking_lot_number varchar(20) not null,
                                      parking_spaces_num int not null,
                                      billing_rules float not null,
                                      longitude varchar(20) not null,
@@ -106,8 +107,8 @@ create table Parking_lot_information(pctr_id varchar(11) primary key,
 
 
 
-insert into Parking_lot_information values("123","123","天津市xx停车场","天津",10,5.0,"39.064976","117.302938"),
-                                           ("456","456","北京市xx停车场","北京",20,10.0,"39.821263","117.442708");
+insert into Parking_lot_information values("123","123","天津市xx停车场","天津","1001",10,5.0,"39.064976","117.302938"),
+                                           ("456","456","北京市xx停车场","北京","1002",20,10.0,"39.821263","117.442708");
 
 
 =======================================================================
