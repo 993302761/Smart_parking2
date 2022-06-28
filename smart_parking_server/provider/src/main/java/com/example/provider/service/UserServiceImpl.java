@@ -33,6 +33,10 @@ public class UserServiceImpl  {
         }
     }
 
+
+    /**
+     * 用户登录
+     * */
     public String login_User(String user_name, String password) {
         if (user_name.equals("")||password.equals("")){
             return "用户名或密码为空";
@@ -46,6 +50,27 @@ public class UserServiceImpl  {
         }else {
             return "密码错误";
         }
+    }
+
+
+    /**
+     * 查找用户
+     * */
+    public boolean find(String user_name){
+        User user=userDao.find_User(user_name);
+        if (user==null){
+            return true;
+        }
+        else return false;
+    }
+
+
+
+    /**
+     * 查找用户
+     * */
+    public String User_Register(String user_name,String password,String user_id,String license_plate_number,String picture_index,String registration,String vehicle_license){
+        return "注册失败";
     }
 
 

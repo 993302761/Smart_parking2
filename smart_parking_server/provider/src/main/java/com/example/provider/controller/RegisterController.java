@@ -24,14 +24,31 @@ public class RegisterController {
     @Autowired(required = false)
     private UserServiceImpl userService;
 
-    //app注册1
-    public void app_register1(){
 
+    @ApiOperation(value = "app注册1")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "password", value = "密码", required = true, dataType = "String")
+    })
+    @GetMapping(value = "/app_register1", produces = "text/plain;charset=utf-8")
+    public String app_register1(String user_name){
+        boolean i= userService.find(user_name);
+        if (i==true){
+            return "ok";
+        }else {
+            return "该手机号已注册";
+        }
     }
 
 
-    //app注册2
-    public void app_register2(){
+
+    @ApiOperation(value = "app注册2")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "password", value = "密码", required = true, dataType = "String")
+    })
+    @GetMapping(value = "/app_register2", produces = "text/plain;charset=utf-8")
+    public void app_register2(String user_name,String password,String user_id,String license_plate_number,String picture_index,String registration,String vehicle_license){
 
     }
 
