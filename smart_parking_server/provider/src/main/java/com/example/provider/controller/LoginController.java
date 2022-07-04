@@ -31,7 +31,7 @@ public class LoginController {
 
     @ApiOperation(value = "停车场管理员登录", notes = "输入停车场管理员账号和密码登录")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "pctr_password", value = "密码", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "pctr_password", value = "密码",required = true,  dataType = "String"),
             @ApiImplicitParam(name = "pctr_id", value = "停车场管理员账号", required = true, dataType = "String")
     })
     @GetMapping(value = "/parking_login", produces = "text/plain;charset=utf-8")

@@ -27,6 +27,13 @@ public interface ParkingLotDao {
 
 
     /**
+     * 查找停车场编号
+     * */
+    @Select("SELECT * FROM Parking_lot_information WHERE parking_lot_number =#{parking_lot_number}")
+    Parking_lot_information find_Parking_num(@Param("parking_lot_number") String parking_lot_number);
+
+
+    /**
      * 获取停车场管理员列表
      */
     @Select("select * from Parking_lot_information")

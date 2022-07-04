@@ -17,7 +17,7 @@ public class UserServiceImpl  {
      * 添加一名用户
      * */
     public String add_User(String user_name, String password, String user_id) {
-        if (user_name.equals("")||password.equals("")||user_id.equals("")){
+        if (user_name==null||password==null||user_id==null){
             return "所填信息不完整";
         }
         User user = userDao.find_User(user_name);
@@ -38,7 +38,7 @@ public class UserServiceImpl  {
      * 用户登录
      * */
     public String login_User(String user_name, String password) {
-        if (user_name.equals("")||password.equals("")){
+        if (user_name==null||password==null){
             return "用户名或密码为空";
         }
         User user=userDao.find_User(user_name);
@@ -70,6 +70,9 @@ public class UserServiceImpl  {
      * 查找用户
      * */
     public String User_Register(String user_name,String password,String user_id,String license_plate_number,String picture_index,String registration,String vehicle_license){
+        if (user_name==null||password==null||user_id==null||license_plate_number==null||picture_index==null||registration==null||vehicle_license==null){
+            return "所填信息不完整";
+        }
         return "注册失败";
     }
 

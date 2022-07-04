@@ -17,30 +17,33 @@ public class ParkingLotServiceImpl  {
                               String pctr_password,
                               String parking_lot_name,
                               String parking_in_the_city,
-                              String parking_lot_number,
                               Integer parking_spaces_num,
                               float billing_rules,
                               String longitude,
                               String latitude) {
-        if (pctr_id.equals("")||pctr_password.equals("")||parking_lot_number.equals("")||parking_lot_name.equals("")||parking_in_the_city.equals("")||parking_spaces_num.equals("")||longitude.equals("")||latitude.equals("")){
+        if (pctr_id==null || pctr_password==null || parking_lot_name==null || parking_in_the_city==null || parking_spaces_num==null || longitude==null || latitude==null) {
             return "请输入完整信息";
         }
-        Parking_lot_information parkingLotInformation=parkingLotDao.find_Parking(pctr_id);
-        if (parkingLotInformation!=null){
+        Parking_lot_information parkingLotInformation = parkingLotDao.find_Parking(pctr_id);
+        if (parkingLotInformation != null) {
             return "该用户已注册";
         }
-        int update = parkingLotDao.add_Parking(pctr_id,pctr_password,parking_lot_name,parking_in_the_city,parking_lot_number,parking_spaces_num,billing_rules,longitude,latitude);
-        if (update>0)
-        {
+        String parking_lot_number;
+        do {
+            parking_lot_number = String.valueOf(Math.random() * 10000);
+            parkingLotInformation = parkingLotDao.find_Parking_num(parking_lot_number);
+        } while (parkingLotInformation != null);
+        int update = parkingLotDao.add_Parking(pctr_id, pctr_password, parking_lot_name, parking_in_the_city, parking_lot_number, parking_spaces_num, billing_rules, longitude, latitude);
+        if (update > 0) {
             return "注册成功";
-        }else {
+        } else {
             return "注册失败";
         }
     }
 
 
     public String login_Parking(String pctr_id, String pctr_password) {
-        if (pctr_id.equals("")||pctr_password.equals("")){
+        if (pctr_id==null||pctr_password==null){
             return "用户名或密码为空";
         }
         Parking_lot_information parkingLotInformation=parkingLotDao.find_Parking(pctr_id);

@@ -15,7 +15,7 @@ public class AdministratorsServiceImpl  {
 
 
     public String login_Ctl(String ctr_id, String ctr_password) {
-        if (ctr_id.equals("")||ctr_password.equals("")){
+        if (ctr_id==null||ctr_password==null){
             return "用户名或密码为空";
         }
         Administrators controller=administratorsDao.find_Adm(ctr_id);

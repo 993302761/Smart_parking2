@@ -35,7 +35,7 @@ insert into User values("123","456","1234568789"),("18153301670","lyq2001124","4
         vehicle_license：车辆行驶证照片
         }
 
-create table Vehicle_information(user_name varchar(11) primary key,
+create table Vehicle_information(user_name varchar(11) not null,
                                  user_id varchar(20) not null,
                                  license_plate_number varchar(20),
                                  picture_index varchar(50),
