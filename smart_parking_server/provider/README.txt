@@ -107,6 +107,7 @@ create table Parking_lot_information(pctr_id varchar(11) primary key,
 
 
 
+
 insert into Parking_lot_information values("123","123","天津市xx停车场","天津","1001",10,5.0,"39.064976","117.302938"),
                                            ("456","456","北京市xx停车场","北京","1002",20,10.0,"39.821263","117.442708");
 

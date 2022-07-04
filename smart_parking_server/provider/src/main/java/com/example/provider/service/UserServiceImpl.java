@@ -2,6 +2,7 @@ package com.example.provider.service;
 
 import com.example.provider.dao.UserDao;
 import com.example.provider.entiry.User;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.List;
@@ -11,6 +12,10 @@ public class UserServiceImpl  {
 
     @Resource
     private UserDao userDao;
+
+
+    @Resource
+    private RedisTemplate<String, Integer> redisTemplate;
 
 
     /**
@@ -67,21 +72,27 @@ public class UserServiceImpl  {
 
 
     /**
-     * 查找用户
+     * UUID校验
      * */
-    public String User_Register(String user_name,String password,String user_id,String license_plate_number,String picture_index,String registration,String vehicle_license){
-        if (user_name==null||password==null||user_id==null||license_plate_number==null||picture_index==null||registration==null||vehicle_license==null){
-            return "所填信息不完整";
-        }
-        return "注册失败";
+    public boolean UUID_check(String UUID,String user_name){
+        redisTemplate.opsForValue().set("123",5);
+        System.out.println(redisTemplate.opsForValue().get("123"));
+        return false;
     }
 
 
+
+    /**
+     * 获取用户总量
+     * */
     public Integer getAllUsersNumber() {
         return userDao.getAllUsersNumber();
     }
 
 
+    /**
+     * 获取所有用户列表
+     * */
     public List<User> getAllUsers() {
         return userDao.getAllUsers();
     }

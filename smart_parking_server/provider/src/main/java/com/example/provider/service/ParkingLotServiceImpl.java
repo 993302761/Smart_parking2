@@ -30,7 +30,7 @@ public class ParkingLotServiceImpl  {
         }
         String parking_lot_number;
         do {
-            parking_lot_number = String.valueOf(Math.random() * 10000);
+            parking_lot_number = String.valueOf((int)(Math.random() * 10000));
             parkingLotInformation = parkingLotDao.find_Parking_num(parking_lot_number);
         } while (parkingLotInformation != null);
         int update = parkingLotDao.add_Parking(pctr_id, pctr_password, parking_lot_name, parking_in_the_city, parking_lot_number, parking_spaces_num, billing_rules, longitude, latitude);
