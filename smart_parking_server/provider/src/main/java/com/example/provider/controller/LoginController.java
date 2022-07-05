@@ -42,12 +42,13 @@ public class LoginController {
 
     @ApiOperation(value = "app用户登录", notes = "输入账号和密码登录")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "user_name", value = "密码", required = true, dataType = "String"),
-            @ApiImplicitParam(name = "password", value = "用户账号", required = true, dataType = "String")
+            @ApiImplicitParam(name = "user_name", value = "用户账号", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "password", value = "密码", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "UUID", value = "通用唯一识别码", required = true, dataType = "String")
     })
     @GetMapping(value = "/app_login", produces = "text/plain;charset=utf-8")
-    public String app_login( String user_name, String password){
-        return userService.login_User(user_name,password);
+    public String app_login( String user_name, String password,String UUID){
+        return userService.login_User(user_name,password,UUID);
     }
 
 

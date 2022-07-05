@@ -33,6 +33,18 @@ public class ProviderApplicationTests {
     public void contextLoads() {
         redisTemplate.opsForValue().set("123",5);
         System.out.println(redisTemplate.opsForValue().get("123"));
+        boolean hasKey = redisTemplate.hasKey("13");
+
+        if(hasKey ){
+
+            System.out.print("存在");
+
+        } else {
+
+            System.out.print("不存在");
+
+        }
+
     }
 
 }
