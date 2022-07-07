@@ -22,4 +22,5 @@ public class Order_information {
     private boolean whether_to_pay ;          //是否支付
     private String order_status ;             //订单状态
 
+
 }

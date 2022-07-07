@@ -82,7 +82,7 @@ public class UserServiceImpl  {
     /**
      * UUID校验
      * */
-    public boolean UUID_check(String UUID,String user_name){
+    public boolean check_UUID(String UUID,String user_name){
         boolean hasKey = redisTemplate.hasKey(user_name);
         if(hasKey){
             String s = redisTemplate.opsForValue().get(user_name);

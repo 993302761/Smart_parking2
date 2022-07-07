@@ -26,7 +26,7 @@ public class LoginController {
 
 
     @Autowired(required = false)
-    private AdministratorsServiceImpl controllerService;
+    private AdministratorsServiceImpl administratorsService;
 
 
     @ApiOperation(value = "停车场管理员登录", notes = "输入停车场管理员账号和密码登录")
@@ -60,7 +60,7 @@ public class LoginController {
     })
     @GetMapping(value = "/controller_login", produces = "text/plain;charset=utf-8")
     public String controller_login( String ctr_id,  String ctr_password){
-        return controllerService.login_Ctl(ctr_id,ctr_password);
+        return administratorsService.login_Ctl(ctr_id,ctr_password);
     }
 
 

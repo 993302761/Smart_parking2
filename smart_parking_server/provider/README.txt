@@ -60,14 +60,14 @@ create table Vehicle_information(user_name varchar(11) not null,
         license_plate_number ：车牌号
         payment_amount ：支付金额
         whether_to_pay ：是否支付
-         order_status :订单状态
+        order_status :订单状态
         }
 
 create table Order_information( order_number varchar(50)  primary key,
-                                 generation_time datetime not null,
+                                 generation_time datetime(0) not null,
                                  user_name varchar(11) not null,
-                                 inTime datetime,
-                                 outTime datetime,
+                                 inTime datetime(0),
+                                 outTime datetime(0),
                                  parking_lot_name varchar(50),
                                  parking_lot_number varchar(20) not null,
                                  license_plate_number varchar(20) not null,

@@ -25,14 +25,14 @@ public interface UserDao {
     /**
      * 增加一个用户
      *
-     * @return*/
+     * */
     @Insert("INSERT INTO User VALUES(#{user_name}, #{password}, #{user_id})")
     int add_User(@Param("user_name") String user_name, @Param("password") String password,@Param("user_id")  String user_id);
 
 
     /**
      * 获取用户列表
-     * @return
+     *
      */
     @Select("select * from User")
     List<User> getAllUsers();
