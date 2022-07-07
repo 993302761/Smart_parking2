@@ -55,12 +55,12 @@ public class OrderServiceImpl {
             return "未注册车辆信息";
         }
 
-        int i = orderDao.add_Order(order_number, generation_time, user_name, (String) null, (String) null, parkingLotInformation.getParking_lot_name(), parking_lot_number, license_plate_number, 0, false, "等待进入");
+        int i = orderDao.add_Order(order_number, generation_time, user_name,  null, null, parkingLotInformation.getParking_lot_name(), parking_lot_number, license_plate_number, 0, false, "等待进入");
         if (i<=0){
-            return "添加车辆信息失败";
+            return "订单开始";
         }
         else {
-            return "添加车辆信息成功";
+            return "订单生成失败";
         }
     }
 

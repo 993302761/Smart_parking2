@@ -8,6 +8,7 @@ dependencies {
     implementation 'mysql:mysql-connector-java:8.0.13'
 
     implementation('org.apache.commons:commons-lang3:3.12.0')
+    implementation 'junit:junit:4.13.1'
     testImplementation('junit:junit:4.13.2')
 
     implementation('org.springframework.boot:spring-boot-starter-parent:2.6.7')
@@ -30,8 +31,16 @@ dependencies {
     implementation('com.fasterxml.jackson.core:jackson-core:2.13.3')
     implementation('com.fasterxml.jackson.core:jackson-annotations:2.13.3')
 
+    //swagger
     implementation('io.springfox:springfox-swagger2:2.9.2')
     implementation('io.springfox:springfox-swagger-ui:2.9.2')
+
+
+    //aop切面
+    implementation('org.springframework.boot:spring-boot-starter-aop')
+    implementation('org.aspectj:aspectjrt')
+    implementation('org.aspectj:aspectjweaver')
+
 }
 
 

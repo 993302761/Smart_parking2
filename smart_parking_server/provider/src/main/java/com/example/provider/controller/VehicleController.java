@@ -7,6 +7,8 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import org.junit.Before;
+import org.mapstruct.BeforeMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +25,8 @@ public class VehicleController {
     @Autowired(required = false)
     private UserServiceImpl userService;
 
+
+
     @ApiOperation(value = "绑定车辆")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String"),
@@ -35,10 +39,6 @@ public class VehicleController {
     })
     @PostMapping(value = "/app_register2", produces = "text/plain;charset=utf-8")
     public String  vehicle_binding (String user_name,String user_id,String license_plate_number,String picture_index,String registration,String vehicle_license,String UUID){
-        boolean b = userService.check_UUID(UUID, user_name);
-        if (!b){
-            return "重新登陆";
-        }
         return vehicleService.add_Vehicle(user_name,user_id,license_plate_number,picture_index,registration,vehicle_license);
     }
 

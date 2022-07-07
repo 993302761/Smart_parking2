@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@Api(tags = "查找模块")
+@Api(tags = "后台操作模块")
 @RequestMapping("/LookUp")
 public class LookUpController {
 
