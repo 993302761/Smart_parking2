@@ -2,10 +2,7 @@ package com.example.provider.dao;
 
 import com.example.provider.entiry.Order_information;
 import com.example.provider.entiry.User;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -31,6 +28,24 @@ public interface OrderDao {
      * */
     @Select("SELECT * FROM Order_information WHERE parking_lot_number =#{parking_lot_number}")
     List<Order_information> find_Order_Parking(@Param("parking_lot_number") String parking_lot_number);
+
+
+    /**
+     * 修改订单状态
+     * */
+    @Update("UPDATE Order_information SET order_status=#{order_status} WHERE order_number=#{order_number}")
+    List<Order_information> change_Order_status(@Param("order_status") String order_status,@Param("order_number") String order_number);
+
+
+
+
+
+    /**
+     * 查找未完成订单
+     * */
+    @Select("SELECT count(1) FROM Vehicle_information WHERE (order_status =\"等待进入\" or order_status =\"进行中\" or order_status =\"未支付\"） and order_number =#{order_number} ")
+    int find_Incomplete_Order(@Param("order_number") String order_number);
+
 
 
 

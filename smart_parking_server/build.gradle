@@ -47,10 +47,7 @@ subprojects {
     apply plugin: 'org.springframework.boot'
     //A Gradle plugin that provides Maven-like dependency management functionality
     apply plugin: 'io.spring.dependency-management'
-    dependencies {
 
-
-    }
     dependencyManagement {
         imports {
             //spring bom helps us to declare dependencies without specifying version numbers.

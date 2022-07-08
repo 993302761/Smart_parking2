@@ -1,18 +1,20 @@
 package com.example.provider.controller;
 
 
+import com.example.provider.entiry.Vehicle_information;
 import com.example.provider.service.UserServiceImpl;
 import com.example.provider.service.VehicleServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-import org.junit.Before;
-import org.mapstruct.BeforeMapping;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @Api(tags = "车辆信息绑定模块")
@@ -43,4 +45,14 @@ public class VehicleController {
     }
 
 
+
+    @ApiOperation(value = "获取用户绑定的车辆信息")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "UUID", value = "通用唯一识别码", required = true, dataType = "String")
+    })
+    @GetMapping(value = "/getUserVehicle", produces = "text/plain;charset=utf-8")
+    public List<Vehicle_information> getUserVehicle (String user_name,String UUID){
+        return vehicleService.getUserVehicle(user_name);
+    }
 }

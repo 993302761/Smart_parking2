@@ -3,10 +3,7 @@ package com.example.provider.dao;
 import com.example.provider.entiry.Parking_lot_information;
 import com.example.provider.entiry.User;
 import com.example.provider.entiry.Vehicle_information;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -16,8 +13,8 @@ public interface VehicleDao {
     /**
      * 查找用户绑定的车辆信息
      * */
-    @Select("SELECT * FROM Vehicle_information WHERE user_id =#{user_id}")
-    Vehicle_information find_Vehicle(@Param("user_id") String user_id);
+    @Select("SELECT * FROM Vehicle_information WHERE user_name =#{user_name}")
+    List<Vehicle_information> find_Vehicle(@Param("user_name") String user_name);
 
 
     /**
@@ -30,9 +27,8 @@ public interface VehicleDao {
     /**
      * 检测车牌号与用户名是否匹配
      * */
-    @Select("SELECT * FROM Vehicle_information WHERE user_name =#{user_name} and license_plate_number =#{license_plate_number} ")
-    Vehicle_information check_license_plate_number(@Param("user_name") String user_name,@Param("license_plate_number") String license_plate_number);
-
+    @Select("SELECT count(1) FROM Vehicle_information WHERE user_name =#{user_name} and license_plate_number =#{license_plate_number} ")
+    int check_license_plate_number(@Param("user_name") String user_name,@Param("license_plate_number") String license_plate_number);
 
     /**
      * 增加一条车辆信息
@@ -48,5 +44,13 @@ public interface VehicleDao {
      */
     @Select("select * from Vehicle_information")
     List<Vehicle_information> getAllVehicle();
+
+
+    /**
+     * 删除所绑定的车辆信息
+     *
+     */
+    @Delete("delete from Vehicle_information where user_name =#{user_name} and license_plate_number =#{license_plate_number} ")
+    int deleteUserVehicle(@Param("user_name") String user_name,@Param("license_plate_number")  String license_plate_number);
 
 }

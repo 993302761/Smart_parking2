@@ -26,8 +26,10 @@ public class OrderServiceImpl {
     @Resource
     private VehicleDao vehicleDao;
 
+
     /**
      * 生成订单
+     *
      * */
     public String generate_order(String user_name,String license_plate_number,String parking_lot_number) {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -36,12 +38,8 @@ public class OrderServiceImpl {
 
         //生成订单编号
         String order_number;
-        Order_information order_information;
-        do {
-            order_number = user_name;
-            order_number += String.valueOf((int) (Math.random() * 10000));
-            order_information = orderDao.find_Order_number(order_number);
-        } while (order_information != null);
+        order_number = user_name;
+        order_number += System.currentTimeMillis();
 
         //判断停车场是否存在
         Parking_lot_information parkingLotInformation=parkingLotDao.find_Parking_num(parking_lot_number);
@@ -50,9 +48,15 @@ public class OrderServiceImpl {
         }
 
         //检查车辆信息是否注册
-        Vehicle_information vehicle_information=vehicleDao.check_license_plate_number(user_name,license_plate_number);
-        if (vehicle_information==null){
+        int vehicle_information=vehicleDao.check_license_plate_number(user_name,license_plate_number);
+        if (vehicle_information==0){
             return "未注册车辆信息";
+        }
+
+        //检查是否有未完成订单
+        int incomplete_Order=orderDao.find_Incomplete_Order(order_number);
+        if (incomplete_Order>0){
+            return "您还有进行中或未支付的订单，请完成订单后再预约";
         }
 
         int i = orderDao.add_Order(order_number, generation_time, user_name,  null, null, parkingLotInformation.getParking_lot_name(), parking_lot_number, license_plate_number, 0, false, "等待进入");
@@ -62,14 +66,38 @@ public class OrderServiceImpl {
         else {
             return "订单生成失败";
         }
+
+
     }
 
 
     /**
-     * 获取所有用户列表
+     * 获取所有订单列表
      * */
     public List<Order_information> getAllOrders() {
         return orderDao.getAllOrders();
+    }
+
+
+    /**
+     * 获取用户订单列表
+     * */
+    public List<Order_information> getUserOrders(String user_name) {
+        return orderDao.find_Order_Username(user_name);
+    }
+
+    /**
+     * 获取停车场订单列表
+     * */
+    public List<Order_information> getParkingOrders(String pctr_id) {
+        return orderDao.find_Order_Parking(pctr_id);
+    }
+
+    /**
+     * 根据订单号查找订单
+     * */
+    public Order_information getOrder(String order_number) {
+        return orderDao.find_Order_number(order_number);
     }
 
 

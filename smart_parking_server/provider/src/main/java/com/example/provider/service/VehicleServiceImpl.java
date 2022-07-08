@@ -41,4 +41,24 @@ public class VehicleServiceImpl {
     }
 
 
+
+    /**
+     * 获取用户绑定的车辆信息
+     * */
+    public List<Vehicle_information> getUserVehicle(String user_name) {
+        return vehicleDao.find_Vehicle(user_name);
+    }
+
+    /**
+     * 获取用户绑定的车辆信息
+     * */
+    public String delete_User_Vehicle(String user_name,String license_plate_number) {
+        int i = vehicleDao.deleteUserVehicle(user_name, license_plate_number);
+        if (i<=0){
+            return "删除车辆信息失败";
+        }else {
+            return "删除成功";
+        }
+    }
+
 }
