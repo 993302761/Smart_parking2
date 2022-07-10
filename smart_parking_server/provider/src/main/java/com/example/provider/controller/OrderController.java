@@ -28,6 +28,10 @@ public class OrderController {
     private OrderServiceImpl orderService;
 
 
+    @Autowired(required = false)
+    private ParkingLotServiceImpl parkingLotService;
+
+
 
     @ApiOperation(value = "订单生成")
     @ApiImplicitParams({
@@ -70,10 +74,70 @@ public class OrderController {
             @ApiImplicitParam(name = "UUID", value = "通用唯一识别码", required = true, dataType = "String")
 
     })
-    @GetMapping(value = "/getOrder", produces = "application/json; charset=utf-8")
-    public Order_information getOrder (String user_name,String order_number,String UUID){
+    @GetMapping(value = "/findOrder", produces = "application/json; charset=utf-8")
+    public Order_information findOrder (String user_name,String order_number,String UUID){
         return orderService.getOrder(user_name,order_number);
     }
 
 
+
+    @ApiOperation(value = "车辆进入")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "license_plate_number", value = "车牌号", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "parking_lot_number", value = "停车场编号", required = true, dataType = "String")
+    })
+    @PostMapping(value = "/setStatus_in", produces = "text/json; charset=utf-8")
+    public String setStatus_in (String license_plate_number,String parking_lot_number){
+
+    }
+
+
+
+    @ApiOperation(value = "车辆离开")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "license_plate_number", value = "车牌号", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "parking_lot_number", value = "停车场编号", required = true, dataType = "String")
+    })
+    @PostMapping(value = "/setStatus_out", produces = "text/json; charset=utf-8")
+    public String setStatus_out (String license_plate_number,String parking_lot_number){
+
+    }
+
+
+
+    @ApiOperation(value = "订单支付完成")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "order_number", value = "订单编号", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "UUID", value = "通用唯一识别码", required = true, dataType = "String")
+    })
+    @PostMapping(value = "/complete_Order", produces = "text/json; charset=utf-8")
+    public String complete_Order (String user_name,String order_number){
+
+    }
+
+
+
+    @ApiOperation(value = "app订单取消")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "order_number", value = "订单编号", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "UUID", value = "通用唯一识别码", required = true, dataType = "String")
+    })
+    @PostMapping(value = "/app_cancellation_Order", produces = "text/json; charset=utf-8")
+    public String app_cancellation_Order (String user_name,String order_number){
+
+    }
+
+
+
+    @ApiOperation(value = "停车场订单取消")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "pctr_id", value = "停车场管理员账号", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "order_number", value = "订单编号", required = true, dataType = "String")
+    })
+    @PostMapping(value = "/parking_cancellation_Order", produces = "text/json; charset=utf-8")
+    public String parking_cancellation_Order (String user_name,String order_number){
+
+    }
 }
