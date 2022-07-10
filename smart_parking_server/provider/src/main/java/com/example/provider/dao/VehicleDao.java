@@ -20,8 +20,8 @@ public interface VehicleDao {
     /**
      * 查找车牌号
      * */
-    @Select("SELECT * FROM Vehicle_information WHERE license_plate_number =#{license_plate_number}")
-    Vehicle_information find_license_plate_number(@Param("license_plate_number") String license_plate_number);
+    @Select("SELECT * FROM Vehicle_information WHERE license_plate_number =#{license_plate_number}  and user_name =#{user_name}")
+    Vehicle_information find_license_plate_number(@Param("user_name") String user_name,@Param("license_plate_number") String license_plate_number);
 
 
     /**

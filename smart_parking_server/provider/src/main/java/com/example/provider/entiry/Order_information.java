@@ -1,6 +1,5 @@
 package com.example.provider.entiry;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

@@ -21,9 +21,14 @@ public class UserServiceImpl  {
     private RedisTemplate<String, String> redisTemplate;
 
 
+
     /**
-     * 添加一名用户
-     * */
+     * TODO：添加一名用户
+     * @param user_name 用户名
+     * @param password 密码
+     * @param user_id 身份证号码
+     * @return 是否成功
+     */
     public String add_User(String user_name, String password, String user_id) {
         if (user_name==null||password==null||user_id==null){
             return "所填信息不完整";
@@ -42,9 +47,14 @@ public class UserServiceImpl  {
     }
 
 
+
     /**
-     * 用户登录
-     * */
+     * TODO：用户登录
+     * @param user_name 用户名
+     * @param password 密码
+     * @param UUID 通用唯一识别码
+     * @return 是否成功
+     */
     public String login_User(String user_name, String password,String UUID) {
         if (user_name==null||password==null){
             return "用户名或密码为空";
@@ -66,9 +76,13 @@ public class UserServiceImpl  {
     }
 
 
+
+
     /**
-     * 查找用户
-     * */
+     * TODO：查找用户
+     * @param user_name 用户名
+     * @return 是否成功
+     */
     public boolean find(String user_name){
         User user=userDao.find_User(user_name);
         if (user==null){
@@ -80,8 +94,11 @@ public class UserServiceImpl  {
 
 
     /**
-     * UUID校验
-     * */
+     * TODO：UUID校验
+     * @param user_name 用户名
+     * @param UUID 通用唯一识别码
+     * @return 是否成功
+     */
     public boolean check_UUID(String UUID,String user_name){
         boolean hasKey = redisTemplate.hasKey(user_name);
         if(hasKey){
@@ -104,8 +121,11 @@ public class UserServiceImpl  {
 
 
     /**
-     * 设置UUID
-     * */
+     * TODO：UUID设置
+     * @param user_name 用户名
+     * @param UUID 通用唯一识别码
+     * @return 是否成功
+     */
     public boolean set_UUID(String UUID,String user_name){
         //设置过期时间为一个月
         Calendar curDate = Calendar.getInstance();
@@ -123,17 +143,20 @@ public class UserServiceImpl  {
 
 
 
+
     /**
-     * 获取用户总量
-     * */
+     * TODO：获取用户总量
+     * @return 用户总量
+     */
     public Integer getAllUsersNumber() {
         return userDao.getAllUsersNumber();
     }
 
 
     /**
-     * 获取所有用户列表
-     * */
+     * TODO：获取用户列表
+     * @return 用户列表
+     */
     public List<User> getAllUsers() {
         return userDao.getAllUsers();
     }

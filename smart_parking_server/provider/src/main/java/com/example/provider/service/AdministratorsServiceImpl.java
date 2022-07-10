@@ -14,6 +14,13 @@ public class AdministratorsServiceImpl  {
     private AdministratorsDao administratorsDao;
 
 
+
+    /**
+     * TODO：超级管理员登录
+     * @param ctr_id 超级管理员账号
+     * @param ctr_password 超级管理员密码
+     * @return 是否成功
+     */
     public String login_Ctl(String ctr_id, String ctr_password) {
         if (ctr_id==null||ctr_password==null){
             return "用户名或密码为空";

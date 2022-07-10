@@ -28,9 +28,12 @@ public class OrderServiceImpl {
 
 
     /**
-     * 生成订单
-     *
-     * */
+     * TODO：生成订单
+     * @param user_name 生成订单的用户
+     * @param license_plate_number 车牌号
+     * @param parking_lot_number 停车场编号
+     * @return 是否成功
+     */
     public String generate_order(String user_name,String license_plate_number,String parking_lot_number) {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date date = new Date(System.currentTimeMillis());
@@ -66,38 +69,53 @@ public class OrderServiceImpl {
         else {
             return "订单生成失败";
         }
-
-
     }
 
 
     /**
-     * 获取所有订单列表
-     * */
+     * TODO：获取所有订单列表
+     * @return 所有订单
+     */
     public List<Order_information> getAllOrders() {
         return orderDao.getAllOrders();
     }
 
 
+
+
+
     /**
-     * 获取用户订单列表
-     * */
+     * TODO：获取某位用户的订单列表
+     * @param user_name 所查找的用户
+     * @return 用户订单
+     */
     public List<Order_information> getUserOrders(String user_name) {
         return orderDao.find_Order_Username(user_name);
     }
 
-    /**
-     * 获取停车场订单列表
-     * */
-    public List<Order_information> getParkingOrders(String pctr_id) {
-        return orderDao.find_Order_Parking(pctr_id);
-    }
+
+
 
     /**
-     * 根据订单号查找订单
-     * */
-    public Order_information getOrder(String order_number) {
-        return orderDao.find_Order_number(order_number);
+     * TODO：获取停车场订单列表
+     * @param parking_lot_number 停车场编号
+     * @return 停车场订单
+     */
+    public List<Order_information> getParkingOrders(String parking_lot_number) {
+        return orderDao.find_Order_Parking(parking_lot_number);
+    }
+
+
+
+
+    /**
+     * TODO：根据订单号查找订单
+     * @param user_name 用户名
+     * @param order_number 订单号
+     * @return 查找订单
+     */
+    public Order_information getOrder(String user_name,String order_number) {
+        return orderDao.find_Order_number(user_name,order_number);
     }
 
 

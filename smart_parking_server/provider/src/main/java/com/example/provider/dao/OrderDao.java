@@ -12,8 +12,8 @@ public interface OrderDao {
     /**
      * 根据订单号查找订单
      * */
-    @Select("SELECT * FROM Order_information WHERE order_number =#{order_number}")
-    Order_information find_Order_number(@Param("order_number") String order_number);
+    @Select("SELECT * FROM Order_information WHERE order_number =#{order_number} and user_name =#{user_name}")
+    Order_information find_Order_number(@Param("user_name") String user_name,@Param("order_number") String order_number);
 
 
     /**

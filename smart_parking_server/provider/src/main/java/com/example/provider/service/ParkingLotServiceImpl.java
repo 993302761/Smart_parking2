@@ -13,6 +13,20 @@ public class ParkingLotServiceImpl  {
     private ParkingLotDao parkingLotDao;
 
 
+
+
+    /**
+     * TODO：新增一个停车场
+     * @param pctr_id 停车场管理员账号
+     * @param pctr_password 停车场管理员密码
+     * @param parking_lot_name 停车场名
+     * @param parking_in_the_city 停车场所在城市
+     * @param parking_spaces_num 停车场总车位数
+     * @param billing_rules 定价
+     * @param longitude 经度
+     * @param latitude 维度
+     * @return 是否成功
+     */
     public String add_Parking(String pctr_id,
                               String pctr_password,
                               String parking_lot_name,
@@ -42,6 +56,14 @@ public class ParkingLotServiceImpl  {
     }
 
 
+
+
+    /**
+     * TODO：停车场管理员登录
+     * @param pctr_id 停车场管理员账号
+     * @param pctr_password 停车场管理员密码
+     * @return 是否成功
+     */
     public String login_Parking(String pctr_id, String pctr_password) {
         if (pctr_id==null||pctr_password==null){
             return "用户名或密码为空";
@@ -58,7 +80,10 @@ public class ParkingLotServiceImpl  {
     }
 
 
-
+    /**
+     * TODO：获取所有停车场列表
+     * @return 所有停车场列表
+     */
     public List<Parking_lot_information> getAllParking() {
         return parkingLotDao.getAllParking();
     }

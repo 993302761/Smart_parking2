@@ -2,7 +2,6 @@ package com.example.provider.controller;
 
 
 import com.example.provider.entiry.Vehicle_information;
-import com.example.provider.service.UserServiceImpl;
 import com.example.provider.service.VehicleServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -24,9 +23,6 @@ public class VehicleController {
     @Autowired(required = false)
     private VehicleServiceImpl vehicleService;
 
-    @Autowired(required = false)
-    private UserServiceImpl userService;
-
 
 
     @ApiOperation(value = "绑定车辆")
@@ -39,7 +35,7 @@ public class VehicleController {
             @ApiImplicitParam(name = "vehicle_license", value = "车辆行驶证照片", required = true, dataType = "String"),
             @ApiImplicitParam(name = "UUID", value = "通用唯一识别码", required = true, dataType = "String")
     })
-    @PostMapping(value = "/app_register2", produces = "text/plain;charset=utf-8")
+    @PostMapping(value = "/vehicle_binding", produces = "text/plain;charset=utf-8")
     public String  vehicle_binding (String user_name,String user_id,String license_plate_number,String picture_index,String registration,String vehicle_license,String UUID){
         return vehicleService.add_Vehicle(user_name,user_id,license_plate_number,picture_index,registration,vehicle_license);
     }
@@ -50,9 +46,38 @@ public class VehicleController {
     @ApiImplicitParams({
             @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String"),
             @ApiImplicitParam(name = "UUID", value = "通用唯一识别码", required = true, dataType = "String")
+
     })
-    @GetMapping(value = "/getUserVehicle", produces = "text/plain;charset=utf-8")
+    @GetMapping(value = "/getUserVehicle", produces = "application/json; charset=utf-8")
     public List<Vehicle_information> getUserVehicle (String user_name,String UUID){
         return vehicleService.getUserVehicle(user_name);
     }
+
+
+    @ApiOperation(value = "删除绑定的车辆信息")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "license_plate_number", value = "车牌号", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "UUID", value = "通用唯一识别码", required = true, dataType = "String")
+
+    })
+    @GetMapping(value = "/deleteVehicle", produces = "text/json; charset=utf-8")
+    public String deleteVehicle (String user_name, String license_plate_number, String UUID){
+        return vehicleService.delete_User_Vehicle(user_name, license_plate_number);
+    }
+
+
+
+    @ApiOperation(value = "查找车牌号")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "license_plate_number", value = "用户名", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "UUID", value = "通用唯一识别码", required = true, dataType = "String")
+
+    })
+    @GetMapping(value = "/getVehicleNumber", produces = "application/json; charset=utf-8")
+    public Vehicle_information getVehicleNumber (String user_name,String license_plate_number,String UUID){
+        return vehicleService.getVehicleNumber(user_name,license_plate_number);
+    }
+
 }

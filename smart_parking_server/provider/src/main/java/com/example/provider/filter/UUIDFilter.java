@@ -1,12 +1,16 @@
 package com.example.provider.filter;
 
+import com.example.provider.service.UserServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.OutputStream;
+import java.util.Enumeration;
 
 @Slf4j
 @Component
@@ -14,22 +18,36 @@ public class UUIDFilter implements HandlerInterceptor {
 
 
 
+    @Resource
+    private UserServiceImpl userService;
+
     /**
      * 目标方法执行前
      * 该方法在控制器处理请求方法前执行，其返回值表示是否中断后续操作
      * 返回 true 表示继续向下执行，返回 false 表示中断后续操作
      */
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        Object loginUser = request.getSession().getAttribute("loginUser");
-        if (loginUser == null) {
-            //未登录，返回登陆页
-            request.setAttribute("msg", "您没有权限进行此操作，请先登陆！");
-            request.getRequestDispatcher("/index.html").forward(request, response);
+        public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        String user_name = request.getParameter("user_name");
+        String UUID = request.getParameter("UUID");
+        if (user_name==null||UUID==null) {
             return false;
-        } else {
-            //放行
+        }
+        boolean b = userService.check_UUID(UUID, user_name);
+        if (b) {
             return true;
+        }else {
+            String data = "重新登陆";
+            OutputStream outputStream = response.getOutputStream();// 获取输出流
+            // 通过设置响应头控制浏览器以UTF-8的编码显示数据，如果不加这句话，那么浏览器显示的将是乱码
+            response.setHeader("content-type", "text/html;charset=UTF-8");
+            // 将字符转换成字节数组，指定以UTF-8编码进行转换
+            byte[] dataByteArr = data.getBytes("UTF-8");
+            //使用OutputStream流向客户端输出字节数组
+            outputStream.write(dataByteArr);
+            outputStream.flush();
+            outputStream.close();
+            return false;
         }
     }
 

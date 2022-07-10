@@ -18,9 +18,10 @@ public class FilterConfig implements WebMvcConfigurer {
         //注册自己的拦截器,并设置拦截的请求路径
         //addPathPatterns为拦截此请求路径的请求
         //excludePathPatterns为不拦截此路径的请求
+        //如请求：http://www.localhost:8080/Vehicle/getUserVehicle?user_name=33
+        //      /Vehicle/则为路径
         registry.addInterceptor(uuidFilter)
-                .addPathPatterns("com.example.provider.controller.OrderController.*(..))")
-                .excludePathPatterns("/admin/oldLogin");
+                .addPathPatterns("/Vehicle/*","/Order/*").excludePathPatterns("/Order/getParkingOrder");
     }
 
 }

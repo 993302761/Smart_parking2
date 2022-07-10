@@ -23,14 +23,10 @@ import java.util.List;
 @RequestMapping("/Order")
 public class OrderController {
 
-    @Autowired(required = false)
-    private UserServiceImpl userService;
 
     @Autowired(required = false)
     private OrderServiceImpl orderService;
 
-    @Autowired(required = false)
-    private ParkingLotServiceImpl parkingLotService;
 
 
     @ApiOperation(value = "订单生成")
@@ -51,29 +47,32 @@ public class OrderController {
             @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String"),
             @ApiImplicitParam(name = "UUID", value = "通用唯一识别码", required = true, dataType = "String")
     })
-    @PostMapping(value = "/getUserOrder", produces = "text/plain;charset=utf-8")
-    public List<Order_information> getUserOrder (String user_name, String license_plate_number, String parking_lot_number, String UUID){
+    @GetMapping(value = "/getUserOrder",produces = "application/json; charset=utf-8")
+    public List<Order_information> getUserOrder (String user_name, String UUID){
         return orderService.getUserOrders(user_name);
     }
 
 
     @ApiOperation(value = "停车场管理员获取用户订单")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "pctr_id", value = "停车场管理员账号", required = true, dataType = "String")
+            @ApiImplicitParam(name = "parking_lot_number", value = "停车场编号", required = true, dataType = "String")
     })
-    @GetMapping(value = "/getParkingOrder", produces = "text/plain;charset=utf-8")
-    public List<Order_information> getParkingOrder (String pctr_id){
-        return orderService.getParkingOrders(pctr_id);
+    @GetMapping(value = "/getParkingOrder", produces = "application/json; charset=utf-8")
+    public List<Order_information> getParkingOrder (String parking_lot_number){
+        return orderService.getParkingOrders(parking_lot_number);
     }
 
 
     @ApiOperation(value = "搜索订单")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "order_number", value = "订单编号", required = true, dataType = "String")
+            @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "order_number", value = "订单编号", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "UUID", value = "通用唯一识别码", required = true, dataType = "String")
+
     })
-    @GetMapping(value = "/getOrder", produces = "text/plain;charset=utf-8")
-    public Order_information getOrder (String order_number){
-        return orderService.getOrder(order_number);
+    @GetMapping(value = "/getOrder", produces = "application/json; charset=utf-8")
+    public Order_information getOrder (String user_name,String order_number,String UUID){
+        return orderService.getOrder(user_name,order_number);
     }
 
 
