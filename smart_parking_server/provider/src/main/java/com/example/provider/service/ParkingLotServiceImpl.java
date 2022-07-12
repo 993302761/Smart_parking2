@@ -2,15 +2,23 @@ package com.example.provider.service;
 
 import com.example.provider.dao.ParkingLotDao;
 import com.example.provider.entiry.Parking_lot_information;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @Service
 public class ParkingLotServiceImpl  {
 
     @Resource
     private ParkingLotDao parkingLotDao;
+
+
+    @Resource
+    private RedisTemplate<String, String> redisTemplate;
 
 
 
@@ -91,13 +99,16 @@ public class ParkingLotServiceImpl  {
     }
 
 
+
+
     /**
-     * TODO：停车场管理员登录
+     * TODO：车位情况变化
      * @param parking_lot_number 停车场编号
      * @param Available_place_num 当前可用停车位
      * @return 是否成功
      */
-    public String change_parking_space(String parking_lot_number ,String Available_place_num){
-
+    public void change_parking_space(String parking_lot_number ,String Available_place_num){
+        redisTemplate.opsForValue().set(parking_lot_number, Available_place_num);
     }
+
 }
