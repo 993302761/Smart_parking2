@@ -80,6 +80,8 @@ public class ParkingLotServiceImpl  {
     }
 
 
+
+
     /**
      * TODO：获取所有停车场列表
      * @return 所有停车场列表
@@ -89,4 +91,13 @@ public class ParkingLotServiceImpl  {
     }
 
 
+    /**
+     * TODO：停车场管理员登录
+     * @param parking_lot_number 停车场编号
+     * @param Available_place_num 当前可用停车位
+     * @return 是否成功
+     */
+    public String change_parking_space(String parking_lot_number ,String Available_place_num){
+
+    }
 }

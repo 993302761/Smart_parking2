@@ -12,8 +12,8 @@ public interface OrderDao {
     /**
      * 根据订单号查找订单
      * */
-    @Select("SELECT * FROM Order_information WHERE order_number =#{order_number} and user_name =#{user_name}")
-    Order_information find_Order_number(@Param("user_name") String user_name,@Param("order_number") String order_number);
+    @Select("SELECT * FROM Order_information WHERE order_number =#{order_number} ")
+    Order_information find_Order_number(@Param("order_number") String order_number);
 
 
     /**
@@ -30,11 +30,21 @@ public interface OrderDao {
     List<Order_information> find_Order_Parking(@Param("parking_lot_number") String parking_lot_number);
 
 
+
+    /**
+     * 根据停车场编号和车牌号查找订单
+     * */
+    @Select("SELECT * FROM Order_information WHERE parking_lot_number =#{parking_lot_number} and license_plate_number =#{license_plate_number}")
+    Order_information getOrder(@Param("parking_lot_number") String parking_lot_number,@Param("license_plate_number") String license_plate_number);
+
+
+
+
     /**
      * 修改订单状态
      * */
     @Update("UPDATE Order_information SET order_status=#{order_status} WHERE order_number=#{order_number}")
-    List<Order_information> change_Order_status(@Param("order_status") String order_status,@Param("order_number") String order_number);
+    int change_Order_status(@Param("order_status") String order_status,@Param("order_number") String order_number);
 
 
 

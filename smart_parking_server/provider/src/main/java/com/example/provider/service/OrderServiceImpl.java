@@ -110,13 +110,76 @@ public class OrderServiceImpl {
 
     /**
      * TODO：根据订单号查找订单
-     * @param user_name 用户名
      * @param order_number 订单号
      * @return 查找订单
      */
-    public Order_information getOrder(String user_name,String order_number) {
-        return orderDao.find_Order_number(user_name,order_number);
+    public Order_information getOrder(String order_number) {
+        return orderDao.find_Order_number(order_number);
     }
+
+
+
+
+    /**
+     * TODO：停车场修改订单状态
+     * @param license_plate_number 车牌号
+     * @param parking_lot_number 停车场编号
+     * @return 是否成功
+     */
+    public String setStatus (String status,String license_plate_number,String parking_lot_number){
+        Order_information order = orderDao.getOrder(parking_lot_number, license_plate_number);
+        if (order==null){
+            return "无此订单";
+        }
+        int i = orderDao.change_Order_status(status, order.getOrder_number());
+        if (i<=0){
+            return "订单状态修改失败";
+        }else {
+            return "已完成";
+        }
+    }
+
+
+
+    /**
+     * TODO：停车场修改订单状态2
+     * @param order_number 订单号
+     * @return 是否成功
+     */
+    public String setStatus2 (String status,String parking_lot_number,String order_number){
+        Order_information order = orderDao.find_Order_number(order_number);
+        if (!order.getParking_lot_number().equals(parking_lot_number)){
+            return "未查找到相应订单";
+        }
+        int i = orderDao.change_Order_status(status,order_number);
+        if (i<=0){
+            return "订单状态修改失败";
+        }else {
+            return "已完成";
+        }
+    }
+
+
+
+    /**
+     * TODO：app修改订单状态
+     * @param order_number 订单号
+     * @return 是否成功
+     */
+    public String setStatus_app (String status,String order_number){
+        Order_information order = orderDao.find_Order_number( order_number);
+        if (order==null){
+            return "无此订单";
+        }
+        int i = orderDao.change_Order_status(status, order.getOrder_number());
+        if (i<=0){
+            return "订单状态修改失败";
+        }else {
+            return "已完成";
+        }
+    }
+
+
 
 
 }

@@ -73,7 +73,6 @@ public class VehicleController {
             @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String"),
             @ApiImplicitParam(name = "license_plate_number", value = "用户名", required = true, dataType = "String"),
             @ApiImplicitParam(name = "UUID", value = "通用唯一识别码", required = true, dataType = "String")
-
     })
     @GetMapping(value = "/getVehicleNumber", produces = "application/json; charset=utf-8")
     public Vehicle_information getVehicleNumber (String user_name,String license_plate_number,String UUID){
