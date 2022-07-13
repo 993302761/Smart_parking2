@@ -63,7 +63,7 @@ public class RegisterController {
         if (s.equals("用户:注册成功"))
         {
             s+="--车辆信息：";
-            s+=vehicleService.add_Vehicle(user_name,user_id,license_plate_number,picture_index,registration,vehicle_license);
+            s+=vehicleService.add_Vehicle(user_name,license_plate_number,picture_index,registration,vehicle_license);
             userService.set_UUID(UUID,user_name);
         }
         return s;

@@ -53,4 +53,10 @@ public interface VehicleDao {
     @Delete("delete from Vehicle_information where user_name =#{user_name} and license_plate_number =#{license_plate_number} ")
     int deleteUserVehicle(@Param("user_name") String user_name,@Param("license_plate_number")  String license_plate_number);
 
+
+    /**
+     * 删除所有已绑的车辆信息
+     */
+    @Delete("DELETE FROM Vehicle_information")
+    void delete_Vehicle();
 }

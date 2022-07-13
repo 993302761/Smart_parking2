@@ -57,17 +57,18 @@ public class OrderServiceImpl {
         }
 
         //检查是否有未完成订单
-        int incomplete_Order=orderDao.find_Incomplete_Order(order_number);
+        int incomplete_Order=orderDao.find_Incomplete_Order(user_name);
         if (incomplete_Order>0){
             return "您还有进行中或未支付的订单，请完成订单后再预约";
         }
 
-        int i = orderDao.add_Order(order_number, generation_time, user_name,  null, null, parkingLotInformation.getParking_lot_name(), parking_lot_number, license_plate_number, 0, false, "等待进入");
+        int i = orderDao.add_Order(order_number, generation_time, user_name,  null, null, parkingLotInformation.getParking_lot_name(), parking_lot_number, license_plate_number, 0, "等待进入");
+        System.out.println(i);
         if (i<=0){
-            return "订单开始";
+            return "订单生成失败";
         }
         else {
-            return "订单生成失败";
+            return "订单开始";
         }
     }
 
@@ -120,66 +121,125 @@ public class OrderServiceImpl {
 
 
 
+
+
     /**
-     * TODO：停车场修改订单状态
+     * TODO：车辆进入
      * @param license_plate_number 车牌号
      * @param parking_lot_number 停车场编号
      * @return 是否成功
      */
-    public String setStatus (String status,String license_plate_number,String parking_lot_number){
+    public String setStatus_in (String license_plate_number ,String parking_lot_number) {
         Order_information order = orderDao.getOrder(parking_lot_number, license_plate_number);
         if (order==null){
-            return "无此订单";
+            return null;
         }
-        int i = orderDao.change_Order_status(status, order.getOrder_number());
-        if (i<=0){
-            return "订单状态修改失败";
-        }else {
-            return "已完成";
-        }
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date = new Date(System.currentTimeMillis());
+        String generation_time= formatter.format(date);
+        orderDao.vehicle_entry(generation_time,order.getOrder_number());
+        return setStatus("进行中",order.getOrder_number());
     }
 
 
 
     /**
-     * TODO：停车场修改订单状态2
-     * @param order_number 订单号
+     * TODO：车辆离开
+     * @param license_plate_number 车牌号
+     * @param parking_lot_number 停车场编号
      * @return 是否成功
      */
-    public String setStatus2 (String status,String parking_lot_number,String order_number){
-        Order_information order = orderDao.find_Order_number(order_number);
-        if (!order.getParking_lot_number().equals(parking_lot_number)){
-            return "未查找到相应订单";
+    public String setStatus_out (String license_plate_number ,String parking_lot_number) {
+        Order_information order = orderDao.getOrder(parking_lot_number, license_plate_number);
+        Parking_lot_information parkingLotInformation=parkingLotDao.find_Parking_num(parking_lot_number);
+        if (order==null){
+            return null;
         }
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date outTime = new Date(System.currentTimeMillis());
+        String generation_time= formatter.format(outTime);
+        orderDao.vehicle_departure(generation_time,order.getOrder_number());
+        Date inTime=order.getInTime();
+        int hours = (int) ((outTime.getTime() - inTime.getTime()) / (1000 * 60 * 60));
+        float money=hours*parkingLotInformation.getBilling_rules();
+        orderDao.set_money(money,order.getOrder_number());
+        return setStatus("未支付",order.getOrder_number());
+    }
+
+
+
+    /**
+     * TODO：订单支付完成
+     * @param order_number 订单编号
+     * @return 是否成功
+     */
+    public String complete_Order (String order_number){
+        Order_information order = orderDao.find_Order_number(order_number);
+        if (order==null){
+            return "未找到订单";
+        }
+        if (order.getOutTime()==null||order.getInTime()==null){
+            return "请在订单结束后支付";
+        }
+        return setStatus("已完成",order.getOrder_number());
+    }
+
+
+    /**
+     * TODO：app取消订单
+     * @param order_number 订单编号
+     * @return 是否成功
+     */
+    public String app_cancellation_Order (String order_number){
+        Order_information order = orderDao.find_Order_number(order_number);
+        if (order==null){
+            return "未找到订单";
+        }
+        if (order.getOutTime()!=null||order.getInTime()!=null){
+            return "订单进行中不可取消，若要取消可联系停车场";
+        }
+        return setStatus("已取消",order.getOrder_number());
+    }
+
+
+    /**
+     * TODO：停车场取消订单
+     * @param order_number 订单编号
+     * @return 是否成功
+     */
+    public String parking_cancellation_Order (String parking_lot_number,String order_number){
+        Order_information order = orderDao.getOrder(parking_lot_number, order_number);
+        if (order==null){
+            return "未找到订单";
+        }
+        return setStatus("已取消",order_number);
+    }
+
+
+
+
+    /**
+     * TODO：修改订单状态
+     * @param status 状态信息
+     * @param order_number 订单号
+     * @return 是否成功
+     * */
+    public String setStatus (String status,String order_number){
         int i = orderDao.change_Order_status(status,order_number);
         if (i<=0){
-            return "订单状态修改失败";
+            return "订单:"+order_number+" 状态修改失败";
         }else {
-            return "已完成";
+            return "订单:"+order_number+" 状态修改为："+status;
         }
     }
 
 
 
     /**
-     * TODO：app修改订单状态
-     * @param order_number 订单号
-     * @return 是否成功
+     * TODO：删除所有订单信息
      */
-    public String setStatus_app (String status,String order_number){
-        Order_information order = orderDao.find_Order_number( order_number);
-        if (order==null){
-            return "无此订单";
-        }
-        int i = orderDao.change_Order_status(status, order.getOrder_number());
-        if (i<=0){
-            return "订单状态修改失败";
-        }else {
-            return "已完成";
-        }
+    public void delete_Order (){
+        orderDao.delete_Order();
     }
-
-
-
 
 }

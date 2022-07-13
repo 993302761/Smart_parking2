@@ -18,7 +18,6 @@ public class Order_information {
     private String parking_lot_number ;       //停车场编号
     private String license_plate_number ;     //车牌号
     private float payment_amount ;            //支付金额
-    private boolean whether_to_pay ;          //是否支付
     private String order_status ;             //订单状态
 
 

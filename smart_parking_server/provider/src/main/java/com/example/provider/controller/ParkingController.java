@@ -1,5 +1,6 @@
 package com.example.provider.controller;
 
+import com.example.provider.entiry.Parking;
 import com.example.provider.service.ParkingLotServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -10,6 +11,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @Component
 @RestController
@@ -32,15 +35,15 @@ public class ParkingController {
 
 
 
-    @ApiOperation(value = "获取当前地区停车场")
+    @ApiOperation(value = "获取某一区域停车场情况")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String"),
-            @ApiImplicitParam(name = "latitude", value = "纬度", required = true, dataType = "String"),
-            @ApiImplicitParam(name = "longitude", value = "经度", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "city", value = "所在城市", required = true, dataType = "String"),
             @ApiImplicitParam(name = "UUID", value = "通用唯一识别码", required = true, dataType = "String")
     })
-    @PostMapping(value = "/change_parking_space", produces = "text/json; charset=utf-8")
-    public void get_parking_lot (String user_name ,String longitude, String latitude,String UUID){
-
+    @PostMapping(value = "/get_parking_lot", produces = "application/json; charset=utf-8")
+    public List<Parking> get_parking_lot (String user_name , String city, String UUID){
+        return parkingLotService.get_parking_lot(city);
     }
+
 }

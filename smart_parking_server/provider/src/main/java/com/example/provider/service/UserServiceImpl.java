@@ -161,4 +161,12 @@ public class UserServiceImpl  {
         return userDao.getAllUsers();
     }
 
+
+
+    /**
+     * TODO：删除所有用户
+     */
+    public void delete_User (){
+        userDao.delete_User();
+    }
 }

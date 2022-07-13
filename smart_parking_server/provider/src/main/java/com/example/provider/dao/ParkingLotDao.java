@@ -1,10 +1,8 @@
 package com.example.provider.dao;
 
+import com.example.provider.entiry.Parking;
 import com.example.provider.entiry.Parking_lot_information;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -38,5 +36,19 @@ public interface ParkingLotDao {
      */
     @Select("select * from Parking_lot_information")
     List<Parking_lot_information> getAllParking();
+
+    /**
+     * 获取某一城市的所有停车场
+     */
+    @Select("select parking_lot_name,Parking_in_the_city,parking_lot_number,parking_spaces_num,billing_rules,longitude,latitude from Parking_lot_information WHERE Parking_in_the_city =#{Parking_in_the_city}")
+    List<Parking> get_parking_lot(@Param("Parking_in_the_city") String Parking_in_the_city);
+
+
+    /**
+     * 删除所有已注册的停车场
+     */
+    @Delete("DELETE FROM Parking_lot_information")
+    void delete_Parking();
+
 
 }

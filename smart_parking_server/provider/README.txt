@@ -59,7 +59,6 @@ create table Vehicle_information(user_name varchar(11) not null,
         parking_lot_number ：停车场编号
         license_plate_number ：车牌号
         payment_amount ：支付金额
-        whether_to_pay ：是否支付
         order_status :订单状态
         }
 
@@ -72,7 +71,6 @@ create table Order_information( order_number varchar(50)  primary key,
                                  parking_lot_number varchar(20) not null,
                                  license_plate_number varchar(20) not null,
                                  payment_amount float,
-                                 whether_to_pay boolean not null,
                                  order_status varchar(20) not null)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 

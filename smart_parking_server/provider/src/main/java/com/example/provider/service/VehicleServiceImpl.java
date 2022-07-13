@@ -1,6 +1,8 @@
 package com.example.provider.service;
 
+import com.example.provider.dao.UserDao;
 import com.example.provider.dao.VehicleDao;
+import com.example.provider.entiry.User;
 import com.example.provider.entiry.Vehicle_information;
 import org.springframework.stereotype.Service;
 
@@ -13,24 +15,28 @@ public class VehicleServiceImpl {
     @Resource
     private VehicleDao vehicleDao;
 
-
+    @Resource
+    private UserDao userDao;
 
 
     /**
      * TODO：添加一条车辆信息
      * @param user_name 用户名
-     * @param user_id 身份证号码
      * @param license_plate_number 车牌号
      * @param picture_index 车辆照片
      * @param registration 机动车登记证照片
      * @param vehicle_license 车辆行驶证照片
      * @return 是否成功
      */
-    public String add_Vehicle(String user_name,String user_id,String license_plate_number, String picture_index,String registration,String vehicle_license) {
-        if (user_name==null||user_id==null||license_plate_number==null||picture_index==null||registration==null||vehicle_license==null){
+    public String add_Vehicle(String user_name,String license_plate_number, String picture_index,String registration,String vehicle_license) {
+        if (user_name==null||license_plate_number==null||picture_index==null||registration==null||vehicle_license==null){
             return "所填信息不完整";
         }
-        int i=vehicleDao.add_Vehicle(user_name,user_id,license_plate_number,picture_index,registration,vehicle_license);
+        User user = userDao.find_User(user_name);
+        if (user==null){
+            return "错误：600";
+        }
+        int i=vehicleDao.add_Vehicle(user_name,user.getUser_id(),license_plate_number,picture_index,registration,vehicle_license);
         if (i<=0){
             return "添加车辆信息失败";
         }
@@ -93,4 +99,12 @@ public class VehicleServiceImpl {
     }
 
 
+
+
+    /**
+     * TODO：绑定的车辆信息
+     */
+    public void delete_Vehicle (){
+        vehicleDao.delete_Vehicle();
+    }
 }

@@ -28,7 +28,6 @@ public class VehicleController {
     @ApiOperation(value = "绑定车辆")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String"),
-            @ApiImplicitParam(name = "user_id", value = "身份证号", required = true, dataType = "String"),
             @ApiImplicitParam(name = "license_plate_number", value = "车牌号", required = true, dataType = "String"),
             @ApiImplicitParam(name = "picture_index", value = "车辆照片", required = true, dataType = "String"),
             @ApiImplicitParam(name = "registration", value = "机动车登记证照片", required = true, dataType = "String"),
@@ -36,8 +35,8 @@ public class VehicleController {
             @ApiImplicitParam(name = "UUID", value = "通用唯一识别码", required = true, dataType = "String")
     })
     @PostMapping(value = "/vehicle_binding", produces = "text/plain;charset=utf-8")
-    public String  vehicle_binding (String user_name,String user_id,String license_plate_number,String picture_index,String registration,String vehicle_license,String UUID){
-        return vehicleService.add_Vehicle(user_name,user_id,license_plate_number,picture_index,registration,vehicle_license);
+    public String  vehicle_binding (String user_name,String license_plate_number,String picture_index,String registration,String vehicle_license,String UUID){
+        return vehicleService.add_Vehicle(user_name,license_plate_number,picture_index,registration,vehicle_license);
     }
 
 

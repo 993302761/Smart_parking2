@@ -1,14 +1,13 @@
 package com.example.provider.service;
 
 import com.example.provider.dao.ParkingLotDao;
+import com.example.provider.entiry.Parking;
 import com.example.provider.entiry.Parking_lot_information;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 @Service
 public class ParkingLotServiceImpl  {
@@ -50,11 +49,12 @@ public class ParkingLotServiceImpl  {
         if (parkingLotInformation != null) {
             return "该用户已注册";
         }
+
+        //生成停车场编号
         String parking_lot_number;
-        do {
-            parking_lot_number = String.valueOf((int)(Math.random() * 10000));
-            parkingLotInformation = parkingLotDao.find_Parking_num(parking_lot_number);
-        } while (parkingLotInformation != null);
+        parking_lot_number = pctr_id;
+        parking_lot_number += System.currentTimeMillis();
+
         int update = parkingLotDao.add_Parking(pctr_id, pctr_password, parking_lot_name, parking_in_the_city, parking_lot_number, parking_spaces_num, billing_rules, longitude, latitude);
         if (update > 0) {
             return "注册成功";
@@ -105,10 +105,43 @@ public class ParkingLotServiceImpl  {
      * TODO：车位情况变化
      * @param parking_lot_number 停车场编号
      * @param Available_place_num 当前可用停车位
-     * @return 是否成功
      */
     public void change_parking_space(String parking_lot_number ,String Available_place_num){
         redisTemplate.opsForValue().set(parking_lot_number, Available_place_num);
     }
+
+
+    /**
+     * TODO：获取某一区域停车场情况
+     * @param city 所在城市
+     * @return 某一区域停车场情况
+     */
+    public List<Parking> get_parking_lot(String city){
+        List<Parking> parking_lot = parkingLotDao.get_parking_lot(city);
+        if (parking_lot.isEmpty()){
+            return null;
+        }
+        List<Parking> new_parking_lot=new ArrayList<>();
+        for (int i = 0; i < parking_lot.size(); i++) {
+            Parking p=parking_lot.get(i);
+            boolean hasKey = redisTemplate.hasKey(p.getParking_lot_number());
+            if(hasKey ){
+                String s = redisTemplate.opsForValue().get(parking_lot.get(i).getParking_lot_number());
+                p.setAvailable_parking_spaces_num(Integer.parseInt(s));
+            }
+            new_parking_lot.add(p);
+        }
+        return new_parking_lot;
+    }
+
+
+
+    /**
+     * TODO：删除所有已注册停车场
+     */
+    public void delete_Parking (){
+        parkingLotDao.delete_Parking();
+    }
+
 
 }

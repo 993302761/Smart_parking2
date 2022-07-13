@@ -37,4 +37,11 @@ public interface UserDao {
     @Select("select * from User")
     List<User> getAllUsers();
 
+
+
+    /**
+     * 删除所有用户
+     */
+    @Delete("DELETE FROM User")
+    void delete_User();
 }
