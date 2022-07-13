@@ -107,6 +107,11 @@ public class ParkingLotServiceImpl  {
      * @param Available_place_num 当前可用停车位
      */
     public void change_parking_space(String parking_lot_number ,String Available_place_num){
+        Parking_lot_information parking_num = parkingLotDao.find_Parking_num(parking_lot_number);
+        if (parking_num.getParking_spaces_num()<Integer.parseInt(Available_place_num)){
+            System.out.println("数据错误");
+            return;
+        }
         redisTemplate.opsForValue().set(parking_lot_number, Available_place_num);
     }
 

@@ -12,10 +12,7 @@ import com.example.provider.service.VehicleServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -71,34 +68,34 @@ public class DataController {
 
 
     @ApiOperation(value = "删除所有用户")
-    @PostMapping(value = "/delete_User")
+    @DeleteMapping(value = "/delete_User")
     public void delete_User(){
          userService.delete_User();
     }
 
 
     @ApiOperation(value = "删除所有停车场")
-    @PostMapping(value = "/delete_Parking")
+    @DeleteMapping(value = "/delete_Parking")
     public void delete_Parking(){
         parkingLotService.delete_Parking();
     }
 
 
     @ApiOperation(value = "删除所有订单")
-    @PostMapping(value = "/delete_Order")
+    @DeleteMapping(value = "/delete_Order")
     public void delete_Order(){
         orderService.delete_Order();
     }
 
 
     @ApiOperation(value = "删除所有绑定车辆")
-    @PostMapping(value = "/delete_Vehicle")
+    @DeleteMapping(value = "/delete_Vehicle")
     public void delete_Vehicle(){
         vehicleService.delete_Vehicle();
     }
 
     @ApiOperation(value = "初始化数据")
-    @PostMapping(value = "/initialization")
+    @PutMapping(value = "/initialization")
     public void initialization(){
         delete_Order();
         delete_User();
@@ -108,7 +105,6 @@ public class DataController {
         vehicleService.add_Vehicle("18153301670","湘A88888","xxxxx","xxxxx","xxxxx");
         parkingLotService.add_Parking("123","123","天津xx停车场","天津",10, 5.0F,"39.064976","117.302938");
         parkingLotService.add_Parking("456","456","北京市xx停车场","北京",20, 10.0F,"39.821263","117.442708");
-
     }
 
 

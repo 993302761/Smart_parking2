@@ -1,5 +1,7 @@
 package com.example.provider;
 
+import com.example.provider.dao.OrderDao;
+import com.example.provider.entiry.Order_information;
 import com.example.provider.entiry.User;
 import com.example.provider.dao.UserDao;
 import org.junit.Test;
@@ -25,25 +27,21 @@ public class ProviderApplicationTests {
 
 
     @Resource
-    private RedisTemplate<String, Integer> redisTemplate;
+    private OrderDao orderDao;
 
     @Test
     @Rollback
     //使用回滚注解@Rollback，配合事务注解@Transactional，来实现回滚事务。
     public void contextLoads() {
-        redisTemplate.opsForValue().set("123",5);
-        System.out.println(redisTemplate.opsForValue().get("123"));
-        boolean hasKey = redisTemplate.hasKey("13");
+        Order_information order_number = orderDao.find_Order_number("1231657696319716");
+        System.out.println("--------------");
+        System.out.println(order_number.getOutTime());
+        System.out.println(order_number.getInTime());
+        int hours = (int) ((order_number.getOutTime().getTime() - order_number.getInTime().getTime()) / (1000 * 60* 60));
+        System.out.println(hours);
 
-        if(hasKey ){
 
-            System.out.print("存在");
-
-        } else {
-
-            System.out.print("不存在");
-
-        }
+        System.out.println("--------------");
 
     }
 

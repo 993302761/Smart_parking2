@@ -36,6 +36,10 @@ public class VehicleServiceImpl {
         if (user==null){
             return "错误：600";
         }
+        Vehicle_information vehicleNumber = getVehicleNumber(user_name, license_plate_number);
+        if (vehicleNumber!=null){
+            return "该车辆已注册，请勿重复注册";
+        }
         int i=vehicleDao.add_Vehicle(user_name,user.getUser_id(),license_plate_number,picture_index,registration,vehicle_license);
         if (i<=0){
             return "添加车辆信息失败";

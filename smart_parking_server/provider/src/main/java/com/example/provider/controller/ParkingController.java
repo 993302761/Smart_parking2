@@ -8,9 +8,7 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,7 +26,7 @@ public class ParkingController {
             @ApiImplicitParam(name = "parking_lot_number", value = "停车场编号", required = true, dataType = "String"),
             @ApiImplicitParam(name = "Available_place_num", value = "可用车位数量", required = true, dataType = "String")
     })
-    @PostMapping(value = "/change_parking_space", produces = "text/json; charset=utf-8")
+    @PutMapping(value = "/change_parking_space", produces = "text/json; charset=utf-8")
     public void change_parking_space (String parking_lot_number ,String Available_place_num){
         parkingLotService.change_parking_space(parking_lot_number,Available_place_num);
     }
@@ -41,7 +39,7 @@ public class ParkingController {
             @ApiImplicitParam(name = "city", value = "所在城市", required = true, dataType = "String"),
             @ApiImplicitParam(name = "UUID", value = "通用唯一识别码", required = true, dataType = "String")
     })
-    @PostMapping(value = "/get_parking_lot", produces = "application/json; charset=utf-8")
+    @GetMapping(value = "/get_parking_lot", produces = "application/json; charset=utf-8")
     public List<Parking> get_parking_lot (String user_name , String city, String UUID){
         return parkingLotService.get_parking_lot(city);
     }

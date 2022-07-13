@@ -10,6 +10,7 @@ import com.example.provider.entiry.Vehicle_information;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -63,7 +64,6 @@ public class OrderServiceImpl {
         }
 
         int i = orderDao.add_Order(order_number, generation_time, user_name,  null, null, parkingLotInformation.getParking_lot_name(), parking_lot_number, license_plate_number, 0, "等待进入");
-        System.out.println(i);
         if (i<=0){
             return "订单生成失败";
         }
@@ -132,7 +132,10 @@ public class OrderServiceImpl {
     public String setStatus_in (String license_plate_number ,String parking_lot_number) {
         Order_information order = orderDao.getOrder(parking_lot_number, license_plate_number);
         if (order==null){
-            return null;
+            return "未找到此订单";
+        }
+        if (order.getInTime()!=null||order.getOutTime()!=null){
+            return "订单错误";
         }
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date date = new Date(System.currentTimeMillis());
@@ -153,18 +156,33 @@ public class OrderServiceImpl {
         Order_information order = orderDao.getOrder(parking_lot_number, license_plate_number);
         Parking_lot_information parkingLotInformation=parkingLotDao.find_Parking_num(parking_lot_number);
         if (order==null){
-            return null;
+            return "未找到此订单";
+        }
+        if (order.getOutTime()!=null){
+            return "订单错误";
         }
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date outTime = new Date(System.currentTimeMillis());
         String generation_time= formatter.format(outTime);
         orderDao.vehicle_departure(generation_time,order.getOrder_number());
-        Date inTime=order.getInTime();
-        int hours = (int) ((outTime.getTime() - inTime.getTime()) / (1000 * 60 * 60));
-        float money=hours*parkingLotInformation.getBilling_rules();
-        orderDao.set_money(money,order.getOrder_number());
+        setMoney(order.getOrder_number());
         return setStatus("未支付",order.getOrder_number());
     }
+
+
+    /**
+     * TODO：订单支付完成
+     * @param order_number 订单编号
+     * @return 是否成功
+     */
+    public void setMoney (String order_number){
+        Order_information order = orderDao.find_Order_number(order_number);
+        Parking_lot_information parking_num = parkingLotDao.find_Parking_num(order.getParking_lot_number());
+        int hours = (int) ((order.getOutTime().getTime() - order.getInTime().getTime()) / (1000 * 60* 60));
+        float money=hours*parking_num.getBilling_rules();
+        orderDao.set_money(money,order.getOrder_number());
+    }
+
 
 
 
@@ -185,6 +203,7 @@ public class OrderServiceImpl {
     }
 
 
+
     /**
      * TODO：app取消订单
      * @param order_number 订单编号
@@ -195,7 +214,13 @@ public class OrderServiceImpl {
         if (order==null){
             return "未找到订单";
         }
-        if (order.getOutTime()!=null||order.getInTime()!=null){
+        else if (order.getOrder_status().equals("已取消")){
+            return "请勿重复取消订单";
+        }
+        else if (order.getOrder_status().equals("已完成")){
+            return "订单已完成";
+        }
+        else if (order.getOutTime()!=null||order.getInTime()!=null){
             return "订单进行中不可取消，若要取消可联系停车场";
         }
         return setStatus("已取消",order.getOrder_number());
@@ -211,6 +236,12 @@ public class OrderServiceImpl {
         Order_information order = orderDao.getOrder(parking_lot_number, order_number);
         if (order==null){
             return "未找到订单";
+        }
+        else if (order.getOrder_status().equals("已取消")){
+            return "请勿重复取消订单";
+        }
+        else if (order.getOrder_status().equals("已完成")){
+            return "订单已完成";
         }
         return setStatus("已取消",order_number);
     }

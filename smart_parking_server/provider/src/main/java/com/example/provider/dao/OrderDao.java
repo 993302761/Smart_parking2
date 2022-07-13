@@ -34,8 +34,8 @@ public interface OrderDao {
     /**
      * 根据停车场编号和车牌号查找订单
      * */
-    @Select("SELECT * FROM Order_information WHERE parking_lot_number =#{parking_lot_number} and license_plate_number =#{license_plate_number}")
-    Order_information getOrder(@Param("parking_lot_number") String parking_lot_number,@Param("license_plate_number") String license_plate_number);
+    @Select("SELECT * FROM Order_information WHERE parking_lot_number =#{parking_lot_number} and order_number =#{order_number}")
+    Order_information getOrder(@Param("parking_lot_number") String parking_lot_number,@Param("order_number") String order_number);
 
 
 
