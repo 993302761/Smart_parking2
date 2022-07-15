@@ -1,2 +1,3 @@
-rootProject.name = 'smart_parking_server'
-include 'provider'
+rootProject.name = 'smart_parking'
+include 'smart_parking_server'
+

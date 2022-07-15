@@ -56,23 +56,8 @@ subprojects {
 
         testImplementation("junit:junit:${junit_version}")
 
-        implementation('org.springframework.boot:spring-boot-starter-parent:2.6.7')
-
-        implementation('org.apache.commons:commons-lang3:3.12.0')
-
-        //mybatis
-        implementation('org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2')
 
 
-        //一个Lombok为啥写这么多？因为gradle5.0以上的版本都需要手动指定Lombok在编译期使用
-        compileOnly("org.projectlombok:lombok:${lombok_version}")
-        annotationProcessor("org.projectlombok:lombok:${lombok_version}")
-        testCompileOnly("org.projectlombok:lombok:${lombok_version}")
-        testAnnotationProcessor("org.projectlombok:lombok:${lombok_version}")
-
-        //swagger
-        implementation("io.springfox:springfox-swagger2:${swagger_version}")
-        implementation("io.springfox:springfox-swagger-ui:${swagger_version}")
     }
 
     dependencyManagement {
