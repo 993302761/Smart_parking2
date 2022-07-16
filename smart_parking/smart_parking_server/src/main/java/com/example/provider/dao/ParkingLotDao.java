@@ -1,7 +1,7 @@
 package com.example.provider.dao;
 
-import com.example.provider.entiry.Parking;
-import com.example.provider.entiry.Parking_lot_information;
+import com.example.provider.entity.Parking;
+import com.example.provider.entity.Parking_lot_information;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;

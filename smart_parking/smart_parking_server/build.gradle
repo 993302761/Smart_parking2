@@ -1,6 +1,54 @@
 
 apply plugin: 'org.springframework.boot'
 
+
+//配置子模块依赖
+subprojects {
+
+    repositories {
+        mavenLocal()
+        maven { url 'https://maven.aliyun.com/repository/central' }
+        mavenCentral()
+    }
+
+    dependencies {
+
+        implementation("org.springframework.boot:spring-boot-starter-parent:${spring_boot_version}")
+
+        implementation('org.apache.commons:commons-lang3:3.12.0')
+
+
+
+        //mysql
+        implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+        implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+        implementation "mysql:mysql-connector-java:${mysql_connection_version}"
+
+        //mybatis
+        implementation('org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2')
+
+
+        //一个Lombok为啥写这么多？因为gradle5.0以上的版本都需要手动指定Lombok在编译期使用
+        compileOnly("org.projectlombok:lombok:${lombok_version}")
+        annotationProcessor("org.projectlombok:lombok:${lombok_version}")
+        testCompileOnly("org.projectlombok:lombok:${lombok_version}")
+        testAnnotationProcessor("org.projectlombok:lombok:${lombok_version}")
+
+        //swagger
+        implementation("io.springfox:springfox-swagger2:${swagger_version}")
+        implementation("io.springfox:springfox-swagger-ui:${swagger_version}")
+
+
+
+//    //aop切面
+//    implementation('org.springframework.boot:spring-boot-starter-aop')
+//    implementation('org.aspectj:aspectjrt')
+//    implementation('org.aspectj:aspectjweaver')
+
+    }
+
+}
+
 dependencies {
 
     implementation("org.springframework.boot:spring-boot-starter-parent:${spring_boot_version}")
@@ -41,5 +89,4 @@ dependencies {
 //    implementation('org.aspectj:aspectjweaver')
 
 }
-
 

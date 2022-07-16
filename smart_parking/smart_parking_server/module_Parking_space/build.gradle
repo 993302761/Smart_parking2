@@ -1,0 +1,12 @@
+apply plugin: 'org.springframework.boot'
+
+dependencies {
+    //reids
+    implementation("org.springframework.boot:spring-boot-starter-data-redis:2.3.1.RELEASE")
+    implementation("com.fasterxml.jackson.core:jackson-databind:${jackson_version}")
+    implementation("com.fasterxml.jackson.core:jackson-core:${jackson_version}")
+    implementation("com.fasterxml.jackson.core:jackson-annotations:${jackson_version}")
+    implementation("org.apache.commons:commons-pool2:${connection_pool_version}")
+
+}
+

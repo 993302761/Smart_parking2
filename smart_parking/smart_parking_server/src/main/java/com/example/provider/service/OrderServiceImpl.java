@@ -3,14 +3,11 @@ package com.example.provider.service;
 import com.example.provider.dao.OrderDao;
 import com.example.provider.dao.ParkingLotDao;
 import com.example.provider.dao.VehicleDao;
-import com.example.provider.entiry.Order_information;
-import com.example.provider.entiry.Parking_lot_information;
-import com.example.provider.entiry.User;
-import com.example.provider.entiry.Vehicle_information;
+import com.example.provider.entity.Order_information;
+import com.example.provider.entity.Parking_lot_information;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;

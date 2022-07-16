@@ -1,6 +1,6 @@
 package com.example.provider.dao;
 
-import com.example.provider.entiry.User;
+import com.example.provider.entity.User;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;

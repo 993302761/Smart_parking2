@@ -1,3 +1,10 @@
 rootProject.name = 'smart_parking'
-include 'smart_parking_server'
+
+include 'smart_parking_server:module_App'
+include 'smart_parking_server:module_Administrators'
+include 'smart_parking_server:module_Parking_lots'
+include 'smart_parking_server:module_Parking_space'
+include 'smart_parking_server:module_Order'
+include 'smart_parking_server:module_Vehicle'
+
 

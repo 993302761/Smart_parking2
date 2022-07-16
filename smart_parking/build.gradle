@@ -51,23 +51,24 @@ subprojects {
 
     dependencies {
         implementation ('org.springframework.boot:spring-boot-starter-web')
-
         testImplementation('org.springframework.boot:spring-boot-starter-test')
 
         testImplementation("junit:junit:${junit_version}")
 
-
-
     }
 
+    
     dependencyManagement {
         imports {
             //spring bom helps us to declare dependencies without specifying version numbers.
             mavenBom "org.springframework.cloud:spring-cloud-dependencies:Finchley.SR4"
         }
     }
+
+
+
     jar {
-        manifest.attributes provider: 'gradle'
+        manifest.attributes smart_parking_server: 'gradle'
     }
 
 }

@@ -1,7 +1,7 @@
 package com.example.provider.service;
 
 import com.example.provider.dao.AdministratorsDao;
-import com.example.provider.entiry.Administrators;
+import com.example.provider.entity.Administrators;
 
 import org.springframework.stereotype.Service;
 

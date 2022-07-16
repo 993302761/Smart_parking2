@@ -1,6 +1,6 @@
 package com.example.provider.controller;
 
-import com.example.provider.entiry.Parking;
+import com.example.provider.entity.Parking;
 import com.example.provider.service.ParkingLotServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;

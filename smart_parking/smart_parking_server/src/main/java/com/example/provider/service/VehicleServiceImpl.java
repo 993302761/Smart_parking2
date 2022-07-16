@@ -2,8 +2,8 @@ package com.example.provider.service;
 
 import com.example.provider.dao.UserDao;
 import com.example.provider.dao.VehicleDao;
-import com.example.provider.entiry.User;
-import com.example.provider.entiry.Vehicle_information;
+import com.example.provider.entity.User;
+import com.example.provider.entity.Vehicle_information;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

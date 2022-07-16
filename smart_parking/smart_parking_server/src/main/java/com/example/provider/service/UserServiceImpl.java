@@ -1,7 +1,7 @@
 package com.example.provider.service;
 
 import com.example.provider.dao.UserDao;
-import com.example.provider.entiry.User;
+import com.example.provider.entity.User;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;

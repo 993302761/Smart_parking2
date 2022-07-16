@@ -1,8 +1,8 @@
 package com.example.provider.service;
 
 import com.example.provider.dao.ParkingLotDao;
-import com.example.provider.entiry.Parking;
-import com.example.provider.entiry.Parking_lot_information;
+import com.example.provider.entity.Parking;
+import com.example.provider.entity.Parking_lot_information;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;

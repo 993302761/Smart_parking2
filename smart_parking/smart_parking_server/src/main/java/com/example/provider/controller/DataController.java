@@ -1,10 +1,10 @@
 package com.example.provider.controller;
 
 
-import com.example.provider.entiry.Order_information;
-import com.example.provider.entiry.Parking_lot_information;
-import com.example.provider.entiry.User;
-import com.example.provider.entiry.Vehicle_information;
+import com.example.provider.entity.Order_information;
+import com.example.provider.entity.Parking_lot_information;
+import com.example.provider.entity.User;
+import com.example.provider.entity.Vehicle_information;
 import com.example.provider.service.OrderServiceImpl;
 import com.example.provider.service.ParkingLotServiceImpl;
 import com.example.provider.service.UserServiceImpl;
@@ -93,6 +93,8 @@ public class DataController {
     public void delete_Vehicle(){
         vehicleService.delete_Vehicle();
     }
+
+
 
     @ApiOperation(value = "初始化数据")
     @PutMapping(value = "/initialization")

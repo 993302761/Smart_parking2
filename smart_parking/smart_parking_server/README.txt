@@ -165,5 +165,3 @@ Redis
 
 
 
-Gradle-version:7.2.0
-Redis-version:6.2.5

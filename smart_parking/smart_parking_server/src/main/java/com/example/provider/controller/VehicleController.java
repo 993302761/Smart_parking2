@@ -1,7 +1,7 @@
 package com.example.provider.controller;
 
 
-import com.example.provider.entiry.Vehicle_information;
+import com.example.provider.entity.Vehicle_information;
 import com.example.provider.service.VehicleServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;

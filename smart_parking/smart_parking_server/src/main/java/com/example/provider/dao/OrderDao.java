@@ -1,7 +1,6 @@
 package com.example.provider.dao;
 
-import com.example.provider.entiry.Order_information;
-import com.example.provider.entiry.User;
+import com.example.provider.entity.Order_information;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
