@@ -57,18 +57,16 @@ subprojects {
 
     }
 
-    
+
+    //确定spring cloud版本并且确定是否与当前spring boot版本对应
     dependencyManagement {
         imports {
             //spring bom helps us to declare dependencies without specifying version numbers.
             mavenBom "org.springframework.cloud:spring-cloud-dependencies:Finchley.SR4"
         }
     }
-
-
-
     jar {
-        manifest.attributes smart_parking_server: 'gradle'
+        manifest.attributes smart_parking: 'gradle'
     }
 
 }

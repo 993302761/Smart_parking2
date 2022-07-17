@@ -4,8 +4,12 @@ import com.example.administrators.dao.AdministratorsDao;
 import com.example.administrators.entity.Administrators;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
+import java.util.List;
 
 @Service
 public class AdministratorsServiceImpl {
@@ -13,6 +17,19 @@ public class AdministratorsServiceImpl {
     @Resource
     private AdministratorsDao administratorsDao;
 
+    @Resource
+    private RestTemplate restTemplate;
+
+    private final String userURl="http://www.localhost:9001/User";
+
+
+    private final String orderURl="http://www.localhost:9002/Order";
+
+    private final String parkingLotURl="http://www.localhost:9003/ParkingLots";
+
+    private final String parkingSpaceURl="http://www.localhost:9003/ParkingSpace";
+
+    private final String vehicleURl="http://www.localhost:9005/Vehicle";
 
 
     /**
@@ -36,5 +53,40 @@ public class AdministratorsServiceImpl {
         }
     }
 
+
+
+    /**
+     * TODO：获取用户列表
+     * @return 用户列表
+     */
+    public Object getAllUsers() {
+        String classUrl=userURl+"/getUserClass";
+        System.out.println(classUrl);
+        Object user=restTemplate.getForObject(classUrl,Object.class);
+        return user;
+    }
+
+
+    /**
+     * TODO：获取用户列表
+     * @return 用户列表
+     */
+    public Object getAllParking() {
+        String classUrl=userURl+"/getUserClass";
+        System.out.println(classUrl);
+        Object user=restTemplate.getForObject(classUrl,Object.class);
+        return user;
+    }
+
+    /**
+     * TODO：获取用户列表
+     * @return 用户列表
+     */
+    public Object getAllVehicle() {
+        String classUrl=userURl+"/getUserClass";
+        System.out.println(classUrl);
+        Object user=restTemplate.getForObject(classUrl,Object.class);
+        return user;
+    }
 
 }

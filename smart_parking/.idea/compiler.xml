@@ -12,14 +12,14 @@
         <module name="smart_parking.smart_parking_server.module_Parking_lots.main" />
         <module name="smart_parking.smart_parking_server.module_Vehicle.main" />
         <module name="smart_parking.smart_parking_server.main" />
+        <module name="smart_parking.smart_parking_server.module_User.main" />
         <module name="smart_parking.smart_parking_server.module_Administrators.test" />
         <module name="smart_parking.smart_parking_server.module_Parking_space.test" />
-        <module name="smart_parking.smart_parking_server.module_App.main" />
         <module name="smart_parking.smart_parking_server.module_Vehicle.test" />
         <module name="smart_parking.smart_parking_server.module_Parking_lots.test" />
         <module name="smart_parking.smart_parking_server.module_Parking_space.main" />
-        <module name="smart_parking.smart_parking_server.module_App.test" />
         <module name="smart_parking.smart_parking_server.test" />
+        <module name="smart_parking.smart_parking_server.module_User.test" />
         <module name="smart_parking.smart_parking_server.module_Order.main" />
         <module name="smart_parking.smart_parking_server.module_Administrators.main" />
       </profile>

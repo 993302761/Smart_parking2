@@ -51,8 +51,8 @@ public class VehicleServiceImpl {
 
 
     /**
-     * TODO：获取所有用户列表
-     * @return 所有用户列表
+     * TODO：获取所有的车辆信息
+     * @return 获取所有的车辆信息
      */
     public List<Vehicle_information> getAllVehicle() {
         return vehicleDao.getAllVehicle();
