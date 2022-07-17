@@ -2,6 +2,7 @@ package com.example.vehicle.controller;
 
 
 
+import com.example.vehicle.entity.Vehicle;
 import com.example.vehicle.entity.Vehicle_information;
 import com.example.vehicle.service.VehicleServiceImpl;
 import io.swagger.annotations.Api;
@@ -42,11 +43,9 @@ public class VehicleController {
     @ApiOperation(value = "获取用户绑定的车辆信息")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String"),
-            @ApiImplicitParam(name = "UUID", value = "通用唯一识别码", required = true, dataType = "String")
-
     })
-    @GetMapping(value = "/getUserVehicle", produces = "application/json; charset=utf-8")
-    public List<Vehicle_information> getUserVehicle (String user_name, String UUID){
+    @GetMapping(value = "/getUserVehicle/{user_name}", produces = "application/json; charset=utf-8")
+    public List<Vehicle> getUserVehicle (@PathVariable String user_name){
         return vehicleService.getUserVehicle(user_name);
     }
 

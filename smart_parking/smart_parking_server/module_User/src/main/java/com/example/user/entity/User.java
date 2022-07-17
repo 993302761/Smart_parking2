@@ -8,9 +8,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor      //生成无参构造方法
 public class User {
 
-
     private String user_name;   //用户名
-    private String password;   //密码
     private String user_id;    //身份证号
+    private Object Vehicle;    //所绑定的车辆信息
 
 }

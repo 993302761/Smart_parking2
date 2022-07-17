@@ -6,22 +6,20 @@
       <profile name="Gradle Imported" enabled="true">
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
-          <entry name="/opt/gradle-7.2-all/gradle-7.2/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.24/13a394eed5c4f9efb2a6d956e2086f1d81e857d9/lombok-1.18.24.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.24/lombok-1.18.24.jar" />
         </processorPath>
         <module name="smart_parking.smart_parking_server.module_Order.test" />
+        <module name="smart_parking.smart_parking_server.test" />
+        <module name="smart_parking.smart_parking_server.module_User.test" />
         <module name="smart_parking.smart_parking_server.module_Parking_lots.main" />
         <module name="smart_parking.smart_parking_server.module_Vehicle.main" />
         <module name="smart_parking.smart_parking_server.main" />
         <module name="smart_parking.smart_parking_server.module_User.main" />
         <module name="smart_parking.smart_parking_server.module_Administrators.test" />
-        <module name="smart_parking.smart_parking_server.module_Parking_space.test" />
-        <module name="smart_parking.smart_parking_server.module_Vehicle.test" />
-        <module name="smart_parking.smart_parking_server.module_Parking_lots.test" />
-        <module name="smart_parking.smart_parking_server.module_Parking_space.main" />
-        <module name="smart_parking.smart_parking_server.test" />
-        <module name="smart_parking.smart_parking_server.module_User.test" />
         <module name="smart_parking.smart_parking_server.module_Order.main" />
+        <module name="smart_parking.smart_parking_server.module_Vehicle.test" />
         <module name="smart_parking.smart_parking_server.module_Administrators.main" />
+        <module name="smart_parking.smart_parking_server.module_Parking_lots.test" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8" />

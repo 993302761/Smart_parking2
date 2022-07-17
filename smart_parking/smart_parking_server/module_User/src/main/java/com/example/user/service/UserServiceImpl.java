@@ -2,11 +2,14 @@ package com.example.user.service;
 
 
 import com.example.user.dao.UserDao;
+import com.example.user.entity.User_information;
 import com.example.user.entity.User;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -18,11 +21,13 @@ public class UserServiceImpl  {
     @Resource
     private UserDao userDao;
 
-
     @Resource
     private RedisTemplate<String, String> redisTemplate;
 
+    @Resource
+    private RestTemplate restTemplate;
 
+    private final String vehicleURl="http://www.localhost:9005/Vehicle";
 
     /**
      * TODO：添加一名用户
@@ -35,7 +40,7 @@ public class UserServiceImpl  {
         if (user_name==null||password==null||user_id==null){
             return "所填信息不完整";
         }
-        User user = userDao.find_User(user_name);
+        User_information user = userDao.find_User(user_name);
         if (user!=null){
             return "用户已注册";
         }
@@ -61,7 +66,7 @@ public class UserServiceImpl  {
         if (user_name==null||password==null){
             return "用户名或密码为空";
         }
-        User user=userDao.find_User(user_name);
+        User_information user=userDao.find_User(user_name);
         if (user==null){
             return "用户未注册";
         }
@@ -86,7 +91,7 @@ public class UserServiceImpl  {
      * @return 是否成功
      */
     public boolean find(String user_name){
-        User user=userDao.find_User(user_name);
+        User_information user=userDao.find_User(user_name);
         if (user==null){
             return true;
         }
@@ -160,7 +165,17 @@ public class UserServiceImpl  {
      * @return 用户列表
      */
     public List<User> getAllUsers() {
-        return userDao.getAllUsers();
+        List<User> users = userDao.getAllUsers();
+        List<User> newUsers=new ArrayList<>();
+        String url=vehicleURl+"/getUserVehicle";
+        for (int i = 0; i < users.size(); i++) {
+            String s=url+"/"+users.get(i).getUser_name();
+            Object vehicle=restTemplate.getForObject(s,Object.class);
+            User t=users.get(i);
+            t.setVehicle(vehicle);
+            newUsers.add(t);
+        }
+        return newUsers;
     }
 
 
@@ -173,11 +188,5 @@ public class UserServiceImpl  {
     }
 
 
-    /**
-     * TODO：获取类信息
-     */
-    public Object getUserClass(){
-        return userDao.find_User("123");
-    }
 
 }

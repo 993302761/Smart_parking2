@@ -1,5 +1,6 @@
 package com.example.user.dao;
 
+import com.example.user.entity.User_information;
 import com.example.user.entity.User;
 import org.apache.ibatis.annotations.*;
 
@@ -12,7 +13,7 @@ public interface UserDao {
      * 查找用户
      * */
     @Select("SELECT * FROM User WHERE user_name =#{user_name}")
-    User find_User(@Param("user_name") String user_name);
+    User_information find_User(@Param("user_name") String user_name);
 
 
     /**
@@ -34,7 +35,11 @@ public interface UserDao {
      * 获取用户列表
      *
      */
-    @Select("select * from User")
+    @Results({
+            @Result(property = "user_name", column = "user_name"),
+            @Result(property = "user_id", column = "user_id")
+    })
+    @Select("select user_name,user_id from User")
     List<User> getAllUsers();
 
 

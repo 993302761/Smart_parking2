@@ -2,8 +2,9 @@
 buildscript {
     ext {
         //定义一个变量，统一规定springboot的版本
-        springBootVersion = '2.5.6.RELEASE'
-        springCloudVersion = 'Finchley.SR4'
+        springBootVersion = '2.2.2.RELEASE'
+        springCloudVersion = 'Hoxton.SR1'
+        netflixVersion = '2.2.1.RELEASE'
     }
     repositories {
         mavenLocal()        //本地仓库
@@ -17,7 +18,7 @@ buildscript {
 }
 
 plugins {
-    id 'org.springframework.boot' version '2.5.6'  // 使用spring boot的版本
+    id 'org.springframework.boot' version '2.2.2.RELEASE'  // 使用spring boot的版本
     id 'io.spring.dependency-management' version '1.0.10.RELEASE'  // 使用spring boot的自动依赖管理
     id 'java'
     id 'idea'
@@ -28,8 +29,8 @@ allprojects {
     apply plugin: 'org.springframework.boot'
     apply plugin: 'io.spring.dependency-management'
     repositories {
+        mavenLocal()
         maven { url 'https://maven.aliyun.com/repository/central' }
-        jcenter()
         mavenCentral()
     }
     //指定编码格式
@@ -40,7 +41,7 @@ allprojects {
 
 
 
-//设定当前模块项目中的配置
+//设定子项目中的配置
 subprojects {
     apply plugin: 'java'
     apply plugin: 'idea'
@@ -62,7 +63,8 @@ subprojects {
     dependencyManagement {
         imports {
             //spring bom helps us to declare dependencies without specifying version numbers.
-            mavenBom "org.springframework.cloud:spring-cloud-dependencies:Finchley.SR4"
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+            mavenBom "org.springframework.cloud:spring-cloud-netflix:${netflixVersion}"
         }
     }
     jar {

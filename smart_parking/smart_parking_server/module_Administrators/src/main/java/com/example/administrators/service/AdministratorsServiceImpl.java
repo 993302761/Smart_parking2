@@ -20,14 +20,11 @@ public class AdministratorsServiceImpl {
     @Resource
     private RestTemplate restTemplate;
 
-    private final String userURl="http://www.localhost:9001/User";
+    private final String userURl="http://www.localhost:9004/User";
 
+    private final String orderURl="http://www.localhost:9001/Order";
 
-    private final String orderURl="http://www.localhost:9002/Order";
-
-    private final String parkingLotURl="http://www.localhost:9003/ParkingLots";
-
-    private final String parkingSpaceURl="http://www.localhost:9003/ParkingSpace";
+    private final String parkingLotURl="http://www.localhost:9002/ParkingLots";
 
     private final String vehicleURl="http://www.localhost:9005/Vehicle";
 
@@ -60,7 +57,7 @@ public class AdministratorsServiceImpl {
      * @return 用户列表
      */
     public Object getAllUsers() {
-        String classUrl=userURl+"/getUserClass";
+        String classUrl=userURl+"/getAllUsers";
         System.out.println(classUrl);
         Object user=restTemplate.getForObject(classUrl,Object.class);
         return user;
@@ -68,25 +65,15 @@ public class AdministratorsServiceImpl {
 
 
     /**
-     * TODO：获取用户列表
-     * @return 用户列表
+     * TODO：获取停车场列表
+     * @return 获取停车场列表
      */
     public Object getAllParking() {
-        String classUrl=userURl+"/getUserClass";
-        System.out.println(classUrl);
+        String classUrl=parkingLotURl+"/getAllParking";
         Object user=restTemplate.getForObject(classUrl,Object.class);
         return user;
     }
 
-    /**
-     * TODO：获取用户列表
-     * @return 用户列表
-     */
-    public Object getAllVehicle() {
-        String classUrl=userURl+"/getUserClass";
-        System.out.println(classUrl);
-        Object user=restTemplate.getForObject(classUrl,Object.class);
-        return user;
-    }
+
 
 }

@@ -35,8 +35,10 @@ public interface ParkingLotDao {
     /**
      * 获取停车场管理员列表
      */
-    @Select("select * from Parking_lot_information")
-    List<Parking_lot_information> getAllParking();
+    @Select("select parking_lot_name,parking_in_the_city,parking_lot_number,parking_spaces_num,billing_rules,longitude,latitude from Parking_lot_information")
+    List<Parking> getAllParking();
+
+
 
     /**
      * 获取某一城市的所有停车场

@@ -15,9 +15,6 @@ public class Parking {
     private float billing_rules;                   //计费规则 (元/小时)
     private String longitude;                      //经度
     private String latitude;                      //纬度
-    private int available_parking_spaces_num;     //可用车位数量
-
-
 
 
 }

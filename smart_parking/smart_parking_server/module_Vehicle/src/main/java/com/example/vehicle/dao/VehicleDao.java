@@ -1,5 +1,6 @@
 package com.example.vehicle.dao;
 
+import com.example.vehicle.entity.Vehicle;
 import com.example.vehicle.entity.Vehicle_information;
 import org.apache.ibatis.annotations.*;
 
@@ -11,8 +12,8 @@ public interface VehicleDao {
     /**
      * 查找用户绑定的车辆信息
      * */
-    @Select("SELECT * FROM Vehicle_information WHERE user_name =#{user_name}")
-    List<Vehicle_information> find_Vehicle(@Param("user_name") String user_name);
+    @Select("SELECT license_plate_number,picture_index,registration,vehicle_license FROM Vehicle_information WHERE user_name =#{user_name}")
+    List<Vehicle> find_Vehicle(@Param("user_name") String user_name);
 
 
     /**

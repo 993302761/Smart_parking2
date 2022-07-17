@@ -43,6 +43,7 @@ public class AdministratorsController {
         return administratorsService.getAllUsers();
     }
 
+
     @ApiOperation(value = "查找所有停车场")
     @GetMapping(value = "/getAllParking", produces = "application/json; charset=utf-8")
     public Object getAllParking()  {

@@ -2,6 +2,7 @@ package com.example.vehicle.service;
 
 
 import com.example.vehicle.dao.VehicleDao;
+import com.example.vehicle.entity.Vehicle;
 import com.example.vehicle.entity.Vehicle_information;
 import org.springframework.stereotype.Service;
 
@@ -67,7 +68,7 @@ public class VehicleServiceImpl {
      * @param user_name 用户名
      * @return 用户绑定的车辆信息
      */
-    public List<Vehicle_information> getUserVehicle(String user_name) {
+    public List<Vehicle> getUserVehicle(String user_name) {
         return vehicleDao.find_Vehicle(user_name);
     }
 

@@ -27,7 +27,7 @@ public class SwaggerTest {
         return new ApiInfoBuilder()
                 .title("智慧停车 接口测试")
                 .description("接口测试")
-                .termsOfServiceUrl("http://localhost:9005")
+                .termsOfServiceUrl("http://localhost:9004")
                 .version("2.0")
                 .build();
     }
