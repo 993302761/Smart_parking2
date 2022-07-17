@@ -1,0 +1,25 @@
+
+apply plugin: 'org.springframework.boot'
+
+
+//配置子模块依赖
+subprojects {
+
+    repositories {
+        mavenLocal()
+        maven { url 'https://maven.aliyun.com/repository/central' }
+        mavenCentral()
+    }
+
+    dependencies {
+        implementation 'org.projectlombok:lombok'
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+        implementation 'org.springframework.boot:spring-boot-starter-actuator'
+        implementation 'org.springframework.boot:spring-boot-starter-test'
+        implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server'
+    }
+
+}
+
+
+

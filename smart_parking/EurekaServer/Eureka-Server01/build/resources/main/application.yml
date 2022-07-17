@@ -1,0 +1,13 @@
+server:
+  port: 8651
+spring:
+  application:
+    name: eureka-server
+eureka:
+  instance:
+    hostname: eureka01
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ipaddress}:${server.port}
+  client:
+    service-url:                    #对中心外暴露的地址
+      defaultZone: http://localhost:8652/eureka/
