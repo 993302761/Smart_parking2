@@ -1,6 +1,7 @@
 package com.example.parkingLots.dao;
 
 import com.example.parkingLots.entity.Parking;
+import com.example.parkingLots.entity.Parking_for_user;
 import com.example.parkingLots.entity.Parking_lot_information;
 
 import org.apache.ibatis.annotations.*;
@@ -22,14 +23,34 @@ public interface ParkingLotDao {
      * 查找停车场管理员
      * */
     @Select("SELECT * FROM Parking_lot_information WHERE pctr_id =#{pctr_id}")
-    Parking_lot_information find_Parking(@Param("pctr_id") String pctr_id);
+    Parking_lot_information getParkingByPid(@Param("pctr_id") String pctr_id);
+
+
+
 
 
     /**
      * 根据停车场编号查找停车场信息
      * */
     @Select("SELECT * FROM Parking_lot_information WHERE parking_lot_number =#{parking_lot_number}")
-    Parking_lot_information find_Parking_num(@Param("parking_lot_number") String parking_lot_number);
+    Parking_lot_information getParkingByPNumber(@Param("parking_lot_number") String parking_lot_number);
+
+
+
+    /**
+     * 根据停车场编号查找停车场名
+     * */
+    @Select("SELECT parking_lot_name FROM Parking_lot_information WHERE parking_lot_number =#{parking_lot_number}")
+    String getParkingName(@Param("parking_lot_number") String parking_lot_number);
+
+
+    /**
+     * 根据停车场编号查找停车场计费
+     * */
+    @Select("SELECT billing_rules FROM Parking_lot_information WHERE parking_lot_number =#{parking_lot_number}")
+    float getParkingBilling_rules(@Param("parking_lot_number") String parking_lot_number);
+
+
 
 
     /**
@@ -43,8 +64,23 @@ public interface ParkingLotDao {
     /**
      * 获取某一城市的所有停车场
      */
-    @Select("select parking_lot_name,Parking_in_the_city,parking_lot_number,parking_spaces_num,billing_rules,longitude,latitude from Parking_lot_information WHERE Parking_in_the_city =#{Parking_in_the_city}")
-    List<Parking> get_parking_lot(@Param("Parking_in_the_city") String Parking_in_the_city);
+    @Results({
+            @Result(property = "parking_lot_name", column = "parking_lot_name"),
+            @Result(property = "Parking_in_the_city", column = "Parking_in_the_city"),
+            @Result(property = "parking_lot_number", column = "parking_lot_number"),
+            @Result(property = "parking_spaces_num", column = "parking_spaces_num"),
+            @Result(property = "billing_rules", column = "billing_rules"),
+            @Result(property = "longitude", column = "longitude"),
+            @Result(property = "latitude", column = "latitude")
+    })
+    @Select("select parking_lot_name," +
+            "Parking_in_the_city," +
+            "parking_lot_number," +
+            "parking_spaces_num," +
+            "billing_rules," +
+            "longitude," +
+            "latitude from Parking_lot_information WHERE Parking_in_the_city =#{Parking_in_the_city}")
+    List<Parking_for_user> get_parking_lot(@Param("Parking_in_the_city") String Parking_in_the_city);
 
 
     /**

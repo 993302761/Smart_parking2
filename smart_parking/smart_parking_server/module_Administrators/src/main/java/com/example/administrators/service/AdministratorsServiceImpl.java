@@ -70,10 +70,20 @@ public class AdministratorsServiceImpl {
      */
     public Object getAllParking() {
         String classUrl=parkingLotURl+"/getAllParking";
-        Object user=restTemplate.getForObject(classUrl,Object.class);
-        return user;
+        Object parking=restTemplate.getForObject(classUrl,Object.class);
+        return parking;
     }
 
+
+    /**
+     * TODO：获取订单列表
+     * @return 获取订单列表
+     */
+    public Object getAllOrder() {
+        String classUrl=orderURl+"/getAllOrder";
+        Object order=restTemplate.getForObject(classUrl,Object.class);
+        return order;
+    }
 
 
 }

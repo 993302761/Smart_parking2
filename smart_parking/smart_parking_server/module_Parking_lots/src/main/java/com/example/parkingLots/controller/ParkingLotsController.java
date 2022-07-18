@@ -34,6 +34,32 @@ public class ParkingLotsController {
     }
 
 
+
+    @ApiOperation(value = "停车场管理员注册")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "latitude", value = "纬度", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "longitude", value = "经度", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "billing_rules", value = "计费规则  (元/小时)", required = true, dataType = "float",example = "0"),
+            @ApiImplicitParam(name = "parking_spaces_num", value = "车位数量", required = true, dataType = "int",example = "0"),
+            @ApiImplicitParam(name = "parking_in_the_city", value = "停车场所在地", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "parking_lot_name", value = "停车场名", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "pctr_password", value = "密码", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "pctr_id", value = "停车场管理员账号", required = true, dataType = "String")
+    })
+    @PostMapping(value = "/parking_register", produces = "text/plain;charset=utf-8")
+    public String parking_register(String pctr_id,
+                                   String pctr_password,
+                                   String parking_lot_name,
+                                   String parking_in_the_city,
+                                   Integer parking_spaces_num,
+                                   float billing_rules,
+                                   String longitude,
+                                   String latitude){
+        return parkingLotService.add_Parking(pctr_id,pctr_password,parking_lot_name,parking_in_the_city,parking_spaces_num,billing_rules,longitude,latitude);
+    }
+
+
+
     @ApiOperation(value = "车位情况变化")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "parking_lot_number", value = "停车场编号", required = true, dataType = "String"),
@@ -45,15 +71,37 @@ public class ParkingLotsController {
     }
 
 
+    @ApiOperation(value = "根据停车场编号查找停车场名")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "parking_lot_number", value = "停车场编号", required = true, dataType = "String"),
+    })
+    @GetMapping(value = "/getParkingName/{parking_lot_number}", produces = "text/json; charset=utf-8")
+    public String getParkingName (@PathVariable String parking_lot_number ){
+        return parkingLotService.getParkingName(parking_lot_number);
+    }
+
+
+    @ApiOperation(value = "根据停车场编号查找停车场收费标准")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "parking_lot_number", value = "停车场编号", required = true, dataType = "String"),
+    })
+    @GetMapping(value = "/getParkingBilling_rules/{parking_lot_number}", produces = "text/json; charset=utf-8")
+    public float getParkingBilling_rules (@PathVariable String parking_lot_number ){
+        return parkingLotService.getParkingBilling_rules(parking_lot_number);
+    }
+
+
 
     @ApiOperation(value = "获取某一区域停车场情况")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "city", value = "所在城市", required = true, dataType = "String"),
     })
-    @GetMapping(value = "/get_parking_lot", produces = "application/json; charset=utf-8")
-    public Object get_parking_lot (String city){
+    @GetMapping(value = "/get_parking_lot/{city}", produces = "application/json; charset=utf-8")
+    public Object get_parking_lot (@PathVariable String city){
         return parkingLotService.get_parking_lot(city);
     }
+
+
 
 
     @ApiOperation(value = "查找所有停车场管理员")
@@ -61,6 +109,8 @@ public class ParkingLotsController {
     public List<Parking> getAllParking(){
         return parkingLotService.getAllParking();
     }
+
+
 
 
     @ApiOperation(value = "删除所有停车场")

@@ -103,6 +103,15 @@ public class VehicleServiceImpl {
     }
 
 
+    /**
+     * TODO：检测车牌号与用户名是否匹配
+     * @param user_name 用户名
+     * @param license_plate_number 车牌号
+     * @return 车辆信息
+     */
+    public int check_license_plate_number(String user_name, String license_plate_number) {
+        return vehicleDao.check_license_plate_number(user_name,license_plate_number);
+    }
 
 
     /**
