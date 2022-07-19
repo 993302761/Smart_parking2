@@ -58,7 +58,6 @@ public class AdministratorsServiceImpl {
      */
     public Object getAllUsers() {
         String classUrl=userURl+"/getAllUsers";
-        System.out.println(classUrl);
         Object user=restTemplate.getForObject(classUrl,Object.class);
         return user;
     }

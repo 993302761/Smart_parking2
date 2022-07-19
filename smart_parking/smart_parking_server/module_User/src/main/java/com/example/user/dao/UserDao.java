@@ -17,6 +17,14 @@ public interface UserDao {
 
 
     /**
+     * 查找用户
+     * */
+    @Select("SELECT user_id FROM User WHERE user_name =#{user_name}")
+    String getUserId(@Param("user_name") String user_name);
+
+
+
+    /**
      * 获取用户总量
      */
     @Select("select count(1) from User")
