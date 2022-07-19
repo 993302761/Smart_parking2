@@ -4,6 +4,7 @@ import com.example.order.dao.OrderDao;
 import com.example.order.entity.Order_information;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
 import java.text.SimpleDateFormat;
@@ -18,7 +19,14 @@ public class OrderServiceImpl {
     private OrderDao orderDao;
 
 
+    @Resource
+    private RestTemplate restTemplate;
 
+    private final String userURl="http://www.localhost:9004/User";
+
+    private final String parkingLotURl="http://www.localhost:9002/ParkingLots";
+
+    private final String vehicleURl="http://www.localhost:9005/Vehicle";
 
 
     /**
@@ -39,14 +47,16 @@ public class OrderServiceImpl {
         order_number += System.currentTimeMillis();
 
         //判断停车场是否存在
-        Parking_lot_information parkingLotInformation=parkingLotDao.find_Parking_num(parking_lot_number);
-        if (parkingLotInformation==null){
+        String classUrl=parkingLotURl+"/getParkingName/"+parking_lot_number;
+        String parkingName=restTemplate.getForObject(classUrl,String.class);
+        if (parkingName==null||parkingName.equals("")){
             return "停车场不存在";
         }
 
         //检查车辆信息是否注册
-        int vehicle_information=vehicleDao.check_license_plate_number(user_name,license_plate_number);
-        if (vehicle_information==0){
+        classUrl=vehicleURl+"/check_license_plate_number/"+user_name+"/"+license_plate_number;
+        int check=restTemplate.getForObject(classUrl,Integer.class);
+        if (check==0){
             return "未注册车辆信息";
         }
 
@@ -56,7 +66,7 @@ public class OrderServiceImpl {
             return "您还有进行中或未支付的订单，请完成订单后再预约";
         }
 
-        int i = orderDao.add_Order(order_number, generation_time, user_name,  null, null, parkingLotInformation.getParking_lot_name(), parking_lot_number, license_plate_number, 0, "等待进入");
+        int i = orderDao.add_Order(order_number, generation_time, user_name,  null, null, parkingName, parking_lot_number, license_plate_number, 0, "等待进入");
         if (i<=0){
             return "订单生成失败";
         }
@@ -83,8 +93,8 @@ public class OrderServiceImpl {
      * @param user_name 所查找的用户
      * @return 用户订单
      */
-    public List<Order_information> getUserOrders(String user_name) {
-        return orderDao.find_Order_Username(user_name);
+    public List<Order_information> getOrderByUsername(String user_name) {
+        return orderDao.getOrderByUsername(user_name);
     }
 
 
@@ -96,8 +106,10 @@ public class OrderServiceImpl {
      * @return 停车场订单
      */
     public List<Order_information> getParkingOrders(String parking_lot_number) {
-        return orderDao.find_Order_Parking(parking_lot_number);
+        return orderDao.getOrderByParking(parking_lot_number);
     }
+
+
 
 
 
@@ -107,10 +119,9 @@ public class OrderServiceImpl {
      * @param order_number 订单号
      * @return 查找订单
      */
-    public Order_information getOrder(String order_number) {
-        return orderDao.find_Order_number(order_number);
+    public Order_information getOrderByNumber(String order_number) {
+        return orderDao.getOrderByNumber(order_number);
     }
-
 
 
 
@@ -123,7 +134,7 @@ public class OrderServiceImpl {
      * @return 是否成功
      */
     public String setStatus_in (String license_plate_number ,String parking_lot_number) {
-        Order_information order = orderDao.getOrder(parking_lot_number, license_plate_number);
+        Order_information order = orderDao.getOrderByParkingAndOrder(parking_lot_number, license_plate_number);
         if (order==null){
             return "未找到此订单";
         }
@@ -146,14 +157,17 @@ public class OrderServiceImpl {
      * @return 是否成功
      */
     public String setStatus_out (String license_plate_number ,String parking_lot_number) {
-        Order_information order = orderDao.getOrder(parking_lot_number, license_plate_number);
-        Parking_lot_information parkingLotInformation=parkingLotDao.find_Parking_num(parking_lot_number);
-        if (order==null){
-            return "未找到此订单";
-        }
+        Order_information order = orderDao.getOrderByParkingAndOrder(parking_lot_number, license_plate_number);
         if (order.getOutTime()!=null){
             return "订单错误";
         }
+        //判断停车场是否存在
+        String classUrl=parkingLotURl+"/getParkingName/"+parking_lot_number;
+        String parkingName=restTemplate.getForObject(classUrl,String.class);
+        if (parkingName==null||parkingName.equals("")){
+            return "未找到此订单";
+        }
+
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date outTime = new Date(System.currentTimeMillis());
         String generation_time= formatter.format(outTime);
@@ -169,10 +183,12 @@ public class OrderServiceImpl {
      * @return 是否成功
      */
     public void setMoney (String order_number){
-        Order_information order = orderDao.find_Order_number(order_number);
-        Parking_lot_information parking_num = parkingLotDao.find_Parking_num(order.getParking_lot_number());
+        Order_information order = orderDao.getOrderByNumber(order_number);
+        //获取停车场的收费标准
+        String classUrl=parkingLotURl+"/getParkingBilling_rules/"+order.getParking_lot_number();
+        Float billing_rules=restTemplate.getForObject(classUrl,Float.class);
         int hours = (int) ((order.getOutTime().getTime() - order.getInTime().getTime()) / (1000 * 60* 60));
-        float money=hours*parking_num.getBilling_rules();
+        float money=hours*billing_rules;
         orderDao.set_money(money,order.getOrder_number());
     }
 
@@ -185,7 +201,7 @@ public class OrderServiceImpl {
      * @return 是否成功
      */
     public String complete_Order (String order_number){
-        Order_information order = orderDao.find_Order_number(order_number);
+        Order_information order = orderDao.getOrderByNumber(order_number);
         if (order==null){
             return "未找到订单";
         }
@@ -203,7 +219,7 @@ public class OrderServiceImpl {
      * @return 是否成功
      */
     public String app_cancellation_Order (String order_number){
-        Order_information order = orderDao.find_Order_number(order_number);
+        Order_information order = orderDao.getOrderByNumber(order_number);
         if (order==null){
             return "未找到订单";
         }
@@ -226,7 +242,7 @@ public class OrderServiceImpl {
      * @return 是否成功
      */
     public String parking_cancellation_Order (String parking_lot_number,String order_number){
-        Order_information order = orderDao.getOrder(parking_lot_number, order_number);
+        Order_information order = orderDao.getOrderByParkingAndOrder(parking_lot_number, order_number);
         if (order==null){
             return "未找到订单";
         }

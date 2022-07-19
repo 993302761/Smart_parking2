@@ -51,4 +51,11 @@ public class AdministratorsController {
     }
 
 
+    @ApiOperation(value = "查找所有订单")
+    @GetMapping(value = "/getAllOrder", produces = "application/json; charset=utf-8")
+    public Object getAllOrder()  {
+        return administratorsService.getAllOrder();
+    }
+
+
 }

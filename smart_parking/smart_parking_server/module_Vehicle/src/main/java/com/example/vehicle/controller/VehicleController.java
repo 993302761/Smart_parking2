@@ -31,10 +31,9 @@ public class VehicleController {
             @ApiImplicitParam(name = "picture_index", value = "车辆照片", required = true, dataType = "String"),
             @ApiImplicitParam(name = "registration", value = "机动车登记证照片", required = true, dataType = "String"),
             @ApiImplicitParam(name = "vehicle_license", value = "车辆行驶证照片", required = true, dataType = "String"),
-            @ApiImplicitParam(name = "UUID", value = "通用唯一识别码", required = true, dataType = "String")
     })
-    @PostMapping(value = "/vehicle_binding", produces = "text/plain;charset=utf-8")
-    public String  vehicle_binding (String user_name,String license_plate_number,String picture_index,String registration,String vehicle_license,String UUID){
+    @PostMapping(value = "/vehicle_binding/{user_name}/{license_plate_number}/{picture_index}/{registration}/{vehicle_license}", produces = "text/plain;charset=utf-8")
+    public String  vehicle_binding (@PathVariable String user_name,@PathVariable String license_plate_number,@PathVariable String picture_index,@PathVariable String registration,@PathVariable String vehicle_license){
         return vehicleService.add_Vehicle(user_name,license_plate_number,picture_index,registration,vehicle_license);
     }
 
@@ -69,11 +68,21 @@ public class VehicleController {
     @ApiImplicitParams({
             @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String"),
             @ApiImplicitParam(name = "license_plate_number", value = "用户名", required = true, dataType = "String"),
-            @ApiImplicitParam(name = "UUID", value = "通用唯一识别码", required = true, dataType = "String")
     })
     @GetMapping(value = "/getVehicleNumber", produces = "application/json; charset=utf-8")
     public Vehicle_information getVehicleNumber (String user_name,String license_plate_number,String UUID){
         return vehicleService.getVehicleNumber(user_name,license_plate_number);
+    }
+
+
+    @ApiOperation(value = "检测车牌号与用户名是否匹配")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "license_plate_number", value = "车牌号", required = true, dataType = "String"),
+    })
+    @GetMapping(value = "/check_license_plate_number/{user_name}/{license_plate_number}", produces = "application/json; charset=utf-8")
+    public int check_license_plate_number (@PathVariable String user_name,@PathVariable String license_plate_number){
+        return vehicleService.check_license_plate_number(user_name,license_plate_number);
     }
 
 }

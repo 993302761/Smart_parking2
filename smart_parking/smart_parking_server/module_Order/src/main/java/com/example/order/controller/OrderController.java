@@ -31,11 +31,10 @@ public class OrderController {
             @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String"),
             @ApiImplicitParam(name = "parking_lot_number", value = "停车场编号", required = true, dataType = "String"),
             @ApiImplicitParam(name = "license_plate_number", value = "车牌号", required = true, dataType = "String"),
-            @ApiImplicitParam(name = "UUID", value = "通用唯一识别码", required = true, dataType = "String")
 
     })
     @PostMapping(value = "/generate_order", produces = "text/plain;charset=utf-8")
-    public String  generate_order (String user_name,String license_plate_number,String parking_lot_number,String UUID){
+    public String  generate_order (String user_name,String license_plate_number,String parking_lot_number){
         return orderService.generate_order(user_name,license_plate_number,parking_lot_number);
     }
 
@@ -44,11 +43,10 @@ public class OrderController {
     @ApiOperation(value = "app获取用户订单")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String"),
-            @ApiImplicitParam(name = "UUID", value = "通用唯一识别码", required = true, dataType = "String")
     })
-    @GetMapping(value = "/getUserOrder",produces = "application/json; charset=utf-8")
-    public List<Order_information> getUserOrder (String user_name, String UUID){
-        return orderService.getUserOrders(user_name);
+    @GetMapping(value = "/getOrderByUsername",produces = "application/json; charset=utf-8")
+    public List<Order_information> getUserOrder (String user_name){
+        return orderService.getOrderByUsername(user_name);
     }
 
 
@@ -62,16 +60,14 @@ public class OrderController {
     }
 
 
-    @ApiOperation(value = "搜索订单")
+    @ApiOperation(value = "根据订单编号搜索订单")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String"),
             @ApiImplicitParam(name = "order_number", value = "订单编号", required = true, dataType = "String"),
-            @ApiImplicitParam(name = "UUID", value = "通用唯一识别码", required = true, dataType = "String")
 
     })
-    @GetMapping(value = "/findOrder", produces = "application/json; charset=utf-8")
-    public Order_information findOrder (String user_name,String order_number,String UUID){
-        return orderService.getOrder(order_number);
+    @GetMapping(value = "/getOrderByNumber", produces = "application/json; charset=utf-8")
+    public Order_information getOrderByNumber (String order_number){
+        return orderService.getOrderByNumber(order_number);
     }
 
 
@@ -103,12 +99,10 @@ public class OrderController {
 
     @ApiOperation(value = "订单支付完成")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String"),
             @ApiImplicitParam(name = "order_number", value = "订单编号", required = true, dataType = "String"),
-            @ApiImplicitParam(name = "UUID", value = "通用唯一识别码", required = true, dataType = "String")
     })
     @PutMapping(value = "/complete_Order", produces = "text/plain;charset=utf-8")
-    public String complete_Order (String user_name,String order_number,String UUID){
+    public String complete_Order (String order_number){
         return orderService.complete_Order(order_number);
 
     }
@@ -117,12 +111,10 @@ public class OrderController {
 
     @ApiOperation(value = "app订单取消")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String"),
             @ApiImplicitParam(name = "order_number", value = "订单编号", required = true, dataType = "String"),
-            @ApiImplicitParam(name = "UUID", value = "通用唯一识别码", required = true, dataType = "String")
     })
     @PutMapping(value = "/app_cancellation_Order", produces = "text/plain;charset=utf-8")
-    public String app_cancellation_Order (String user_name,String order_number,String UUID){
+    public String app_cancellation_Order (String order_number){
         return orderService.app_cancellation_Order(order_number);
     }
 
@@ -136,6 +128,15 @@ public class OrderController {
     @PutMapping(value = "/parking_cancellation_Order", produces = "text/plain;charset=utf-8")
     public String parking_cancellation_Order (String parking_lot_number,String order_number){
         return orderService.parking_cancellation_Order(parking_lot_number,order_number);
+    }
+
+
+
+
+    @ApiOperation(value = "获取所有订单")
+    @GetMapping(value = "/getAllOrders", produces = "text/plain;charset=utf-8")
+    public List<Order_information> getAllOrder (){
+        return orderService.getAllOrders();
     }
 
 

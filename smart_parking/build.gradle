@@ -56,6 +56,14 @@ subprojects {
 
         testImplementation("junit:junit:${junit_version}")
 
+
+        //一个Lombok为啥写这么多？因为gradle5.0以上的版本都需要手动指定Lombok在编译期使用
+        compileOnly("org.projectlombok:lombok:${lombok_version}")
+        annotationProcessor("org.projectlombok:lombok:${lombok_version}")
+        testCompileOnly("org.projectlombok:lombok:${lombok_version}")
+        testAnnotationProcessor("org.projectlombok:lombok:${lombok_version}")
+
+
     }
 
 

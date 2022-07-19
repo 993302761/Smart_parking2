@@ -36,7 +36,10 @@ public class UserServiceImpl  {
      * @param user_id 身份证号码
      * @return 是否成功
      */
-    public String add_User(String user_name, String password, String user_id) {
+    public String add_User(String user_name, String password, String user_id,String license_plate_number, String picture_index,String registration,String vehicle_license) {
+        String s="用户:";
+        String url=vehicleURl+"/vehicle_binding/"+user_name+"/"+license_plate_number+"/"+picture_index+"/"+registration+"/"+vehicle_license;
+        String vehicle=restTemplate.getForObject(url,String.class);
         if (user_name==null||password==null||user_id==null){
             return "所填信息不完整";
         }
@@ -99,6 +102,15 @@ public class UserServiceImpl  {
     }
 
 
+    /**
+     * TODO：获取用户身份证
+     * @param user_name 用户名
+     * @return 用户身份证
+     */
+    public String getUserId(String user_name){
+        return userDao.getUserId(user_name);
+    }
+
 
     /**
      * TODO：UUID校验
@@ -151,13 +163,6 @@ public class UserServiceImpl  {
 
 
 
-    /**
-     * TODO：获取用户总量
-     * @return 用户总量
-     */
-    public Integer getAllUsersNumber() {
-        return userDao.getAllUsersNumber();
-    }
 
 
     /**
