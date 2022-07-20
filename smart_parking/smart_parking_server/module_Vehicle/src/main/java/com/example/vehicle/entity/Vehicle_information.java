@@ -8,10 +8,10 @@ import lombok.NoArgsConstructor;
 public class Vehicle_information {
 
     private String user_name;                   //用户名
-    private String user_id;;                    //身份证号
+    private String user_id;                    //身份证号
     private String license_plate_number;        //车牌号
-    private String picture_index;               //车辆照片
-    private String registration;                //机动车登记证照片
-    private String vehicle_license;             //车辆行驶证照片
+    private img picture_index;               //车辆照片
+    private img registration;                //机动车登记证照片
+    private img vehicle_license;             //车辆行驶证照片
 
 }

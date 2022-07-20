@@ -30,17 +30,23 @@ insert into User values("123","456","1234568789"),("18153301670","lyq2001124","4
         user_name：用户名
         user_id：身份证号
         license_plate_number：车牌号
-        picture_index：车辆照片
+        vehicle_photos ：车辆照片
+        vehicle_photos_Suffix：车辆照片后缀名
         registration：机动车登记证照片
-        vehicle_license：车辆行驶证照片
+        registration_Suffix：机动车登记证后缀名
+        driving_permit ：车辆行驶证照片
+        driving_permit_Suffix：车辆行驶证后缀名
         }
 
 create table Vehicle_information(user_name varchar(11) not null,
                                  user_id varchar(20) not null,
                                  license_plate_number varchar(20),
-                                 picture_index varchar(50),
-                                 registration varchar(50),
-                                 vehicle_license varchar(50))ENGINE=InnoDB DEFAULT CHARSET=utf8;
+                                 vehicle_photos mediumblob not null,
+                                 vehicle_photos_Suffix varchar(5) not null,
+                                 registration mediumblob not null,
+                                 registration_Suffix varchar(5) not null,
+                                 driving_permit mediumblob not null,
+                                 driving_permit_Suffix varchar(5) not null)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 

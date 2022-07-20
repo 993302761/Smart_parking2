@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor      //生成无参构造方法
 public class Vehicle {
     private String license_plate_number;        //车牌号
-    private String picture_index;               //车辆照片
-    private String registration;                //机动车登记证照片
-    private String vehicle_license;             //车辆行驶证照片
+    private img picture_index;               //车辆照片
+    private img registration;                //机动车登记证照片
+    private img vehicle_license;             //车辆行驶证照片
 }

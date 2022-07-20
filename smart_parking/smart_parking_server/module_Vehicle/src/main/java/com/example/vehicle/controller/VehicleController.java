@@ -27,14 +27,15 @@ public class VehicleController {
     @ApiOperation(value = "绑定车辆")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "user_id", value = "身份证号", required = true, dataType = "String"),
             @ApiImplicitParam(name = "license_plate_number", value = "车牌号", required = true, dataType = "String"),
             @ApiImplicitParam(name = "picture_index", value = "车辆照片", required = true, dataType = "String"),
             @ApiImplicitParam(name = "registration", value = "机动车登记证照片", required = true, dataType = "String"),
             @ApiImplicitParam(name = "vehicle_license", value = "车辆行驶证照片", required = true, dataType = "String"),
     })
-    @PostMapping(value = "/vehicle_binding/{user_name}/{license_plate_number}/{picture_index}/{registration}/{vehicle_license}", produces = "text/plain;charset=utf-8")
-    public String  vehicle_binding (@PathVariable String user_name,@PathVariable String license_plate_number,@PathVariable String picture_index,@PathVariable String registration,@PathVariable String vehicle_license){
-        return vehicleService.add_Vehicle(user_name,license_plate_number,picture_index,registration,vehicle_license);
+    @PostMapping(value = "/vehicle_binding/{user_name}/{user_id}/{license_plate_number}/{picture_index}/{registration}/{vehicle_license}", produces = "text/plain;charset=utf-8")
+    public String  vehicle_binding (@PathVariable String user_name,@PathVariable String user_id,@PathVariable String license_plate_number,@PathVariable String picture_index,@PathVariable String registration,@PathVariable String vehicle_license){
+        return vehicleService.add_Vehicle(user_name,user_id,license_plate_number,picture_index,registration,vehicle_license);
     }
 
 

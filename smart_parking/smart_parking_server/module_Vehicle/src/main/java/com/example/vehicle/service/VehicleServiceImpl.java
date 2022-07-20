@@ -6,8 +6,13 @@ import com.example.vehicle.entity.Vehicle;
 import com.example.vehicle.entity.Vehicle_information;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.multipart.MultipartFile;
+import org.hibernate.Hibernate;
 
 import javax.annotation.Resource;
+import java.io.InputStream;
+import java.sql.Blob;
+import java.sql.SQLException;
 import java.util.List;
 
 @Service
@@ -36,20 +41,15 @@ public class VehicleServiceImpl {
      * @param vehicle_license 车辆行驶证照片
      * @return 是否成功
      */
-    public String add_Vehicle(String user_name,String license_plate_number, String picture_index,String registration,String vehicle_license) {
-        if (user_name==null||license_plate_number==null||picture_index==null||registration==null||vehicle_license==null){
+    public String add_Vehicle(String user_name, String user_id,String license_plate_number, String picture_index,String registration,String vehicle_license) {
+        if (user_name==null||license_plate_number==null||user_id==null||picture_index==null||registration==null||vehicle_license==null){
             return "所填信息不完整";
-        }
-        String url=userURl+"/getUserId/"+user_name;
-        String userId=restTemplate.getForObject(url,String.class);
-        if (userId==null||userId.equals("")){
-            return "错误：600";
         }
         Vehicle_information vehicleNumber = getVehicleNumber(user_name, license_plate_number);
         if (vehicleNumber!=null){
             return "该车辆已注册，请勿重复注册";
         }
-        int i=vehicleDao.add_Vehicle(user_name,userId,license_plate_number,picture_index,registration,vehicle_license);
+        int i=vehicleDao.add_Vehicle(user_name,user_id,license_plate_number,picture_index,registration,vehicle_license);
         if (i<=0){
             return "添加车辆信息失败";
         }
@@ -122,5 +122,31 @@ public class VehicleServiceImpl {
         return vehicleDao.check_license_plate_number(user_name,license_plate_number);
     }
 
+
+
+    //文件－>Blob
+    public static Blob encode(MultipartFile file){
+        Blob b = null;
+        try
+        {
+            byte[] imgBytes = new byte[0];
+            imgBytes = file.getBytes();
+            b = Hibernate.createBlob(imgBytes);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return b;
+    }
+
+    //将Blob->文件
+    public static InputStream decode(Blob blob){
+        InputStream inputStream = null;
+        try {
+            inputStream =blob.getBinaryStream();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return inputStream;
+    }
 
 }
