@@ -31,6 +31,7 @@
 	Redis-version:6.2.5
 
 ## `OSCS`
-https://www.oscs1024.com/platform/badge/993302761/Smart_parking2.0.svg?size=small
+
+<a href="https://www.oscs1024.com/project/oscs/993302761/Smart_parking2.0?ref=badge_large" alt="OSCS Status"><img src="https://www.oscs1024.com/platform/badge/993302761/Smart_parking2.0.svg?size=large"/></a>
 
 
