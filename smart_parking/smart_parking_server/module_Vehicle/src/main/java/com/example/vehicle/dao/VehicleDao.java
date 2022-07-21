@@ -1,26 +1,24 @@
 package com.example.vehicle.dao;
 
-import com.example.vehicle.entity.Vehicle;
-import com.example.vehicle.entity.Vehicle_information;
+import com.example.vehicle.entity.Vehicle_Blob;
+import com.example.vehicle.entity.Vehicle_Blob_information;
 import org.apache.ibatis.annotations.*;
 
+import java.sql.Blob;
 import java.util.List;
 
 @Mapper
 public interface VehicleDao {
 
+
+
     /**
      * 查找用户绑定的车辆信息
      * */
-    @Select("SELECT license_plate_number,picture_index,registration,vehicle_license FROM Vehicle_information WHERE user_name =#{user_name}")
-    List<Vehicle> find_Vehicle(@Param("user_name") String user_name);
+    @Select("SELECT license_plate_number FROM Vehicle_information WHERE user_name =#{user_name}")
+    List<String> find_Vehicle(@Param("user_name") String user_name);
 
 
-    /**
-     * 查找车牌号
-     * */
-    @Select("SELECT * FROM Vehicle_information WHERE license_plate_number =#{license_plate_number}  and user_name =#{user_name}")
-    Vehicle_information find_license_plate_number(@Param("user_name") String user_name,@Param("license_plate_number") String license_plate_number);
 
 
     /**
@@ -29,20 +27,34 @@ public interface VehicleDao {
     @Select("SELECT count(1) FROM Vehicle_information WHERE user_name =#{user_name} and license_plate_number =#{license_plate_number} ")
     int check_license_plate_number(@Param("user_name") String user_name,@Param("license_plate_number") String license_plate_number);
 
+
+
+
     /**
      * 增加一条车辆信息
      *
      * */
-    @Insert("INSERT INTO Vehicle_information VALUES(#{user_name}, #{user_id}, #{license_plate_number}, #{picture_index}, #{registration}, #{vehicle_license})")
-    int add_Vehicle(@Param("user_name") String user_name,@Param("user_id")  String user_id,@Param("license_plate_number")  String license_plate_number,@Param("picture_index")  String picture_index,@Param("registration")  String registration,@Param("vehicle_license")  String vehicle_license);
+    @Insert("INSERT INTO Vehicle_information VALUES(" +
+            "#{user_name}," +
+            " #{user_id}, " +
+            "#{license_plate_number}, " +
+            "#{vehicle_photos}, " +
+            "#{vehicle_photos_suffix}, " +
+            "#{registration}, " +
+            "#{registration_suffix}, " +
+            "#{driving_permit}, " +
+            "#{driving_permit_suffix})")
+    int add_Vehicle(@Param("user_name") String user_name,
+                    @Param("user_id")  String user_id,
+                    @Param("license_plate_number")  String license_plate_number,
+                    @Param("vehicle_photos") Blob vehicle_photos,
+                    @Param("vehicle_photos_suffix")  String vehicle_photos_suffix,
+                    @Param("registration")  Blob registration,
+                    @Param("registration_suffix")  String registration_suffix,
+                    @Param("driving_permit")  Blob driving_permit,
+                    @Param("driving_permit_suffix")  String driving_permit_suffix);
 
 
-    /**
-     * 获取所有的车辆信息
-     *
-     */
-    @Select("select * from Vehicle_information")
-    List<Vehicle_information> getAllVehicle();
 
 
     /**
@@ -53,9 +65,5 @@ public interface VehicleDao {
     int deleteUserVehicle(@Param("user_name") String user_name,@Param("license_plate_number")  String license_plate_number);
 
 
-    /**
-     * 删除所有已绑的车辆信息
-     */
-    @Delete("DELETE FROM Vehicle_information")
-    void delete_Vehicle();
+
 }

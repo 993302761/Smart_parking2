@@ -66,7 +66,6 @@ public class OrderController {
             @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String"),
             @ApiImplicitParam(name = "order_number", value = "订单编号", required = true, dataType = "String"),
             @ApiImplicitParam(name = "UUID", value = "通用唯一识别码", required = true, dataType = "String")
-
     })
     @GetMapping(value = "/findOrder", produces = "application/json; charset=utf-8")
     public Order_information findOrder (String user_name,String order_number,String UUID){

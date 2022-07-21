@@ -81,13 +81,34 @@ public class ParkingLotsController {
     }
 
 
-    @ApiOperation(value = "根据停车场编号查找停车场收费标准")
+    @ApiOperation(value = "根据停车场编号获取停车场收费标准")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "parking_lot_number", value = "停车场编号", required = true, dataType = "String"),
     })
     @GetMapping(value = "/getParkingBilling_rules/{parking_lot_number}", produces = "text/json; charset=utf-8")
     public float getParkingBilling_rules (@PathVariable String parking_lot_number ){
         return parkingLotService.getParkingBilling_rules(parking_lot_number);
+    }
+
+
+    @ApiOperation(value = "停车场订单取消")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "parking_lot_number", value = "停车场编号", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "order_number", value = "订单编号", required = true, dataType = "String")
+    })
+    @PutMapping(value = "/parking_cancellation_Order", produces = "text/plain;charset=utf-8")
+    public String parking_cancellation_Order (String parking_lot_number,String order_number){
+
+    }
+
+
+    @ApiOperation(value = "查找停车场")
+    @ApiImplicitParams({
+
+    })
+    @PutMapping(value = "/parking_cancellation_Order", produces = "text/plain;charset=utf-8")
+    public String parking_cancellation_Order (String parking_lot_number,String order_number){
+
     }
 
 

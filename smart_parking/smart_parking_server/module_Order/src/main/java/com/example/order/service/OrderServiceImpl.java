@@ -275,11 +275,5 @@ public class OrderServiceImpl {
 
 
 
-    /**
-     * TODO：删除所有订单信息
-     */
-    public void delete_Order (){
-        orderDao.delete_Order();
-    }
 
 }

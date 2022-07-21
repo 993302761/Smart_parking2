@@ -1,8 +1,8 @@
 MYSQL
 
-create database Smart_parking;
-//数据库名
+create database Smart_parking_data;
 
+//数据库-数据部分
 
 ==========================================
 
@@ -31,53 +31,23 @@ insert into User values("123","456","1234568789"),("18153301670","lyq2001124","4
         user_id：身份证号
         license_plate_number：车牌号
         vehicle_photos ：车辆照片
-        vehicle_photos_Suffix：车辆照片后缀名
+        vehicle_photos_suffix：车辆照片后缀名
         registration：机动车登记证照片
-        registration_Suffix：机动车登记证后缀名
+        registration_suffix：机动车登记证后缀名
         driving_permit ：车辆行驶证照片
-        driving_permit_Suffix：车辆行驶证后缀名
+        driving_permit_suffix：车辆行驶证后缀名
         }
 
 create table Vehicle_information(user_name varchar(11) not null,
                                  user_id varchar(20) not null,
                                  license_plate_number varchar(20),
                                  vehicle_photos mediumblob not null,
-                                 vehicle_photos_Suffix varchar(5) not null,
+                                 vehicle_photos_suffix varchar(5) not null,
                                  registration mediumblob not null,
-                                 registration_Suffix varchar(5) not null,
+                                 registration_suffix varchar(5) not null,
                                  driving_permit mediumblob not null,
-                                 driving_permit_Suffix varchar(5) not null)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+                                 driving_permit_suffix varchar(5) not null)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
-
-
-
-================================================================
-
-        Order_information                  //订单信息表
-        {
-         order_number:订单编号
-         generation_time：订单生成时间
-        user_name：用户名
-        inTime：进入时间
-        outTime：离开时间
-        parking_lot_name：停车场名
-        parking_lot_number ：停车场编号
-        license_plate_number ：车牌号
-        payment_amount ：支付金额
-        order_status :订单状态
-        }
-
-create table Order_information( order_number varchar(50)  primary key,
-                                 generation_time datetime(0) not null,
-                                 user_name varchar(11) not null,
-                                 inTime datetime(0),
-                                 outTime datetime(0),
-                                 parking_lot_name varchar(50),
-                                 parking_lot_number varchar(20) not null,
-                                 license_plate_number varchar(20) not null,
-                                 payment_amount float,
-                                 order_status varchar(20) not null)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 
@@ -137,6 +107,41 @@ insert into Administrators values("123","123");
 
 =========================================================================
 
+create database Smart_parking_order;
+//数据库-订单部分
+
+
+
+        Order_information                  //订单信息表
+        {
+         order_number:订单编号
+         generation_time：订单生成时间
+        user_name：用户名
+        inTime：进入时间
+        outTime：离开时间
+        parking_lot_name：停车场名
+        parking_lot_number ：停车场编号
+        license_plate_number ：车牌号
+        payment_amount ：支付金额
+        order_status :订单状态
+        }
+
+create table Order_information( order_number varchar(50)  primary key,
+                                 generation_time datetime(0) not null,
+                                 user_name varchar(11) not null,
+                                 inTime datetime(0),
+                                 outTime datetime(0),
+                                 parking_lot_name varchar(50),
+                                 parking_lot_number varchar(20) not null,
+                                 license_plate_number varchar(20) not null,
+                                 payment_amount float,
+                                 order_status varchar(20) not null)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+============================================================================
+
+
+
 Redis
 {
 
@@ -148,20 +153,12 @@ Redis
         }
 
 
-        record                  //访问记录
-        {
-        time：时间
-        user_name:用户名
-        Interface_name：请求接口
-        Access_results：访问结果
-        }
 
 
          Recent_login_user      //最近登录的用户
          {
          UUID：通用唯一识别码
          user_name：用户名
-         heartTime：心跳时间
          }
 
 }

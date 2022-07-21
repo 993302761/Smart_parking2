@@ -7,6 +7,7 @@ import com.example.user.entity.User;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -27,6 +28,7 @@ public class UserServiceImpl  {
     @Resource
     private RestTemplate restTemplate;
 
+
     private final String vehicleURl="http://www.localhost:9005/Vehicle";
 
     /**
@@ -36,24 +38,28 @@ public class UserServiceImpl  {
      * @param user_id 身份证号码
      * @return 是否成功
      */
-    public String add_User(String user_name, String password, String user_id,String license_plate_number, String picture_index,String registration,String vehicle_license) {
+    public String add_User(String user_name, String password, String user_id, String license_plate_number, MultipartFile vehicle_photos, MultipartFile registration, MultipartFile driving_permit) {
         String s="用户:";
-        String url=vehicleURl+"/vehicle_binding/"+user_name+"/"+license_plate_number+"/"+picture_index+"/"+registration+"/"+vehicle_license;
-        String vehicle=restTemplate.getForObject(url,String.class);
+
         if (user_name==null||password==null||user_id==null){
-            return "所填信息不完整";
+            s+= "所填信息不完整";
         }
         User_information user = userDao.find_User(user_name);
         if (user!=null){
-            return "用户已注册";
+            s+= "用户已注册";
         }
         int i= userDao.add_User(user_name,password,user_id);
         if (i<=0){
-            return "注册失败";
+            s+="注册失败";
         }
         else {
-            return "注册成功";
+            s+="注册成功";
         }
+        s+=" 车辆信息：";
+        String url=vehicleURl+"/vehicle_binding/"+user_name+"/"+license_plate_number+"/"+vehicle_photos+"/"+registration+"/"+driving_permit;
+        String vehicle=restTemplate.getForObject(url,String.class);
+        s+=vehicle;
+        return s;
     }
 
 
@@ -102,6 +108,7 @@ public class UserServiceImpl  {
     }
 
 
+
     /**
      * TODO：获取用户身份证
      * @param user_name 用户名
@@ -110,6 +117,8 @@ public class UserServiceImpl  {
     public String getUserId(String user_name){
         return userDao.getUserId(user_name);
     }
+
+
 
 
     /**
@@ -182,6 +191,7 @@ public class UserServiceImpl  {
         }
         return newUsers;
     }
+
 
 
 

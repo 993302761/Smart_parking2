@@ -1,13 +1,18 @@
 server:
   port: 8652
+
 spring:
   application:
     name: eureka-server
+
 eureka:
   instance:
     hostname: eureka02
+    #perfer-ip-address和instance-id是为了在服务中心暴露的是ip+port的模式
     prefer-ip-address: true
     instance-id: ${spring.cloud.client.ipaddress}:${server.port}
   client:
     service-url:                    #对中心外暴露的地址
       defaultZone: http://localhost:8651/eureka/
+    register-with-eureka: true      #是否将自己注册到注册中心，默认为true
+    fetch-registry: true            #是否从注册中心获取注册信息，默认为true
