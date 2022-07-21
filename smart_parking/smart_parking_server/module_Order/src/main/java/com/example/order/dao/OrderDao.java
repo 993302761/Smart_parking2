@@ -15,6 +15,13 @@ public interface OrderDao {
     Order_information getOrderByNumber(@Param("order_number") String order_number);
 
 
+    /**
+     * 用户查找订单
+     * */
+    @Select("select * from Order_information WHERE user_name =#{user_name} and order_number =#{order_number} ")
+    Order_information userGetOrderByNumber(@Param("user_name") String user_name,@Param("order_number") String order_number);
+
+
 
 
     /**
@@ -108,11 +115,6 @@ public interface OrderDao {
 
 
 
-    /**
-     * 删除所有订单
-     */
-    @Delete("DELETE FROM Order_information")
-    void delete_Order();
 
 
 }

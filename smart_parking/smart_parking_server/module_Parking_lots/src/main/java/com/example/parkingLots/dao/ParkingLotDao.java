@@ -48,7 +48,7 @@ public interface ParkingLotDao {
      * 根据停车场编号查找停车场计费
      * */
     @Select("SELECT billing_rules FROM Parking_lot_information WHERE parking_lot_number =#{parking_lot_number}")
-    float getParkingBilling_rules(@Param("parking_lot_number") String parking_lot_number);
+    Float getParkingBilling_rules(@Param("parking_lot_number") String parking_lot_number);
 
 
 
@@ -66,21 +66,22 @@ public interface ParkingLotDao {
      */
     @Results({
             @Result(property = "parking_lot_name", column = "parking_lot_name"),
-            @Result(property = "Parking_in_the_city", column = "Parking_in_the_city"),
+            @Result(property = "parking_in_the_city", column = "parking_in_the_city"),
             @Result(property = "parking_lot_number", column = "parking_lot_number"),
             @Result(property = "parking_spaces_num", column = "parking_spaces_num"),
             @Result(property = "billing_rules", column = "billing_rules"),
             @Result(property = "longitude", column = "longitude"),
             @Result(property = "latitude", column = "latitude")
     })
-    @Select("select parking_lot_name," +
-            "Parking_in_the_city," +
+    @Select("select " +
+            "parking_lot_name," +
+            "parking_in_the_city," +
             "parking_lot_number," +
             "parking_spaces_num," +
             "billing_rules," +
             "longitude," +
-            "latitude from Parking_lot_information WHERE Parking_in_the_city =#{Parking_in_the_city}")
-    List<Parking_for_user> get_parking_lot(@Param("Parking_in_the_city") String Parking_in_the_city);
+            "latitude from Parking_lot_information WHERE parking_in_the_city =#{city}")
+    List<Parking_for_user> get_parking_lot(@Param("city") String city);
 
 
     /**

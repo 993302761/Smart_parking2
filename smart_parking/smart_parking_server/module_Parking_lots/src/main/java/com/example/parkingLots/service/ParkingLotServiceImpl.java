@@ -1,12 +1,13 @@
 package com.example.parkingLots.service;
 
-import com.example.parkingLots.config.RedisConfig;
 import com.example.parkingLots.dao.ParkingLotDao;
 import com.example.parkingLots.entity.Parking;
 import com.example.parkingLots.entity.Parking_for_user;
 import com.example.parkingLots.entity.Parking_lot_information;
 
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -32,7 +33,7 @@ public class ParkingLotServiceImpl {
 
     private final String parkingLotURl="http://www.localhost:9002/ParkingLots";
 
-    private final String vehicleURl="http://www.localhost:9005/Vehicle";
+    private final String vehicleURl="http://www.localhost:9004/Vehicle";
 
 
 
@@ -103,6 +104,26 @@ public class ParkingLotServiceImpl {
 
 
 
+
+    /**
+     * TODO：查找停车场
+     * @param parking_lot_name 停车场名
+     * @param city 当前所在城市
+     */
+    public List<Parking_for_user> getParkingLot (String parking_lot_name,String city){
+        List<Parking_for_user> parking_lot = get_parking_lot(city);
+        for (int i = 0; i < parking_lot.size(); i++) {
+            if (!parking_lot.get(i).getParking_lot_name().contains(parking_lot_name)){
+                parking_lot.remove(i);
+            }
+        }
+        return parking_lot;
+    }
+
+
+
+
+
     /**
      * TODO：车位情况变化
      * @param parking_lot_number 停车场编号
@@ -110,12 +131,32 @@ public class ParkingLotServiceImpl {
      */
     public void change_parking_space(String parking_lot_number ,String Available_place_num){
         Parking_lot_information parking_num = parkingLotDao.getParkingByPNumber(parking_lot_number);
+        if (parking_num==null){
+            System.out.println("无此停车场");
+            return;
+        }
         if (parking_num.getParking_spaces_num()<Integer.parseInt(Available_place_num)){
             System.out.println("数据错误");
             return;
         }
         redisTemplate.opsForValue().set(parking_lot_number, Available_place_num);
     }
+
+
+
+
+
+    /**
+     * TODO：停车场取消订单
+     * @param order_number 订单编号
+     * @return 是否成功
+     */
+    public ResponseEntity<String> parking_cancellation_Order (String parking_lot_number, String order_number){
+        String url=orderURl+"/parking_cancellation_Order/"+parking_lot_number+"/"+order_number;
+        ResponseEntity<String> exchange = restTemplate.exchange(url, HttpMethod.PUT, null, String.class);
+        return exchange;
+    }
+
 
 
 
@@ -160,8 +201,9 @@ public class ParkingLotServiceImpl {
      * TODO：根据停车场编号查找停车场名
      * @return 根据停车场编号查找停车场名
      */
-    public float getParkingBilling_rules(String parking_lot_number) {
-        return parkingLotDao.getParkingBilling_rules(parking_lot_number);
+    public String getParkingBilling_rules(String parking_lot_number) {
+        float s= parkingLotDao.getParkingBilling_rules(parking_lot_number);
+        return Float.toString(s);
     }
 
 

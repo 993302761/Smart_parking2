@@ -19,7 +19,7 @@ create table User(user_name varchar(11) primary key,
                   password varchar(50) not null,
                   user_id varchar(20) not null);
 
-insert into User values("123","456","1234568789"),("18153301670","lyq2001124","435481224685221384");
+insert into User values("123","123","1234568789"),("18153301670","lyq2001124","435481224685221384");
 
 =======================================
 
@@ -60,7 +60,7 @@ create table Vehicle_information(user_name varchar(11) not null,
         pctr_id：停车场管理员账号
         pctr_password：停车场管理员密码
         parking_lot_name：停车场名
-        Parking_in_the_city :停车场所在城市
+        parking_in_the_city :停车场所在城市
         parking_lot_number：停车场编号
         parking_spaces_num：车位数量
         billing_rules：计费规则  (元/小时)
@@ -72,7 +72,7 @@ create table Vehicle_information(user_name varchar(11) not null,
 create table Parking_lot_information(pctr_id varchar(11) primary key,
                                      pctr_password varchar(50) not null,
                                      parking_lot_name varchar(50) not null,
-                                     Parking_in_the_city varchar(50) not null,
+                                     parking_in_the_city varchar(50) not null,
                                      parking_lot_number varchar(20) not null,
                                      parking_spaces_num int not null,
                                      billing_rules float not null,

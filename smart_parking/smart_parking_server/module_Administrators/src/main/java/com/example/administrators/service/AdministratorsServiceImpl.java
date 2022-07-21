@@ -20,13 +20,11 @@ public class AdministratorsServiceImpl {
     @Resource
     private RestTemplate restTemplate;
 
-    private final String userURl="http://www.localhost:9004/User";
+    private final String userURl="http://www.localhost:9003/User";
 
     private final String orderURl="http://www.localhost:9001/Order";
 
     private final String parkingLotURl="http://www.localhost:9002/ParkingLots";
-
-    private final String vehicleURl="http://www.localhost:9005/Vehicle";
 
 
     /**
@@ -79,7 +77,7 @@ public class AdministratorsServiceImpl {
      * @return 获取订单列表
      */
     public Object getAllOrder() {
-        String classUrl=orderURl+"/getAllOrder";
+        String classUrl=orderURl+"/getAllOrders";
         Object order=restTemplate.getForObject(classUrl,Object.class);
         return order;
     }

@@ -29,13 +29,19 @@ public class UserServiceImpl  {
     private RestTemplate restTemplate;
 
 
-    private final String vehicleURl="http://www.localhost:9005/Vehicle";
+    private final String parkingLotURl="http://www.localhost:9002/ParkingLots";
+
+    private final String vehicleURl="http://www.localhost:9004/Vehicle";
 
     /**
      * TODO：添加一名用户
      * @param user_name 用户名
      * @param password 密码
      * @param user_id 身份证号码
+     * @param license_plate_number 车牌号
+     * @param vehicle_photos 车辆照片
+     * @param registration 机动车登记证照片
+     * @param driving_permit 车辆行驶证照片
      * @return 是否成功
      */
     public String add_User(String user_name, String password, String user_id, String license_plate_number, MultipartFile vehicle_photos, MultipartFile registration, MultipartFile driving_permit) {
@@ -56,7 +62,7 @@ public class UserServiceImpl  {
             s+="注册成功";
         }
         s+=" 车辆信息：";
-        String url=vehicleURl+"/vehicle_binding/"+user_name+"/"+license_plate_number+"/"+vehicle_photos+"/"+registration+"/"+driving_permit;
+        String url=vehicleURl+"/vehicle_binding/"+user_name+"/"+user_id+"/"+license_plate_number+"/"+vehicle_photos+"/"+registration+"/"+driving_permit;
         String vehicle=restTemplate.getForObject(url,String.class);
         s+=vehicle;
         return s;
@@ -105,6 +111,19 @@ public class UserServiceImpl  {
             return true;
         }
         else return false;
+    }
+
+
+
+    /**
+     * TODO：查找停车场
+     * @param parking_lot_name 停车场名
+     * @param city 当前所在城市
+     */
+    public Object getParkingLot (String parking_lot_name,String city){
+        String url=parkingLotURl+"/getParkingLot/"+parking_lot_name+"/"+city;
+        Object ParkingLot =restTemplate.getForObject(url,Object.class);
+        return ParkingLot;
     }
 
 

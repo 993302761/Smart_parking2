@@ -64,8 +64,8 @@ public class VehicleController {
             @ApiImplicitParam(name = "license_plate_number", value = "车牌号", required = true, dataType = "String"),
 
     })
-    @DeleteMapping(value = "/deleteVehicle", produces = "text/json; charset=utf-8")
-    public String deleteVehicle (String user_name, String license_plate_number){
+    @DeleteMapping(value = "/deleteVehicle/{user_name}/{license_plate_number}", produces = "text/plain; charset=utf-8")
+    public String deleteVehicle (@PathVariable String user_name, @PathVariable String license_plate_number){
         return vehicleService.delete_User_Vehicle(user_name, license_plate_number);
     }
 

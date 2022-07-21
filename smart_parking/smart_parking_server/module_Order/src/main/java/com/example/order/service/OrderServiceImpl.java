@@ -4,6 +4,7 @@ import com.example.order.dao.OrderDao;
 import com.example.order.entity.Order_information;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
@@ -22,11 +23,10 @@ public class OrderServiceImpl {
     @Resource
     private RestTemplate restTemplate;
 
-    private final String userURl="http://www.localhost:9004/User";
 
     private final String parkingLotURl="http://www.localhost:9002/ParkingLots";
 
-    private final String vehicleURl="http://www.localhost:9005/Vehicle";
+    private final String vehicleURl="http://www.localhost:9004/Vehicle";
 
 
     /**
@@ -73,6 +73,7 @@ public class OrderServiceImpl {
         else {
             return "订单开始";
         }
+
     }
 
 
@@ -158,6 +159,9 @@ public class OrderServiceImpl {
      */
     public String setStatus_out (String license_plate_number ,String parking_lot_number) {
         Order_information order = orderDao.getOrderByParkingAndOrder(parking_lot_number, license_plate_number);
+        if (order==null){
+            return "未找到此订单";
+        }
         if (order.getOutTime()!=null){
             return "订单错误";
         }
@@ -193,15 +197,26 @@ public class OrderServiceImpl {
     }
 
 
+    /**
+     * TODO：订单支付完成
+     * @param user_name 用户名
+     * @param parking_lot_number 订单编号
+     * @return 是否成功
+     */
+    public Order_information userGetParkingOrder ( String user_name, String parking_lot_number){
+       return orderDao.userGetOrderByNumber(user_name,parking_lot_number);
+    }
+
 
 
     /**
      * TODO：订单支付完成
+     * @param user_name 用户名
      * @param order_number 订单编号
      * @return 是否成功
      */
-    public String complete_Order (String order_number){
-        Order_information order = orderDao.getOrderByNumber(order_number);
+    public String complete_Order (String user_name,String order_number){
+        Order_information order = orderDao.userGetOrderByNumber(user_name,order_number);
         if (order==null){
             return "未找到订单";
         }
@@ -215,11 +230,12 @@ public class OrderServiceImpl {
 
     /**
      * TODO：app取消订单
+     * @param user_name 用户名
      * @param order_number 订单编号
      * @return 是否成功
      */
-    public String app_cancellation_Order (String order_number){
-        Order_information order = orderDao.getOrderByNumber(order_number);
+    public String app_cancellation_Order (String user_name,String order_number){
+        Order_information order = orderDao.userGetOrderByNumber(user_name,order_number);
         if (order==null){
             return "未找到订单";
         }
