@@ -3,7 +3,18 @@ server:
 
 spring:
     datasource:
-        url: jdbc:mysql://localhost:3306/Smart_parking
+        url: jdbc:mysql://localhost:3306/Smart_parking_data
         username: root
         password: "001124"
         driver-class-name: com.mysql.cj.jdbc.Driver
+
+#    #mybatis-plus配置
+#    mybatis-plus:
+#        #配置Mapper映射文件
+#        mapper-locations: classpath:/mybatis/mappers/*.xml
+#        # 配置Mybatis数据返回类型别名（默认别名为类名）
+#        type-aliases-package: com.example.administrators.entity
+#        configuration:
+#            # 自动驼峰命名
+#            # 解决连接数据库后，java的驼峰命名方式与数据库中的字段不对应的问题，比如parentId与数据库中parent_id这个字段
+#            map-underscore-to-camel-case: false

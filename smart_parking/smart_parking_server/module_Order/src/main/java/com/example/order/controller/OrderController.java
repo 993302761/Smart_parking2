@@ -60,10 +60,22 @@ public class OrderController {
     }
 
 
+
+    @ApiOperation(value = "app用户查找订单")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "parking_lot_number", value = "停车场编号", required = true, dataType = "String")
+    })
+    @GetMapping(value = "/userGetParkingOrder/{user_name}/{parking_lot_number}", produces = "application/json; charset=utf-8")
+    public Order_information userGetParkingOrder (@PathVariable String user_name,@PathVariable String parking_lot_number){
+        return orderService.userGetParkingOrder(user_name,parking_lot_number);
+    }
+
+
+
     @ApiOperation(value = "根据订单编号搜索订单")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "order_number", value = "订单编号", required = true, dataType = "String"),
-
     })
     @GetMapping(value = "/getOrderByNumber", produces = "application/json; charset=utf-8")
     public Order_information getOrderByNumber (String order_number){
@@ -99,11 +111,12 @@ public class OrderController {
 
     @ApiOperation(value = "订单支付完成")
     @ApiImplicitParams({
+            @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String"),
             @ApiImplicitParam(name = "order_number", value = "订单编号", required = true, dataType = "String"),
     })
-    @PutMapping(value = "/complete_Order", produces = "text/plain;charset=utf-8")
-    public String complete_Order (String order_number){
-        return orderService.complete_Order(order_number);
+    @PutMapping(value = "/complete_Order/{user_name}/{order_number}", produces = "text/plain;charset=utf-8")
+    public String complete_Order (@PathVariable String user_name,@PathVariable String order_number){
+        return orderService.complete_Order(user_name,order_number);
 
     }
 
@@ -111,11 +124,12 @@ public class OrderController {
 
     @ApiOperation(value = "app订单取消")
     @ApiImplicitParams({
+            @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String"),
             @ApiImplicitParam(name = "order_number", value = "订单编号", required = true, dataType = "String"),
     })
-    @PutMapping(value = "/app_cancellation_Order", produces = "text/plain;charset=utf-8")
-    public String app_cancellation_Order (String order_number){
-        return orderService.app_cancellation_Order(order_number);
+    @PutMapping(value = "/app_cancellation_Order/{user_name}/{order_number}", produces = "text/plain;charset=utf-8")
+    public String app_cancellation_Order (@PathVariable String user_name,@PathVariable String order_number){
+        return orderService.app_cancellation_Order(user_name,order_number);
     }
 
 
@@ -125,8 +139,8 @@ public class OrderController {
             @ApiImplicitParam(name = "parking_lot_number", value = "停车场编号", required = true, dataType = "String"),
             @ApiImplicitParam(name = "order_number", value = "订单编号", required = true, dataType = "String")
     })
-    @PutMapping(value = "/parking_cancellation_Order", produces = "text/plain;charset=utf-8")
-    public String parking_cancellation_Order (String parking_lot_number,String order_number){
+    @PutMapping(value = "/parking_cancellation_Order/{parking_lot_number}/{order_number}", produces = "text/plain;charset=utf-8")
+    public String parking_cancellation_Order (@PathVariable String parking_lot_number,@PathVariable String order_number){
         return orderService.parking_cancellation_Order(parking_lot_number,order_number);
     }
 
@@ -134,8 +148,8 @@ public class OrderController {
 
 
     @ApiOperation(value = "获取所有订单")
-    @GetMapping(value = "/getAllOrders", produces = "text/plain;charset=utf-8")
-    public List<Order_information> getAllOrder (){
+    @GetMapping(value = "/getAllOrders")
+    public Object getAllOrders (){
         return orderService.getAllOrders();
     }
 

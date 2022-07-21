@@ -24,11 +24,6 @@ public interface UserDao {
 
 
 
-    /**
-     * 获取用户总量
-     */
-    @Select("select count(1) from User")
-    int getAllUsersNumber();
 
 
     /**

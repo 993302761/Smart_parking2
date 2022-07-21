@@ -1,6 +1,7 @@
 package com.example.parkingLots.controller;
 
 import com.example.parkingLots.entity.Parking;
+import com.example.parkingLots.entity.Parking_for_user;
 import com.example.parkingLots.service.ParkingLotServiceImpl;
 
 import io.swagger.annotations.Api;
@@ -8,6 +9,7 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -71,6 +73,8 @@ public class ParkingLotsController {
     }
 
 
+
+
     @ApiOperation(value = "根据停车场编号查找停车场名")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "parking_lot_number", value = "停车场编号", required = true, dataType = "String"),
@@ -81,15 +85,38 @@ public class ParkingLotsController {
     }
 
 
-    @ApiOperation(value = "根据停车场编号查找停车场收费标准")
+
+
+    @ApiOperation(value = "根据停车场编号获取停车场收费标准")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "parking_lot_number", value = "停车场编号", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "parking_lot_number", value = "停车场编号", required = true, dataType = "String")
     })
-    @GetMapping(value = "/getParkingBilling_rules/{parking_lot_number}", produces = "text/json; charset=utf-8")
-    public float getParkingBilling_rules (@PathVariable String parking_lot_number ){
+    @GetMapping(value = "/getParkingBilling_rules/{parking_lot_number}", produces = "text/plain; charset=utf-8")
+    public String getParkingBilling_rules (@PathVariable String parking_lot_number ){
         return parkingLotService.getParkingBilling_rules(parking_lot_number);
     }
 
+
+    @ApiOperation(value = "停车场订单取消")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "parking_lot_number", value = "停车场编号", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "order_number", value = "订单编号", required = true, dataType = "String")
+    })
+    @PutMapping(value = "/parking_cancellation_Order", produces = "text/plain;charset=utf-8")
+    public ResponseEntity<String> parking_cancellation_Order (String parking_lot_number, String order_number){
+        return parkingLotService.parking_cancellation_Order(parking_lot_number,order_number);
+    }
+
+
+    @ApiOperation(value = "查找停车场")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "parking_lot_name", value = "停车场名", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "city", value = "所在城市", required = true, dataType = "String")
+    })
+    @GetMapping(value = "/getParkingLot/{parking_lot_name}/{city}", produces = "application/json;charset=utf-8")
+    public List<Parking_for_user> getParkingLot (@PathVariable String parking_lot_name, @PathVariable String city){
+        return parkingLotService.getParkingLot(parking_lot_name,city);
+    }
 
 
     @ApiOperation(value = "获取某一区域停车场情况")
@@ -97,7 +124,7 @@ public class ParkingLotsController {
             @ApiImplicitParam(name = "city", value = "所在城市", required = true, dataType = "String"),
     })
     @GetMapping(value = "/get_parking_lot/{city}", produces = "application/json; charset=utf-8")
-    public Object get_parking_lot (@PathVariable String city){
+    public List<Parking_for_user> get_parking_lot (@PathVariable String city){
         return parkingLotService.get_parking_lot(city);
     }
 

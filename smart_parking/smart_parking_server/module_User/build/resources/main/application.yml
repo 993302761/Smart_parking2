@@ -1,9 +1,9 @@
 server:
-    port: 9004
+    port: 9003
 
 spring:
     datasource:
-        url: jdbc:mysql://localhost:3306/Smart_parking
+        url: jdbc:mysql://localhost:3306/Smart_parking_data
         username: root
         password: "001124"
         driver-class-name: com.mysql.cj.jdbc.Driver
