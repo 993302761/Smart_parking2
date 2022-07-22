@@ -8,8 +8,9 @@ spring:
     datasource:
         url: jdbc:mysql://localhost:3306/Smart_parking_order
         username: root
-        password: root
+        password: "001124"
         driver-class-name: com.mysql.cj.jdbc.Driver
+
 eureka:
     instance:
         hostname: provider02
@@ -20,7 +21,8 @@ eureka:
         #      注册到注册中心
         service-url:
             defaultZone: http://localhost:8651/eureka/,http://localhost:8652/eureka/
-# 当输入  http://localhost:9000/actuator/shutdown就会关机
+
+# 当输入  http://localhost:9001/actuator/shutdown就会关机
 management:
     endpoints:
         web:
