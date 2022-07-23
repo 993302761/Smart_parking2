@@ -25,14 +25,7 @@ public class VehicleServiceImpl {
     @Resource
     private VehicleDao vehicleDao;
 
-    @Resource
-    private RestTemplate restTemplate;
 
-    private final String userURl="http://www.localhost:9004/User";
-
-    private final String orderURl="http://www.localhost:9001/Order";
-
-    private final String parkingLotURl="http://www.localhost:9002/ParkingLots";
 
     private final String filepath = "/home/lyq/UserVehicle/";
     //存放图片的文件夹

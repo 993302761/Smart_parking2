@@ -13,10 +13,12 @@ public class UserOrderServiceImpl {
     @Resource
     private RestTemplate restTemplate;
 
-    private final String orderURl="http://www.localhost:9001/Order";
 
-    private final String parkingLotURl="http://www.localhost:9002/ParkingLots";
 
+
+    private final String orderURl="http://ClientOrder/Order";
+
+    private final String parkingLotURl="http://ClientParkingLots/ParkingLots";
 
 
 

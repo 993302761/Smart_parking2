@@ -24,10 +24,12 @@ public class OrderServiceImpl {
     private RestTemplate restTemplate;
 
 
-    private final String parkingLotURl="http://www.localhost:9002/ParkingLots";
 
-    private final String vehicleURl="http://www.localhost:9004/Vehicle";
+    private final String vehicleURl="http://ClientVehicle/Vehicle";
 
+
+
+    private final String parkingLotURl="http://ClientParkingLots/ParkingLots";
 
     /**
      * TODO：生成订单

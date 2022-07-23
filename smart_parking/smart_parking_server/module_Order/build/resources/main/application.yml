@@ -2,20 +2,16 @@ server:
     port: 9001
 
 spring:
-    #  服务名称
+    #  服务名称------服务名称不能使用下划线，删除下划线或者使用中划线
     application:
-        name: Provider_Order
+        name: ClientOrder
     datasource:
         url: jdbc:mysql://localhost:3306/Smart_parking_order
         username: root
-        password: root
+        password: "001124"
         driver-class-name: com.mysql.cj.jdbc.Driver
+
 eureka:
-    instance:
-        hostname: provider02
-        #        暴露对应服务ip
-        prefer-ip-address: true
-        instance-id: ${spring.cloud.client.ipaddress}:${server.port}
     client:
         #      注册到注册中心
         service-url:
@@ -24,8 +20,8 @@ eureka:
 management:
     endpoints:
         web:
-          exposure:
-            include: shutdown
+            exposure:
+                include: shutdown
     endpoint:
         shutdown:
             enabled: true

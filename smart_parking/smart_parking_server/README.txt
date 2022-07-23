@@ -1,6 +1,4 @@
-# `Smart_parking_server`
-
-## `模块介绍`
+ `Smart_parking_server`
 
     数据库：
             Smart_parking_data     用户信息
@@ -13,7 +11,14 @@
                  Order_information                  //订单信息表
 
 
-### `Smart_parking_data	用户信息库`
+
+----------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+ `Smart_parking_data	用户信息库`
 
     User_information        //用户表
             {
@@ -56,60 +61,17 @@
 
 
 
-#### `建库建表语句`
-
-用户信息库
-    create database Smart_parking_data;
-
-
-用户表
-    create table User(user_name varchar(11) primary key,
-                      password varchar(50) not null,
-                      user_id varchar(20) not null);
-
-    insert into User values("123","123","1234568789"),("18153301670","lyq2001124","435481224685221384");
-
-
-车辆信息表
-    create table Vehicle_information(user_name varchar(11) not null,
-                                     user_id varchar(20) not null,
-                                     license_plate_number varchar(20),
-                                     vehicle_photos mediumblob not null,
-                                     vehicle_photos_suffix varchar(5) not null,
-                                     registration mediumblob not null,
-                                     registration_suffix varchar(5) not null,
-                                     driving_permit mediumblob not null,
-                                     driving_permit_suffix varchar(5) not null)ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-停车场信息
-    create table Parking_lot_information(pctr_id varchar(11) primary key,
-                                         pctr_password varchar(50) not null,
-                                         parking_lot_name varchar(50) not null,
-                                         parking_in_the_city varchar(50) not null,
-                                         parking_lot_number varchar(20) not null,
-                                         parking_spaces_num int not null,
-                                         billing_rules float not null,
-                                         longitude varchar(20) not null,
-                                         latitude varchar(20)  not null)ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-    insert into Parking_lot_information values("123","123","天津市xx停车场","天津","1001",10,5.0,"39.064976","117.302938"),
-                                           ("456","456","北京市xx停车场","北京","1002",20,10.0,"39.821263","117.442708");
-
-
-超级管理员
-
-
-    create table Administrators(ctr_id varchar(11) primary key,
-                                ctr_password varchar(50) not null);
-
-
-    insert into Administrators values("123","123");
 
 
 
-### `Smart_parking_data	订单信息库`
+
+
+
+
+
+
+
+ `Smart_parking_data	订单信息库`
 
 
 
@@ -128,7 +90,89 @@
         }
 
 
-#### `建库建表语句`
+
+----------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+ `建库建表语句`
+
+用户信息库
+
+
+    create database Smart_parking_data;
+
+
+
+
+用户表
+
+    create table User(user_name varchar(11) primary key,
+                      password varchar(50) not null,
+                      user_id varchar(20) not null);
+
+    insert into User values("123","123","1234568789"),("18153301670","lyq2001124","435481224685221384");
+
+
+
+
+车辆信息表
+
+    create table Vehicle_information(user_name varchar(11) not null,
+                                     user_id varchar(20) not null,
+                                     license_plate_number varchar(20),
+                                     vehicle_photos mediumblob not null,
+                                     vehicle_photos_suffix varchar(5) not null,
+                                     registration mediumblob not null,
+                                     registration_suffix varchar(5) not null,
+                                     driving_permit mediumblob not null,
+                                     driving_permit_suffix varchar(5) not null)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+停车场信息
+
+    create table Parking_lot_information(pctr_id varchar(11) primary key,
+                                         pctr_password varchar(50) not null,
+                                         parking_lot_name varchar(50) not null,
+                                         parking_in_the_city varchar(50) not null,
+                                         parking_lot_number varchar(20) not null,
+                                         parking_spaces_num int not null,
+                                         billing_rules float not null,
+                                         longitude varchar(20) not null,
+                                         latitude varchar(20)  not null)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+    insert into Parking_lot_information values("123","123","天津市xx停车场","天津","1001",10,5.0,"39.064976","117.302938"),
+                                           ("456","456","北京市xx停车场","北京","1002",20,10.0,"39.821263","117.442708");
+
+
+
+
+超级管理员
+
+
+    create table Administrators(ctr_id varchar(11) primary key,
+                                ctr_password varchar(50) not null);
+
+
+    insert into Administrators values("123","123");
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------
+
+
+
+
+
 
 订单信息库
     create database Smart_parking_order;

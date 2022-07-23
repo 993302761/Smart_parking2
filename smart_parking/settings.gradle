@@ -2,7 +2,7 @@ rootProject.name = 'smart_parking'
 
 include 'smart_parking_server:module_User'
 include 'smart_parking_server:module_Administrators'
-include 'smart_parking_server:module_Parking_lots'
+include 'smart_parking_server:module_ParkingLots'
 include 'smart_parking_server:module_Order'
 include 'smart_parking_server:module_Vehicle'
 

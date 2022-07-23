@@ -20,11 +20,11 @@ public class AdministratorsServiceImpl {
     @Resource
     private RestTemplate restTemplate;
 
-    private final String userURl="http://www.localhost:9003/User";
+    private final String userURl="http://ClientUser/User";
 
-    private final String orderURl="http://www.localhost:9001/Order";
+    private final String orderURl="http://ClientOrder/Order";
 
-    private final String parkingLotURl="http://www.localhost:9002/ParkingLots";
+    private final String parkingLotURl="http://ClientParkingLots/ParkingLots";
 
 
     /**
@@ -56,6 +56,7 @@ public class AdministratorsServiceImpl {
      */
     public Object getAllUsers() {
         String classUrl=userURl+"/getAllUsers";
+        System.out.println(classUrl);
         Object user=restTemplate.getForObject(classUrl,Object.class);
         return user;
     }
