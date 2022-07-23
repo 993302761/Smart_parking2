@@ -2,19 +2,16 @@ server:
     port: 9000
 
 spring:
+  #  服务名称------服务名称不能使用下划线，删除下划线或者使用中划线
     application:
-        name: Provider_Administrators
+        name: ClientAdministrators
     datasource:
         url: jdbc:mysql://localhost:3306/Smart_parking_data
         username: root
-        password: root
+        password: "001124"
         driver-class-name: com.mysql.cj.jdbc.Driver
+
 eureka:
-    instance:
-        hostname: provider01
-#        暴露对应服务ip
-        prefer-ip-address: true
-        instance-id: ${spring.cloud.client.ipaddress}:${server.port}
     client:
 #      注册到注册中心
         service-url:
@@ -29,13 +26,4 @@ management:
     shutdown:
         enabled: true
 
-#    #mybatis-plus配置
-#    mybatis-plus:
-#        #配置Mapper映射文件
-#        mapper-locations: classpath:/mybatis/mappers/*.xml
-#        # 配置Mybatis数据返回类型别名（默认别名为类名）
-#        type-aliases-package: com.example.administrators.entity
-#        configuration:
-#            # 自动驼峰命名
-#            # 解决连接数据库后，java的驼峰命名方式与数据库中的字段不对应的问题，比如parentId与数据库中parent_id这个字段
-#            map-underscore-to-camel-case: false
+

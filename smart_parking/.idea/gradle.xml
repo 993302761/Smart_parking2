@@ -19,7 +19,7 @@
             <option value="$PROJECT_DIR$/smart_parking_server" />
             <option value="$PROJECT_DIR$/smart_parking_server/module_Administrators" />
             <option value="$PROJECT_DIR$/smart_parking_server/module_Order" />
-            <option value="$PROJECT_DIR$/smart_parking_server/module_Parking_lots" />
+            <option value="$PROJECT_DIR$/smart_parking_server/module_ParkingLots" />
             <option value="$PROJECT_DIR$/smart_parking_server/module_User" />
             <option value="$PROJECT_DIR$/smart_parking_server/module_Vehicle" />
           </set>

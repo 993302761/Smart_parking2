@@ -1,12 +1,6 @@
-//plugins {
-//    id 'java'
-//}
-//
-//version 'unspecified'
-//
-//repositories {
-//    mavenCentral()
-//}
-//
-//dependencies {
-//}
+apply plugin: 'org.springframework.boot'
+
+dependencies {
+
+
+}

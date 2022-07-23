@@ -1,18 +1,38 @@
 server:
   port: 8651
 
+# 应用名称，将会显示在Eureka界面的应用名称列
+  #  服务名称------服务名称不能使用下划线，删除下划线或者使用中划线
+
 spring:
   application:
-    name: eureka-server
+    name: EurekaServer
 
 eureka:
   instance:
-    hostname: eureka01
-    #perfer-ip-address和instance-id是为了在服务中心暴露的是ip+port的模式
-    prefer-ip-address: true
-    instance-id: ${spring.cloud.client.ipaddress}:${server.port}
+    hostname: EurekaServer01
+    # 客户端在注册时使用自己的IP而不是主机名，缺省：false
+#    prefer-ip-address: true
+#    instance-id: ${spring.cloud.client.ipaddress}:${server.port}
   client:
-    service-url:                    #对中心外暴露的地址
+    service-url:
+      # Eureka服务器的地址，类型为HashMap，缺省的Key为 defaultZone；缺省的Value为 http://localhost:8761/eureka
+      # 如果服务注册中心为高可用集群时，多个注册中心地址以逗号分隔。
       defaultZone: http://localhost:8652/eureka/
       register-with-eureka: true      #是否将自己注册到注册中心，默认为true
       fetch-registry: true            #是否从注册中心获取注册信息，默认为true
+    healthcheck:
+      enabled: true           # 是否启用客户端健康检查
+
+
+
+
+## 是否允许开启自我保护模式，缺省：true
+## 当Eureka服务器在短时间内丢失过多客户端时，自我保护模式可使服务端不再删除失去连接的客户端
+#  eureka.server.enable-self-preservation = false
+#
+#  # Peer节点更新间隔，单位：毫秒
+#  eureka.server.peer-eureka-nodes-update-interval-ms =
+#
+#  # Eureka服务器清理无效节点的时间间隔，单位：毫秒，缺省：60000，即60秒
+#  eureka.server.eviction-interval-timer-in-ms = 60000

@@ -29,9 +29,12 @@ public class UserServiceImpl  {
     private RestTemplate restTemplate;
 
 
-    private final String parkingLotURl="http://www.localhost:9002/ParkingLots";
 
-    private final String vehicleURl="http://www.localhost:9004/Vehicle";
+    private final String vehicleURl="http://ClientVehicle/Vehicle";
+
+
+
+    private final String parkingLotURl="http://Client_ParkingLots/ParkingLots";
 
     /**
      * TODO：添加一名用户

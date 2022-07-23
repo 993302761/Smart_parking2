@@ -15,7 +15,9 @@ public class UserVehicleServiceImpl {
     private RestTemplate restTemplate;
 
 
-    private final String vehicleURl="http://www.localhost:9004/Vehicle";
+
+
+    private final String vehicleURl="http://ClientVehicle/Vehicle";
 
 
 

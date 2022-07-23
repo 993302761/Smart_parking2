@@ -2,25 +2,20 @@ server:
     port: 9004
 
 spring:
-    #  服务名称
+    #  服务名称------服务名称不能使用下划线，删除下划线或者使用中划线
     application:
-        name: Provider_Vehicle
+        name: ClientVehicle
     datasource:
         url: jdbc:mysql://localhost:3306/Smart_parking_data
         username: root
         password: "001124"
         driver-class-name: com.mysql.cj.jdbc.Driver
 eureka:
-    instance:
-        hostname: provider05
-        #        暴露对应服务ip
-        prefer-ip-address: true
-        instance-id: ${spring.cloud.client.ipaddress}:${server.port}
     client:
         #      注册到注册中心
         service-url:
             defaultZone: http://localhost:8651/eureka/,http://localhost:8652/eureka/
-# 当输入  http://localhost:9004/actuator/shutdown就会关机
+# 当输入  http://localhost:9000/actuator/shutdown就会关机
 management:
     endpoints:
         web:
