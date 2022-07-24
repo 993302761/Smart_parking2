@@ -48,27 +48,28 @@ public class UserServiceImpl  {
      * @return 是否成功
      */
     public String add_User(String user_name, String password, String user_id, String license_plate_number, MultipartFile vehicle_photos, MultipartFile registration, MultipartFile driving_permit) {
-        String s="用户:";
+        StringBuilder s=new StringBuilder("用户:");
 
         if (user_name==null||password==null||user_id==null){
-            s+= "所填信息不完整";
+            s.append("所填信息不完整");
         }
         User_information user = userDao.find_User(user_name);
         if (user!=null){
-            s+= "用户已注册";
+            s.append("用户已注册");
         }
         int i= userDao.add_User(user_name,password,user_id);
         if (i<=0){
-            s+="注册失败";
+            s.append("注册失败");
+
         }
         else {
-            s+="注册成功";
+            s.append("注册成功");
         }
-        s+=" 车辆信息：";
+        s.append("车辆信息：");
         String url=vehicleURl+"/vehicle_binding/"+user_name+"/"+user_id+"/"+license_plate_number+"/"+vehicle_photos+"/"+registration+"/"+driving_permit;
         String vehicle=restTemplate.getForObject(url,String.class);
-        s+=vehicle;
-        return s;
+        s.append(vehicle);
+        return s.toString();
     }
 
 
@@ -156,7 +157,7 @@ public class UserServiceImpl  {
             if (s.equals(UUID)){
                 boolean b = set_UUID(UUID, user_name);
                 if (!b){
-                    System.out.println("Redis设置失败");
+                    System.err.println("Redis设置失败");
                 }
                 return true;
             }else {
@@ -203,13 +204,14 @@ public class UserServiceImpl  {
     public List<User> getAllUsers() {
         List<User> users = userDao.getAllUsers();
         List<User> newUsers=new ArrayList<>();
-        String url=vehicleURl+"/getUserVehicle";
+        StringBuilder s=new StringBuilder();
         for (int i = 0; i < users.size(); i++) {
-            String s=url+"/"+users.get(i).getUser_name();
-            Object vehicle=restTemplate.getForObject(s,Object.class);
+            s.append(vehicleURl+"/getUserVehicle/"+users.get(i).getUser_name());
+            Object vehicle=restTemplate.getForObject(s.toString(),Object.class);
             User t=users.get(i);
             t.setVehicle(vehicle);
             newUsers.add(t);
+            s.delete(0,s.length());
         }
         return newUsers;
     }

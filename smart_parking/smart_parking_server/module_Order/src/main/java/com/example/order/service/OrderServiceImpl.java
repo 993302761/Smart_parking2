@@ -49,15 +49,17 @@ public class OrderServiceImpl {
         order_number += System.currentTimeMillis();
 
         //判断停车场是否存在
-        String classUrl=parkingLotURl+"/getParkingName/"+parking_lot_number;
-        String parkingName=restTemplate.getForObject(classUrl,String.class);
+        StringBuilder classUrl=new StringBuilder();
+        classUrl.append(parkingLotURl+"/getParkingName/"+parking_lot_number);
+        String parkingName=restTemplate.getForObject(classUrl.toString(),String.class);
         if (parkingName==null||parkingName.equals("")){
             return "停车场不存在";
         }
+        classUrl.delete(0, classUrl.length());
 
         //检查车辆信息是否注册
-        classUrl=vehicleURl+"/check_license_plate_number/"+user_name+"/"+license_plate_number;
-        int check=restTemplate.getForObject(classUrl,Integer.class);
+        classUrl.append(vehicleURl+"/check_license_plate_number/"+user_name+"/"+license_plate_number);
+        int check=restTemplate.getForObject(classUrl.toString(),Integer.class);
         if (check==0){
             return "未注册车辆信息";
         }
