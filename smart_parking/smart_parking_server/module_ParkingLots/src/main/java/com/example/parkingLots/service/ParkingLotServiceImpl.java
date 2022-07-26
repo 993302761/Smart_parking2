@@ -63,11 +63,11 @@ public class ParkingLotServiceImpl {
         }
 
         //生成停车场编号
-        String parking_lot_number;
-        parking_lot_number = pctr_id;
-        parking_lot_number += System.currentTimeMillis();
+        StringBuilder parking_lot_number=new StringBuilder();
+        parking_lot_number .append(pctr_id) ;
+        parking_lot_number .append(System.currentTimeMillis()) ;
 
-        int update = parkingLotDao.add_Parking(pctr_id, pctr_password, parking_lot_name, parking_in_the_city, parking_lot_number, parking_spaces_num, billing_rules, longitude, latitude);
+        int update = parkingLotDao.add_Parking(pctr_id, pctr_password, parking_lot_name, parking_in_the_city, parking_lot_number.toString(), parking_spaces_num, billing_rules, longitude, latitude);
         if (update > 0) {
             return "注册成功";
         } else {
