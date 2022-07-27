@@ -35,13 +35,16 @@ public class VehicleController {
             @ApiImplicitParam(name = "registration", value = "机动车登记证照片", required = true, dataType = "MultipartFile"),
             @ApiImplicitParam(name = "driving_permit", value = "车辆行驶证照片", required = true, dataType = "MultipartFile"),
     })
-    @PostMapping(value = "/vehicle_binding/{user_name}/{user_id}/{license_plate_number}/{vehicle_photos}/{registration}/{driving_permit}", produces = "text/plain;charset=utf-8")
-    public String  vehicle_binding (@PathVariable String user_name,
-                                    @PathVariable String user_id,
-                                    @PathVariable String license_plate_number,
-                                    @PathVariable MultipartFile vehicle_photos,
-                                    @PathVariable MultipartFile registration,
-                                    @PathVariable MultipartFile driving_permit){
+    @PostMapping(value = "/vehicle_binding", produces = "text/plain;charset=utf-8")
+
+//    @PostMapping(value = "/vehicle_binding/{user_name}/{user_id}/{license_plate_number}/{vehicle_photos}/{registration}/{driving_permit}", produces = "text/plain;charset=utf-8")
+    public String  vehicle_binding ( String user_name,
+                                     String user_id,
+                                     String license_plate_number,
+                                     MultipartFile vehicle_photos,
+                                     MultipartFile registration,
+                                     MultipartFile driving_permit){
+        System.out.println("in");
         return vehicleService.add_Vehicle(user_name,user_id,license_plate_number,vehicle_photos,registration,driving_permit);
     }
 

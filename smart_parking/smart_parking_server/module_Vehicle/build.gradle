@@ -3,6 +3,7 @@ apply plugin: 'org.springframework.boot'
 dependencies {
 
     implementation('org.hibernate:hibernate-core:3.6.10.Final')
+    implementation('org.webjars.bower:jquery:3.5.1')
 
 }
 
