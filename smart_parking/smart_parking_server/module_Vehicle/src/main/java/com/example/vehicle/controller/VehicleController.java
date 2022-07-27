@@ -83,4 +83,26 @@ public class VehicleController {
         return vehicleService.check_license_plate_number(user_name,license_plate_number);
     }
 
+
+
+
+    //TODO:更新的接口展示，只是展示可以将值获取
+    @PostMapping(value = "/Upload3")
+    @ResponseBody
+    public String Upload3(
+            String user_name,
+            String user_id,
+            String license,
+            MultipartFile vehicle,
+            MultipartFile regist,
+            MultipartFile driving){
+        System.out.println(user_name);
+        System.out.println(user_id);
+        System.out.println(license);
+        System.out.println(vehicle.getOriginalFilename());
+        System.out.println(regist.getOriginalFilename());
+        System.out.println(driving.getOriginalFilename());
+        return "Y";
+    }
+
 }
