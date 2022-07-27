@@ -30,6 +30,10 @@
 
 	Redis-version:6.2.5
 
+	Kafka-version:2.12-2.6.0
+
+	Zookeeper-version:3.5.6
+
 ## `OSCS`
 
 <a href="https://www.oscs1024.com/project/oscs/993302761/Smart_parking2.0?ref=badge_large" alt="OSCS Status"><img src="https://www.oscs1024.com/platform/badge/993302761/Smart_parking2.0.svg?size=large"/></a>
