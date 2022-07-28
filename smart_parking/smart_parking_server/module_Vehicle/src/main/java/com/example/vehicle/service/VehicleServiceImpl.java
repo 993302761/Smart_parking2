@@ -9,9 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.hibernate.Hibernate;
 
 import javax.annotation.Resource;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -34,47 +32,55 @@ public class VehicleServiceImpl {
     /**
      * TODO：添加一条车辆信息
      * @param user_name 用户名
+     * @param user_id 身份证
      * @param license_plate_number 车牌号
      * @param vehicle_photos 车辆照片
      * @param registration 机动车登记证照片
      * @param driving_permit 车辆行驶证照片
      * @return 是否成功
      */
-    public String add_Vehicle(String user_name, String user_id,String license_plate_number, MultipartFile vehicle_photos,MultipartFile registration,MultipartFile driving_permit) {
+    public String add_Vehicle(String user_name, String user_id,String license_plate_number, byte[] vehicle_photos,byte[] registration,byte[] driving_permit,String vehicle_photos_suffix,String registration_suffix,String driving_permit_suffix) {
         if (user_name==null||license_plate_number==null||user_id==null||vehicle_photos==null||registration==null||driving_permit==null){
             return "所填信息不完整";
         }
         int vehicleNumber = check_license_plate_number(user_name, license_plate_number);
-        if (vehicleNumber>0){
+        if (vehicleNumber==1){
             return "该车辆已注册，请勿重复注册";
+        }else if (vehicleNumber>1){
+            return "数据错误";
         }else if (vehicleNumber<0){
             return "错误：601";
         }
 
-        boolean b = savePhone(user_name, license_plate_number, vehicle_photos, registration, driving_permit);
-        if (!b){
-            return "错误：602";
-        }
 
-        Blob vehicle_photos0=FileToBlob(vehicle_photos);
+        savePhone(user_name, license_plate_number, vehicle_photos, vehicle_photos_suffix,"vehicle_photo");
+        savePhone(user_name, license_plate_number, registration, registration_suffix,"registration");
+        savePhone(user_name, license_plate_number, driving_permit, driving_permit_suffix,"driving_permit");
+
+
+        Blob vehicle_photos0=Hibernate.createBlob(vehicle_photos);
         //车辆照片
-        String vehicle_photos_suffix=getSuffix(vehicle_photos);
-        //车辆照片后缀名
 
 
-        Blob registration0=FileToBlob(registration);
+        Blob registration0=Hibernate.createBlob(registration);
         //机动车登记证照片
-        String registration_suffix=getSuffix(registration);
-        //机动车登记证照片后缀名
 
 
-        Blob driving_permit0=FileToBlob(driving_permit);
+        Blob driving_permit0=Hibernate.createBlob(driving_permit);
         //车辆行驶证照片
-        String driving_permit_suffix=getSuffix(driving_permit);
-        //车辆行驶证照片后缀名
 
 
-        int i=vehicleDao.add_Vehicle(user_name,user_id,license_plate_number,vehicle_photos0,vehicle_photos_suffix,registration0,registration_suffix,driving_permit0,driving_permit_suffix);
+
+        int i=vehicleDao.add_Vehicle(
+                user_name,
+                user_id,
+                license_plate_number,
+                vehicle_photos0,
+                vehicle_photos_suffix,
+                registration0,
+                registration_suffix,
+                driving_permit0,
+                driving_permit_suffix);
         if (i<=0){
             return "添加车辆信息失败";
         }
@@ -86,36 +92,38 @@ public class VehicleServiceImpl {
 
     /**
      * TODO：将用户车辆信息存于本地文件夹
-     * @param vehicle_photos 车辆照片
-     * @param registration 机动车登记证照片
-     * @param driving_permit 车辆行驶证照片
+     * @param user_name 车辆照片
+     * @param license_plate_number 机动车登记证照片
+     * @param file 车辆文件
+     * @param suffix 后缀名
      * @return 是否保存成功
      */
-    private boolean savePhone(String user_name,String license_plate_number,MultipartFile vehicle_photos,MultipartFile registration,MultipartFile driving_permit)  {
+    private boolean savePhone(String user_name,String license_plate_number,byte[] file,String suffix,String name)  {
         String filePath=filepath+user_name+"/"+license_plate_number;
         Path path = Paths.get(filePath);
+        OutputStream out = null;
+        InputStream in=null;
         try {
             Files.createDirectories(path);
-            vehicle_photos.transferTo(new File(filePath+"/vehicle_photos"+getSuffix(vehicle_photos)));
-            registration.transferTo(new File(filePath+"/registration"+getSuffix(registration)));
-            driving_permit.transferTo(new File(filePath+"/driving_permit"+getSuffix(driving_permit)));
+            out = new FileOutputStream(filePath+"/"+name+suffix);
+            in = new ByteArrayInputStream(file);
+            byte[] buff = new byte[1024];
+            int len;
+            while ((len = in.read(buff)) != -1) {
+                out.write(buff, 0, len);
+            }
+            in.close();
+            out.close();
             return true;
-        }catch (IOException e){
+        } catch (IOException e) {
+            e.printStackTrace();
             return false;
         }
+
   }
 
 
 
-    /**
-     * TODO：获取文件后缀名
-     * @param file 文件
-     * @return 是否保存成功
-     */
-    private String getSuffix(MultipartFile file) {
-        String realFileName = file.getOriginalFilename();
-        return realFileName.substring(realFileName.lastIndexOf("."));
-    }
 
 
 
@@ -159,6 +167,8 @@ public class VehicleServiceImpl {
     public int check_license_plate_number(String user_name, String license_plate_number) {
         return vehicleDao.check_license_plate_number(user_name,license_plate_number);
     }
+
+
 
 
 

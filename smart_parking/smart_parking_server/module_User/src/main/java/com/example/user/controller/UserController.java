@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -22,6 +23,13 @@ public class UserController {
 
     @Autowired(required = false)
     private UserServiceImpl userService;
+
+
+    //跳到网页
+    @RequestMapping("/load")
+    public String index(){
+        return  "/upload.html";
+    }
 
 
     @ApiOperation(value = "app用户登录", notes = "输入账号和密码登录")
@@ -60,8 +68,31 @@ public class UserController {
             @ApiImplicitParam(name = "driving_permit", value = "车辆行驶证照片", required = true, dataType = "MultipartFile"),
    })
     @PostMapping(value = "/app_register2", produces = "text/plain;charset=utf-8")
-    public String app_register2(String user_name, String password, String user_id, String license_plate_number, MultipartFile vehicle_photos, MultipartFile registration, MultipartFile driving_permit){
-        return userService.add_User(user_name,password,user_id,license_plate_number,vehicle_photos,registration,driving_permit);
+    public String app_register2(String user_name,
+                                String password,
+                                String user_id,
+                                String license_plate_number,
+                                MultipartFile vehicle_photos,
+                                MultipartFile registration,
+                                MultipartFile driving_permit){
+
+        try {
+            return userService.add_User(
+                    user_name,
+                    password,user_id,
+                    license_plate_number,
+                    vehicle_photos.getBytes(),
+                    registration.getBytes(),
+                    driving_permit.getBytes(),
+                    vehicle_photos.getOriginalFilename(),
+                    registration.getOriginalFilename(),
+                    driving_permit.getOriginalFilename());
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "错误";
+
+        }
     }
 
 

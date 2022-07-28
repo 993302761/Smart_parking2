@@ -5,7 +5,12 @@ import com.example.user.dao.UserDao;
 import com.example.user.entity.User_information;
 import com.example.user.entity.User;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -45,10 +50,15 @@ public class UserServiceImpl  {
      * @param vehicle_photos 车辆照片
      * @param registration 机动车登记证照片
      * @param driving_permit 车辆行驶证照片
+     * @param vehicle_photos_suffix 车辆照片后缀
+     * @param registration_suffix 机动车登记证照片后缀
+     * @param driving_permit_suffix 车辆行驶证照片后缀
      * @return 是否成功
      */
-    public String add_User(String user_name, String password, String user_id, String license_plate_number, MultipartFile vehicle_photos, MultipartFile registration, MultipartFile driving_permit) {
+    public String add_User(String user_name, String password, String user_id, String license_plate_number, byte[] vehicle_photos, byte[] registration, byte[] driving_permit,String vehicle_photos_suffix,String registration_suffix,String driving_permit_suffix) {
         StringBuilder s=new StringBuilder("用户:");
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.MULTIPART_FORM_DATA);
 
         if (user_name==null||password==null||user_id==null){
             s.append("所填信息不完整");
@@ -60,14 +70,25 @@ public class UserServiceImpl  {
         int i= userDao.add_User(user_name,password,user_id);
         if (i<=0){
             s.append("注册失败");
-
         }
         else {
             s.append("注册成功");
         }
         s.append("车辆信息：");
-        String url=vehicleURl+"/vehicle_binding/"+user_name+"/"+user_id+"/"+license_plate_number+"/"+vehicle_photos+"/"+registration+"/"+driving_permit;
-        String vehicle=restTemplate.getForObject(url,String.class);
+        MultiValueMap<String, Object> params = new LinkedMultiValueMap<>(9);
+        params.add("user_name"  , user_name);
+        params.add("user_id" ,user_id);
+        params.add("license_plate_number" ,vehicle_photos);
+        params.add("vehicle_photos" ,password);
+        params.add("registration" ,registration);
+        params.add("driving_permit" ,driving_permit);
+        params.add("vehicle_photos_suffix" ,vehicle_photos_suffix);
+        params.add("registration_suffix" ,registration_suffix);
+        params.add("driving_permit_suffix" ,driving_permit_suffix);
+        String url=vehicleURl+"/vehicle_binding";
+        HttpEntity<MultiValueMap> requestEntity = new HttpEntity<>(params, headers);
+
+        String vehicle=restTemplate.postForObject(url,requestEntity,String.class);
         s.append(vehicle);
         return s.toString();
     }

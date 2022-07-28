@@ -11,7 +11,9 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -36,16 +38,11 @@ public class VehicleController {
             @ApiImplicitParam(name = "driving_permit", value = "车辆行驶证照片", required = true, dataType = "MultipartFile"),
     })
     @PostMapping(value = "/vehicle_binding", produces = "text/plain;charset=utf-8")
-
-//    @PostMapping(value = "/vehicle_binding/{user_name}/{user_id}/{license_plate_number}/{vehicle_photos}/{registration}/{driving_permit}", produces = "text/plain;charset=utf-8")
-    public String  vehicle_binding ( String user_name,
-                                     String user_id,
-                                     String license_plate_number,
-                                     MultipartFile vehicle_photos,
-                                     MultipartFile registration,
-                                     MultipartFile driving_permit){
-        System.out.println("in");
-        return vehicleService.add_Vehicle(user_name,user_id,license_plate_number,vehicle_photos,registration,driving_permit);
+//    @PostMapping(value = "/vehicle_binding/{user_name}/{user_id}/{license_plate_number}/{vehicle_photos}/{registration}/{driving_permit}/{vehicle_photos_suffix}/{registration_suffix}/{driving_permit_suffix}", produces = "text/plain;charset=utf-8")
+    public String  vehicle_binding (@PathVariable MultipartHttpServletRequest request){
+        String f = String.valueOf(request.getFile("user_name"));
+//        return vehicleService.add_Vehicle(user_name,user_id,license_plate_number,vehicle_photos,registration,driving_permit,vehicle_photos_suffix,registration_suffix,driving_permit_suffix);
+        return null;
     }
 
 
