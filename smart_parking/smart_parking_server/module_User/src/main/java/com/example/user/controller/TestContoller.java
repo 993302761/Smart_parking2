@@ -5,11 +5,11 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 @Controller
-@RequestMapping("/Loaf")
+@RequestMapping("/a")
 
 public class TestContoller {
     //跳到网页
-    @RequestMapping("/load")
+    @RequestMapping("/a")
     public String index(){
         return  "/upload.html";
     }

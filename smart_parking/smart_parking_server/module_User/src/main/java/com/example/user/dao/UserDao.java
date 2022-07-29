@@ -16,6 +16,15 @@ public interface UserDao {
     User_information find_User(@Param("user_name") String user_name);
 
 
+
+
+    /**
+     * 检查用户是否存在
+     * */
+    @Select("SELECT count(1) FROM User WHERE user_name =#{user_name}")
+    int check_User(@Param("user_name") String user_name);
+
+
     /**
      * 查找用户
      * */
@@ -48,8 +57,8 @@ public interface UserDao {
 
 
     /**
-     * 删除所有用户
+     * 删除一个用户
      */
-    @Delete("DELETE FROM User")
-    void delete_User();
+    @Delete("DELETE  FROM User WHERE user_name =#{user_name} ")
+    void delete_User(@Param("user_name") String user_name);
 }

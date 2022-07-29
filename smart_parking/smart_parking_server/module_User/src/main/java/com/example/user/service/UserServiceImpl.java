@@ -4,6 +4,7 @@ package com.example.user.service;
 import com.example.user.dao.UserDao;
 import com.example.user.entity.User_information;
 import com.example.user.entity.User;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -15,6 +16,10 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -39,7 +44,7 @@ public class UserServiceImpl  {
 
 
 
-    private final String parkingLotURl="http://Client_ParkingLots/ParkingLots";
+    private final String parkingLotURl="http://ClientParkingLots/ParkingLots";
 
     /**
      * TODO：添加一名用户
@@ -61,37 +66,57 @@ public class UserServiceImpl  {
         headers.setContentType(MediaType.MULTIPART_FORM_DATA);
 
         if (user_name==null||password==null||user_id==null){
-            s.append("所填信息不完整");
+            return "所填信息不完整";
         }
-        User_information user = userDao.find_User(user_name);
-        if (user!=null){
-            s.append("用户已注册");
+        int user = userDao.check_User(user_name);
+        if (user==1){
+            return "用户已注册";
+        }else if (user!=0){
+            return "数据错误";
         }
         int i= userDao.add_User(user_name,password,user_id);
         if (i<=0){
-            s.append("注册失败");
+            return "注册失败";
         }
         else {
             s.append("注册成功");
         }
         s.append("车辆信息：");
+
         MultiValueMap<String, Object> params = new LinkedMultiValueMap<>(9);
         params.add("user_name"  , user_name);
         params.add("user_id" ,user_id);
-        params.add("license_plate_number" ,vehicle_photos);
-        params.add("vehicle_photos" ,password);
+        params.add("license_plate_number" ,license_plate_number);
+        params.add("vehicle_photos" ,vehicle_photos);
         params.add("registration" ,registration);
         params.add("driving_permit" ,driving_permit);
-        params.add("vehicle_photos_suffix" ,vehicle_photos_suffix);
-        params.add("registration_suffix" ,registration_suffix);
-        params.add("driving_permit_suffix" ,driving_permit_suffix);
+        params.add("vehicle_photos_suffix" ,vehicle_photos_suffix.substring(vehicle_photos_suffix.lastIndexOf(".")));
+        params.add("registration_suffix" ,registration_suffix.substring(registration_suffix.lastIndexOf(".")));
+        params.add("driving_permit_suffix" ,driving_permit_suffix.substring(driving_permit_suffix.lastIndexOf(".")));
+
+
         String url=vehicleURl+"/vehicle_binding";
         HttpEntity<MultiValueMap> requestEntity = new HttpEntity<>(params, headers);
 
-        String vehicle=restTemplate.postForObject(url,requestEntity,String.class);
-        s.append(vehicle);
-        return s.toString();
+
+        try {
+            //服务间传输数据
+            String vehicle=restTemplate.postForObject(url,requestEntity,String.class);
+            s.append(vehicle);
+            return s.toString();
+        }catch (Exception e){
+            userDao.delete_User(user_name);
+            e.printStackTrace();
+            return "错误";
+        }
+
+
+
     }
+
+
+
+
 
 
 
@@ -243,8 +268,8 @@ public class UserServiceImpl  {
     /**
      * TODO：删除所有用户
      */
-    public void delete_User (){
-        userDao.delete_User();
+    public void delete_User (String user_name){
+        userDao.delete_User(user_name);
     }
 
 

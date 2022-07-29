@@ -9,12 +9,16 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @Api(tags = "车辆信息绑定模块")
@@ -29,20 +33,25 @@ public class VehicleController {
 
 
     @ApiOperation(value = "绑定车辆")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String"),
-            @ApiImplicitParam(name = "user_id", value = "身份证号", required = true, dataType = "String"),
-            @ApiImplicitParam(name = "license_plate_number", value = "车牌号", required = true, dataType = "String"),
-            @ApiImplicitParam(name = "vehicle_photos", value = "车辆照片", required = true, dataType = "MultipartFile"),
-            @ApiImplicitParam(name = "registration", value = "机动车登记证照片", required = true, dataType = "MultipartFile"),
-            @ApiImplicitParam(name = "driving_permit", value = "车辆行驶证照片", required = true, dataType = "MultipartFile"),
-    })
-    @PostMapping(value = "/vehicle_binding", produces = "text/plain;charset=utf-8")
-//    @PostMapping(value = "/vehicle_binding/{user_name}/{user_id}/{license_plate_number}/{vehicle_photos}/{registration}/{driving_permit}/{vehicle_photos_suffix}/{registration_suffix}/{driving_permit_suffix}", produces = "text/plain;charset=utf-8")
-    public String  vehicle_binding (@PathVariable MultipartHttpServletRequest request){
-        String f = String.valueOf(request.getFile("user_name"));
-//        return vehicleService.add_Vehicle(user_name,user_id,license_plate_number,vehicle_photos,registration,driving_permit,vehicle_photos_suffix,registration_suffix,driving_permit_suffix);
-        return null;
+    @PostMapping(value = "/vehicle_binding", produces = "text/plain;charset=utf-8",consumes =  MediaType.MULTIPART_FORM_DATA_VALUE)
+//    @PostMapping(value = "/vehicle_binding/{user_name}/{user_id}/{license_plate_number}/{vehicle_photos_suffix}/{registration_suffix}/{driving_permit_suffix}", produces = "text/plain;charset=utf-8")
+    public String  vehicle_binding ( @RequestParam("user_name")String user_name,
+                                     @RequestParam("user_id")String user_id,
+                                     @RequestParam("license_plate_number")String license_plate_number,
+                                     @RequestParam("vehicle_photos")byte[] vehicle_photos,
+                                     @RequestParam("registration")byte[] registration,
+                                     @RequestParam("driving_permit")byte[] driving_permit,
+                                     @RequestParam("vehicle_photos_suffix")String vehicle_photos_suffix,
+                                     @RequestParam("registration_suffix")String registration_suffix,
+                                     @RequestParam("driving_permit_suffix")String driving_permit_suffix)
+    {
+
+        System.out.println(vehicle_photos.length);
+        System.out.println(registration.length);
+        System.out.println(driving_permit.length);
+
+        return vehicleService.add_Vehicle(user_name,user_id,license_plate_number,vehicle_photos,registration,driving_permit,vehicle_photos_suffix,registration_suffix,driving_permit_suffix);
+
     }
 
 

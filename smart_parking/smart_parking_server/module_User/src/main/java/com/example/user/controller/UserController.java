@@ -77,6 +77,10 @@ public class UserController {
                                 MultipartFile driving_permit){
 
         try {
+            System.out.println(vehicle_photos.getBytes().length);
+            System.out.println(registration.getBytes().length);
+            System.out.println(driving_permit.getBytes().length);
+
             return userService.add_User(
                     user_name,
                     password,user_id,
@@ -131,10 +135,13 @@ public class UserController {
 
 
 
-    @ApiOperation(value = "删除所有用户")
+    @ApiOperation(value = "删除某位用户")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String")
+    })
     @DeleteMapping(value = "/delete_User")
-    public void delete_User(){
-        userService.delete_User();
+    public void delete_User(String user_name){
+        userService.delete_User(user_name);
     }
 
 
