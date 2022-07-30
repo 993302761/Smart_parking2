@@ -1,0 +1,26 @@
+#jqk-abc.properties
+spring:
+  cloud:
+    config:
+      uri: http://localhost:9999
+      name: jqk
+      profile: abc
+      label: master
+    bus:
+      enabled: true
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092
+          auto-create-topics: true
+          zk_nodes: localhost:2181
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8651/eureka/,http://localhost:8652/eureka/
+
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: refresh
