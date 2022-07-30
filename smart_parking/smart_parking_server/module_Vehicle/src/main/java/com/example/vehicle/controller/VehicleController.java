@@ -68,7 +68,6 @@ public class VehicleController {
     @ApiImplicitParams({
             @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String"),
             @ApiImplicitParam(name = "license_plate_number", value = "车牌号", required = true, dataType = "String"),
-
     })
     @DeleteMapping(value = "/deleteVehicle/{user_name}/{license_plate_number}", produces = "text/plain; charset=utf-8")
     public String deleteVehicle (@PathVariable String user_name, @PathVariable String license_plate_number){

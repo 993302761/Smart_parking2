@@ -5,27 +5,21 @@ import com.example.user.dao.UserDao;
 import com.example.user.entity.User_information;
 import com.example.user.entity.User;
 import org.apache.tomcat.util.codec.binary.Base64;
-import org.springframework.core.io.FileSystemResource;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
+import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+
 
 @Service
 public class UserServiceImpl  {
@@ -46,6 +40,10 @@ public class UserServiceImpl  {
 
 
     private final String parkingLotURl="http://ClientParkingLots/ParkingLots";
+
+
+
+
 
     /**
      * TODO：添加一名用户
@@ -73,9 +71,6 @@ public class UserServiceImpl  {
                            String driving_permit_suffix) throws IOException {
 
         StringBuilder s=new StringBuilder("用户:");
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.MULTIPART_FORM_DATA);
-
 
         if (user_name==null||password==null||user_id==null){
             return "所填信息不完整";
@@ -95,6 +90,47 @@ public class UserServiceImpl  {
         }
         s.append("车辆信息：");
 
+
+        try {
+            String vehicle=vehicle_binding(user_name,user_id,license_plate_number,vehicle_photos,registration,driving_permit,vehicle_photos_suffix,registration_suffix,driving_permit_suffix);
+            s.append(vehicle);
+            return s.toString();
+        }catch (Exception e){
+            userDao.delete_User(user_name);
+            e.printStackTrace();
+            return "错误";
+        }
+
+
+
+    }
+
+
+
+
+
+
+    /**
+     * TODO：添加绑定车辆
+     * @param user_name 用户名
+     * @param user_id 身份证号码
+     * @param license_plate_number 车牌号
+     * @param vehicle_photos 车辆照片
+     * @param registration 机动车登记证照片
+     * @param driving_permit 车辆行驶证照片
+     * @return 是否成功
+     */
+    public String vehicle_binding (String user_name,
+                                   String user_id,
+                                   String license_plate_number,
+                                   byte[] vehicle_photos,
+                                   byte[] registration,
+                                   byte[] driving_permit,
+                                   String vehicle_photos_suffix,
+                                   String registration_suffix,
+                                   String driving_permit_suffix){
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.MULTIPART_FORM_DATA);
         MultiValueMap<String, Object> params = new LinkedMultiValueMap<>(9);
         params.add("user_name"  , user_name);
         params.add("user_id" ,user_id);
@@ -114,16 +150,42 @@ public class UserServiceImpl  {
         try {
             //服务间传输数据
             String vehicle=restTemplate.postForObject(url,requestEntity,String.class);
-            s.append(vehicle);
-            return s.toString();
+            return vehicle;
         }catch (Exception e){
-            userDao.delete_User(user_name);
             e.printStackTrace();
             return "错误";
         }
+    }
 
 
 
+
+
+    /**
+     * TODO：删除绑定的车辆信息
+     * @param user_name 用户名
+     * @param license_plate_number 车牌号
+     * @return 是否成功
+     */
+    public ResponseEntity<String> deleteVehicle (String user_name, String license_plate_number){
+        String url=vehicleURl+"/deleteVehicle/"+user_name+"/"+license_plate_number;
+        ResponseEntity<String> exchange = restTemplate.exchange(url, HttpMethod.DELETE, null, String.class);
+        return exchange;
+    }
+
+
+
+
+
+    /**
+     * TODO：获取用户绑定的车辆信息
+     * @param user_name 用户名
+     * @return 是否成功
+     */
+    public Object getUserVehicle (String user_name){
+        String url=vehicleURl+"/getUserVehicle/"+user_name;
+        Object s=restTemplate.getForObject(url,Object.class);
+        return s;
     }
 
 
@@ -162,6 +224,7 @@ public class UserServiceImpl  {
 
 
 
+
     /**
      * TODO：查找用户
      * @param user_name 用户名
@@ -174,6 +237,7 @@ public class UserServiceImpl  {
         }
         else return false;
     }
+
 
 
 
@@ -190,6 +254,8 @@ public class UserServiceImpl  {
 
 
 
+
+
     /**
      * TODO：获取用户身份证
      * @param user_name 用户名
@@ -198,6 +264,8 @@ public class UserServiceImpl  {
     public String getUserId(String user_name){
         return userDao.getUserId(user_name);
     }
+
+
 
 
 
@@ -226,6 +294,8 @@ public class UserServiceImpl  {
             return false;
         }
     }
+
+
 
 
 
@@ -283,6 +353,7 @@ public class UserServiceImpl  {
     public void delete_User (String user_name){
         userDao.delete_User(user_name);
     }
+
 
 
 

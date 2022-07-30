@@ -3,6 +3,7 @@ package com.example.vehicle.service;
 
 import com.example.vehicle.dao.VehicleDao;
 import com.example.vehicle.entity.Vehicle_Blob_information;
+import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
@@ -127,6 +128,63 @@ public class VehicleServiceImpl {
 
 
 
+    /**
+     * TODO：删除车辆信息
+     * @param user_name 用户名
+     * @param license_plate_number 车牌号
+     * @return 是否成功
+     */
+    public String delete_User_Vehicle(String user_name,String license_plate_number) {
+        String path=filepath+user_name+"/"+license_plate_number;
+        File file=new File(path);
+        if (deleteFile(file)) {
+            System.out.println("文件删除成功！");
+        }
+        int i = vehicleDao.deleteUserVehicle(user_name, license_plate_number);
+        if (i<=0){
+            return "删除车辆信息失败";
+        }else {
+            return "删除成功";
+        }
+    }
+
+
+
+
+
+    /**
+     * TODO：删除车辆文件
+     * @param file 文件
+     * @return 是否成功
+     */
+    public static Boolean deleteFile(File file) {
+        //判断文件不为null或文件目录存在
+        if (file == null || !file.exists()) {
+            System.out.println("文件删除失败,请检查文件是否存在以及文件路径是否正确");
+            return false;
+        }
+        //获取目录下子文件
+        File[] files = file.listFiles();
+        //遍历该目录下的文件对象
+        for (File f : files) {
+            //判断子目录是否存在子目录,如果是文件则删除
+            if (f.isDirectory()) {
+                //递归删除目录下的文件
+                deleteFile(f);
+            } else {
+                //文件删除
+                f.delete();
+                //打印文件名
+                System.out.println("文件名：" + f.getName());
+            }
+        }
+        //文件夹删除
+        file.delete();
+        System.out.println("目录名：" + file.getName());
+        return true;
+    }
+
+
 
     /**
      * TODO：获取用户绑定的车辆列表
@@ -140,20 +198,7 @@ public class VehicleServiceImpl {
 
 
 
-    /**
-     * TODO：删除车辆信息
-     * @param user_name 用户名
-     * @param license_plate_number 车牌号
-     * @return 是否成功
-     */
-    public String delete_User_Vehicle(String user_name,String license_plate_number) {
-        int i = vehicleDao.deleteUserVehicle(user_name, license_plate_number);
-        if (i<=0){
-            return "删除车辆信息失败";
-        }else {
-            return "删除成功";
-        }
-    }
+
 
 
 
