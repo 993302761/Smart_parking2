@@ -1,0 +1,27 @@
+server:
+  port: 9999
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/lhh1171/spring-cloud-config-properties.git
+          username: lhh1171
+          password: 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
+    bus:
+      trace:
+        enabled: true
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092
+          auto-create-topics: true
+          zk-nodes: localhost:2181
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9001/eureka/
+
+
