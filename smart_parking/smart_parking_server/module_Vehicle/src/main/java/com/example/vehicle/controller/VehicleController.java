@@ -8,6 +8,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.util.MultiValueMap;
@@ -38,19 +39,15 @@ public class VehicleController {
     public String  vehicle_binding ( @RequestParam("user_name")String user_name,
                                      @RequestParam("user_id")String user_id,
                                      @RequestParam("license_plate_number")String license_plate_number,
-                                     @RequestParam("vehicle_photos")byte[] vehicle_photos,
-                                     @RequestParam("registration")byte[] registration,
-                                     @RequestParam("driving_permit")byte[] driving_permit,
+                                     @RequestParam("vehicle_photos")String vehicle_photos,
+                                     @RequestParam("registration")String registration,
+                                     @RequestParam("driving_permit")String driving_permit,
                                      @RequestParam("vehicle_photos_suffix")String vehicle_photos_suffix,
                                      @RequestParam("registration_suffix")String registration_suffix,
                                      @RequestParam("driving_permit_suffix")String driving_permit_suffix)
     {
 
-        System.out.println(vehicle_photos.length);
-        System.out.println(registration.length);
-        System.out.println(driving_permit.length);
-
-        return vehicleService.add_Vehicle(user_name,user_id,license_plate_number,vehicle_photos,registration,driving_permit,vehicle_photos_suffix,registration_suffix,driving_permit_suffix);
+        return vehicleService.add_Vehicle(user_name,user_id,license_plate_number,Base64.decodeBase64(vehicle_photos),Base64.decodeBase64(registration),Base64.decodeBase64(driving_permit),vehicle_photos_suffix,registration_suffix,driving_permit_suffix);
 
     }
 

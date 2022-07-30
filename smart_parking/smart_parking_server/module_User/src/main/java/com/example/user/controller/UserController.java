@@ -77,9 +77,6 @@ public class UserController {
                                 MultipartFile driving_permit){
 
         try {
-            System.out.println(vehicle_photos.getBytes().length);
-            System.out.println(registration.getBytes().length);
-            System.out.println(driving_permit.getBytes().length);
 
             return userService.add_User(
                     user_name,

@@ -1,5 +1,7 @@
 server:
     port: 9003
+    tomcat:
+        max-http-form-post-size: 102400000
 
 spring:
     #  服务名称------服务名称不能使用下划线，删除下划线或者使用中划线
@@ -10,6 +12,13 @@ spring:
         username: root
         password: "001124"
         driver-class-name: com.mysql.cj.jdbc.Driver
+
+    servlet:
+        multipart:
+            max-file-size: 80MB
+            max-request-size: 82MB
+
+
 eureka:
     client:
         #      注册到注册中心

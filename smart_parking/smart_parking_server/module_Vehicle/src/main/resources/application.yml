@@ -1,5 +1,7 @@
 server:
     port: 9004
+    tomcat:
+        max-http-form-post-size: 102400000
 
 spring:
 
@@ -11,6 +13,12 @@ spring:
         username: root
         password: "001124"
         driver-class-name: com.mysql.cj.jdbc.Driver
+    servlet:
+        multipart:
+            max-file-size: 80MB
+            max-request-size: 82MB
+
+
 
 eureka:
     client:

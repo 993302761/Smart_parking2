@@ -4,6 +4,7 @@ package com.example.user.service;
 import com.example.user.dao.UserDao;
 import com.example.user.entity.User_information;
 import com.example.user.entity.User;
+import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.http.HttpEntity;
@@ -60,10 +61,21 @@ public class UserServiceImpl  {
      * @param driving_permit_suffix 车辆行驶证照片后缀
      * @return 是否成功
      */
-    public String add_User(String user_name, String password, String user_id, String license_plate_number, byte[] vehicle_photos, byte[] registration, byte[] driving_permit,String vehicle_photos_suffix,String registration_suffix,String driving_permit_suffix) {
+    public String add_User(String user_name,
+                           String password,
+                           String user_id,
+                           String license_plate_number,
+                           byte[] vehicle_photos,
+                           byte[] registration,
+                           byte[] driving_permit,
+                           String vehicle_photos_suffix,
+                           String registration_suffix,
+                           String driving_permit_suffix) throws IOException {
+
         StringBuilder s=new StringBuilder("用户:");
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.MULTIPART_FORM_DATA);
+
 
         if (user_name==null||password==null||user_id==null){
             return "所填信息不完整";
@@ -87,9 +99,9 @@ public class UserServiceImpl  {
         params.add("user_name"  , user_name);
         params.add("user_id" ,user_id);
         params.add("license_plate_number" ,license_plate_number);
-        params.add("vehicle_photos" ,vehicle_photos);
-        params.add("registration" ,registration);
-        params.add("driving_permit" ,driving_permit);
+        params.add("vehicle_photos" , Base64.encodeBase64String(vehicle_photos));
+        params.add("registration" ,Base64.encodeBase64String(registration));
+        params.add("driving_permit" ,Base64.encodeBase64String(driving_permit));
         params.add("vehicle_photos_suffix" ,vehicle_photos_suffix.substring(vehicle_photos_suffix.lastIndexOf(".")));
         params.add("registration_suffix" ,registration_suffix.substring(registration_suffix.lastIndexOf(".")));
         params.add("driving_permit_suffix" ,driving_permit_suffix.substring(driving_permit_suffix.lastIndexOf(".")));
