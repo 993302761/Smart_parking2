@@ -1,14 +1,15 @@
 rootProject.name = 'smart_parking'
 
-include 'smart_parking_server:module_User'
-include 'smart_parking_server:module_Administrators'
-include 'smart_parking_server:module_ParkingLots'
-include 'smart_parking_server:module_Order'
-include 'smart_parking_server:module_Vehicle'
+include 'Smart_parking_server:module_User'
+include 'Smart_parking_server:module_Administrators'
+include 'Smart_parking_server:module_ParkingLots'
+include 'Smart_parking_server:module_Order'
+include 'Smart_parking_server:module_Vehicle'
 
 include 'EurekaServer:Eureka-Server01'
 include 'EurekaServer:Eureka-Server02'
-include 'configserver'
-include 'configclient'
+
+include 'Configserver'
+include 'Configclient'
 
 

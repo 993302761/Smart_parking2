@@ -1,8 +1,0 @@
-apply plugin: 'org.springframework.boot'
-
-dependencies {
-    implementation 'org.springframework.cloud:spring-cloud-starter-bus-kafka'
-    implementation 'org.springframework.cloud:spring-boot-starter-actuator'
-    implementation 'org.springframework.cloud:spring-cloud-config-server'
-    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
-}
