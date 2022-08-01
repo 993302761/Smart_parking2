@@ -1,0 +1,20 @@
+plugins {
+    id 'java'
+}
+
+version 'unspecified'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    //监控
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    //网关依赖
+    implementation 'org.springframework.cloud:spring-cloud-starter-gateway'
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-archaius'
+    //网关也是需要注册到注册中心中的
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+}
