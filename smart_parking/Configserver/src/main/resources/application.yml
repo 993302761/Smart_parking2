@@ -1,8 +1,9 @@
 server:
   port: 9999
+
 spring:
   application:
-    name: config-server
+    name: ConfigServer
   cloud:
     config:
       server:
