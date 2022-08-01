@@ -8,6 +8,10 @@ subprojects {
     dependencies {
         implementation 'org.springframework.boot:spring-boot-starter-actuator'
         implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server'
+        //config
+        implementation 'org.springframework.cloud:spring-cloud-config-client'
+        implementation 'org.springframework.cloud:spring-cloud-starter-config'
+
     }
 
 }

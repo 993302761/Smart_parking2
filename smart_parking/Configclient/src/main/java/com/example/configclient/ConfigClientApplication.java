@@ -7,6 +7,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @EnableDiscoveryClient
 @SpringBootApplication
+
 public class ConfigClientApplication {
 
     //curl -X POST http://localhost:9090/actuator/refresh
