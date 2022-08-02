@@ -2,7 +2,7 @@ server:
   port: 8501
 eureka:
   instance:
-    hostname: gataway01
+    hostname: gateway01
     prefer-ip-address: true
     instance-id: ${spring.cloud.client.ipaddress}:${server.port}
   client:
@@ -18,4 +18,4 @@ spring:
           enabled: true
 
   application:
-    name: Eureka-Gateway
+    name: Gateway

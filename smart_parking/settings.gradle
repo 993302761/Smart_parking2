@@ -12,4 +12,4 @@ include 'EurekaServer:Eureka-Server02'
 include 'Configserver'
 include 'Configclient'
 
-
+include 'GateWay'

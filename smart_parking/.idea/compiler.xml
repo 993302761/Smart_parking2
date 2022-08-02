@@ -8,28 +8,16 @@
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.24/lombok-1.18.24.jar" />
         </processorPath>
-        <module name="smart_parking.Configserver.main" />
         <module name="smart_parking.Smart_parking_server.module_Order.main" />
-        <module name="smart_parking.Smart_parking_server.test" />
-        <module name="smart_parking.EurekaServer.Eureka-Server02.main" />
+        <module name="smart_parking.Smart_parking_server.module_User.test" />
         <module name="smart_parking.Smart_parking_server.module_Administrators.test" />
+        <module name="smart_parking.Smart_parking_server.module_ParkingLots.main" />
+        <module name="smart_parking.Smart_parking_server.module_Administrators.main" />
         <module name="smart_parking.Smart_parking_server.module_ParkingLots.test" />
         <module name="smart_parking.Smart_parking_server.module_Vehicle.main" />
-        <module name="smart_parking.Smart_parking_server.main" />
-        <module name="smart_parking.EurekaServer.Eureka-Server01.test" />
+        <module name="smart_parking.Smart_parking_server.module_User.main" />
         <module name="smart_parking.Smart_parking_server.module_Vehicle.test" />
         <module name="smart_parking.Smart_parking_server.module_Order.test" />
-        <module name="smart_parking.Configclient.test" />
-        <module name="smart_parking.Smart_parking_server.module_User.test" />
-        <module name="smart_parking.Smart_parking_server.module_ParkingLots.main" />
-        <module name="smart_parking.EurekaServer.main" />
-        <module name="smart_parking.Configserver.test" />
-        <module name="smart_parking.EurekaServer.test" />
-        <module name="smart_parking.EurekaServer.Eureka-Server02.test" />
-        <module name="smart_parking.Smart_parking_server.module_Administrators.main" />
-        <module name="smart_parking.EurekaServer.Eureka-Server01.main" />
-        <module name="smart_parking.Smart_parking_server.module_User.main" />
-        <module name="smart_parking.Configclient.main" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8" />
