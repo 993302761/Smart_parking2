@@ -9,6 +9,9 @@ repositories {
 }
 
 dependencies {
+    //配置中心
+    implementation 'org.springframework.cloud:spring-cloud-config-client'
+    implementation 'org.springframework.cloud:spring-cloud-starter-config'
     //监控
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     //网关依赖

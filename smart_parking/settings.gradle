@@ -9,7 +9,7 @@ include 'Smart_parking_server:module_Vehicle'
 include 'EurekaServer:Eureka-Server01'
 include 'EurekaServer:Eureka-Server02'
 
-include 'Configserver'
+include 'ConfigServer'
 include 'Configclient'
 
 include 'GateWay'
