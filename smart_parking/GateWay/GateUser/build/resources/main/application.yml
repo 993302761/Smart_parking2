@@ -1,0 +1,21 @@
+erver:
+  port: 8501
+eureka:
+  instance:
+    hostname: gataway_user
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ipaddress}:${server.port}
+  client:
+    service-url:                    #对中心外暴露的地址
+      defaultZone: http://localhost:8651/eureka/,http://localhost:8652/eureka/
+spring:
+  application:
+    name: Eureka-Gateway
+  profiles:
+    active: add_request_header_route
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          lower-case-service-id: true
+          enabled: true
