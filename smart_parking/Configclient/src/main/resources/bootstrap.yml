@@ -6,20 +6,28 @@ spring:
       name:  ConfigClient  #需要从gitee上读取的资源名称，不需要后缀
       profile: dev    #生产项
       label: master   # 分支
+
+#    #是否启用springcloud config bus
 #    bus:
 #      enabled: true
+#      trace:
+#        enabled: true   #开启跟踪总线事件
+
 #    stream:
 #      kafka:
 #        binder:
+#          #Kafka的消息中间件服务器地址
 #          brokers: localhost:9092
+#          # 是否自动创建主题
 #          auto-create-topics: true
+#          #zookeeper默认地址
 #          zk_nodes: localhost:2181
 
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: refresh
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: refresh
         #include：refresh ,health ,info #打开部分
         # spring boot 2.x 默认只开启了info 和 health ，*代表开启全部访问

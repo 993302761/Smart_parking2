@@ -46,6 +46,7 @@
 
 ### `ConfigServer	配置中心`
 
+	配置信息------>>  https://gitee.com/lei-yu-qi/smart_parking_config.git
 		port:9999
 
 
