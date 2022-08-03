@@ -52,6 +52,7 @@ subprojects {
     apply plugin: 'io.spring.dependency-management'
 
     dependencies {
+
         testImplementation('org.springframework.boot:spring-boot-starter-test')
 
         testImplementation("junit:junit:${junit_version}")
