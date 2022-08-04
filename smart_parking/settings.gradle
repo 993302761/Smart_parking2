@@ -12,4 +12,5 @@ include 'EurekaServer:Eureka-Server02'
 include 'ConfigServer'
 include 'Configclient'
 
-include 'GateWay'
+include 'GateWay:GateWay_User'
+include 'GateWay:GateWay_Web'

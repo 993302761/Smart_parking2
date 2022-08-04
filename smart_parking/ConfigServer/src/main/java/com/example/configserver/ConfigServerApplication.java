@@ -13,7 +13,6 @@ public class ConfigServerApplication {
     public static void main(String[] args) {
         //客户端热部署  端口不可热部署
         //curl -X POST http://localhost:9090/actuator/refresh
-
         SpringApplication.run(ConfigServerApplication.class, args);
     }
 }
