@@ -4,20 +4,24 @@ plugins {
 
 version 'unspecified'
 
-repositories {
-    mavenCentral()
-}
+subprojects {
 
-dependencies {
-    //配置中心
-    implementation 'org.springframework.cloud:spring-cloud-config-client'
-    implementation 'org.springframework.cloud:spring-cloud-starter-config'
-    //监控
-    implementation 'org.springframework.boot:spring-boot-starter-actuator'
-    //网关依赖
-    implementation 'org.springframework.cloud:spring-cloud-starter-gateway'
-    implementation 'org.springframework.boot:spring-boot-starter-webflux'
-    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-archaius'
-    //网关也是需要注册到注册中心中的
-    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+    repositories {
+        mavenLocal()
+        maven { url 'https://maven.aliyun.com/repository/central' }
+        mavenCentral()
+    }
+    dependencies {
+        //配置中心
+        implementation 'org.springframework.cloud:spring-cloud-config-client'
+        implementation 'org.springframework.cloud:spring-cloud-starter-config'
+        //监控
+        implementation 'org.springframework.boot:spring-boot-starter-actuator'
+        //网关依赖
+        implementation 'org.springframework.cloud:spring-cloud-starter-gateway'
+        implementation 'org.springframework.boot:spring-boot-starter-webflux'
+        implementation 'org.springframework.cloud:spring-cloud-starter-netflix-archaius'
+        //网关也是需要注册到注册中心中的
+        implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+    }
 }
