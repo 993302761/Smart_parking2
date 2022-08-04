@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ff0609dd-2a44-4fd0-9468-a5712daa4380" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Smart_parking_server/SmartParkingAPI/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/src/main/java/com/example/administrators/service/OrderFeignService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/src/main/java/com/example/administrators/service/ParkingLotFeignService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/src/main/java/com/example/administrators/service/UserFeignService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/configclient/smart_parking.configclient.test.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/configserver/smart_parking.configserver.test.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConfigServer/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/ConfigServer/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConfigServer/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/ConfigServer/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Configclient/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Configclient/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Configclient/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Configclient/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EurekaServer/Eureka-Server01/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/EurekaServer/Eureka-Server01/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EurekaServer/Eureka-Server02/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/EurekaServer/Eureka-Server02/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GateWay/GateWay_User/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/GateWay/GateWay_User/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GateWay/GateWay_Web/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/GateWay/GateWay_Web/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GateWay/GateWay_Web/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/GateWay/GateWay_Web/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/build/classes/java/main/com/example/administrators/AdministratorsApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/build/classes/java/main/com/example/administrators/AdministratorsApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/build/classes/java/main/com/example/administrators/controller/AdministratorsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/build/classes/java/main/com/example/administrators/controller/AdministratorsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/build/classes/java/main/com/example/administrators/service/AdministratorsServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/build/resources/main/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/build/resources/main/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/src/main/java/com/example/administrators/AdministratorsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/src/main/java/com/example/administrators/AdministratorsApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/src/main/java/com/example/administrators/controller/AdministratorsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/src/main/java/com/example/administrators/controller/AdministratorsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/src/main/java/com/example/administrators/service/AdministratorsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/src/main/java/com/example/administrators/service/Impl/AdministratorsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Order/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Order/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Order/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Order/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Vehicle/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Vehicle/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Vehicle/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Vehicle/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/Smart_parking_server/SmartParkingAPI">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/smart_parking_server/module_Parking">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/smart_parking_server/module_Vehicle">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/provider">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/smart_parking_server/module_Login">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/smart_parking_server">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/smart_parking_server/module_Vehicle">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/configclient">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/configserver">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/Smart_parking_server">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="smart_parking" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Smart_parking_server/build.gradle" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/build.gradle" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/gradlew" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/gradlew.bat" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="/opt/MavenHome" />
+        <option name="mavenHome" value="/opt/apache-maven-3.6.3-bin/apache-maven-3.6.3" />
+        <option name="userSettingsFile" value="/opt/apache-maven-3.6.3-bin/apache-maven-3.6.3/conf/settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="2Axjpg8M9DVsczusICBnvdWRVFT" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="jdk.selected.JAVA_MODULE" value="1.8" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/GateWay/GateWay_User/src/main/resources" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+  </component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/GateWay/GateWay_User/src/main/resources" />
+      <recent name="$PROJECT_DIR$/GateWay/src/main/resources" />
+      <recent name="$PROJECT_DIR$/Smart_parking_server/module_Administrators/src/main/resources" />
+      <recent name="$PROJECT_DIR$/Smart_parking_server/module_Order/src/main/resources" />
+      <recent name="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/src/main/resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Smart_parking_server" />
+      <recent name="$PROJECT_DIR$/Smart_parking_server/module_Administrators/src/main/java/com/example/administrators/service" />
+      <recent name="$PROJECT_DIR$/Smart_parking_server/API" />
+      <recent name="$PROJECT_DIR$/smart_parking_server/module_User/src/main/resources" />
+      <recent name="$PROJECT_DIR$/smart_parking_server" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.administrators.service" />
+      <recent name="com.example.configclient.controller" />
+      <recent name="com.example.vehicle.controller" />
+      <recent name="com.example.parkingLots.config" />
+      <recent name="com.example.vehicle.config" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.ConfigServerApplication">
+    <configuration name="smart_parking [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="smart_parking:configclient [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/configclient" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="smart_parking:configserver [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/configserver" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="smart_parking_server [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="dependencies" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="smart_parking:smart_parking_server:module_Vehicle [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/smart_parking_server/module_Vehicle" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="smart_parking" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="smart_parking" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AdministratorsApplication " type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="smart_parking.Smart_parking_server.module_Administrators.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.administrators.AdministratorsApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConfigServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="smart_parking.ConfigServer.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.configserver.ConfigServerApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConfigclientApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="smart_parking.Configclient.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.configclient.ConfigClientApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EurekaServer01Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="smart_parking.EurekaServer.Eureka-Server01.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.saltfish.org.EurekaServer01Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EurekaServer02Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="smart_parking.EurekaServer.Eureka-Server02.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.saltfish.org.EurekaServer02Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GateWayUserApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="smart_parking.GateWay.GateWay_User.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.saltfish.explme.GateWayUserApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GateWayWebAppliscation" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="smart_parking.GateWay.GateWay_Web.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.saltfish.explme.GateWayWebAppliscation" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderApplication " type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="smart_parking.Smart_parking_server.module_Order.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.order.OrderApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ParkingLotsApplication " type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="smart_parking.Smart_parking_server.module_ParkingLots.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.parkingLots.ParkingLotsApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserApplication " type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="smart_parking.Smart_parking_server.module_User.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.user.UserApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VehicleApplication " type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="smart_parking.Smart_parking_server.module_Vehicle.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.vehicle.VehicleApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Gradle.smart_parking_server [dependencies]" />
+      <item itemvalue="Gradle.smart_parking:smart_parking_server:module_Vehicle [clean]" />
+      <item itemvalue="Gradle.smart_parking [clean]" />
+      <item itemvalue="Gradle.smart_parking:configclient [clean]" />
+      <item itemvalue="Gradle.smart_parking:configserver [clean]" />
+      <item itemvalue="Spring Boot.EurekaServer01Application" />
+      <item itemvalue="Spring Boot.EurekaServer02Application" />
+      <item itemvalue="Spring Boot.ConfigclientApplication" />
+      <item itemvalue="Spring Boot.AdministratorsApplication " />
+      <item itemvalue="Spring Boot.OrderApplication " />
+      <item itemvalue="Spring Boot.ParkingLotsApplication " />
+      <item itemvalue="Spring Boot.UserApplication " />
+      <item itemvalue="Spring Boot.VehicleApplication " />
+      <item itemvalue="Spring Boot.ConfigServerApplication" />
+      <item itemvalue="Spring Boot.GateWayWebAppliscation" />
+      <item itemvalue="Spring Boot.GateWayUserApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.smart_parking [clean]" />
+        <item itemvalue="Gradle.smart_parking:configserver [clean]" />
+        <item itemvalue="Gradle.smart_parking:configclient [clean]" />
+        <item itemvalue="Gradle.smart_parking_server [dependencies]" />
+        <item itemvalue="Gradle.smart_parking:smart_parking_server:module_Vehicle [clean]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ff0609dd-2a44-4fd0-9468-a5712daa4380" name="Changes" comment="" />
+      <created>1655958314615</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1655958314615</updated>
+      <workItem from="1655958316096" duration="2963000" />
+      <workItem from="1655989196832" duration="598000" />
+      <workItem from="1655992647042" duration="692000" />
+      <workItem from="1656049765527" duration="1596000" />
+      <workItem from="1656052118000" duration="4400000" />
+      <workItem from="1656074031789" duration="4012000" />
+      <workItem from="1656247148798" duration="5615000" />
+      <workItem from="1656335233931" duration="3314000" />
+      <workItem from="1656404947721" duration="3725000" />
+      <workItem from="1656427457400" duration="132000" />
+      <workItem from="1656515806728" duration="146000" />
+      <workItem from="1656551731592" duration="1410000" />
+      <workItem from="1656919433386" duration="5966000" />
+      <workItem from="1656940195407" duration="2683000" />
+      <workItem from="1657004880173" duration="8767000" />
+      <workItem from="1657163145278" duration="9767000" />
+      <workItem from="1657198104983" duration="3401000" />
+      <workItem from="1657282106197" duration="10834000" />
+      <workItem from="1657334804008" duration="1198000" />
+      <workItem from="1657357369321" duration="642000" />
+      <workItem from="1657375509234" duration="1710000" />
+      <workItem from="1657424177595" duration="12971000" />
+      <workItem from="1657595998867" duration="7913000" />
+      <workItem from="1657680459246" duration="16628000" />
+      <workItem from="1657717971694" duration="1547000" />
+      <workItem from="1657852715534" duration="10000" />
+      <workItem from="1657860560859" duration="2963000" />
+      <workItem from="1657869951037" duration="7095000" />
+      <workItem from="1657879574833" duration="3337000" />
+      <workItem from="1657888990237" duration="4673000" />
+      <workItem from="1657935105149" duration="8004000" />
+      <workItem from="1657956461847" duration="1600000" />
+      <workItem from="1657968753262" duration="5689000" />
+      <workItem from="1658024967603" duration="11048000" />
+      <workItem from="1658067320397" duration="3070000" />
+      <workItem from="1658071876440" duration="40000" />
+      <workItem from="1658150466618" duration="4481000" />
+      <workItem from="1658194562751" duration="4122000" />
+      <workItem from="1658232708789" duration="3457000" />
+      <workItem from="1658314810738" duration="8490000" />
+      <workItem from="1658367245944" duration="18999000" />
+      <workItem from="1658491910167" duration="96000" />
+      <workItem from="1658492218793" duration="4325000" />
+      <workItem from="1658544796684" duration="272000" />
+      <workItem from="1658555570802" duration="7916000" />
+      <workItem from="1658641050795" duration="2932000" />
+      <workItem from="1658722054610" duration="599000" />
+      <workItem from="1658839811071" duration="106000" />
+      <workItem from="1658909117713" duration="472000" />
+      <workItem from="1658909618317" duration="271000" />
+      <workItem from="1658924521408" duration="5787000" />
+      <workItem from="1659001222508" duration="12125000" />
+      <workItem from="1659082504430" duration="29000" />
+      <workItem from="1659101088280" duration="6917000" />
+      <workItem from="1659145567553" duration="8433000" />
+      <workItem from="1659195485050" duration="2427000" />
+      <workItem from="1659232114756" duration="2802000" />
+      <workItem from="1659264395810" duration="3503000" />
+      <workItem from="1659324889533" duration="17354000" />
+      <workItem from="1659407806950" duration="12000" />
+      <workItem from="1659408032649" duration="4260000" />
+      <workItem from="1659446502252" duration="6208000" />
+      <workItem from="1659499007018" duration="415000" />
+      <workItem from="1659506546153" duration="10000" />
+      <workItem from="1659527116991" duration="2670000" />
+      <workItem from="1659536819158" duration="5192000" />
+      <workItem from="1659576210214" duration="3262000" />
+      <workItem from="1659608263160" duration="7439000" />
+      <workItem from="1659622081297" duration="6249000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Smart_parking_server/src/main/java/com/example/provider/controller/RegisterController.java</url>
+          <line>74</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Smart_parking_server/src/main/java/com/example/provider/service/UserServiceImpl.java</url>
+          <line>58</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Smart_parking_server/src/main/java/com/example/provider/service/VehicleServiceImpl.java</url>
+          <line>71</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Smart_parking_server/src/main/java/com/example/provider/controller/OrderController.java</url>
+          <line>105</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Smart_parking_server/src/main/java/com/example/provider/service/OrderServiceImpl.java</url>
+          <line>152</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Smart_parking_server/src/main/java/com/example/provider/service/OrderServiceImpl.java</url>
+          <line>129</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/src/main/java/com/example/parkingLots/service/ParkingLotServiceImpl.java</url>
+          <line>204</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/GateWay/GateWay_User/build.gradle</url>
+          <line>2</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.net.ConnectException" package="java.net" />
+          <option name="timeStamp" value="4" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalStateException" package="java.lang" />
+          <option name="timeStamp" value="18" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

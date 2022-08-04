@@ -1,15 +1,13 @@
-package com.example.administrators.service;
+package com.example.administrators.service.Impl;
 
 import com.example.administrators.dao.AdministratorsDao;
 import com.example.administrators.entity.Administrators;
 
+import com.example.administrators.service.UserFeignService;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
-import java.util.List;
 
 @Service
 public class AdministratorsServiceImpl {
@@ -19,6 +17,9 @@ public class AdministratorsServiceImpl {
 
     @Resource
     private RestTemplate restTemplate;
+
+    @Resource
+    private UserFeignService userFeignService;
 
     private final String userURl="http://ClientUser/User";
 
@@ -55,10 +56,8 @@ public class AdministratorsServiceImpl {
      * @return 用户列表
      */
     public Object getAllUsers() {
-        String classUrl=userURl+"/getAllUsers";
-        System.out.println(classUrl);
-        Object user=restTemplate.getForObject(classUrl,Object.class);
-        return user;
+        Object users=userFeignService.getAllUsers();
+        return users;
     }
 
 

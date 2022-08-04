@@ -21,7 +21,9 @@
             <option value="$PROJECT_DIR$/GateWay" />
             <option value="$PROJECT_DIR$/GateWay/GateWay_User" />
             <option value="$PROJECT_DIR$/GateWay/GateWay_Web" />
+            <option value="$PROJECT_DIR$/SmartParkingAPI" />
             <option value="$PROJECT_DIR$/Smart_parking_server" />
+            <option value="$PROJECT_DIR$/Smart_parking_server/SmartParkingAPI" />
             <option value="$PROJECT_DIR$/Smart_parking_server/module_Administrators" />
             <option value="$PROJECT_DIR$/Smart_parking_server/module_Order" />
             <option value="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots" />

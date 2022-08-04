@@ -1,6 +1,6 @@
 package com.example.administrators.controller;
 
-import com.example.administrators.service.AdministratorsServiceImpl;
+import com.example.administrators.service.Impl.AdministratorsServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @RestController
 @Api(tags = "超级管理员模块")

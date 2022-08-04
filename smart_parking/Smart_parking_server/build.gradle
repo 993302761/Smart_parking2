@@ -51,9 +51,15 @@ subprojects {
         testCompileOnly("org.projectlombok:lombok:${lombok_version}")
         testAnnotationProcessor("org.projectlombok:lombok:${lombok_version}")
 
+
         //配置中心
         implementation 'org.springframework.cloud:spring-cloud-config-client'
         implementation 'org.springframework.cloud:spring-cloud-starter-config'
+
+
+        //Feign
+        implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+        implementation 'io.github.openfeign:feign-httpclient'
 
 
 //    //aop切面
