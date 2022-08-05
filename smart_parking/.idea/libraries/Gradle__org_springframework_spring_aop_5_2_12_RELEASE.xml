@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.springframework:spring-aop:5.2.12.RELEASE">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/5.2.12.RELEASE/56f98e5c72022ea2e9754f39f457686cbd46e7c5/spring-aop-5.2.12.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/5.2.12.RELEASE/9f4cfc769543893c05992a9abad2d0443c44dac4/spring-aop-5.2.12.RELEASE-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

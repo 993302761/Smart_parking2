@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.springframework.boot:spring-boot-starter-aop:2.3.8.RELEASE">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-aop/2.3.8.RELEASE/b69bc318e2dd9da51f222bb227c3e3133609dc3b/spring-boot-starter-aop-2.3.8.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-aop/2.3.8.RELEASE/d6ad2efbe252ac8fe7de5869ba7e201f45d66e87/spring-boot-starter-aop-2.3.8.RELEASE-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

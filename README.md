@@ -32,6 +32,7 @@
 
 		port:8501
 
+		port:8502
 
 ### `EurekaServer	注册中心`
 

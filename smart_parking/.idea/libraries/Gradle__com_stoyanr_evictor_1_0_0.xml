@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: com.stoyanr:evictor:1.0.0">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/stoyanr/evictor/1.0.0/evictor-1.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
