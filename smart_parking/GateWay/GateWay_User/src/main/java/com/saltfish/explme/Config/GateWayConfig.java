@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 public class GateWayConfig {
     @Bean
     public RouteLocator myRoutes(RouteLocatorBuilder builder) {
+        //localhost:网关端口号/你的服务请求
         return builder.routes()
                 .route(p -> p
                         .path("/User/**")

@@ -1,11 +1,11 @@
 <component name="libraryTable">
   <library name="Gradle: io.github.openfeign:feign-httpclient:10.12">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.github.openfeign/feign-httpclient/10.12/5565f40376bd97f4541f32a6eec50b8c2fd947a4/feign-httpclient-10.12.jar!/" />
+      <root url="jar:///opt/gradle-7.2-all/gradle-7.2/caches/modules-2/files-2.1/io.github.openfeign/feign-httpclient/10.12/5565f40376bd97f4541f32a6eec50b8c2fd947a4/feign-httpclient-10.12.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.github.openfeign/feign-httpclient/10.12/8cced1d72d6f003615d2bdf8d09c6c2ff4ee5baf/feign-httpclient-10.12-sources.jar!/" />
+      <root url="jar:///opt/gradle-7.2-all/gradle-7.2/caches/modules-2/files-2.1/io.github.openfeign/feign-httpclient/10.12/8cced1d72d6f003615d2bdf8d09c6c2ff4ee5baf/feign-httpclient-10.12-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
