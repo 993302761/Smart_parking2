@@ -30,8 +30,10 @@
 
 ### `GateWay       	网关`
 
+	GateWay_User
 		port:8501
 
+	GateWay_Web
 		port:8502
 
 ### `EurekaServer	注册中心`
