@@ -12,6 +12,8 @@ subprojects {
     }
 
     dependencies {
+        testImplementation('org.springframework.boot:spring-boot-starter-test')
+
         implementation ('org.springframework.boot:spring-boot-starter-web')
 
         implementation("org.springframework.boot:spring-boot-starter-parent:${spring_boot_version}")
@@ -57,9 +59,9 @@ subprojects {
         implementation 'org.springframework.cloud:spring-cloud-starter-config'
 
 
-        //Feign
-        implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
-        implementation 'io.github.openfeign:feign-httpclient'
+//        //Feign
+//        implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+//        implementation 'io.github.openfeign:feign-httpclient'
 
 
 //    //aop切面

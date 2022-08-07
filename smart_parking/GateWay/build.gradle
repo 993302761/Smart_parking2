@@ -4,6 +4,8 @@ subprojects {
 
 
     dependencies {
+        testImplementation('org.springframework.boot:spring-boot-starter-test')
+
         //配置中心
         implementation 'org.springframework.cloud:spring-cloud-config-client'
         implementation 'org.springframework.cloud:spring-cloud-starter-config'

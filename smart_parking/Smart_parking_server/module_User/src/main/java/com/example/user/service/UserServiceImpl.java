@@ -345,6 +345,15 @@ public class UserServiceImpl  {
     }
 
 
+    /**
+     * TODO：获取用户列表
+     * @return 用户列表
+     */
+    public List<User> getAllUsers2() {
+        List<User> users = userDao.getAllUsers();
+        return users;
+    }
+
 
 
     /**

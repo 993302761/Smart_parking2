@@ -14,9 +14,6 @@
   <component name="NewModuleRootManager">
     <output url="file://$MODULE_DIR$/../../../../Smart_parking_server/module_Vehicle/build/classes/java/main" />
     <exclude-output />
-    <content url="file://$MODULE_DIR$/../../../../Smart_parking_server/module_Vehicle/build/generated/sources/annotationProcessor/java/main">
-      <sourceFolder url="file://$MODULE_DIR$/../../../../Smart_parking_server/module_Vehicle/build/generated/sources/annotationProcessor/java/main" isTestSource="false" generated="true" />
-    </content>
     <content url="file://$MODULE_DIR$/../../../../Smart_parking_server/module_Vehicle/src/main">
       <sourceFolder url="file://$MODULE_DIR$/../../../../Smart_parking_server/module_Vehicle/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../../../Smart_parking_server/module_Vehicle/src/main/resources" type="java-resource" />
@@ -37,8 +34,6 @@
     <orderEntry type="library" name="Gradle: org.springframework.boot:spring-boot-starter-actuator:2.3.8.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.cloud:spring-cloud-starter-config:2.2.8.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.cloud:spring-cloud-config-client:2.2.8.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: org.springframework.cloud:spring-cloud-starter-openfeign:2.2.9.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: io.github.openfeign:feign-httpclient:10.12" level="project" />
     <orderEntry type="library" name="Gradle: org.hibernate:hibernate-core:3.6.10.Final" level="project" />
     <orderEntry type="library" name="Gradle: org.webjars.bower:jquery:3.5.1" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.boot:spring-boot-starter-json:2.3.8.RELEASE" level="project" />
@@ -84,10 +79,6 @@
     <orderEntry type="library" name="Gradle: org.springframework.cloud:spring-cloud-context:2.2.9.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.11.4" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.httpcomponents:httpclient:4.5.13" level="project" />
-    <orderEntry type="library" name="Gradle: org.springframework.cloud:spring-cloud-openfeign-core:2.2.9.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: io.github.openfeign:feign-slf4j:10.12" level="project" />
-    <orderEntry type="library" name="Gradle: io.github.openfeign:feign-hystrix:10.12" level="project" />
-    <orderEntry type="library" name="Gradle: io.github.openfeign:feign-core:10.12" level="project" />
     <orderEntry type="library" name="Gradle: org.hibernate:hibernate-commons-annotations:3.2.0.Final" level="project" />
     <orderEntry type="library" name="Gradle: antlr:antlr:2.7.7" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: commons-collections:commons-collections:3.1" level="project" />
@@ -145,8 +136,6 @@
     <orderEntry type="library" name="Gradle: org.springframework.security:spring-security-crypto:5.3.6.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.httpcomponents:httpcore:4.4.14" level="project" />
     <orderEntry type="library" name="Gradle: commons-codec:commons-codec:1.14" level="project" />
-    <orderEntry type="library" name="Gradle: io.github.openfeign.form:feign-form-spring:3.8.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.netflix.hystrix:hystrix-core:1.5.18" level="project" />
     <orderEntry type="library" name="Gradle: ch.qos.logback:logback-classic:1.2.3" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.logging.log4j:log4j-to-slf4j:2.13.3" level="project" />
     <orderEntry type="library" name="Gradle: org.slf4j:jul-to-slf4j:1.7.30" level="project" />
@@ -162,21 +151,19 @@
     <orderEntry type="library" name="Gradle: org.codehaus.woodstox:stax2-api:4.2.1" level="project" />
     <orderEntry type="library" name="Gradle: javax.inject:javax.inject:1" level="project" />
     <orderEntry type="library" name="Gradle: aopalliance:aopalliance:1.0" level="project" />
-    <orderEntry type="library" name="Gradle: io.github.openfeign.form:feign-form:3.8.0" level="project" />
-    <orderEntry type="library" name="Gradle: commons-fileupload:commons-fileupload:1.4" level="project" />
     <orderEntry type="library" name="Gradle: ch.qos.logback:logback-core:1.2.3" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.logging.log4j:log4j-api:2.13.3" level="project" />
     <orderEntry type="library" name="Gradle: org.hibernate.validator:hibernate-validator:6.1.7.Final" level="project" />
     <orderEntry type="library" name="Gradle: org.reactivestreams:reactive-streams:1.0.3" level="project" />
     <orderEntry type="library" name="Gradle: org.bouncycastle:bcprov-jdk15on:1.64" level="project" />
     <orderEntry type="library" name="Gradle: xmlpull:xmlpull:1.1.3.1" level="project" />
-    <orderEntry type="library" name="Gradle: commons-io:commons-io:2.2" level="project" />
     <orderEntry type="library" name="Gradle: jakarta.validation:jakarta.validation-api:2.0.2" level="project" />
     <orderEntry type="library" name="Gradle: org.jboss.logging:jboss-logging:3.4.1.Final" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: commons-collections:commons-collections:3.2.2" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: org.codehaus.jettison:jettison:1.4.0" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: org.latencyutils:LatencyUtils:2.0.3" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: com.netflix.ribbon:ribbon-transport:2.3.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.netflix.hystrix:hystrix-core:1.5.18" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: io.reactivex:rxnetty:0.4.9" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: com.netflix.netflix-commons:netflix-commons-util:0.3.0" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: com.netflix.netflix-commons:netflix-statistics:0.1.1" level="project" />

@@ -9,8 +9,8 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.24/lombok-1.18.24.jar" />
         </processorPath>
         <module name="smart_parking.Smart_parking_server.module_Order.main" />
-        <module name="smart_parking.Smart_parking_server.SmartParkingAPI.test" />
         <module name="smart_parking.Smart_parking_server.module_User.test" />
+        <module name="smart_parking.smartParkingAPI.main" />
         <module name="smart_parking.Smart_parking_server.module_Administrators.test" />
         <module name="smart_parking.Smart_parking_server.module_ParkingLots.main" />
         <module name="smart_parking.Smart_parking_server.module_Administrators.main" />
@@ -18,8 +18,8 @@
         <module name="smart_parking.Smart_parking_server.module_Vehicle.main" />
         <module name="smart_parking.Smart_parking_server.module_User.main" />
         <module name="smart_parking.Smart_parking_server.module_Vehicle.test" />
-        <module name="smart_parking.Smart_parking_server.SmartParkingAPI.main" />
         <module name="smart_parking.Smart_parking_server.module_Order.test" />
+        <module name="smart_parking.smartParkingAPI.test" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8" />

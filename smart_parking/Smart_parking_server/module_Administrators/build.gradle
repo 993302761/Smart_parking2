@@ -1,6 +1,6 @@
-apply plugin: 'org.springframework.boot'
 
 dependencies {
 
-
+//    implementation(dir: 'libs', includes: ['*.jar'])
+//    implementation('com.feign.api:smart_parking.smartParkingAPI.main:1.0')
 }

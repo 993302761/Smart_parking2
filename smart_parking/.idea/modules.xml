@@ -27,13 +27,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/GateWay/GateWay_Web/smart_parking.GateWay.GateWay_Web.test.iml" filepath="$PROJECT_DIR$/.idea/modules/GateWay/GateWay_Web/smart_parking.GateWay.GateWay_Web.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/GateWay/smart_parking.GateWay.main.iml" filepath="$PROJECT_DIR$/.idea/modules/GateWay/smart_parking.GateWay.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/GateWay/smart_parking.GateWay.test.iml" filepath="$PROJECT_DIR$/.idea/modules/GateWay/smart_parking.GateWay.test.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SmartParkingAPI/smart_parking.SmartParkingAPI.iml" filepath="$PROJECT_DIR$/.idea/modules/SmartParkingAPI/smart_parking.SmartParkingAPI.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SmartParkingAPI/smart_parking.SmartParkingAPI.main.iml" filepath="$PROJECT_DIR$/.idea/modules/SmartParkingAPI/smart_parking.SmartParkingAPI.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SmartParkingAPI/smart_parking.SmartParkingAPI.test.iml" filepath="$PROJECT_DIR$/.idea/modules/SmartParkingAPI/smart_parking.SmartParkingAPI.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Smart_parking_server/smart_parking.Smart_parking_server.iml" filepath="$PROJECT_DIR$/.idea/modules/Smart_parking_server/smart_parking.Smart_parking_server.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Smart_parking_server/SmartParkingAPI/smart_parking.Smart_parking_server.SmartParkingAPI.iml" filepath="$PROJECT_DIR$/.idea/modules/Smart_parking_server/SmartParkingAPI/smart_parking.Smart_parking_server.SmartParkingAPI.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Smart_parking_server/SmartParkingAPI/smart_parking.Smart_parking_server.SmartParkingAPI.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Smart_parking_server/SmartParkingAPI/smart_parking.Smart_parking_server.SmartParkingAPI.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Smart_parking_server/SmartParkingAPI/smart_parking.Smart_parking_server.SmartParkingAPI.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Smart_parking_server/SmartParkingAPI/smart_parking.Smart_parking_server.SmartParkingAPI.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Smart_parking_server/smart_parking.Smart_parking_server.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Smart_parking_server/smart_parking.Smart_parking_server.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Smart_parking_server/module_Administrators/smart_parking.Smart_parking_server.module_Administrators.iml" filepath="$PROJECT_DIR$/.idea/modules/Smart_parking_server/module_Administrators/smart_parking.Smart_parking_server.module_Administrators.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Smart_parking_server/module_Administrators/smart_parking.Smart_parking_server.module_Administrators.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Smart_parking_server/module_Administrators/smart_parking.Smart_parking_server.module_Administrators.main.iml" />
@@ -52,6 +46,9 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Smart_parking_server/module_Vehicle/smart_parking.Smart_parking_server.module_Vehicle.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Smart_parking_server/module_Vehicle/smart_parking.Smart_parking_server.module_Vehicle.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Smart_parking_server/smart_parking.Smart_parking_server.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Smart_parking_server/smart_parking.Smart_parking_server.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/smart_parking.main.iml" filepath="$PROJECT_DIR$/.idea/modules/smart_parking.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/smartParkingAPI/smart_parking.smartParkingAPI.iml" filepath="$PROJECT_DIR$/.idea/modules/smartParkingAPI/smart_parking.smartParkingAPI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/smartParkingAPI/smart_parking.smartParkingAPI.main.iml" filepath="$PROJECT_DIR$/.idea/modules/smartParkingAPI/smart_parking.smartParkingAPI.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/smartParkingAPI/smart_parking.smartParkingAPI.test.iml" filepath="$PROJECT_DIR$/.idea/modules/smartParkingAPI/smart_parking.smartParkingAPI.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/smart_parking.test.iml" filepath="$PROJECT_DIR$/.idea/modules/smart_parking.test.iml" />
     </modules>
   </component>

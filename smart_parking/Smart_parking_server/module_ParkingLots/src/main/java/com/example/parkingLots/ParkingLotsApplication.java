@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.util.ArrayList;
 
 @SpringBootApplication
-public class ParkingLotsApplication {
+public class    ParkingLotsApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(ParkingLotsApplication.class, args);

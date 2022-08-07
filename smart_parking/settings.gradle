@@ -5,7 +5,7 @@ include 'Smart_parking_server:module_Administrators'
 include 'Smart_parking_server:module_ParkingLots'
 include 'Smart_parking_server:module_Order'
 include 'Smart_parking_server:module_Vehicle'
-include 'Smart_parking_server:SmartParkingAPI'
+include 'smartParkingAPI'
 
 include 'EurekaServer:Eureka-Server01'
 include 'EurekaServer:Eureka-Server02'
@@ -15,5 +15,4 @@ include 'Configclient'
 
 include 'GateWay:GateWay_User'
 include 'GateWay:GateWay_Web'
-include 'SmartParkingAPI'
 

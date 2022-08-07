@@ -1,13 +1,12 @@
 package com.example.administrators;
 
+import com.feign.api.config.FeignConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
-import org.springframework.context.annotation.Bean;
-import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
-@EnableFeignClients
+@EnableFeignClients(defaultConfiguration = FeignConfig.class)
 public class AdministratorsApplication {
 
     public static void main(String[] args) {

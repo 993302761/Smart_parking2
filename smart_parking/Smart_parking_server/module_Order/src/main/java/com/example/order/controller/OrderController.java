@@ -149,7 +149,7 @@ public class    OrderController {
 
     @ApiOperation(value = "获取所有订单")
     @GetMapping(value = "/getAllOrders")
-    public Object getAllOrders (){
+    public List<Order_information> getAllOrders (){
         return orderService.getAllOrders();
     }
 

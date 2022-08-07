@@ -193,7 +193,7 @@ public class UserController {
     @ApiOperation(value = "查找所有用户")
     @GetMapping(value = "/getAllUsers", produces = "application/json; charset=utf-8")
     public List<User> getAllUsers(){
-        return userService.getAllUsers();
+        return userService.getAllUsers2();
     }
 
 
