@@ -1,12 +1,8 @@
 package com.feign.api.entity.order;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import java.sql.Timestamp;
 
-@Data                   //生成get set equals toString等方法
-@NoArgsConstructor      //生成无参构造方法
+
 public class Order_information {
 
     private String order_number;              //订单编号

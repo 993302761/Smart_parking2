@@ -8,15 +8,11 @@
   <component name="NewModuleRootManager">
     <output url="file://$MODULE_DIR$/../../../smartParkingAPI/build/classes/java/main" />
     <exclude-output />
-    <content url="file://$MODULE_DIR$/../../../smartParkingAPI/build/generated/sources/annotationProcessor/java/main">
-      <sourceFolder url="file://$MODULE_DIR$/../../../smartParkingAPI/build/generated/sources/annotationProcessor/java/main" isTestSource="false" generated="true" />
-    </content>
     <content url="file://$MODULE_DIR$/../../../smartParkingAPI/src/main">
       <sourceFolder url="file://$MODULE_DIR$/../../../smartParkingAPI/src/main/java" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.projectlombok:lombok:1.18.24" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.cloud:spring-cloud-starter-openfeign:2.2.9.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: io.github.openfeign:feign-httpclient:10.12" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.cloud:spring-cloud-starter:2.2.9.RELEASE" level="project" />

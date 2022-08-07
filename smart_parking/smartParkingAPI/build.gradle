@@ -1,6 +1,5 @@
 plugins {
     id 'java'
-    id 'com.github.johnrengelman.shadow' version '5.1.0'
 }
 
 version '1.0'
@@ -11,23 +10,13 @@ repositories {
     mavenCentral()
 }
 
-shadowJar{
-    manifest{
-        attributes('Main-Class':'com.feign.api')
-    }
-}
+
 
 dependencies {
 
     //Feign
     implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
     implementation 'io.github.openfeign:feign-httpclient'
-
-    //一个Lombok为啥写这么多？因为gradle5.0以上的版本都需要手动指定Lombok在编译期使用
-    compileOnly("org.projectlombok:lombok:${lombok_version}")
-    annotationProcessor("org.projectlombok:lombok:${lombok_version}")
-    testCompileOnly("org.projectlombok:lombok:${lombok_version}")
-    testAnnotationProcessor("org.projectlombok:lombok:${lombok_version}")
 
 
 }

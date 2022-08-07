@@ -14,7 +14,6 @@
     <orderEntry type="module" module-name="smart_parking.smartParkingAPI.main" />
     <orderEntry type="library" name="Gradle: org.springframework.cloud:spring-cloud-starter-openfeign:2.2.9.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: io.github.openfeign:feign-httpclient:10.12" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.projectlombok:lombok:1.18.24" level="project" />
     <orderEntry type="library" name="Gradle: junit:junit:4.13.2" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.cloud:spring-cloud-starter:2.2.9.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.cloud:spring-cloud-openfeign-core:2.2.9.RELEASE" level="project" />

@@ -59,9 +59,9 @@ subprojects {
         implementation 'org.springframework.cloud:spring-cloud-starter-config'
 
 
-//        //Feign
-//        implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
-//        implementation 'io.github.openfeign:feign-httpclient'
+        //Feign
+        implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+        implementation 'io.github.openfeign:feign-httpclient'
 
 
 //    //aop切面
