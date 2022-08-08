@@ -33,7 +33,7 @@ public class UserServiceImpl  {
 
     @Resource
     private RestTemplate restTemplate;
-    
+
     @Resource
     private ParkingLotFeignService parkingLotFeignService;
 

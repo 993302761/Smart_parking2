@@ -26,12 +26,6 @@ public class UserController {
     private UserServiceImpl userService;
 
 
-    //跳到网页
-    @RequestMapping("/load")
-    public String index(){
-        return  "/upload.html";
-    }
-
 
     @ApiOperation(value = "app用户登录", notes = "输入账号和密码登录")
     @ApiImplicitParams({

@@ -13,16 +13,16 @@ public interface ParkingLotFeignService {
     Object getAllParking();
 
     @GetMapping(value = "/ParkingLots/getParkingName/{parking_lot_number}")
-    String getParkingName (@PathVariable String parking_lot_number );
+    String getParkingName (@PathVariable("parking_lot_number") String parking_lot_number );
 
-    @GetMapping(value = "/getParkingBilling_rules/{parking_lot_number}")
-    String getParkingBilling_rules (@PathVariable String parking_lot_number );
+    @GetMapping(value = "/ParkingLots/getParkingBilling_rules/{parking_lot_number}")
+    String getParkingBilling_rules (@PathVariable("parking_lot_number") String parking_lot_number );
 
-    @GetMapping(value = "/get_parking_lot/{city}")
-    Object get_parking_lot (@PathVariable String city);
+    @GetMapping(value = "/ParkingLots/get_parking_lot/{city}")
+    Object get_parking_lot (@PathVariable("city") String city);
 
-    @GetMapping(value = "/getParkingLot/{parking_lot_name}/{city}")
-    Object getParkingLot (@PathVariable String parking_lot_name, @PathVariable String city);
+    @GetMapping(value = "/ParkingLots/getParkingLot/{parking_lot_name}/{city}")
+    Object getParkingLot (@PathVariable("parking_lot_name") String parking_lot_name, @PathVariable("city") String city);
 
 
 }

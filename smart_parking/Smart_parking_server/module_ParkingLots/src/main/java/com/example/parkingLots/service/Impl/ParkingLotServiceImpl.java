@@ -22,8 +22,6 @@ public class ParkingLotServiceImpl {
     @Resource
     private ParkingLotDao parkingLotDao;
 
-    @Resource
-    private RestTemplate restTemplate;
 
     @Resource
     private RedisTemplate<String, String> redisTemplate;
