@@ -1,6 +1,6 @@
 package com.example.user.filter;
 
-import com.example.user.service.UserServiceImpl;
+import com.example.user.service.Impl.UserServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;

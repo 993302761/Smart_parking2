@@ -1,7 +1,7 @@
 package com.example.user.controller;
 
 import com.example.user.entity.User;
-import com.example.user.service.UserServiceImpl;
+import com.example.user.service.Impl.UserServiceImpl;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;

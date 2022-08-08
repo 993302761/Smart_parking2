@@ -1,6 +1,6 @@
 package com.example.user.controller;
 
-import com.example.user.service.UserOrderServiceImpl;
+import com.example.user.service.Impl.UserOrderServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -54,7 +54,7 @@ public class UserOrderController {
             @ApiImplicitParam(name = "UUID", value = "通用唯一识别码", required = true, dataType = "String")
     })
     @PutMapping(value = "/complete_Order", produces = "text/plain;charset=utf-8")
-    public ResponseEntity<String> complete_Order (String user_name, String order_number, String UUID){
+    public String complete_Order (String user_name, String order_number, String UUID){
         return userOrderService.complete_Order(user_name,order_number);
     }
 
@@ -71,7 +71,7 @@ public class UserOrderController {
             @ApiImplicitParam(name = "UUID", value = "通用唯一识别码", required = true, dataType = "String")
     })
     @PutMapping(value = "/app_cancellation_Order", produces = "text/plain;charset=utf-8")
-    public ResponseEntity<String> app_cancellation_Order (String user_name, String order_number, String UUID){
+    public String app_cancellation_Order (String user_name, String order_number, String UUID){
           return userOrderService.app_cancellation_Order(user_name,order_number);
     }
 

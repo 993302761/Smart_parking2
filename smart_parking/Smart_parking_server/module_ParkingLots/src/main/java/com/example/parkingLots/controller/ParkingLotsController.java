@@ -2,7 +2,7 @@ package com.example.parkingLots.controller;
 
 import com.example.parkingLots.entity.Parking;
 import com.example.parkingLots.entity.Parking_for_user;
-import com.example.parkingLots.service.ParkingLotServiceImpl;
+import com.example.parkingLots.service.Impl.ParkingLotServiceImpl;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -103,7 +103,7 @@ public class ParkingLotsController {
             @ApiImplicitParam(name = "order_number", value = "订单编号", required = true, dataType = "String")
     })
     @PutMapping(value = "/parking_cancellation_Order", produces = "text/plain;charset=utf-8")
-    public ResponseEntity<String> parking_cancellation_Order (String parking_lot_number, String order_number){
+    public String parking_cancellation_Order (String parking_lot_number, String order_number){
         return parkingLotService.parking_cancellation_Order(parking_lot_number,order_number);
     }
 

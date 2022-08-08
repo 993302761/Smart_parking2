@@ -1,6 +1,9 @@
 
 dependencies {
 
-//    implementation(dir: 'libs', includes: ['*.jar'])
-//    implementation('com.feign.api:smart_parking.smartParkingAPI.main:1.0')
+//    implementation fileTree(dir: 'lib', includes: ['*.jar'])
+    //    implementation('com.feign.api:smart_parking.smartParkingAPI.main:1.0')
+
+//        implementation ('com.feign.api:smartParkingApi:1.0')
+
 }

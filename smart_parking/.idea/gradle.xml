@@ -9,7 +9,7 @@
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="gradleHome" value="/opt/gradle-7.2-all/gradle-7.2" />
-        <option name="gradleJvm" value="#JAVA_HOME" />
+        <option name="gradleJvm" value="1.8" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
@@ -27,7 +27,7 @@
             <option value="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots" />
             <option value="$PROJECT_DIR$/Smart_parking_server/module_User" />
             <option value="$PROJECT_DIR$/Smart_parking_server/module_Vehicle" />
-            <option value="$PROJECT_DIR$/smartParkingAPI" />
+            <option value="$PROJECT_DIR$/Smart_parking_server/smartParkingApi" />
           </set>
         </option>
       </GradleProjectSettings>
