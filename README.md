@@ -1,12 +1,14 @@
 # `Smart_parking2.0`
 
+# `智慧停车2.0`
+
 <a href="https://www.oscs1024.com/project/oscs/993302761/Smart_parking2.0?ref=badge_small" alt="OSCS Status"><img src="https://www.oscs1024.com/platform/badge/993302761/Smart_parking2.0.svg?size=small"/></a>
 
-# `智慧停车2.0`
 
 ## `OSCS`
 
 <a href="https://www.oscs1024.com/project/oscs/993302761/Smart_parking2.0?ref=badge_large" alt="OSCS Status"><img src="https://www.oscs1024.com/platform/badge/993302761/Smart_parking2.0.svg?size=large"/></a>
+
 
 ## `模块介绍`
 
@@ -38,12 +40,11 @@
 
 ### `EurekaServer	注册中心`
 
-双节点 保证高可用性
 
 	EurekaServer01
 		port:8651
 
-	EurekaServer01
+	EurekaServer02
 		port:8652
 
 
