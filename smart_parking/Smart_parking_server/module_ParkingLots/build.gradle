@@ -9,6 +9,9 @@ dependencies {
     implementation("com.fasterxml.jackson.core:jackson-annotations:${jackson_version}")
     implementation("org.apache.commons:commons-pool2:${connection_pool_version}")
 
+
+    implementation project(":smartParkingApi")
+
 }
 
 

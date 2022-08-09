@@ -3,11 +3,9 @@ package com.example.administrators.service.Impl;
 import com.example.administrators.dao.AdministratorsDao;
 import com.example.administrators.entity.Administrators;
 
-import com.example.administrators.service.OrderFeignService;
-import com.example.administrators.service.ParkingLotFeignService;
-import com.example.administrators.service.UserFeignService;
-
-
+import com.feign.api.OrderFeignService;
+import com.feign.api.ParkingLotFeignService;
+import com.feign.api.UserFeignService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -58,8 +56,7 @@ public class AdministratorsServiceImpl {
      * @return 用户列表
      */
     public Object getAllUsers() {
-        Object users=userFeignService.getAllUsers();
-        return users;
+        return userFeignService.getAllUsers();
     }
 
 
@@ -68,8 +65,7 @@ public class AdministratorsServiceImpl {
      * @return 获取停车场列表
      */
     public Object getAllParking() {
-        Object parking=parkingLotFeignService.getAllParking();
-        return parking;
+        return parkingLotFeignService.getAllParking();
     }
 
 
@@ -78,8 +74,7 @@ public class AdministratorsServiceImpl {
      * @return 获取订单列表
      */
     public Object getAllOrder() {
-        Object order=orderFeignService.getAllOrders();
-        return order;
+        return orderFeignService.getAllOrders();
     }
 
 
