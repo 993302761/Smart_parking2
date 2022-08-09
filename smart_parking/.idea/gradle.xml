@@ -4,8 +4,8 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <option name="delegatedBuild" value="true" />
-        <option name="testRunner" value="GRADLE" />
+        <option name="delegatedBuild" value="false" />
+        <option name="testRunner" value="PLATFORM" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="gradleHome" value="/opt/gradle-7.2-all/gradle-7.2" />
@@ -27,7 +27,7 @@
             <option value="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots" />
             <option value="$PROJECT_DIR$/Smart_parking_server/module_User" />
             <option value="$PROJECT_DIR$/Smart_parking_server/module_Vehicle" />
-            <option value="$PROJECT_DIR$/Smart_parking_server/smartParkingApi" />
+            <option value="$PROJECT_DIR$/smartParkingApi" />
           </set>
         </option>
       </GradleProjectSettings>

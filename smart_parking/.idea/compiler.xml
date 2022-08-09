@@ -12,14 +12,12 @@
         <module name="smart_parking.Smart_parking_server.module_User.test" />
         <module name="smart_parking.Smart_parking_server.module_Administrators.test" />
         <module name="smart_parking.Smart_parking_server.module_ParkingLots.main" />
-        <module name="smart_parking.Smart_parking_server.smartParkingApi.test" />
         <module name="smart_parking.Smart_parking_server.module_Administrators.main" />
         <module name="smart_parking.Smart_parking_server.module_ParkingLots.test" />
         <module name="smart_parking.Smart_parking_server.module_Vehicle.main" />
         <module name="smart_parking.Smart_parking_server.module_User.main" />
         <module name="smart_parking.Smart_parking_server.module_Vehicle.test" />
         <module name="smart_parking.Smart_parking_server.module_Order.test" />
-        <module name="smart_parking.Smart_parking_server.smartParkingApi.main" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8" />

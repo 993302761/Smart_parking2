@@ -6,8 +6,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
-import java.util.List;
-
 @FeignClient("ClientOrder")
 public interface OrderFeignService {
 

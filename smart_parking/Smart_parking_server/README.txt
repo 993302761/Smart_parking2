@@ -27,6 +27,7 @@
             user_id：身份证号
             }
 
+
     Vehicle_information     //车辆信息表
             {
             user_name：用户名
@@ -40,6 +41,7 @@
             driving_permit_suffix：车辆行驶证后缀名
             }
 
+
     Parking_lot_information            //停车场信息
             {
             pctr_id：停车场管理员账号
@@ -52,6 +54,7 @@
             longitude：经度
             latitude：纬度
             }
+
 
    Administrators                  //超级管理员
             {

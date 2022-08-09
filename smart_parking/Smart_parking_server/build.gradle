@@ -60,7 +60,7 @@ subprojects {
 
 
         //Feign
-        implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+        implementation ('org.springframework.cloud:spring-cloud-starter-openfeign')
         implementation 'io.github.openfeign:feign-httpclient'
 
 
