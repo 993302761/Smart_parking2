@@ -1,8 +1,8 @@
 package com.example.user.controller;
 
-import com.example.user.entity.User;
-import com.example.user.service.Impl.UserServiceImpl;
+import com.example.user.serviceImpl.UserServiceImpl;
 
+import com.feign.api.entity.user.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;

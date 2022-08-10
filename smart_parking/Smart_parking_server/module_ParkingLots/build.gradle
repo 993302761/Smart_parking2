@@ -10,7 +10,7 @@ dependencies {
     implementation("org.apache.commons:commons-pool2:${connection_pool_version}")
 
 
-    implementation project(":smartParkingApi")
+    implementation project(":Smart_parking_server:smartParkingApi")
 
 }
 

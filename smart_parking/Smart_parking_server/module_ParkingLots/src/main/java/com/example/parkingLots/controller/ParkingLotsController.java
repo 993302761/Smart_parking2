@@ -1,15 +1,14 @@
 package com.example.parkingLots.controller;
 
-import com.example.parkingLots.entity.Parking;
-import com.example.parkingLots.entity.Parking_for_user;
-import com.example.parkingLots.service.Impl.ParkingLotServiceImpl;
+import com.example.parkingLots.serviceImpl.ParkingLotServiceImpl;
 
+import com.feign.api.entity.parkingLots.Parking;
+import com.feign.api.entity.parkingLots.Parking_for_user;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

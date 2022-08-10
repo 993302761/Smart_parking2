@@ -1,6 +1,6 @@
 package com.example.order.dao;
 
-import com.example.order.entity.Order_information;
+import com.feign.api.entity.order.Order_information;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;

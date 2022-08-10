@@ -1,9 +1,9 @@
 package com.example.parkingLots.dao;
 
-import com.example.parkingLots.entity.Parking;
-import com.example.parkingLots.entity.Parking_for_user;
 import com.example.parkingLots.entity.Parking_lot_information;
 
+import com.feign.api.entity.parkingLots.Parking;
+import com.feign.api.entity.parkingLots.Parking_for_user;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;

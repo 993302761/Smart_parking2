@@ -1,8 +1,8 @@
 package com.example.order.controller;
 
-import com.example.order.entity.Order_information;
-import com.example.order.service.Impl.OrderServiceImpl;
+import com.example.order.serviceImpl.OrderServiceImpl;
 
+import com.feign.api.entity.order.Order_information;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -67,7 +67,7 @@ public class    OrderController {
             @ApiImplicitParam(name = "parking_lot_number", value = "停车场编号", required = true, dataType = "String")
     })
     @GetMapping(value = "/userGetParkingOrder/{user_name}/{parking_lot_number}", produces = "application/json; charset=utf-8")
-    public Order_information userGetParkingOrder (@PathVariable String user_name,@PathVariable String parking_lot_number){
+    public Order_information userGetParkingOrder (@PathVariable String user_name, @PathVariable String parking_lot_number){
         return orderService.userGetParkingOrder(user_name,parking_lot_number);
     }
 

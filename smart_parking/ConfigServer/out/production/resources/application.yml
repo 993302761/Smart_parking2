@@ -1,0 +1,38 @@
+server:
+  port: 9999
+
+spring:
+  application:
+    name: ConfigServer
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/lei-yu-qi/smart_parking_config.git
+          username: lei-yu-qi
+          password: b4c6926c15c388d8c23e0460921235b9
+
+    #是否启用springcloud config bus
+    bus:
+      enabled: true
+#      trace:
+#        enabled: true   #开启跟踪总线事件
+
+    stream:
+      kafka:
+        binder:
+          #Kafka的消息中间件服务器地址
+          brokers: localhost:9092
+          # 是否自动创建主题
+          auto-create-topics: true
+          #zookeeper默认地址
+          zk_nodes: localhost:2181
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8651/eureka/,http://localhost:8652/eureka/
+
+

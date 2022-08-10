@@ -3,7 +3,7 @@ apply plugin: 'org.springframework.boot'
 
 dependencies {
 
-    implementation project(":smartParkingApi")
+    implementation project(":Smart_parking_server:smartParkingApi")
 
 }
 

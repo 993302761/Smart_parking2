@@ -1,7 +1,7 @@
 package com.example.user.dao;
 
 import com.example.user.entity.User_information;
-import com.example.user.entity.User;
+import com.feign.api.entity.user.User;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;

@@ -10,7 +10,7 @@ dependencies {
 
     implementation('org.webjars.bower:jquery:3.5.1')
 
-    implementation project(":smartParkingApi")
+    implementation project(":Smart_parking_server:smartParkingApi")
 
 }
 
