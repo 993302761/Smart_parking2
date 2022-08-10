@@ -4,6 +4,7 @@ package com.example.user.serviceImpl;
 import com.example.user.dao.UserDao;
 import com.example.user.entity.User_information;
 import com.feign.api.entity.user.User;
+import com.feign.api.service.ParkingLotFeignService;
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.http.*;

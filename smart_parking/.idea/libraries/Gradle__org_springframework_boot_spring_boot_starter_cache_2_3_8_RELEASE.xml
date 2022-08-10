@@ -1,11 +1,11 @@
 <component name="libraryTable">
   <library name="Gradle: org.springframework.boot:spring-boot-starter-cache:2.3.8.RELEASE">
     <CLASSES>
-      <root url="jar:///opt/gradle-7.2-all/gradle-7.2/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-cache/2.3.8.RELEASE/e1baf463514865381b9b8b2850992b30a3a5b397/spring-boot-starter-cache-2.3.8.RELEASE.jar!/" />
+      <root url="jar:///opt/gradle-7.5.1-all/gradle-7.5.1/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-cache/2.3.8.RELEASE/e1baf463514865381b9b8b2850992b30a3a5b397/spring-boot-starter-cache-2.3.8.RELEASE.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar:///opt/gradle-7.2-all/gradle-7.2/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-cache/2.3.8.RELEASE/eb90cf44df9dce4884f8eebfacef7fb50e32e1ba/spring-boot-starter-cache-2.3.8.RELEASE-sources.jar!/" />
+      <root url="jar:///opt/gradle-7.5.1-all/gradle-7.5.1/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-cache/2.3.8.RELEASE/eb90cf44df9dce4884f8eebfacef7fb50e32e1ba/spring-boot-starter-cache-2.3.8.RELEASE-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

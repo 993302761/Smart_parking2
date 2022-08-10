@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="Gradle: org.springframework.cloud:spring-cloud-starter-netflix-archaius:2.2.9.RELEASE">
     <CLASSES>
-      <root url="jar:///opt/gradle-7.2-all/gradle-7.2/caches/modules-2/files-2.1/org.springframework.cloud/spring-cloud-starter-netflix-archaius/2.2.9.RELEASE/92af821df6655e85a83934a0f730dd6f54b2dc5f/spring-cloud-starter-netflix-archaius-2.2.9.RELEASE.jar!/" />
+      <root url="jar:///opt/gradle-7.5.1-all/gradle-7.5.1/caches/modules-2/files-2.1/org.springframework.cloud/spring-cloud-starter-netflix-archaius/2.2.9.RELEASE/92af821df6655e85a83934a0f730dd6f54b2dc5f/spring-cloud-starter-netflix-archaius-2.2.9.RELEASE.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

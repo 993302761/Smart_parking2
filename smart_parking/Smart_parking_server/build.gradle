@@ -63,6 +63,9 @@ subprojects {
         implementation ('org.springframework.cloud:spring-cloud-starter-openfeign')
         implementation 'io.github.openfeign:feign-httpclient'
 
+        //bus-kafka
+        implementation 'org.springframework.cloud:spring-cloud-starter-bus-kafka'
+
 
 //    //aop切面
 //    implementation('org.springframework.boot:spring-boot-starter-aop')

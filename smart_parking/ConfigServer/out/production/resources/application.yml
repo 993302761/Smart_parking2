@@ -16,8 +16,8 @@ spring:
     #是否启用springcloud config bus
     bus:
       enabled: true
-#      trace:
-#        enabled: true   #开启跟踪总线事件
+      trace:
+        enabled: true   #开启跟踪总线事件
 
     stream:
       kafka:

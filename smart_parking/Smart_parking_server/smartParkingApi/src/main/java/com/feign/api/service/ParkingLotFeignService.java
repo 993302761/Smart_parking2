@@ -14,6 +14,7 @@ public interface ParkingLotFeignService {
     @GetMapping("/ParkingLots/getAllParking")
     List<Parking> getAllParking();
 
+
     @GetMapping(value = "/ParkingLots/getParkingName/{parking_lot_number}")
     String getParkingName (@PathVariable("parking_lot_number") String parking_lot_number );
 

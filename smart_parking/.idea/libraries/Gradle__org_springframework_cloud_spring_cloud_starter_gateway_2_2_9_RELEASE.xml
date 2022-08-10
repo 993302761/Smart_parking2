@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="Gradle: org.springframework.cloud:spring-cloud-starter-gateway:2.2.9.RELEASE">
     <CLASSES>
-      <root url="jar:///opt/gradle-7.2-all/gradle-7.2/caches/modules-2/files-2.1/org.springframework.cloud/spring-cloud-starter-gateway/2.2.9.RELEASE/2792c8d7f4f7cd43217256975aefa19796307e79/spring-cloud-starter-gateway-2.2.9.RELEASE.jar!/" />
+      <root url="jar:///opt/gradle-7.5.1-all/gradle-7.5.1/caches/modules-2/files-2.1/org.springframework.cloud/spring-cloud-starter-gateway/2.2.9.RELEASE/2792c8d7f4f7cd43217256975aefa19796307e79/spring-cloud-starter-gateway-2.2.9.RELEASE.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

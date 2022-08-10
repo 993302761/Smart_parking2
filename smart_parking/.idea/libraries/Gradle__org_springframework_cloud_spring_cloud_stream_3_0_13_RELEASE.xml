@@ -1,11 +1,11 @@
 <component name="libraryTable">
   <library name="Gradle: org.springframework.cloud:spring-cloud-stream:3.0.13.RELEASE">
     <CLASSES>
-      <root url="jar:///opt/gradle-7.2-all/gradle-7.2/caches/modules-2/files-2.1/org.springframework.cloud/spring-cloud-stream/3.0.13.RELEASE/550c6a6578e213acbc78b571c945ec2dd46096cd/spring-cloud-stream-3.0.13.RELEASE.jar!/" />
+      <root url="jar:///opt/gradle-7.5.1-all/gradle-7.5.1/caches/modules-2/files-2.1/org.springframework.cloud/spring-cloud-stream/3.0.13.RELEASE/550c6a6578e213acbc78b571c945ec2dd46096cd/spring-cloud-stream-3.0.13.RELEASE.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar:///opt/gradle-7.2-all/gradle-7.2/caches/modules-2/files-2.1/org.springframework.cloud/spring-cloud-stream/3.0.13.RELEASE/251d5cc124c33798f8766ce86cfd9974d1d43a64/spring-cloud-stream-3.0.13.RELEASE-sources.jar!/" />
+      <root url="jar:///opt/gradle-7.5.1-all/gradle-7.5.1/caches/modules-2/files-2.1/org.springframework.cloud/spring-cloud-stream/3.0.13.RELEASE/251d5cc124c33798f8766ce86cfd9974d1d43a64/spring-cloud-stream-3.0.13.RELEASE-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
