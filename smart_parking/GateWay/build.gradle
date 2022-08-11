@@ -18,5 +18,8 @@ subprojects {
         //网关也是需要注册到注册中心中的
         implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
 
+        //bus-kafka
+        implementation 'org.springframework.cloud:spring-cloud-starter-bus-kafka'
+
     }
 }
