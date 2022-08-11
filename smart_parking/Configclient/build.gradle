@@ -11,13 +11,7 @@ dependencies {
     implementation 'org.springframework.cloud:spring-cloud-starter-config'
 //    implementation "org.springframework.cloud:spring-cloud-dependencies:${spring_cloud_version}"
 
-
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-archaius'
-    //监控模块
-    implementation 'org.springframework.boot:spring-boot-starter-actuator'
 
-    implementation 'org.springframework.cloud:spring-cloud-starter-bus-kafka'
-
-//    implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
 
 }

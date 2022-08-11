@@ -53,8 +53,14 @@ subprojects {
 
     dependencies {
 
+        testImplementation('org.springframework.boot:spring-boot-starter-test')
 
         testImplementation("junit:junit:${junit_version}")
+
+        //bus-kafka
+        implementation 'org.springframework.cloud:spring-cloud-starter-bus-kafka'
+        //监控模块
+        implementation 'org.springframework.boot:spring-boot-starter-actuator'
 
     }
 

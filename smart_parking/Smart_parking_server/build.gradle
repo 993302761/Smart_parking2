@@ -12,7 +12,6 @@ subprojects {
     }
 
     dependencies {
-        testImplementation('org.springframework.boot:spring-boot-starter-test')
 
         implementation ('org.springframework.boot:spring-boot-starter-web')
 
@@ -42,9 +41,6 @@ subprojects {
         implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
         implementation 'org.springframework.cloud:spring-cloud-starter-netflix-archaius'
 
-        //监控模块
-        implementation 'org.springframework.boot:spring-boot-starter-actuator'
-
 
 
         //一个Lombok为啥写这么多？因为gradle5.0以上的版本都需要手动指定Lombok在编译期使用
@@ -63,14 +59,6 @@ subprojects {
         implementation ('org.springframework.cloud:spring-cloud-starter-openfeign')
         implementation 'io.github.openfeign:feign-httpclient'
 
-        //bus-kafka
-        implementation 'org.springframework.cloud:spring-cloud-starter-bus-kafka'
-
-
-//    //aop切面
-//    implementation('org.springframework.boot:spring-boot-starter-aop')
-//    implementation('org.aspectj:aspectjrt')
-//    implementation('org.aspectj:aspectjweaver')
 
     }
 
