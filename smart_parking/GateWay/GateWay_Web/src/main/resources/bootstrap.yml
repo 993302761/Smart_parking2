@@ -6,3 +6,4 @@ spring:
       name: GateWay  #需要从gitee上读取的资源名称，不需要后缀
       profile: gatewayForWeb    #生产项
       label: master   # 分支
+
