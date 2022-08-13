@@ -27,8 +27,7 @@ public class UserOrderServiceImpl {
      * @return 是否成功
      */
     public String  generate_order (String user_name,String license_plate_number,String parking_lot_number){
-        String order=orderFeignService.generate_order(user_name,license_plate_number,parking_lot_number);
-        return order;
+        return orderFeignService.generate_order(user_name,license_plate_number,parking_lot_number);
     }
 
 
@@ -40,8 +39,7 @@ public class UserOrderServiceImpl {
      * @return 是否成功
      */
     public Object findOrder (String user_name,String order_number){
-        Object order=orderFeignService.userGetParkingOrder(user_name,order_number);
-        return order;
+        return orderFeignService.userGetParkingOrder(user_name,order_number);
     }
 
 
@@ -52,8 +50,7 @@ public class UserOrderServiceImpl {
      * @return 是否成功
      */
     public String complete_Order (String user_name, String order_number){
-        String exchange = orderFeignService.complete_Order(user_name,order_number);
-        return exchange;
+        return orderFeignService.complete_Order(user_name,order_number);
     }
 
 
@@ -65,8 +62,7 @@ public class UserOrderServiceImpl {
      * @return 是否成功
      */
     public String app_cancellation_Order (String user_name,String order_number){
-        String exchange = orderFeignService.app_cancellation_Order(user_name,order_number);
-        return exchange;
+        return orderFeignService.app_cancellation_Order(user_name,order_number);
     }
 
 
@@ -77,8 +73,7 @@ public class UserOrderServiceImpl {
      * @return 是否成功
      */
     public Object get_parking_lot ( String city){
-        Object parkingLot=parkingLotFeignService.get_parking_lot(city);
-        return parkingLot;
+        return parkingLotFeignService.get_parking_lot(city);
     }
 
 }

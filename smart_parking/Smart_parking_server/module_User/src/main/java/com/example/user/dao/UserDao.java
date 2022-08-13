@@ -26,7 +26,7 @@ public interface UserDao {
 
 
     /**
-     * 查找用户
+     * 获取用户身份证
      * */
     @Select("SELECT user_id FROM User WHERE user_name =#{user_name}")
     String getUserId(@Param("user_name") String user_name);

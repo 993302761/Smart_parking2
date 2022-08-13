@@ -247,8 +247,7 @@ public class UserServiceImpl  {
      * @param city 当前所在城市
      */
     public Object getParkingLot (String parking_lot_name,String city){
-        Object ParkingLot =parkingLotFeignService.getParkingLot(parking_lot_name,city);
-        return ParkingLot;
+        return parkingLotFeignService.getParkingLot(parking_lot_name,city);
     }
 
 

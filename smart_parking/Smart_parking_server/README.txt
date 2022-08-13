@@ -25,6 +25,7 @@
             user_name：用户名
             password：密码
             user_id：身份证号
+            integral：积分
             }
 
 
@@ -115,9 +116,10 @@
 
     create table User(user_name varchar(11) primary key,
                       password varchar(50) not null,
-                      user_id varchar(20) not null);
+                      user_id varchar(20) not null,
+                      integral int not null);
 
-    insert into User values("123","123","1234568789"),("18153301670","lyq2001124","435481224685221384");
+    insert into User values("123","123","1234568789",0),("18153301670","lyq2001124","435481224685221384",0);
 
 
 

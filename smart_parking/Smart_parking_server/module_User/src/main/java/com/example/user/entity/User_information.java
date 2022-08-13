@@ -12,5 +12,6 @@ public class User_information {
     private String user_name;   //用户名
     private String password;   //密码
     private String user_id;    //身份证号
+    private int integral;    //积分
 
 }

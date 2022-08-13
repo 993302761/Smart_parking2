@@ -6,6 +6,10 @@ spring:
           uri: lb://ClientUser    # 路由的目标地址
           predicates:
             - Path=/User/**
+      #          filters:
+      #            - AddRequestHeader=key,value
+
+
       #    filters为路由过滤器  default-filters为全局过滤器  优先级按照声明顺序递增
       #    order值一样时，先执行default-filters，在执行路由过滤器，在执行，GlobalFilter
 
