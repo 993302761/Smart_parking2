@@ -4,5 +4,5 @@ spring:
     config:
       uri: http://localhost:9999
       name:  SmartParkingServer  #需要从gitee上读取的资源名称，不需要后缀
-      profile: Order    #生产项
+      profile: order    #生产项
       label: master   # 分支

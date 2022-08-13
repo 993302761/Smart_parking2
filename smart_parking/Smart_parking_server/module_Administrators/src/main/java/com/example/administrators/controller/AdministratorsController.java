@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Api(tags = "超级管理员模块")
 @RequestMapping("/Administrators")
-@RefreshScope
 public class AdministratorsController {
 
 

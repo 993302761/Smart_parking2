@@ -11,8 +11,11 @@ import org.springframework.cloud.config.server.EnableConfigServer;
 public class ConfigServerApplication {
 
     public static void main(String[] args) {
-        //客户端热部署  端口不可热部署
-        //curl -X POST http://localhost:9090/actuator/refresh
+        //客户端全局广播配置  端口不可热部署
+        //  curl -X POST "http://localhost:9999/actuator/bus-refresh"
+        //客户端定点通知
+        //  curl -X POST "http://localhost:9999/actuator/bus-refresh/application-name:port"
+
         SpringApplication.run(ConfigServerApplication.class, args);
     }
 }

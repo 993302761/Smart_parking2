@@ -1,0 +1,7 @@
+server:
+  port: 9001
+
+spring:
+  #  服务名称------服务名称不能使用下划线，删除下划线或者使用中划线
+  application:
+    name: ClientOrder

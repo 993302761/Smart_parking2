@@ -1,4 +1,9 @@
+server:
+  port: 8502
+
 spring:
+  application:
+    name: gatewayForWeb
   cloud:
     gateway:
       routes:

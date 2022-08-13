@@ -12,22 +12,32 @@ spring:
           uri: https://gitee.com/lei-yu-qi/smart_parking_config.git
           username: lei-yu-qi
           password: b4c6926c15c388d8c23e0460921235b9
+          search-paths: Smart_parking_config  #目录
+      label: master   #分支
 
-    #是否启用springcloud config bus
-    bus:
-      enabled: true
-      trace:
-        enabled: true   #开启跟踪总线事件
+#    #是否启用springcloud config bus
+#    bus:
+#      enabled: true
+#      trace:
+#        enabled: true   #开启跟踪总线事件
+#
+#    stream:
+#      kafka:
+#        binder:
+#          #Kafka的消息中间件服务器地址
+#          brokers: localhost:9092
+#          # 是否自动创建主题
+#          auto-create-topics: true
+#          #zookeeper默认地址
+#          zk_nodes: localhost:2181
 
-    stream:
-      kafka:
-        binder:
-          #Kafka的消息中间件服务器地址
-          brokers: localhost:9092
-          # 是否自动创建主题
-          auto-create-topics: true
-          #zookeeper默认地址
-          zk_nodes: localhost:2181
+#rabbitmq相关配置
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
 
 
 eureka:
@@ -35,4 +45,9 @@ eureka:
     service-url:
       defaultZone: http://localhost:8651/eureka/,http://localhost:8652/eureka/
 
-
+#暴露bus刷新配置端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'bus-refresh'
