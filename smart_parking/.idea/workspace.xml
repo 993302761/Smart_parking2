@@ -10,17 +10,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff0609dd-2a44-4fd0-9468-a5712daa4380" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/EurekaServer/Eureka-Server01/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EurekaServer/Eureka-Server02/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Smart_parking_server/module_Integral/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Smart_parking_server/module_Order/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Smart_parking_server/module_Vehicle/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GateWay/GateWay_User/out/production/classes/com/saltfish/explme/Filter/UserFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/GateWay/GateWay_User/out/production/classes/com/saltfish/explme/Filter/UserFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GateWay/GateWay_User/out/production/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/GateWay/GateWay_User/out/production/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GateWay/GateWay_User/src/main/java/com/saltfish/explme/Filter/UserFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/README.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/README.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/classes/com/example/user/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/classes/com/example/user/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/dao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/entity/User_information.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/entity/User_information.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/serviceImpl/UserOrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/serviceImpl/UserOrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/serviceImpl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/serviceImpl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EurekaServer/Eureka-Server01/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/EurekaServer/Eureka-Server01/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EurekaServer/Eureka-Server02/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/EurekaServer/Eureka-Server02/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GateWay/GateWay_User/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/GateWay/GateWay_User/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GateWay/GateWay_User/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/GateWay/GateWay_User/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GateWay/GateWay_Web/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/GateWay/GateWay_Web/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GateWay/GateWay_Web/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/GateWay/GateWay_Web/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/out/production/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/out/production/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Order/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Order/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Vehicle/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Vehicle/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +187,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/GateWay/GateWay_Web/src/main/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/EurekaServer/Eureka-Server01/src/main/resources" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -183,11 +199,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/GateWay/GateWay_Web/src/main/resources" />
-      <recent name="$PROJECT_DIR$/GateWay/GateWay_User/src/main/resources" />
-      <recent name="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/src/main/java/com/feign/api/entity/parkingLots" />
-      <recent name="$PROJECT_DIR$/ProjectSetUp" />
-      <recent name="$PROJECT_DIR$/Smart_parking_server/module_Administrators" />
+      <recent name="$PROJECT_DIR$/EurekaServer/Eureka-Server01/src/main/resources" />
+      <recent name="$PROJECT_DIR$/EurekaServer/Eureka-Server02/src/main/resources" />
+      <recent name="$PROJECT_DIR$/Smart_parking_server/module_Vehicle/src/main/resources" />
+      <recent name="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/resources" />
+      <recent name="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/src/main/resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Smart_parking_server" />
@@ -528,7 +544,7 @@
       <workItem from="1660224807425" duration="5420000" />
       <workItem from="1660269619428" duration="624000" />
       <workItem from="1660307435695" duration="6009000" />
-      <workItem from="1660354426611" duration="7271000" />
+      <workItem from="1660354426611" duration="10053000" />
     </task>
     <servers />
   </component>

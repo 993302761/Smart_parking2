@@ -1,4 +1,9 @@
+server:
+  port: 8501
+
 spring:
+  application:
+    name: gatewayForUser
   cloud:
     gateway:
       routes:
