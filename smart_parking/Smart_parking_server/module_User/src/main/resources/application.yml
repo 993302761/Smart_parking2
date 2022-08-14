@@ -5,3 +5,21 @@ spring:
   #  服务名称------服务名称不能使用下划线，删除下划线或者使用中划线
   application:
     name: ClientUser
+
+  cloud:
+    stream:
+      binders: #在此处配置要绑定的RabbitMQ的配置信息
+        defaultRabbit:  #表示定义名称，用于binding整合
+          type: rabbit #消息组件类型
+          environmenter: #设置rabbitmq相关环境配置
+            spring:
+              rabbitmq:
+                host: localhost
+                port: 5672
+                username: guest
+                password: guest
+      bindings: #服务的整合处理
+        output: #代表这是一个消息的生产者
+          destination: IntegralChange   #表示要使用的exchange名称
+          content-type: application/json  #设置消息类型，文本则为‘text/plain’
+#          binder:  defaultRabbit    #设置要绑定的消息服务的具体设置

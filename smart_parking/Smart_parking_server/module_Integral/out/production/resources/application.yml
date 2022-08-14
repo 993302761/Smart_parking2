@@ -1,10 +1,10 @@
 server:
-  port: 9003
+  port: 9005
 
 spring:
   #  服务名称------服务名称不能使用下划线，删除下划线或者使用中划线
   application:
-    name: ClientUser
+    name: ClientIntegral
 
   cloud:
     stream:
@@ -19,7 +19,7 @@ spring:
                 username: guest
                 password: guest
       bindings: #服务的整合处理
-        output: #代表这是一个消息的生产者
+        input: #代表这是一个消息的消费者
           destination: IntegralChange   #表示要使用的exchange名称
           content-type: application/json  #设置消息类型，文本则为‘text/plain’
 #          binder:  defaultRabbit    #设置要绑定的消息服务的具体设置

@@ -1,5 +1,6 @@
 package com.example.user.controller;
 
+import com.example.user.serviceImpl.UserIntegralServiceImpl;
 import com.example.user.serviceImpl.UserOrderServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -8,14 +9,18 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
+
 @RestController
 @Api(tags = "用户订单模块")
 @RequestMapping("/UserOrder")
 public class UserOrderController {
 
-    @Autowired(required = false)
+    @Resource
     private UserOrderServiceImpl userOrderService;
 
+    @Resource
+    private UserIntegralServiceImpl userIntegralService;
 
 
     @ApiOperation(value = "app开始订单")
@@ -54,7 +59,7 @@ public class UserOrderController {
     })
     @PutMapping(value = "/complete_Order", produces = "text/plain;charset=utf-8")
     public String complete_Order (String user_name, String order_number, String UUID){
-        return userOrderService.complete_Order(user_name,order_number);
+        return userIntegralService.complete_Order(user_name,order_number);
     }
 
 
