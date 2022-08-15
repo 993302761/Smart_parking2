@@ -6,20 +6,29 @@ spring:
   application:
     name: ClientIntegral
 
+  rabbitmq:
+    listener:
+      direct:
+        auto-startup: false #关闭开发环境
+
+
+
   cloud:
     stream:
       binders: #在此处配置要绑定的RabbitMQ的配置信息
         defaultRabbit:  #表示定义名称，用于binding整合
           type: rabbit #消息组件类型
-          environmenter: #设置rabbitmq相关环境配置
+          environment: #设置rabbitmq相关环境配置
             spring:
               rabbitmq:
                 host: localhost
                 port: 5672
                 username: guest
                 password: guest
-      bindings: #服务的整合处理
-        input: #代表这是一个消息的消费者
+
+      bindings:
+        output: #代表这是一个消息的生产者
           destination: IntegralChange   #表示要使用的exchange名称
           content-type: application/json  #设置消息类型，文本则为‘text/plain’
-#          binder:  defaultRabbit    #设置要绑定的消息服务的具体设置
+#          binder: DefaultRabbit    #设置要绑定的消息服务的具体设置
+          group: asd

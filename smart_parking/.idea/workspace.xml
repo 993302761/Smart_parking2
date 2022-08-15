@@ -10,19 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff0609dd-2a44-4fd0-9468-a5712daa4380" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Smart_parking_server/module_Integral/src/main/java/com/example/Integral/IntegralApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Smart_parking_server/module_Integral/src/main/java/com/example/Integral/controller/IntegralController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Smart_parking_server/module_Integral/src/main/java/com/example/Integral/serviceImpl/IntegralServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Smart_parking_server/module_Integral/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Smart_parking_server/module_Integral/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/serviceImpl/UserIntegralServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Integral/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Integral/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/classes/com/example/user/controller/UserOrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/classes/com/example/user/controller/UserOrderController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Integral/out/production/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Integral/out/production/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Integral/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Integral/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/controller/UserOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/controller/UserOrderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -214,11 +205,12 @@
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
+        <option value="ReactNative" />
         <option value="SpringBootApplicationConfigurationType" />
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.AdministratorsApplication ">
+  <component name="RunManager" selected="Spring Boot.UserApplication ">
     <configuration name="smart_parking [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -544,7 +536,9 @@
       <workItem from="1660269619428" duration="624000" />
       <workItem from="1660307435695" duration="6009000" />
       <workItem from="1660354426611" duration="16973000" />
-      <workItem from="1660446302204" duration="6882000" />
+      <workItem from="1660446302204" duration="8516000" />
+      <workItem from="1660489965366" duration="1699000" />
+      <workItem from="1660542361928" duration="2854000" />
     </task>
     <servers />
   </component>
