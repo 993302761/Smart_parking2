@@ -1,0 +1,4 @@
+com/saltfish/example/FastApplication.java
+ com.saltfish.example.FastApplication
+com/saltfish/example/service/FastDFSClient.java
+ com.saltfish.example.service.FastDFSClient
