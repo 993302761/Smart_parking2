@@ -1,0 +1,15 @@
+plugins {
+    id 'java'
+}
+
+version 'unspecified'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'net.oschina.zcx7878:fastdfs-client-java:1.27.0.0'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.7.2'
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
+}
