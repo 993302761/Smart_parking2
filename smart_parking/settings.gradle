@@ -7,6 +7,7 @@ include 'Smart_parking_server:module_Order'
 include 'Smart_parking_server:module_Vehicle'
 include 'Smart_parking_server:smartParkingApi'
 include 'Smart_parking_server:module_Integral'
+include 'Smart_parking_server:FastDfsApi'
 
 include 'EurekaServer:Eureka-Server01'
 include 'EurekaServer:Eureka-Server02'

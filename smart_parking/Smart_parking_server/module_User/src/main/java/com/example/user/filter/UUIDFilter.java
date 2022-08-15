@@ -36,7 +36,7 @@ public class UUIDFilter implements HandlerInterceptor {
         if (b) {
             return true;
         }else {
-            String data = "重新登陆";
+            String data = "请重新登陆";
             OutputStream outputStream = response.getOutputStream();// 获取输出流
             // 通过设置响应头控制浏览器以UTF-8的编码显示数据，如果不加这句话，那么浏览器显示的将是乱码
             response.setHeader("content-type", "text/html;charset=UTF-8");

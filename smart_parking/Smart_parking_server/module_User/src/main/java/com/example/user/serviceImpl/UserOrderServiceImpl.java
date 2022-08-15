@@ -2,6 +2,7 @@ package com.example.user.serviceImpl;
 
 import com.feign.api.service.OrderFeignService;
 import com.feign.api.service.ParkingLotFeignService;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -17,6 +18,8 @@ public class UserOrderServiceImpl {
     private ParkingLotFeignService parkingLotFeignService;
 
 
+    @Resource
+    private RedisTemplate<String, Integer> redisTemplate;
 
 
     /**
@@ -27,7 +30,12 @@ public class UserOrderServiceImpl {
      * @return 是否成功
      */
     public String  generate_order (String user_name,String license_plate_number,String parking_lot_number){
-        return orderFeignService.generate_order(user_name,license_plate_number,parking_lot_number);
+        boolean hasKey = redisTemplate.hasKey(parking_lot_number);
+        if(hasKey){
+            redisTemplate.opsForValue().increment(parking_lot_number,-1);   //车位自减
+        }
+//        return orderFeignService.generate_order(user_name,license_plate_number,parking_lot_number);
+        return null;
     }
 
 
@@ -49,7 +57,11 @@ public class UserOrderServiceImpl {
      * @param order_number 订单号
      * @return 是否成功
      */
-    public String complete_Order (String user_name, String order_number){
+    public String complete_Order (String user_name, String order_number,String parking_lot_number){
+        boolean hasKey = redisTemplate.hasKey(parking_lot_number);
+        if(hasKey){
+            redisTemplate.opsForValue().increment(parking_lot_number,1);        //车位自增
+        }
         return orderFeignService.complete_Order(user_name,order_number);
     }
 

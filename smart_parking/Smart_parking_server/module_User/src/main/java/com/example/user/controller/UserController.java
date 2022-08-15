@@ -174,10 +174,12 @@ public class UserController {
     @ApiOperation(value = "查找停车场")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "parking_lot_name", value = "停车场名", required = true, dataType = "String"),
-            @ApiImplicitParam(name = "city", value = "所在城市", required = true, dataType = "String")
+            @ApiImplicitParam(name = "city", value = "所在城市", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "UUID", value = "通用唯一识别码", required = true, dataType = "String")
     })
     @GetMapping(value = "/getParkingLot", produces = "application/json;charset=utf-8")
-    public Object getParkingLot (String parking_lot_name,String city){
+    public Object getParkingLot (String parking_lot_name,String city,String user_name,String UUID){
         return userService.getParkingLot(parking_lot_name,city);
     }
 

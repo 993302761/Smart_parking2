@@ -10,11 +10,68 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff0609dd-2a44-4fd0-9468-a5712daa4380" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Integral/out/production/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Integral/out/production/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Integral/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Integral/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/build/classes/java/main/com/saltfish/example/FastApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/build/classes/java/main/com/saltfish/example/FastApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/build/classes/java/main/com/saltfish/example/service/FastDFSClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/build/classes/java/main/com/saltfish/example/service/FastDFSClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/build/classes/java/test/com/saltfish/example/service/FastDFSClientTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/build/classes/java/test/com/saltfish/example/service/FastDFSClientTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/build/reports/tests/test/css/base-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/build/reports/tests/test/css/base-style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/build/reports/tests/test/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/build/reports/tests/test/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/build/reports/tests/test/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/build/reports/tests/test/js/report.js" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/build/reports/tests/test/js/report.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/build/resources/main/fdfs_client.conf" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/build/resources/main/fdfs_client.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/build/test-results/test/binary/output.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/build/test-results/test/binary/output.bin.idx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/build/test-results/test/binary/results.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/build/tmp/compileTestJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/build/tmp/compileTestJava/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/FastApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/out/production/classes/com/saltfish/example/FastApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/annotation/DFSDelete.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/out/production/classes/com/saltfish/example/annotation/DFSDelete.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/annotation/DFSDownLoad.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/out/production/classes/com/saltfish/example/annotation/DFSDownLoad.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/annotation/DFSUpdate.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/out/production/classes/com/saltfish/example/annotation/DFSUpdate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/annotation/GetFileInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/out/production/classes/com/saltfish/example/annotation/GetFileInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/annotation/GetFileMeta.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/out/production/classes/com/saltfish/example/annotation/GetFileMeta.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/annotation/GetFileMetaArr.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/out/production/classes/com/saltfish/example/annotation/GetFileMetaArr.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/annotation/UploadFileAddr.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/out/production/classes/com/saltfish/example/annotation/UploadFileAddr.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/aseptcut/DeleteAsept.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/out/production/classes/com/saltfish/example/aseptcut/DeleteAsept.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/aseptcut/DownLoadAsept.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/out/production/classes/com/saltfish/example/aseptcut/DownLoadAsept.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/aseptcut/FileInfoAsept.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/out/production/classes/com/saltfish/example/aseptcut/FileInfoAsept.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/aseptcut/UpdateAsept.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/out/production/classes/com/saltfish/example/aseptcut/UpdateAsept.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/aseptcut/UploadAsept.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/out/production/classes/com/saltfish/example/aseptcut/UploadAsept.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/demo/testDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/out/production/classes/com/saltfish/example/demo/testDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/service/FastDFSClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/out/production/classes/com/saltfish/example/service/FastDFSClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/out/production/classes/com/saltfish/example/test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/out/production/resources/fdfs_client.conf" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/out/production/resources/fdfs_client.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/out/test/classes/com/saltfish/example/demo/testDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/out/test/classes/com/saltfish/example/demo/testDaoTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/out/test/classes/com/saltfish/example/service/FastDFSClientTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/out/test/classes/com/saltfish/example/service/FastDFSClientTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/FastApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/src/main/java/com/saltfish/example/FastApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/annotation/DFSDelete.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/src/main/java/com/saltfish/example/annotation/DFSDelete.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/annotation/DFSDownLoad.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/src/main/java/com/saltfish/example/annotation/DFSDownLoad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/annotation/DFSUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/src/main/java/com/saltfish/example/annotation/DFSUpdate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/annotation/GetFileInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/src/main/java/com/saltfish/example/annotation/GetFileInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/annotation/GetFileMeta.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/src/main/java/com/saltfish/example/annotation/GetFileMeta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/annotation/GetFileMetaArr.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/src/main/java/com/saltfish/example/annotation/GetFileMetaArr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/annotation/UploadFileAddr.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/src/main/java/com/saltfish/example/annotation/UploadFileAddr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/aseptcut/DeleteAsept.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/src/main/java/com/saltfish/example/aseptcut/DeleteAsept.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/aseptcut/DownLoadAsept.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/src/main/java/com/saltfish/example/aseptcut/DownLoadAsept.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/aseptcut/FileInfoAsept.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/src/main/java/com/saltfish/example/aseptcut/FileInfoAsept.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/aseptcut/UpdateAsept.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/src/main/java/com/saltfish/example/aseptcut/UpdateAsept.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/aseptcut/UploadAsept.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/src/main/java/com/saltfish/example/aseptcut/UploadAsept.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/demo/testDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/src/main/java/com/saltfish/example/demo/testDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/service/FastDFSClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/src/main/java/com/saltfish/example/service/FastDFSClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/src/main/java/com/saltfish/example/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/src/main/resources/fdfs_client.conf" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/src/main/resources/fdfs_client.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/src/test/java/com/saltfish/example/demo/testDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/src/test/java/com/saltfish/example/demo/testDaoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/src/test/java/com/saltfish/example/service/FastDFSClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/FastDfsApi/src/test/java/com/saltfish/example/service/FastDFSClientTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/classes/com/example/user/config/FilterConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/classes/com/example/user/config/FilterConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/classes/com/example/user/serviceImpl/UserOrderServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/classes/com/example/user/serviceImpl/UserOrderServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/config/FilterConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/config/FilterConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/filter/UUIDFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/filter/UUIDFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/serviceImpl/UserOrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/serviceImpl/UserOrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,9 +168,9 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Smart_parking_server/build.gradle" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/build.gradle" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/gradlew" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Smart_parking_server/build.gradle" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/gradlew.bat" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="JpbToolWindowState">
@@ -353,6 +410,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="FastApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="smart_parking.Smart_parking_server.FastDfsApi.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.saltfish.example.FastApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="GateWayUserApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="smart_parking.GateWay.GateWay_User.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.saltfish.explme.GateWayUserApplication" />
@@ -425,6 +489,7 @@
       <item itemvalue="Spring Boot.UserApplication " />
       <item itemvalue="Spring Boot.VehicleApplication " />
       <item itemvalue="Spring Boot.IntegralApplication" />
+      <item itemvalue="Spring Boot.FastApplication" />
     </list>
     <recent_temporary>
       <list>
@@ -538,7 +603,8 @@
       <workItem from="1660354426611" duration="16973000" />
       <workItem from="1660446302204" duration="8516000" />
       <workItem from="1660489965366" duration="1699000" />
-      <workItem from="1660542361928" duration="2854000" />
+      <workItem from="1660542361928" duration="3653000" />
+      <workItem from="1660576969403" duration="1645000" />
     </task>
     <servers />
   </component>
@@ -623,6 +689,10 @@
         <breakpoint enabled="true" type="java-exception">
           <properties class="org.springframework.data.redis.RedisConnectionFailureException" package="org.springframework.data.redis" />
           <option name="timeStamp" value="22" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="org.springframework.beans.factory.NoSuchBeanDefinitionException" package="org.springframework.beans.factory" />
+          <option name="timeStamp" value="23" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
