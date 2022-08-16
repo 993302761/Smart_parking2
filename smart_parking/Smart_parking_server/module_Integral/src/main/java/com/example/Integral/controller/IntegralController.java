@@ -19,6 +19,7 @@ public class IntegralController {
 
     @StreamListener(Sink.INPUT)
     public void complete_Order(Message<String> message){
+        System.out.println(123);
         System.out.println(message.getPayload());
     }
 

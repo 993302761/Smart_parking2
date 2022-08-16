@@ -6,11 +6,6 @@ spring:
   application:
     name: ClientIntegral
 
-  rabbitmq:
-    listener:
-      direct:
-        auto-startup: false #关闭开发环境
-
 
 
   cloud:

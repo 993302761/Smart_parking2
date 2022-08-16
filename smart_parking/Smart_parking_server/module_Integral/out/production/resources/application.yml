@@ -6,11 +6,6 @@ spring:
   application:
     name: ClientIntegral
 
-  rabbitmq:
-    listener:
-      direct:
-        auto-startup: false #关闭开发环境
-
 
 
   cloud:
@@ -31,4 +26,4 @@ spring:
           destination: IntegralChange   #表示要使用的exchange名称
           content-type: application/json  #设置消息类型，文本则为‘text/plain’
 #          binder: DefaultRabbit    #设置要绑定的消息服务的具体设置
-          group: asd
+#          group: asd

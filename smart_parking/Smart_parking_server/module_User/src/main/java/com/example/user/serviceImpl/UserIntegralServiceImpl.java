@@ -14,7 +14,9 @@ public class UserIntegralServiceImpl {
     private MessageChannel output;      //消息发送管道
 
     public String complete_Order(String user_name, String order_number){
+        System.out.println(user_name);
         output.send(MessageBuilder.withPayload(user_name).build());
         return null;
     }
+
 }

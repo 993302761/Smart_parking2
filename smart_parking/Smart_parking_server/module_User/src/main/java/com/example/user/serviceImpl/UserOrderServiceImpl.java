@@ -19,7 +19,7 @@ public class UserOrderServiceImpl {
 
 
     @Resource
-    private RedisTemplate<String, Integer> redisTemplate;
+    private RedisTemplate<String, String> redisTemplate;
 
 
     /**

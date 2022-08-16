@@ -277,7 +277,7 @@ public class UserServiceImpl  {
     public boolean check_UUID(String UUID,String user_name){
         boolean hasKey = redisTemplate.hasKey(user_name);
         if(hasKey){
-            String s = redisTemplate.opsForValue().get(user_name);
+            String s = redisTemplate.opsForValue().get(user_name).toString();
             if (s.equals(UUID)){
                 boolean b = set_UUID(UUID, user_name);
                 if (!b){
