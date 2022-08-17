@@ -10,7 +10,6 @@
         </processorPath>
         <module name="smart_parking.Smart_parking_server.module_Order.main" />
         <module name="smart_parking.Smart_parking_server.module_Administrators.test" />
-        <module name="smart_parking.Smart_parking_server.FastDfsApi.test" />
         <module name="smart_parking.Smart_parking_server.module_ParkingLots.test" />
         <module name="smart_parking.Smart_parking_server.module_Vehicle.main" />
         <module name="smart_parking.Smart_parking_server.module_Integral.test" />
@@ -21,7 +20,6 @@
         <module name="smart_parking.Smart_parking_server.module_ParkingLots.main" />
         <module name="smart_parking.Smart_parking_server.smartParkingApi.test" />
         <module name="smart_parking.Smart_parking_server.module_Administrators.main" />
-        <module name="smart_parking.Smart_parking_server.FastDfsApi.main" />
         <module name="smart_parking.Smart_parking_server.module_User.main" />
         <module name="smart_parking.Smart_parking_server.smartParkingApi.main" />
       </profile>

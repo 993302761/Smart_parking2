@@ -5,7 +5,7 @@
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
         <option name="delegatedBuild" value="false" />
-        <option name="testRunner" value="GRADLE" />
+        <option name="testRunner" value="PLATFORM" />
         <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="gradleHome" value="/opt/gradle-7.5.1-all/gradle-7.5.1" />
@@ -18,11 +18,11 @@
             <option value="$PROJECT_DIR$/EurekaServer" />
             <option value="$PROJECT_DIR$/EurekaServer/Eureka-Server01" />
             <option value="$PROJECT_DIR$/EurekaServer/Eureka-Server02" />
+            <option value="$PROJECT_DIR$/FastDfsApi" />
             <option value="$PROJECT_DIR$/GateWay" />
             <option value="$PROJECT_DIR$/GateWay/GateWay_User" />
             <option value="$PROJECT_DIR$/GateWay/GateWay_Web" />
             <option value="$PROJECT_DIR$/Smart_parking_server" />
-            <option value="$PROJECT_DIR$/Smart_parking_server/FastDfsApi" />
             <option value="$PROJECT_DIR$/Smart_parking_server/module_Administrators" />
             <option value="$PROJECT_DIR$/Smart_parking_server/module_Integral" />
             <option value="$PROJECT_DIR$/Smart_parking_server/module_Order" />

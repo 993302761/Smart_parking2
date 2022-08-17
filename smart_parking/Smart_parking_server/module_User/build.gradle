@@ -17,5 +17,9 @@ dependencies {
     implementation 'org.springframework.cloud:spring-cloud-starter-stream-rabbit'
 
 
+    implementation project(":FastDfsApi")
+    implementation 'net.oschina.zcx7878:fastdfs-client-java:1.27.0.0'
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
+
 }
 

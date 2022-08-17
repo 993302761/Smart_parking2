@@ -3,13 +3,10 @@ package com.saltfish.example.service;
 import org.csource.common.NameValuePair;
 import org.csource.fastdfs.FileInfo;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import com.saltfish.example.service.FastDFSClient;
 
 import java.io.*;
 
-import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class FastDFSClientTest {
     //上传单个图片

@@ -1,6 +1,5 @@
 package com.saltfish.example.aseptcut;
 
-import com.saltfish.example.annotation.GetFileInfo;
 import com.saltfish.example.annotation.UploadFileAddr;
 import com.saltfish.example.service.FastDFSClient;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -9,7 +8,6 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
-import org.csource.fastdfs.FileInfo;
 import org.springframework.stereotype.Component;
 
 import java.io.File;

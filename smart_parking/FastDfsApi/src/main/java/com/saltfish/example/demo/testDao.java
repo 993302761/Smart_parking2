@@ -3,7 +3,6 @@ package com.saltfish.example.demo;
 import com.saltfish.example.annotation.*;
 import org.csource.common.NameValuePair;
 import org.csource.fastdfs.FileInfo;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 @Repository
