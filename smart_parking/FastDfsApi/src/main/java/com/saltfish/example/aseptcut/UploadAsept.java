@@ -1,8 +1,10 @@
 package com.saltfish.example.aseptcut;
 
+import com.saltfish.example.annotation.DFSUpload;
 import com.saltfish.example.annotation.GetFileInfo;
 import com.saltfish.example.annotation.UploadFileAddr;
 import com.saltfish.example.service.FastDFSClient;
+import jdk.nashorn.internal.ir.CallNode;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.Around;
@@ -11,6 +13,7 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.csource.fastdfs.FileInfo;
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.lang.reflect.Method;
@@ -22,6 +25,30 @@ import java.util.concurrent.ConcurrentHashMap;
 public class UploadAsept {
     @Pointcut(value = "@annotation(com.saltfish.example.annotation.UploadFileAddr)")
     public void LoadPoint(){ }
+
+
+    @Pointcut(value = "@annotation(com.saltfish.example.annotation.DFSUpload)")
+    public void UploadMultPoint(){}
+
+
+
+    @Around(value = "UploadMultPoint()")
+    public Object UploadMult(ProceedingJoinPoint point) throws Throwable {
+        MethodSignature ms = (MethodSignature)point.getSignature();
+        Method method = point.getTarget().getClass().getDeclaredMethod(ms.getName(), ms.getParameterTypes());
+        DFSUpload mi = method.getAnnotation(DFSUpload.class);//获取自定义注解对象
+
+        String fileData = mi.MultFile();//获取注解成员信息
+        //获取参数和函数参数名的对应map
+        Map<String,Object> ParamMap = GetParamData(point);
+        MultipartFile file = (MultipartFile) ParamMap.get(fileData);
+        String res = (String) point.proceed();
+        res = FastDFSClient.uploadFile_Mult(file);
+        return res;
+    }
+
+
+
 
 
     @Around(value = "LoadPoint()")

@@ -5,6 +5,7 @@ import org.csource.common.NameValuePair;
 import org.csource.fastdfs.FileInfo;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.multipart.MultipartFile;
 
 @Repository
 public class testDao {
@@ -20,6 +21,12 @@ public class testDao {
     //上传文件
     @UploadFileAddr(FilePath = "path")
     public String uploadFile(String path){return null;}
+    //网站上传文件
+    @DFSUpload(MultFile = "xxx")
+    public String uploadMult(MultipartFile xxx){return null;}
+
+
+
     //下载文件
     @DFSDownLoad(DFSPath = "aaa",DownPath = "bbb")
     public boolean downxxx(String aaa,String bbb){return false;}
