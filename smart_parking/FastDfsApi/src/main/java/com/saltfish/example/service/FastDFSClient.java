@@ -1,11 +1,17 @@
 package com.saltfish.example.service;
 
 import io.micrometer.core.instrument.util.StringUtils;
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileItemFactory;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.http.entity.ContentType;
 import org.csource.common.MyException;
 import org.csource.common.NameValuePair;
 import org.csource.fastdfs.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
 
@@ -106,6 +112,18 @@ public class FastDFSClient {
 
 
 
+    public static String uploadFile_Mult(MultipartFile file) {
+        try {
+        byte [] byteArr = file.getBytes();
+        InputStream inputStream = new ByteArrayInputStream(byteArr);
+        String filename = file.getOriginalFilename();
+         String[] strs= uploadFile(inputStream,filename);
+         return "/"+strs[0]+"/"+strs[1];
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
 
 
@@ -121,6 +139,8 @@ public class FastDFSClient {
         }
         return fileName.substring(fileName.lastIndexOf(".") + 1); // 不带最后的点
     }
+
+
 
     /**
      * 获取文件详情
@@ -254,4 +274,31 @@ public class FastDFSClient {
         }
         return fileids;
     }
+
+    /**
+     * 测试用转换
+     * @param file
+     * @param fieldName
+     * @return
+     */
+    public static FileItem getMultipartFile(File file, String fieldName) {
+        FileItemFactory factory = new DiskFileItemFactory(16, null);
+        FileItem item = factory.createItem(fieldName, ContentType.APPLICATION_OCTET_STREAM.toString(), true, file.getName());
+        int bytesRead = 0;
+        int len = 8192;
+        byte[] buffer = new byte[len];
+        try {
+            FileInputStream fis = new FileInputStream(file);
+            OutputStream os =  item.getOutputStream();
+            while ((bytesRead = fis.read(buffer, 0, len)) != -1) {
+                os.write(buffer, 0, bytesRead);
+            }
+            os.close();
+            fis.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return item;
+    }
+
 }

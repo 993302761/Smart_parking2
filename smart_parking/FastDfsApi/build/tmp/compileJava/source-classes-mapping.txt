@@ -1,4 +1,32 @@
+com/saltfish/example/annotation/DFSUpdate.java
+ com.saltfish.example.annotation.DFSUpdate
+com/saltfish/example/demo/testDao.java
+ com.saltfish.example.demo.testDao
+com/saltfish/example/aseptcut/UpdateAsept.java
+ com.saltfish.example.aseptcut.UpdateAsept
+com/saltfish/example/annotation/GetFileMeta.java
+ com.saltfish.example.annotation.GetFileMeta
+com/saltfish/example/aseptcut/UploadAsept.java
+ com.saltfish.example.aseptcut.UploadAsept
+com/saltfish/example/annotation/UploadFileAddr.java
+ com.saltfish.example.annotation.UploadFileAddr
+com/saltfish/example/test.java
+ com.saltfish.example.test
+com/saltfish/example/annotation/DFSDelete.java
+ com.saltfish.example.annotation.DFSDelete
+com/saltfish/example/annotation/GetFileInfo.java
+ com.saltfish.example.annotation.GetFileInfo
+com/saltfish/example/annotation/GetFileMetaArr.java
+ com.saltfish.example.annotation.GetFileMetaArr
+com/saltfish/example/aseptcut/DeleteAsept.java
+ com.saltfish.example.aseptcut.DeleteAsept
 com/saltfish/example/FastApplication.java
  com.saltfish.example.FastApplication
 com/saltfish/example/service/FastDFSClient.java
  com.saltfish.example.service.FastDFSClient
+com/saltfish/example/aseptcut/DownLoadAsept.java
+ com.saltfish.example.aseptcut.DownLoadAsept
+com/saltfish/example/annotation/DFSDownLoad.java
+ com.saltfish.example.annotation.DFSDownLoad
+com/saltfish/example/aseptcut/FileInfoAsept.java
+ com.saltfish.example.aseptcut.FileInfoAsept

@@ -1,6 +1,7 @@
 package com.saltfish.example.aseptcut;
 
 import com.saltfish.example.annotation.DFSDelete;
+import com.saltfish.example.annotation.DFSDownLoad;
 import com.saltfish.example.service.FastDFSClient;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;

@@ -14,6 +14,7 @@ import org.csource.common.NameValuePair;
 import org.csource.fastdfs.FileInfo;
 import org.springframework.stereotype.Component;
 
+import javax.validation.constraints.Null;
 import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

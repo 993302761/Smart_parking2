@@ -10,44 +10,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff0609dd-2a44-4fd0-9468-a5712daa4380" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/config/FastConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.2/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.2/dependencies-accessors/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.2/executionHistory/executionHistory.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.2/executionHistory/executionHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.2/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.2/fileHashes/resourceHashesCache.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.2/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/checksums/checksums.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/checksums/md5-checksums.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/checksums/sha1-checksums.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/dependencies-accessors/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/executionHistory/executionHistory.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/executionHistory/executionHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/resourceHashesCache.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/gc.properties" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/annotation/DFSUpload.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/checksums/md5-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/checksums/sha1-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_platform_junit_platform_commons_1_6_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_platform_junit_platform_commons_1_6_3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_platform_junit_platform_engine_1_6_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_platform_junit_platform_engine_1_6_3.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/build/classes/java/test/com/saltfish/example/service/FastDFSClientTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/build/classes/java/test/com/saltfish/example/service/FastDFSClientTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/build/reports/tests/test/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/build/tmp/compileTestJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/build/tmp/compileTestJava/source-classes-mapping.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/aseptcut/DeleteAsept.class" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/aseptcut/DeleteAsept.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/aseptcut/DownLoadAsept.class" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/aseptcut/DownLoadAsept.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/aseptcut/FileInfoAsept.class" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/aseptcut/FileInfoAsept.class" afterDir="false" />
@@ -55,6 +28,10 @@
       <change beforePath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/aseptcut/UploadAsept.class" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/aseptcut/UploadAsept.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/demo/testDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/demo/testDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/service/FastDFSClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/service/FastDFSClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/out/production/resources/fdfs_client.conf" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/out/production/resources/fdfs_client.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/out/test/classes/com/saltfish/example/demo/testDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/out/test/classes/com/saltfish/example/demo/testDaoTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/out/test/classes/com/saltfish/example/service/FastDFSClientTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/out/test/classes/com/saltfish/example/service/FastDFSClientTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/aseptcut/DeleteAsept.java" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/aseptcut/DeleteAsept.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/aseptcut/DownLoadAsept.java" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/aseptcut/DownLoadAsept.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/aseptcut/FileInfoAsept.java" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/aseptcut/FileInfoAsept.java" afterDir="false" />
@@ -62,34 +39,11 @@
       <change beforePath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/aseptcut/UploadAsept.java" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/aseptcut/UploadAsept.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/demo/testDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/demo/testDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/service/FastDFSClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/service/FastDFSClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/src/main/resources/fdfs_client.conf" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/src/main/resources/fdfs_client.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FastDfsApi/src/test/java/com/saltfish/example/demo/testDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/src/test/java/com/saltfish/example/demo/testDaoTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FastDfsApi/src/test/java/com/saltfish/example/service/FastDFSClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/src/test/java/com/saltfish/example/service/FastDFSClientTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/build/classes/java/main/com/example/user/UserApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/build/classes/java/main/com/example/user/config/FilterConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/build/classes/java/main/com/example/user/config/RedisConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/build/classes/java/main/com/example/user/config/RestConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/build/classes/java/main/com/example/user/controller/TestContoller.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/build/classes/java/main/com/example/user/controller/UserController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/build/classes/java/main/com/example/user/controller/UserOrderController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/build/classes/java/main/com/example/user/dao/UserDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/build/classes/java/main/com/example/user/entity/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/build/classes/java/main/com/example/user/entity/User_information.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/build/classes/java/main/com/example/user/filter/UUIDFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/build/classes/java/main/com/example/user/service/Impl/UserOrderServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/build/classes/java/main/com/example/user/service/Impl/UserServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/build/classes/java/main/com/example/user/service/OrderFeignService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/build/classes/java/main/com/example/user/service/ParkingLotFeignService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/build/classes/java/main/com/example/user/swagger/SwaggerTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/classes/com/example/user/UserApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/classes/com/example/user/UserApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/classes/com/example/user/controller/TestContoller.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/classes/com/example/user/controller/TestContoller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/UserApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/UserApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/controller/TestContoller.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/controller/TestContoller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/dao/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/dao/test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/src/test/java/com/example/user/UserApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/test/java/com/example/user/UserApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -636,6 +590,7 @@
       <workItem from="1660661743861" duration="157000" />
       <workItem from="1660716202280" duration="5969000" />
       <workItem from="1660744446999" duration="2197000" />
+      <workItem from="1660806385293" duration="1384000" />
     </task>
     <servers />
   </component>
