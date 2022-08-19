@@ -13,7 +13,6 @@ include 'EurekaServer:Eureka-Server01'
 include 'EurekaServer:Eureka-Server02'
 
 include 'ConfigServer'
-include 'Configclient'
 
 include 'GateWay:GateWay_User'
 include 'GateWay:GateWay_Web'
