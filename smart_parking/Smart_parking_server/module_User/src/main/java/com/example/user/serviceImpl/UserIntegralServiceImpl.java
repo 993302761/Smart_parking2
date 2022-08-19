@@ -1,21 +1,20 @@
 package com.example.user.serviceImpl;
 
-import org.springframework.cloud.stream.annotation.EnableBinding;
-import org.springframework.cloud.stream.messaging.Source;
-import org.springframework.messaging.MessageChannel;
-import org.springframework.messaging.support.MessageBuilder;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
-@EnableBinding(Source.class)        //定义消息的推送管道
+@Service
 public class UserIntegralServiceImpl {
 
     @Resource
-    private MessageChannel output;      //消息发送管道
+    private RabbitTemplate rabbitTemplate;
+
 
     public String complete_Order(String user_name, String order_number){
         System.out.println(user_name);
-        output.send(MessageBuilder.withPayload(user_name).build());
+        rabbitTemplate.convertAndSend("IntegralChange",user_name);
         return null;
     }
 

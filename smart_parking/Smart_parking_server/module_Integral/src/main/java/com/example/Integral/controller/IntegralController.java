@@ -1,6 +1,7 @@
 package com.example.Integral.controller;
 
 import com.example.Integral.serviceImpl.IntegralServiceImpl;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.cloud.stream.messaging.Sink;
@@ -12,15 +13,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import javax.annotation.Resource;
 
 @Component
-@EnableBinding(Sink.class)
 public class IntegralController {
 
 
 
-    @StreamListener(Sink.INPUT)
-    public void complete_Order(Message<String> message){
-        System.out.println(123);
-        System.out.println(message.getPayload());
+    @RabbitListener(queues = "IntegralChange")      //监听队列的名称
+    public void complete_Order(String message){
+        System.out.println(9999);
+        System.out.println(message);
     }
 
 }

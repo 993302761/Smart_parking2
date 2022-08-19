@@ -13,9 +13,9 @@ dependencies {
 
     implementation project(":Smart_parking_server:smartParkingApi")
 
-    //RabbitMQ
-    implementation 'org.springframework.cloud:spring-cloud-starter-stream-rabbit'
-
+    //AMQP依赖  包含RabbitMQ
+//    implementation 'org.springframework.cloud:spring-cloud-starter-stream-rabbit'
+    implementation 'org.springframework.boot:spring-boot-starter-amqp'
 
     implementation project(":FastDfsApi")
     implementation 'net.oschina.zcx7878:fastdfs-client-java:1.27.0.0'

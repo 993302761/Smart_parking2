@@ -11,24 +11,20 @@
   <component name="ChangeListManager">
     <list default="true" id="ff0609dd-2a44-4fd0-9468-a5712daa4380" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/Configclient/smart_parking.Configclient.main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/Configclient/smart_parking.Configclient.test.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Configclient/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Configclient/build/classes/java/main/com/example/configclient/ConfigClientApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Configclient/build/classes/java/main/com/example/configclient/controller/DemoController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Configclient/build/classes/java/test/com/example/configclient/ConfigclientApplicationTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Configclient/build/resources/main/bootstrap.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Configclient/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Configclient/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Configclient/out/production/classes/com/example/configclient/ConfigClientApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Configclient/out/production/resources/bootstrap.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Configclient/src/main/java/com/example/configclient/ConfigClientApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Configclient/src/main/resources/bootstrap.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Configclient/src/test/java/com/example/configclient/ConfigclientApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FastDfsApi/src/main/resources/fdfs_client.conf" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/src/main/resources/fdfs_client.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSetUp/gradle设置.png" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSetUp/gradle设置.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/service/FastDFSClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/service/FastDFSClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/out/production/resources/fdfs_client.conf" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/out/production/resources/fdfs_client.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Integral/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Integral/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Integral/out/production/classes/com/example/Integral/controller/IntegralController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Integral/out/production/classes/com/example/Integral/controller/IntegralController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Integral/out/production/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Integral/out/production/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Integral/src/main/java/com/example/Integral/controller/IntegralController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Integral/src/main/java/com/example/Integral/controller/IntegralController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Integral/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Integral/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/classes/com/example/user/serviceImpl/UserIntegralServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/classes/com/example/user/serviceImpl/UserIntegralServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/UserApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/UserApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/serviceImpl/UserIntegralServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/serviceImpl/UserIntegralServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -359,13 +355,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FastApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="smart_parking.Smart_parking_server.FastDfsApi.main" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.saltfish.example.FastApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="GateWayUserApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="smart_parking.GateWay.GateWay_User.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.saltfish.explme.GateWayUserApplication" />
@@ -446,7 +435,6 @@
       <item itemvalue="Spring Boot.UserApplication " />
       <item itemvalue="Spring Boot.VehicleApplication " />
       <item itemvalue="Spring Boot.IntegralApplication" />
-      <item itemvalue="Spring Boot.FastApplication" />
       <item itemvalue="Spring Boot.IntegralApplication (1)" />
       <item itemvalue="Spring Boot.FastApplication (1)" />
     </list>
@@ -570,7 +558,7 @@
       <workItem from="1660806385293" duration="1384000" />
       <workItem from="1660809583807" duration="1897000" />
       <workItem from="1660875137481" duration="1200000" />
-      <workItem from="1660904059867" duration="726000" />
+      <workItem from="1660904059867" duration="6314000" />
     </task>
     <servers />
   </component>
