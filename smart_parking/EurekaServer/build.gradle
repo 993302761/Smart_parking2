@@ -13,7 +13,6 @@ subprojects {
         implementation 'org.springframework.cloud:spring-cloud-config-client'
         implementation 'org.springframework.cloud:spring-cloud-starter-config'
 
-
     }
 
 }

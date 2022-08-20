@@ -11,20 +11,43 @@
   <component name="ChangeListManager">
     <list default="true" id="ff0609dd-2a44-4fd0-9468-a5712daa4380" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EurekaServer/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/EurekaServer/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/build/classes/java/main/com/saltfish/example/FastApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/build/classes/java/main/com/saltfish/example/annotation/DFSDelete.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/build/classes/java/main/com/saltfish/example/annotation/DFSDownLoad.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/build/classes/java/main/com/saltfish/example/annotation/DFSUpdate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/build/classes/java/main/com/saltfish/example/annotation/GetFileInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/build/classes/java/main/com/saltfish/example/annotation/GetFileMeta.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/build/classes/java/main/com/saltfish/example/annotation/GetFileMetaArr.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/build/classes/java/main/com/saltfish/example/annotation/UploadFileAddr.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/build/classes/java/main/com/saltfish/example/aseptcut/DeleteAsept.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/build/classes/java/main/com/saltfish/example/aseptcut/DownLoadAsept.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/build/classes/java/main/com/saltfish/example/aseptcut/FileInfoAsept.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/build/classes/java/main/com/saltfish/example/aseptcut/UpdateAsept.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/build/classes/java/main/com/saltfish/example/aseptcut/UploadAsept.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/build/classes/java/main/com/saltfish/example/demo/testDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/build/classes/java/main/com/saltfish/example/service/FastDFSClient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/build/classes/java/main/com/saltfish/example/test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/aseptcut/FileInfoAsept.class" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/aseptcut/FileInfoAsept.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/aseptcut/UploadAsept.class" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/aseptcut/UploadAsept.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/service/FastDFSClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/service/FastDFSClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FastDfsApi/out/production/resources/fdfs_client.conf" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/out/production/resources/fdfs_client.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Integral/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Integral/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Integral/out/production/classes/com/example/Integral/controller/IntegralController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Integral/out/production/classes/com/example/Integral/controller/IntegralController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Integral/out/production/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Integral/out/production/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Integral/src/main/java/com/example/Integral/controller/IntegralController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Integral/src/main/java/com/example/Integral/controller/IntegralController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Integral/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Integral/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/aseptcut/FileInfoAsept.java" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/aseptcut/FileInfoAsept.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/aseptcut/UploadAsept.java" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/aseptcut/UploadAsept.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/service/FastDFSClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/service/FastDFSClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/classes/com/example/user/serviceImpl/UserIntegralServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/classes/com/example/user/serviceImpl/UserIntegralServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/UserApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/UserApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/serviceImpl/UserIntegralServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/serviceImpl/UserIntegralServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,6 +102,12 @@
           <activation />
         </task>
         <task path="$PROJECT_DIR$/smartParkingApi">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/FastDfsApi">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/Smart_parking_server/module_User">
           <activation />
         </task>
         <projects_view>
@@ -220,7 +249,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UserApplicationTests.contextLoads">
+  <component name="RunManager" selected="Gradle.smart_parking:FastDfsApi [build]">
     <configuration name="UserApplicationTests.contextLoads" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -244,10 +273,10 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="smart_parking [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="smart_parking:FastDfsApi [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/FastDfsApi" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" />
         <option name="taskDescriptions">
@@ -255,7 +284,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="clean" />
+            <option value="build" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -419,9 +448,9 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Gradle.smart_parking [clean]" />
       <item itemvalue="Gradle.smart_parking:smartParkingAPI [bootJar]" />
       <item itemvalue="Gradle.UserApplicationTests.contextLoads" />
+      <item itemvalue="Gradle.smart_parking:FastDfsApi [build]" />
       <item itemvalue="JUnit.UserApplicationTests.contextLoads" />
       <item itemvalue="JUnit.testDaoTest.getInfo" />
       <item itemvalue="Spring Boot.AdministratorsApplication " />
@@ -440,11 +469,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.smart_parking:FastDfsApi [build]" />
         <item itemvalue="JUnit.UserApplicationTests.contextLoads" />
         <item itemvalue="JUnit.testDaoTest.getInfo" />
         <item itemvalue="Gradle.UserApplicationTests.contextLoads" />
         <item itemvalue="Gradle.smart_parking:smartParkingAPI [bootJar]" />
-        <item itemvalue="Gradle.smart_parking [clean]" />
       </list>
     </recent_temporary>
   </component>
@@ -559,6 +588,9 @@
       <workItem from="1660809583807" duration="1897000" />
       <workItem from="1660875137481" duration="1200000" />
       <workItem from="1660904059867" duration="6314000" />
+      <workItem from="1661008448244" duration="329000" />
+      <workItem from="1661015649573" duration="2557000" />
+      <workItem from="1661018219500" duration="1408000" />
     </task>
     <servers />
   </component>
