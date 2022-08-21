@@ -1,19 +1,9 @@
 
 dependencies {
 
-//    //RabbitMQ
-//    implementation 'org.springframework.cloud:spring-cloud-starter-stream-rabbit'
-//
-//    //RabbitMQ客户端
-//    implementation 'com.rabbitmq:amqp-client'
-//
-//    //操作文件流的依赖
-//    implementation 'commons-io:commons-io'
 
 
-    //AMQP依赖  包含RabbitMQ
-//    implementation 'org.springframework.cloud:spring-cloud-starter-stream-rabbit'
-    implementation 'org.springframework.boot:spring-boot-starter-amqp'
-
+    //RabbitMQ消息序列化改为JSON
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml'
 }
 
