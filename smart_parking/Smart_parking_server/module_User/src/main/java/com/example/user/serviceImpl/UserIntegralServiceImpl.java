@@ -14,7 +14,7 @@ public class UserIntegralServiceImpl {
 
     public String complete_Order(String user_name, String order_number){
         System.out.println(user_name);
-        rabbitTemplate.convertAndSend("IntegralChange",user_name);
+        rabbitTemplate.convertAndSend("IntegralExchange","addIntegral",user_name);
         return null;
     }
 

@@ -24,9 +24,6 @@ public class testDao {
     //网站上传文件
     @DFSUpload(MultFile = "xxx")
     public String uploadMult(MultipartFile xxx){return null;}
-
-
-
     //下载文件
     @DFSDownLoad(DFSPath = "aaa",DownPath = "bbb")
     public boolean downxxx(String aaa,String bbb){return false;}

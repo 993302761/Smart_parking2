@@ -21,7 +21,7 @@ public class FilterConfig implements WebMvcConfigurer {
         //如请求：http://www.localhost:8080/Vehicle/getUserVehicle?user_name=33
         //      /Vehicle/则为路径
         registry.addInterceptor(uuidFilter)
-                .addPathPatterns(
+                .addPathPatterns("/UserOrder/*",
                         "/User/app_login",
                         "/User/deleteVehicle",
                         "/User/getUserVehicle",
