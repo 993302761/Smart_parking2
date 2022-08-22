@@ -12,7 +12,7 @@ public interface UserDao {
     /**
      * 查找用户
      * */
-    @Select("SELECT * FROM User WHERE user_name =#{user_name}")
+    @Select("SELECT user_name,password,user_id FROM User WHERE user_name =#{user_name}")
     User_information find_User(@Param("user_name") String user_name);
 
 

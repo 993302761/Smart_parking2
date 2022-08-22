@@ -3,6 +3,7 @@ package com.example.order.dao;
 import com.feign.api.entity.order.Order_information;
 import org.apache.ibatis.annotations.*;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 @Mapper
@@ -11,14 +12,34 @@ public interface OrderDao {
     /**
      * 根据订单号查找订单
      * */
-    @Select("select * from Order_information WHERE order_number =#{order_number} ")
+    @Select("SELECT order_number," +
+            "generation_time," +
+            "user_name," +
+            "inTime," +
+            "outTime," +
+            "parking_lot_name," +
+            "parking_lot_number," +
+            "license_plate_number," +
+            "payment_amount," +
+            "order_status" +
+            " from Order_information WHERE order_number =#{order_number} ")
     Order_information getOrderByNumber(@Param("order_number") String order_number);
 
 
     /**
      * 用户查找订单
      * */
-    @Select("select * from Order_information WHERE user_name =#{user_name} and order_number =#{order_number} ")
+    @Select("SELECT order_number," +
+            "generation_time," +
+            "user_name," +
+            "inTime," +
+            "outTime," +
+            "parking_lot_name," +
+            "parking_lot_number," +
+            "license_plate_number," +
+            "payment_amount," +
+            "order_status" +
+            " from Order_information WHERE user_name =#{user_name} and order_number =#{order_number} ")
     Order_information userGetOrderByNumber(@Param("user_name") String user_name,@Param("order_number") String order_number);
 
 
@@ -27,14 +48,34 @@ public interface OrderDao {
     /**
      * 根据用户名查找订单
      * */
-    @Select("SELECT * FROM Order_information WHERE user_name =#{user_name}")
+    @Select("SELECT order_number," +
+            "generation_time," +
+            "user_name," +
+            "inTime," +
+            "outTime," +
+            "parking_lot_name," +
+            "parking_lot_number," +
+            "license_plate_number," +
+            "payment_amount," +
+            "order_status" +
+            " FROM Order_information WHERE user_name =#{user_name}")
     List<Order_information> getOrderByUsername(@Param("user_name") String user_name);
 
 
     /**
      * 根据停车场查找订单
      * */
-    @Select("SELECT * FROM Order_information WHERE parking_lot_number =#{parking_lot_number}")
+    @Select("SELECT order_number," +
+            "generation_time," +
+            "user_name," +
+            "inTime," +
+            "outTime," +
+            "parking_lot_name," +
+            "parking_lot_number," +
+            "license_plate_number," +
+            "payment_amount," +
+            "order_status" +
+            " FROM Order_information WHERE parking_lot_number =#{parking_lot_number}")
     List<Order_information> getOrderByParking(@Param("parking_lot_number") String parking_lot_number);
 
 
@@ -42,7 +83,17 @@ public interface OrderDao {
     /**
      * 根据停车场编号和车牌号查找订单
      * */
-    @Select("SELECT * FROM Order_information WHERE parking_lot_number =#{parking_lot_number} and order_number =#{order_number}")
+    @Select("SELECT order_number," +
+            "generation_time," +
+            "user_name," +
+            "inTime," +
+            "outTime," +
+            "parking_lot_name," +
+            "parking_lot_number," +
+            "license_plate_number," +
+            "payment_amount," +
+            "order_status" +
+            " FROM Order_information WHERE parking_lot_number =#{parking_lot_number} and order_number =#{order_number}")
     Order_information getOrderByParkingAndOrder(@Param("parking_lot_number") String parking_lot_number, @Param("order_number") String order_number);
 
 
@@ -92,7 +143,17 @@ public interface OrderDao {
      * 获取订单列表
      *
      */
-    @Select("select * from Order_information")
+    @Select("select order_number," +
+            "generation_time," +
+            "user_name," +
+            "inTime," +
+            "outTime," +
+            "parking_lot_name," +
+            "parking_lot_number," +
+            "license_plate_number," +
+            "payment_amount," +
+            "order_status" +
+            " from Order_information")
     List<Order_information> getAllOrders();
 
 

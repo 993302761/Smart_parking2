@@ -18,7 +18,7 @@ public class testDao {
     //获取文件元数据
     @GetFileMetaArr(GroupParam = "aaa",RemoteParam = "bbb")
     public NameValuePair[] GetMetaArr(String aaa,String bbb){return null;}
-    //上传文件
+    //本地上传文件
     @UploadFileAddr(FilePath = "path")
     public String uploadFile(String path){return null;}
     //网站上传文件

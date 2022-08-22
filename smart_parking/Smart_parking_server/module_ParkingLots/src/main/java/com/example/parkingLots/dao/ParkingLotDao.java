@@ -20,9 +20,9 @@ public interface ParkingLotDao {
 
 
     /**
-     * 查找停车场管理员
+     * 查找停车场管理员信息
      * */
-    @Select("SELECT * FROM Parking_lot_information WHERE pctr_id =#{pctr_id}")
+    @Select("SELECT pctr_id,pctr_password FROM Parking_lot_information WHERE pctr_id =#{pctr_id}")
     Parking_lot_information getParkingByPid(@Param("pctr_id") String pctr_id);
 
 
@@ -32,7 +32,7 @@ public interface ParkingLotDao {
     /**
      * 根据停车场编号查找停车场信息
      * */
-    @Select("SELECT * FROM Parking_lot_information WHERE parking_lot_number =#{parking_lot_number}")
+    @Select("SELECT pctr_id,pctr_password FROM Parking_lot_information WHERE parking_lot_number =#{parking_lot_number}")
     Parking_lot_information getParkingByPNumber(@Param("parking_lot_number") String parking_lot_number);
 
 
@@ -56,7 +56,14 @@ public interface ParkingLotDao {
     /**
      * 获取停车场管理员列表
      */
-    @Select("select parking_lot_name,parking_in_the_city,parking_lot_number,parking_spaces_num,billing_rules,longitude,latitude from Parking_lot_information")
+    @Select("select parking_lot_name," +
+            "parking_in_the_city," +
+            "parking_lot_number," +
+            "parking_spaces_num," +
+            "billing_rules," +
+            "longitude," +
+            "latitude" +
+            " from Parking_lot_information")
     List<Parking> getAllParking();
 
 

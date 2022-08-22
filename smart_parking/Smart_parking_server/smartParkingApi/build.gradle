@@ -1,25 +1,4 @@
 
-plugins {
-    id 'java'
-    id 'com.github.johnrengelman.shadow' version '5.1.0'
-}
-
-group 'com.feign.api'
-version '1.0'
-
-sourceCompatibility=1.8
-
-repositories {
-    mavenCentral()
-}
-
-shadowJar{
-    manifest{
-        attributes(
-                'Class': 'com.feign.api'
-        )
-    }
-}
 
 
 dependencies {
@@ -31,9 +10,5 @@ dependencies {
     implementation 'io.github.openfeign:feign-httpclient'
 
 
-}
-
-test {
-    useJUnitPlatform()
 }
 

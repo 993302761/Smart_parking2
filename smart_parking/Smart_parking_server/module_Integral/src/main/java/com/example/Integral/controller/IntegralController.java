@@ -21,7 +21,6 @@ public class IntegralController {
 //Fanout  广播， Direct  路由， Topic   话题
 
 
-
     //Direct  路由
     @RabbitListener(bindings = @QueueBinding(
             value = @Queue(name = "Integral"),
