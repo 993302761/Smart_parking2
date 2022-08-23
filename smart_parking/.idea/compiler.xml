@@ -18,7 +18,6 @@
         <module name="smart_parking.Smart_parking_server.module_Integral.main" />
         <module name="smart_parking.Smart_parking_server.module_User.test" />
         <module name="smart_parking.Smart_parking_server.module_ParkingLots.main" />
-        <module name="smart_parking.Smart_parking_server.smartParkingApi.test" />
         <module name="smart_parking.Smart_parking_server.module_Administrators.main" />
         <module name="smart_parking.Smart_parking_server.module_User.main" />
         <module name="smart_parking.Smart_parking_server.smartParkingApi.main" />

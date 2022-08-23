@@ -15,6 +15,8 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
 import java.io.*;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -275,25 +277,41 @@ public class UserServiceImpl  {
      * @return 是否成功
      */
     public boolean check_UUID(String UUID,String user_name){
-        boolean hasKey = redisTemplate.hasKey(user_name);
+        String key=md5(user_name+UUID);
+        boolean hasKey = redisTemplate.hasKey(key);
         if(hasKey){
-            String s = redisTemplate.opsForValue().get(user_name);
-            if (s.equals(UUID)){
-                boolean b = set_UUID(UUID, user_name);
-                if (!b){
-                    System.err.println("Redis设置失败");
-                }
-                return true;
-            }else {
-                redisTemplate.delete(user_name);
-                return false;
-            }
+            return true;
         } else {
             return false;
         }
     }
 
 
+    /**
+     * TODO：Md5加密（加盐）
+     * @param data 字符串
+     * @return 加密后的编码
+     */
+    public String md5(String data){
+        try {
+            // 获得MD5摘要算法的 MessageDigest 对象
+            MessageDigest messageDigest=MessageDigest.getInstance("md5");
+            byte[] digest = messageDigest.digest(data.getBytes());
+            StringBuffer stringBuffer = new StringBuffer();
+            for (byte b:digest){
+                int num=b&0xff;
+                String s=Integer.toHexString(num);
+                if (s.length()==1){
+                    stringBuffer.append("0");
+                }
+                stringBuffer.append(s);
+            }
+            return stringBuffer.toString();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 
 
 
@@ -313,8 +331,9 @@ public class UserServiceImpl  {
                 curDate.get(Calendar.MINUTE),
                 curDate.get(Calendar.SECOND));
         long second = (nextDate.getTimeInMillis() - curDate.getTimeInMillis()) / 1000;
-        redisTemplate.opsForValue().set(user_name, UUID);
-        Boolean expire = redisTemplate.expire(user_name, second, TimeUnit.SECONDS);
+        String key=md5(user_name+UUID);
+        redisTemplate.opsForValue().set(key, null);
+        Boolean expire = redisTemplate.expire(key, second, TimeUnit.SECONDS);
         return expire;
     }
 
