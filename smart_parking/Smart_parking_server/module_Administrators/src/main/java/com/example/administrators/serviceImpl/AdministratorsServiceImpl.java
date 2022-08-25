@@ -6,6 +6,8 @@ import com.example.administrators.entity.Administrators;
 import com.feign.api.service.OrderFeignService;
 import com.feign.api.service.ParkingLotFeignService;
 import com.feign.api.service.UserFeignService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -26,6 +28,7 @@ public class AdministratorsServiceImpl {
     private OrderFeignService orderFeignService;
 
 
+    private static final Logger LOGGER= LoggerFactory.getLogger(AdministratorsServiceImpl.class);
 
 
     /**

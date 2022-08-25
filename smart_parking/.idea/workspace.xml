@@ -10,23 +10,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff0609dd-2a44-4fd0-9468-a5712daa4380" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/src/main/resources/log4j2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/41f6c080-3914-492c-837b-5ebaddb5c28e.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/41f6c080-3914-492c-837b-5ebaddb5c28e/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/41f6c080-3914-492c-837b-5ebaddb5c28e/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/41f6c080-3914-492c-837b-5ebaddb5c28e/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/41f6c080-3914-492c-837b-5ebaddb5c28e/storage_v2/_src_/schema/sys.zb4BAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d4cf0bad-3679-4798-958c-25966dd01659.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d4cf0bad-3679-4798-958c-25966dd01659/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d4cf0bad-3679-4798-958c-25966dd01659/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d4cf0bad-3679-4798-958c-25966dd01659/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d4cf0bad-3679-4798-958c-25966dd01659/storage_v2/_src_/schema/sys.zb4BAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6ec84a52-ae01-4527-b45d-504aaf485cb8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6ec84a52-ae01-4527-b45d-504aaf485cb8.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/annotation/DFSDelete.java" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/annotation/DFSDelete.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/aseptcut/DeleteAsept.java" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/aseptcut/DeleteAsept.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/classes/com/example/user/serviceImpl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/classes/com/example/user/serviceImpl/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/serviceImpl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/serviceImpl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/out/production/classes/com/example/administrators/dao/AdministratorsDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/out/production/classes/com/example/administrators/dao/AdministratorsDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/out/production/classes/com/example/administrators/serviceImpl/AdministratorsServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/out/production/classes/com/example/administrators/serviceImpl/AdministratorsServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/out/production/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/out/production/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/src/main/java/com/example/administrators/serviceImpl/AdministratorsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/src/main/java/com/example/administrators/serviceImpl/AdministratorsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/src/test/java/com/example/administrators/ModuleRegisterApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/src/test/java/com/example/administrators/ModuleRegisterApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,6 +98,41 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="smart_parking" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="smart_parking" type="f1a62948:ProjectNode" />
+                <item name="Smart_parking_server" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="smart_parking" type="f1a62948:ProjectNode" />
+                <item name="Smart_parking_server" type="2d1252cf:ModuleNode" />
+                <item name="module_Administrators" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="smart_parking" type="f1a62948:ProjectNode" />
+                <item name="Smart_parking_server" type="2d1252cf:ModuleNode" />
+                <item name="module_Administrators" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="smart_parking" type="f1a62948:ProjectNode" />
+                <item name="Smart_parking_server" type="2d1252cf:ModuleNode" />
+                <item name="module_Administrators" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="smart_parking" type="f1a62948:ProjectNode" />
+                <item name="Smart_parking_server" type="2d1252cf:ModuleNode" />
+                <item name="module_Administrators" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="org.springframework.boot:spring-boot-starter-web:2.3.8.RELEASE" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
               </path>
             </expand>
             <select />
@@ -180,7 +218,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/ProjectSetUp" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Smart_parking_server/module_Administrators/src/main/resources" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -194,11 +232,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Smart_parking_server/module_Administrators/src/main/resources" />
       <recent name="$PROJECT_DIR$/ProjectSetUp" />
       <recent name="$PROJECT_DIR$/Smart_parking_server/module_Integral/src/main/resources" />
       <recent name="$PROJECT_DIR$/EurekaServer/Eureka-Server01/src/main/resources" />
       <recent name="$PROJECT_DIR$/EurekaServer/Eureka-Server02/src/main/resources" />
-      <recent name="$PROJECT_DIR$/Smart_parking_server/module_Vehicle/src/main/resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -223,7 +261,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.smart_parking:FastDfsApi [build]">
+  <component name="RunManager" selected="JUnit.ModuleRegisterApplicationTests.contextLoads">
     <configuration name="UserApplicationTests.contextLoads" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -268,26 +306,21 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="smart_parking:smartParkingAPI [bootJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/smartParkingAPI" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="bootJar" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
+    <configuration name="ModuleRegisterApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="smart_parking.Smart_parking_server.module_Administrators.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.administrators.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.administrators" />
+      <option name="MAIN_CLASS_NAME" value="com.example.administrators.ModuleRegisterApplicationTests" />
+      <option name="METHOD_NAME" value="contextLoads" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="UserApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="smart_parking.Smart_parking_server.module_User.test" />
@@ -422,11 +455,11 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Gradle.smart_parking:smartParkingAPI [bootJar]" />
       <item itemvalue="Gradle.UserApplicationTests.contextLoads" />
       <item itemvalue="Gradle.smart_parking:FastDfsApi [build]" />
       <item itemvalue="JUnit.UserApplicationTests.contextLoads" />
       <item itemvalue="JUnit.testDaoTest.getInfo" />
+      <item itemvalue="JUnit.ModuleRegisterApplicationTests.contextLoads" />
       <item itemvalue="Spring Boot.AdministratorsApplication " />
       <item itemvalue="Spring Boot.ConfigServerApplication" />
       <item itemvalue="Spring Boot.EurekaServer01Application" />
@@ -443,11 +476,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ModuleRegisterApplicationTests.contextLoads" />
         <item itemvalue="Gradle.smart_parking:FastDfsApi [build]" />
         <item itemvalue="JUnit.UserApplicationTests.contextLoads" />
         <item itemvalue="JUnit.testDaoTest.getInfo" />
         <item itemvalue="Gradle.UserApplicationTests.contextLoads" />
-        <item itemvalue="Gradle.smart_parking:smartParkingAPI [bootJar]" />
       </list>
     </recent_temporary>
   </component>
@@ -570,7 +603,10 @@
       <workItem from="1661053490756" duration="5555000" />
       <workItem from="1661171885515" duration="3470000" />
       <workItem from="1661179281521" duration="2207000" />
-      <workItem from="1661254561088" duration="1824000" />
+      <workItem from="1661254561088" duration="3234000" />
+      <workItem from="1661354500229" duration="26000" />
+      <workItem from="1661357484018" duration="2549000" />
+      <workItem from="1661360270639" duration="983000" />
     </task>
     <servers />
   </component>
