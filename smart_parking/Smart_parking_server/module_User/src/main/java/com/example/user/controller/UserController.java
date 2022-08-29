@@ -45,7 +45,7 @@ public class UserController {
             @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String"),
             @ApiImplicitParam(name = "password", value = "密码", required = true, dataType = "String")
     })
-    @GetMapping(value = "/app_register1", produces = "text/plain;charset=utf-8")
+    @GetMapping(value = "/app_register1", produces = "application/json;charset=utf-8")
     public boolean app_register1(String user_name, String password){
         return userService.find(user_name);
     }
@@ -102,7 +102,7 @@ public class UserController {
             @ApiImplicitParam(name = "UUID", value = "通用唯一识别码", required = true, dataType = "String")
 
     })
-    @DeleteMapping(value = "/deleteVehicle", produces = "text/json; charset=utf-8")
+    @DeleteMapping(value = "/deleteVehicle", produces = "application/json; charset=utf-8")
     public ResponseEntity<String> deleteVehicle (String user_name, String license_plate_number, String UUID){
         return userService.deleteVehicle(user_name,license_plate_number);
     }

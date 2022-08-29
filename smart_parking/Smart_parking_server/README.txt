@@ -34,12 +34,9 @@
             user_name：用户名
             user_id：身份证号
             license_plate_number：车牌号
-            vehicle_photos ：车辆照片
-            vehicle_photos_suffix：车辆照片后缀名
-            registration：机动车登记证照片
-            registration_suffix：机动车登记证后缀名
-            driving_permit ：车辆行驶证照片
-            driving_permit_suffix：车辆行驶证后缀名
+            vehicle_photos ：车辆照片路径
+            registration：机动车登记证照片路径
+            driving_permit ：车辆行驶证照片路径
             }
 
 
@@ -128,13 +125,10 @@
 
     create table Vehicle_information(user_name varchar(11) not null,
                                      user_id varchar(20) not null,
-                                     license_plate_number varchar(20),
-                                     vehicle_photos mediumblob not null,
-                                     vehicle_photos_suffix varchar(5) not null,
-                                     registration mediumblob not null,
-                                     registration_suffix varchar(5) not null,
-                                     driving_permit mediumblob not null,
-                                     driving_permit_suffix varchar(5) not null)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+                                     license_plate_number varchar(20) not null,
+                                     vehicle_photos varchar(50) not null,
+                                     registration varchar(50) not null,
+                                     driving_permit varchar(50) not null)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 

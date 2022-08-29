@@ -2,6 +2,7 @@ package com.example.user.serviceImpl;
 
 
 import com.example.user.dao.UserDao;
+import com.example.user.dao.VehicleFileDao;
 import com.example.user.entity.User_information;
 import com.feign.api.entity.user.User;
 import com.feign.api.service.ParkingLotFeignService;
@@ -32,6 +33,9 @@ public class UserServiceImpl  {
 
     @Resource
     private RedisTemplate<String, String> redisTemplate;
+
+    @Resource
+    private VehicleFileDao vehicleFileDao;
 
     @Resource
     private RestTemplate restTemplate;
@@ -233,8 +237,8 @@ public class UserServiceImpl  {
      * @return 是否成功
      */
     public boolean find(String user_name){
-        User_information user=userDao.find_User(user_name);
-        if (user==null){
+        int user = userDao.check_User(user_name);
+        if (user==0){
             return true;
         }
         else return false;

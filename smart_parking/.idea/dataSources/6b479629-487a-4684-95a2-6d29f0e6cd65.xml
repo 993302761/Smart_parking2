@@ -927,37 +927,23 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </column>
     <column id="259" parent="238" name="license_plate_number">
       <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
     <column id="260" parent="238" name="vehicle_photos">
-      <DataType>mediumblob|0s</DataType>
+      <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="261" parent="238" name="vehicle_photos_suffix">
-      <DataType>varchar(5)|0s</DataType>
+    <column id="261" parent="238" name="registration">
+      <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="262" parent="238" name="registration">
-      <DataType>mediumblob|0s</DataType>
+    <column id="262" parent="238" name="driving_permit">
+      <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>6</Position>
-    </column>
-    <column id="263" parent="238" name="registration_suffix">
-      <DataType>varchar(5)|0s</DataType>
-      <NotNull>1</NotNull>
-      <Position>7</Position>
-    </column>
-    <column id="264" parent="238" name="driving_permit">
-      <DataType>mediumblob|0s</DataType>
-      <NotNull>1</NotNull>
-      <Position>8</Position>
-    </column>
-    <column id="265" parent="238" name="driving_permit_suffix">
-      <DataType>varchar(5)|0s</DataType>
-      <NotNull>1</NotNull>
-      <Position>9</Position>
     </column>
   </database-model>
 </dataSource>

@@ -1,5 +1,6 @@
 package com.example.user.serviceImpl;
 
+import com.example.user.dao.VehicleFileDao;
 import com.feign.api.service.OrderFeignService;
 import com.feign.api.service.ParkingLotFeignService;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -16,6 +17,7 @@ public class UserOrderServiceImpl {
 
     @Resource
     private ParkingLotFeignService parkingLotFeignService;
+
 
 
     @Resource
@@ -49,6 +51,7 @@ public class UserOrderServiceImpl {
     public Object findOrder (String user_name,String order_number){
         return orderFeignService.userGetParkingOrder(user_name,order_number);
     }
+
 
 
     /**
