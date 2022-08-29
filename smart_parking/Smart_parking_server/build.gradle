@@ -11,6 +11,13 @@ subprojects {
         mavenCentral()
     }
 
+    // 配置依赖排除规则，排除所有该依赖
+    configurations.implementation {
+
+        exclude group: 'org.springframework.boot' , module: 'spring-boot-starter-logging'
+
+    }
+
     dependencies {
 
         implementation ('org.springframework.boot:spring-boot-starter-web')
@@ -59,8 +66,8 @@ subprojects {
         implementation ('org.springframework.cloud:spring-cloud-starter-openfeign')
         implementation 'io.github.openfeign:feign-httpclient'
 
-//        //日志
-//        implementation('org.springframework.boot:spring-boot-starter-log4j2')
+        //日志
+        implementation('org.springframework.boot:spring-boot-starter-log4j2')
 
     }
 

@@ -1,0 +1,300 @@
+2022-08-29 09:31:26.720  INFO 24258 --- [main] c.c.c.ConfigServicePropertySourceLocator : Fetching config from server at : http://localhost:9999
+2022-08-29 09:31:27.479  INFO 24258 --- [main] c.c.c.ConfigServicePropertySourceLocator : Located environment: name=SmartParkingServer, profiles=[data], label=master, version=43004183376da3b898424e884c3fe0b7301a0951, state=null
+2022-08-29 09:31:27.481  INFO 24258 --- [main] b.c.PropertySourceBootstrapConfiguration : Located property source: [BootstrapPropertySource {name='bootstrapProperties-configClient'}, BootstrapPropertySource {name='bootstrapProperties-https://gitee.com/lei-yu-qi/smart_parking_config.git/SmartParkingServer.yml (document #1)'}, BootstrapPropertySource {name='bootstrapProperties-https://gitee.com/lei-yu-qi/smart_parking_config.git/SmartParkingServer.yml (document #0)'}]
+2022-08-29 09:31:28.264  WARN 24258 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'bus-env' contains invalid characters, please migrate to a valid format.
+2022-08-29 09:31:28.418  INFO 24258 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2022-08-29 09:31:28.426  INFO 24258 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 4ms. Found 0 JDBC repository interfaces.
+2022-08-29 09:31:28.455  WARN 24258 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'bus-refresh' contains invalid characters, please migrate to a valid format.
+2022-08-29 09:31:28.520  WARN 24258 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2022-08-29 09:31:28.697  INFO 24258 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=442d78e5-6698-3f66-8a88-f16ddd3a4adb
+2022-08-29 09:31:28.753  INFO 24258 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2022-08-29 09:31:28.757  INFO 24258 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2022-08-29 09:31:28.761  INFO 24258 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2022-08-29 09:31:29.002  INFO 24258 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'integrationChannelResolver' of type [org.springframework.integration.support.channel.BeanFactoryChannelResolver] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-08-29 09:31:29.005  INFO 24258 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'integrationDisposableAutoCreatedBeans' of type [org.springframework.integration.config.annotation.Disposables] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-08-29 09:31:29.034  INFO 24258 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration' of type [org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration$$EnhancerBySpringCGLIB$$1cd52097] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-08-29 09:31:29.047  INFO 24258 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'bindersHealthContributor' of type [org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration$BindersHealthContributor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-08-29 09:31:29.052  INFO 24258 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'bindersHealthIndicatorListener' of type [org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration$BindersHealthIndicatorListener] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-08-29 09:31:29.074  INFO 24258 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-08-29 09:31:29.603  WARN 24258 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2022-08-29 09:31:29.603  INFO 24258 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2022-08-29 09:31:29.612  INFO 24258 --- [main] c.netflix.config.DynamicPropertyFactory  : DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@8851ec
+2022-08-29 09:31:29.804  INFO 24258 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2022-08-29 09:31:29.892  INFO 24258 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'ClientUser' URL not provided. Will try picking an instance via load-balancing.
+2022-08-29 09:31:30.159  INFO 24258 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'ClientParkingLots' URL not provided. Will try picking an instance via load-balancing.
+2022-08-29 09:31:30.184  INFO 24258 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'ClientOrder' URL not provided. Will try picking an instance via load-balancing.
+2022-08-29 09:31:31.099  INFO 24258 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 23 endpoint(s) beneath base path '/actuator'
+2022-08-29 09:31:31.237  INFO 24258 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-29 09:31:31.334  WARN 24258 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2022-08-29 09:31:31.335  INFO 24258 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2022-08-29 09:31:31.483  INFO 24258 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-08-29 09:31:31.843  INFO 24258 --- [main] onConfiguration$FunctionBindingRegistrar : Functional binding is disabled due to the presense of @EnableBinding annotation in your configuration
+2022-08-29 09:31:32.167  INFO 24258 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-08-29 09:31:32.350  INFO 24258 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-08-29 09:31:32.458  INFO 24258 --- [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses Jersey
+2022-08-29 09:31:32.499  WARN 24258 --- [main] ockingLoadBalancerClientRibbonWarnLogger : You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+2022-08-29 09:31:32.704  INFO 24258 --- [main] o.s.c.s.m.DirectWithAttributesChannel    : Channel 'application-1.springCloudBusInput' has 1 subscriber(s).
+2022-08-29 09:31:32.719  INFO 24258 --- [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2022-08-29 09:31:32.719  INFO 24258 --- [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'application-1.errorChannel' has 1 subscriber(s).
+2022-08-29 09:31:32.719  INFO 24258 --- [main] o.s.i.endpoint.EventDrivenConsumer       : started bean '_org.springframework.integration.errorLogger'
+2022-08-29 09:31:32.721  INFO 24258 --- [main] o.s.c.s.binder.DefaultBinderFactory      : Creating binder: rabbit
+2022-08-29 09:31:32.766  INFO 24258 --- [main] c.c.c.ConfigServicePropertySourceLocator : Fetching config from server at : http://localhost:9999
+2022-08-29 09:31:33.503  INFO 24258 --- [main] c.c.c.ConfigServicePropertySourceLocator : Located environment: name=SmartParkingServer, profiles=[data], label=master, version=43004183376da3b898424e884c3fe0b7301a0951, state=null
+2022-08-29 09:31:33.503  INFO 24258 --- [main] b.c.PropertySourceBootstrapConfiguration : Located property source: [BootstrapPropertySource {name='bootstrapProperties-configClient'}, BootstrapPropertySource {name='bootstrapProperties-https://gitee.com/lei-yu-qi/smart_parking_config.git/SmartParkingServer.yml (document #1)'}, BootstrapPropertySource {name='bootstrapProperties-https://gitee.com/lei-yu-qi/smart_parking_config.git/SmartParkingServer.yml (document #0)'}]
+2022-08-29 09:31:33.612  INFO 24258 --- [main] o.s.c.s.binder.DefaultBinderFactory      : Caching the binder: rabbit
+2022-08-29 09:31:33.612  INFO 24258 --- [main] o.s.c.s.binder.DefaultBinderFactory      : Retrieving cached binder: rabbit
+2022-08-29 09:31:33.699  INFO 24258 --- [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2022-08-29 09:31:33.753  INFO 24258 --- [main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#6f80cf5:0/SimpleConnection@5e24f013 [delegate=amqp://guest@127.0.0.1:5672/, localPort= 35122]
+2022-08-29 09:31:33.785  INFO 24258 --- [main] o.s.c.s.m.DirectWithAttributesChannel    : Channel 'application-1.springCloudBusOutput' has 1 subscriber(s).
+2022-08-29 09:31:33.798  INFO 24258 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2022-08-29 09:31:33.835  INFO 24258 --- [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2022-08-29 09:31:33.883  INFO 24258 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2022-08-29 09:31:33.883  INFO 24258 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2022-08-29 09:31:34.020  INFO 24258 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2022-08-29 09:31:34.020  INFO 24258 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2022-08-29 09:31:34.213  INFO 24258 --- [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-08-29 09:31:34.229  INFO 24258 --- [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2022-08-29 09:31:34.229  INFO 24258 --- [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2022-08-29 09:31:34.229  INFO 24258 --- [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2022-08-29 09:31:34.229  INFO 24258 --- [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2022-08-29 09:31:34.229  INFO 24258 --- [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2022-08-29 09:31:34.229  INFO 24258 --- [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2022-08-29 09:31:34.229  INFO 24258 --- [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2022-08-29 09:31:34.322  INFO 24258 --- [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2022-08-29 09:31:34.325  INFO 24258 --- [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2022-08-29 09:31:34.330  INFO 24258 --- [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2022-08-29 09:31:34.333  INFO 24258 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1661736694332 with initial instances count: 6
+2022-08-29 09:31:34.338  INFO 24258 --- [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application CLIENTADMINISTRATORS with eureka with status UP
+2022-08-29 09:31:34.339  INFO 24258 --- [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1661736694339, current=UP, previous=STARTING]
+2022-08-29 09:31:34.340  INFO 24258 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CLIENTADMINISTRATORS/10.12.65.75:ClientAdministrators:9000: registering service...
+2022-08-29 09:31:34.341  INFO 24258 --- [main] o.s.c.s.binder.DefaultBinderFactory      : Retrieving cached binder: rabbit
+2022-08-29 09:31:34.372  INFO 24258 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CLIENTADMINISTRATORS/10.12.65.75:ClientAdministrators:9000 - registration status: 204
+2022-08-29 09:31:34.398  INFO 24258 --- [main] c.s.b.r.p.RabbitExchangeQueueProvisioner : declaring queue for inbound: springCloudBus.anonymous.WgIfvGgZSBKnZiTiho6PzA, bound to: springCloudBus
+2022-08-29 09:31:34.426  INFO 24258 --- [main] o.s.c.stream.binder.BinderErrorChannel   : Channel 'springCloudBus.anonymous.WgIfvGgZSBKnZiTiho6PzA.errors' has 1 subscriber(s).
+2022-08-29 09:31:34.427  INFO 24258 --- [main] o.s.c.stream.binder.BinderErrorChannel   : Channel 'springCloudBus.anonymous.WgIfvGgZSBKnZiTiho6PzA.errors' has 2 subscriber(s).
+2022-08-29 09:31:34.443  INFO 24258 --- [main] o.s.i.a.i.AmqpInboundChannelAdapter      : started bean 'inbound.springCloudBus.anonymous.WgIfvGgZSBKnZiTiho6PzA'
+2022-08-29 09:31:34.445  INFO 24258 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-29 09:31:34.485  INFO 24258 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-29 09:31:34.543  INFO 24258 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-29 09:31:34.821 ERROR 24258 --- [main] c.e.a.s.AdministratorsServiceImpl        : 打印error
+2022-08-29 09:31:34.822  WARN 24258 --- [main] c.e.a.s.AdministratorsServiceImpl        : 打印warn
+2022-08-29 09:31:34.836  INFO 24258 --- [SpringContextShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application CLIENTADMINISTRATORS with eureka with status DOWN
+2022-08-29 09:31:34.836  INFO 24258 --- [SpringContextShutdownHook] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1661736694836, current=DOWN, previous=UP]
+2022-08-29 09:31:34.836  INFO 24258 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CLIENTADMINISTRATORS/10.12.65.75:ClientAdministrators:9000: registering service...
+2022-08-29 09:31:34.840  INFO 24258 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CLIENTADMINISTRATORS/10.12.65.75:ClientAdministrators:9000 - registration status: 204
+2022-08-29 09:31:34.846  INFO 24258 --- [SpringContextShutdownHook] o.s.a.r.l.SimpleMessageListenerContainer : Waiting for workers to finish.
+2022-08-29 09:31:35.454  INFO 24258 --- [SpringContextShutdownHook] o.s.a.r.l.SimpleMessageListenerContainer : Successfully waited for workers to finish.
+2022-08-29 09:31:35.454  INFO 24258 --- [SpringContextShutdownHook] o.s.i.a.i.AmqpInboundChannelAdapter      : stopped bean 'inbound.springCloudBus.anonymous.WgIfvGgZSBKnZiTiho6PzA'
+2022-08-29 09:31:35.470  INFO 24258 --- [SpringContextShutdownHook] o.s.c.stream.binder.BinderErrorChannel   : Channel 'application-1.springCloudBus.anonymous.WgIfvGgZSBKnZiTiho6PzA.errors' has 1 subscriber(s).
+2022-08-29 09:31:35.472  INFO 24258 --- [SpringContextShutdownHook] o.s.c.stream.binder.BinderErrorChannel   : Channel 'application-1.springCloudBus.anonymous.WgIfvGgZSBKnZiTiho6PzA.errors' has 0 subscriber(s).
+2022-08-29 09:31:35.479  INFO 24258 --- [SpringContextShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2022-08-29 09:31:35.479  INFO 24258 --- [SpringContextShutdownHook] o.s.i.channel.PublishSubscribeChannel    : Channel 'application-1.errorChannel' has 0 subscriber(s).
+2022-08-29 09:31:35.480  INFO 24258 --- [SpringContextShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : stopped bean '_org.springframework.integration.errorLogger'
+2022-08-29 09:31:35.483  INFO 24258 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-08-29 09:31:35.496  INFO 24258 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2022-08-29 09:31:35.501  INFO 24258 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-08-29 09:31:35.507  INFO 24258 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-08-29 09:31:35.508  INFO 24258 --- [SpringContextShutdownHook] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2022-08-29 09:31:38.513  INFO 24258 --- [SpringContextShutdownHook] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2022-08-29 09:31:38.521  INFO 24258 --- [SpringContextShutdownHook] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CLIENTADMINISTRATORS/10.12.65.75:ClientAdministrators:9000 - deregister  status: 200
+2022-08-29 09:31:38.550  INFO 24258 --- [SpringContextShutdownHook] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2022-08-29 09:32:10.903  INFO 24648 --- [main] c.c.c.ConfigServicePropertySourceLocator : Fetching config from server at : http://localhost:9999
+2022-08-29 09:32:11.824  INFO 24648 --- [main] c.c.c.ConfigServicePropertySourceLocator : Located environment: name=SmartParkingServer, profiles=[data], label=master, version=43004183376da3b898424e884c3fe0b7301a0951, state=null
+2022-08-29 09:32:11.824  INFO 24648 --- [main] b.c.PropertySourceBootstrapConfiguration : Located property source: [BootstrapPropertySource {name='bootstrapProperties-configClient'}, BootstrapPropertySource {name='bootstrapProperties-https://gitee.com/lei-yu-qi/smart_parking_config.git/SmartParkingServer.yml (document #1)'}, BootstrapPropertySource {name='bootstrapProperties-https://gitee.com/lei-yu-qi/smart_parking_config.git/SmartParkingServer.yml (document #0)'}]
+2022-08-29 09:32:12.546  WARN 24648 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'bus-env' contains invalid characters, please migrate to a valid format.
+2022-08-29 09:32:12.685  INFO 24648 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2022-08-29 09:32:12.694  INFO 24648 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 4ms. Found 0 JDBC repository interfaces.
+2022-08-29 09:32:12.721  WARN 24648 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'bus-refresh' contains invalid characters, please migrate to a valid format.
+2022-08-29 09:32:12.778  WARN 24648 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2022-08-29 09:32:12.947  INFO 24648 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=442d78e5-6698-3f66-8a88-f16ddd3a4adb
+2022-08-29 09:32:13.007  INFO 24648 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2022-08-29 09:32:13.010  INFO 24648 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2022-08-29 09:32:13.015  INFO 24648 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2022-08-29 09:32:13.251  INFO 24648 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'integrationChannelResolver' of type [org.springframework.integration.support.channel.BeanFactoryChannelResolver] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-08-29 09:32:13.254  INFO 24648 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'integrationDisposableAutoCreatedBeans' of type [org.springframework.integration.config.annotation.Disposables] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-08-29 09:32:13.279  INFO 24648 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration' of type [org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration$$EnhancerBySpringCGLIB$$82772d1c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-08-29 09:32:13.291  INFO 24648 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'bindersHealthContributor' of type [org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration$BindersHealthContributor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-08-29 09:32:13.293  INFO 24648 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'bindersHealthIndicatorListener' of type [org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration$BindersHealthIndicatorListener] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-08-29 09:32:13.312  INFO 24648 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-08-29 09:32:13.803  WARN 24648 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2022-08-29 09:32:13.803  INFO 24648 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2022-08-29 09:32:13.813  INFO 24648 --- [main] c.netflix.config.DynamicPropertyFactory  : DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@25109608
+2022-08-29 09:32:13.990  INFO 24648 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2022-08-29 09:32:14.079  INFO 24648 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'ClientUser' URL not provided. Will try picking an instance via load-balancing.
+2022-08-29 09:32:14.364  INFO 24648 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'ClientParkingLots' URL not provided. Will try picking an instance via load-balancing.
+2022-08-29 09:32:14.393  INFO 24648 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'ClientOrder' URL not provided. Will try picking an instance via load-balancing.
+2022-08-29 09:32:15.315  INFO 24648 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 23 endpoint(s) beneath base path '/actuator'
+2022-08-29 09:32:15.461  INFO 24648 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-29 09:32:15.556  WARN 24648 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2022-08-29 09:32:15.557  INFO 24648 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2022-08-29 09:32:15.686  INFO 24648 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-08-29 09:32:16.068  INFO 24648 --- [main] onConfiguration$FunctionBindingRegistrar : Functional binding is disabled due to the presense of @EnableBinding annotation in your configuration
+2022-08-29 09:32:16.376  INFO 24648 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-08-29 09:32:16.551  INFO 24648 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-08-29 09:32:16.656  INFO 24648 --- [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses Jersey
+2022-08-29 09:32:16.699  WARN 24648 --- [main] ockingLoadBalancerClientRibbonWarnLogger : You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+2022-08-29 09:32:16.874  INFO 24648 --- [main] o.s.c.s.m.DirectWithAttributesChannel    : Channel 'application-1.springCloudBusInput' has 1 subscriber(s).
+2022-08-29 09:32:16.887  INFO 24648 --- [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2022-08-29 09:32:16.887  INFO 24648 --- [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'application-1.errorChannel' has 1 subscriber(s).
+2022-08-29 09:32:16.887  INFO 24648 --- [main] o.s.i.endpoint.EventDrivenConsumer       : started bean '_org.springframework.integration.errorLogger'
+2022-08-29 09:32:16.889  INFO 24648 --- [main] o.s.c.s.binder.DefaultBinderFactory      : Creating binder: rabbit
+2022-08-29 09:32:16.928  INFO 24648 --- [main] c.c.c.ConfigServicePropertySourceLocator : Fetching config from server at : http://localhost:9999
+2022-08-29 09:32:17.644  INFO 24648 --- [main] c.c.c.ConfigServicePropertySourceLocator : Located environment: name=SmartParkingServer, profiles=[data], label=master, version=43004183376da3b898424e884c3fe0b7301a0951, state=null
+2022-08-29 09:32:17.644  INFO 24648 --- [main] b.c.PropertySourceBootstrapConfiguration : Located property source: [BootstrapPropertySource {name='bootstrapProperties-configClient'}, BootstrapPropertySource {name='bootstrapProperties-https://gitee.com/lei-yu-qi/smart_parking_config.git/SmartParkingServer.yml (document #1)'}, BootstrapPropertySource {name='bootstrapProperties-https://gitee.com/lei-yu-qi/smart_parking_config.git/SmartParkingServer.yml (document #0)'}]
+2022-08-29 09:32:17.742  INFO 24648 --- [main] o.s.c.s.binder.DefaultBinderFactory      : Caching the binder: rabbit
+2022-08-29 09:32:17.743  INFO 24648 --- [main] o.s.c.s.binder.DefaultBinderFactory      : Retrieving cached binder: rabbit
+2022-08-29 09:32:17.829  INFO 24648 --- [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2022-08-29 09:32:17.881  INFO 24648 --- [main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#114b2414:0/SimpleConnection@23138317 [delegate=amqp://guest@127.0.0.1:5672/, localPort= 60722]
+2022-08-29 09:32:17.910  INFO 24648 --- [main] o.s.c.s.m.DirectWithAttributesChannel    : Channel 'application-1.springCloudBusOutput' has 1 subscriber(s).
+2022-08-29 09:32:17.922  INFO 24648 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2022-08-29 09:32:17.950  INFO 24648 --- [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2022-08-29 09:32:17.999  INFO 24648 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2022-08-29 09:32:17.999  INFO 24648 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2022-08-29 09:32:18.118  INFO 24648 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2022-08-29 09:32:18.118  INFO 24648 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2022-08-29 09:32:18.264  INFO 24648 --- [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-08-29 09:32:18.278  INFO 24648 --- [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2022-08-29 09:32:18.278  INFO 24648 --- [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2022-08-29 09:32:18.278  INFO 24648 --- [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2022-08-29 09:32:18.278  INFO 24648 --- [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2022-08-29 09:32:18.278  INFO 24648 --- [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2022-08-29 09:32:18.278  INFO 24648 --- [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2022-08-29 09:32:18.278  INFO 24648 --- [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2022-08-29 09:32:18.373  INFO 24648 --- [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2022-08-29 09:32:18.377  INFO 24648 --- [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2022-08-29 09:32:18.379  INFO 24648 --- [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2022-08-29 09:32:18.382  INFO 24648 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1661736738381 with initial instances count: 5
+2022-08-29 09:32:18.386  INFO 24648 --- [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application CLIENTADMINISTRATORS with eureka with status UP
+2022-08-29 09:32:18.387  INFO 24648 --- [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1661736738387, current=UP, previous=STARTING]
+2022-08-29 09:32:18.389  INFO 24648 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CLIENTADMINISTRATORS/10.12.65.75:ClientAdministrators:9000: registering service...
+2022-08-29 09:32:18.390  INFO 24648 --- [main] o.s.c.s.binder.DefaultBinderFactory      : Retrieving cached binder: rabbit
+2022-08-29 09:32:18.417  INFO 24648 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CLIENTADMINISTRATORS/10.12.65.75:ClientAdministrators:9000 - registration status: 204
+2022-08-29 09:32:18.442  INFO 24648 --- [main] c.s.b.r.p.RabbitExchangeQueueProvisioner : declaring queue for inbound: springCloudBus.anonymous.o8T1ylTeQLKW22tOOn-tpw, bound to: springCloudBus
+2022-08-29 09:32:18.468  INFO 24648 --- [main] o.s.c.stream.binder.BinderErrorChannel   : Channel 'springCloudBus.anonymous.o8T1ylTeQLKW22tOOn-tpw.errors' has 1 subscriber(s).
+2022-08-29 09:32:18.468  INFO 24648 --- [main] o.s.c.stream.binder.BinderErrorChannel   : Channel 'springCloudBus.anonymous.o8T1ylTeQLKW22tOOn-tpw.errors' has 2 subscriber(s).
+2022-08-29 09:32:18.482  INFO 24648 --- [main] o.s.i.a.i.AmqpInboundChannelAdapter      : started bean 'inbound.springCloudBus.anonymous.o8T1ylTeQLKW22tOOn-tpw'
+2022-08-29 09:32:18.483  INFO 24648 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-29 09:32:18.494  INFO 24648 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-29 09:32:18.536  INFO 24648 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-29 09:32:18.836 ERROR 24648 --- [main] c.e.a.s.AdministratorsServiceImpl        : 打印error
+2022-08-29 09:32:18.837  WARN 24648 --- [main] c.e.a.s.AdministratorsServiceImpl        : 打印warn
+2022-08-29 09:32:18.849  INFO 24648 --- [SpringContextShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application CLIENTADMINISTRATORS with eureka with status DOWN
+2022-08-29 09:32:18.849  INFO 24648 --- [SpringContextShutdownHook] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1661736738849, current=DOWN, previous=UP]
+2022-08-29 09:32:18.849  INFO 24648 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CLIENTADMINISTRATORS/10.12.65.75:ClientAdministrators:9000: registering service...
+2022-08-29 09:32:18.852  INFO 24648 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CLIENTADMINISTRATORS/10.12.65.75:ClientAdministrators:9000 - registration status: 204
+2022-08-29 09:32:18.858  INFO 24648 --- [SpringContextShutdownHook] o.s.a.r.l.SimpleMessageListenerContainer : Waiting for workers to finish.
+2022-08-29 09:32:19.493  INFO 24648 --- [SpringContextShutdownHook] o.s.a.r.l.SimpleMessageListenerContainer : Successfully waited for workers to finish.
+2022-08-29 09:32:19.494  INFO 24648 --- [SpringContextShutdownHook] o.s.i.a.i.AmqpInboundChannelAdapter      : stopped bean 'inbound.springCloudBus.anonymous.o8T1ylTeQLKW22tOOn-tpw'
+2022-08-29 09:32:19.506  INFO 24648 --- [SpringContextShutdownHook] o.s.c.stream.binder.BinderErrorChannel   : Channel 'application-1.springCloudBus.anonymous.o8T1ylTeQLKW22tOOn-tpw.errors' has 1 subscriber(s).
+2022-08-29 09:32:19.508  INFO 24648 --- [SpringContextShutdownHook] o.s.c.stream.binder.BinderErrorChannel   : Channel 'application-1.springCloudBus.anonymous.o8T1ylTeQLKW22tOOn-tpw.errors' has 0 subscriber(s).
+2022-08-29 09:32:19.514  INFO 24648 --- [SpringContextShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2022-08-29 09:32:19.514  INFO 24648 --- [SpringContextShutdownHook] o.s.i.channel.PublishSubscribeChannel    : Channel 'application-1.errorChannel' has 0 subscriber(s).
+2022-08-29 09:32:19.514  INFO 24648 --- [SpringContextShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : stopped bean '_org.springframework.integration.errorLogger'
+2022-08-29 09:32:19.517  INFO 24648 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-08-29 09:32:19.529  INFO 24648 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2022-08-29 09:32:19.533  INFO 24648 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-08-29 09:32:19.540  INFO 24648 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-08-29 09:32:19.541  INFO 24648 --- [SpringContextShutdownHook] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2022-08-29 09:32:22.545  INFO 24648 --- [SpringContextShutdownHook] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2022-08-29 09:32:22.555  INFO 24648 --- [SpringContextShutdownHook] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CLIENTADMINISTRATORS/10.12.65.75:ClientAdministrators:9000 - deregister  status: 200
+2022-08-29 09:32:22.585  INFO 24648 --- [SpringContextShutdownHook] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2022-08-29 10:47:55.198  INFO 30306 --- [main] c.c.c.ConfigServicePropertySourceLocator : Fetching config from server at : http://localhost:9999
+2022-08-29 10:47:56.041  INFO 30306 --- [main] c.c.c.ConfigServicePropertySourceLocator : Located environment: name=SmartParkingServer, profiles=[data], label=master, version=43004183376da3b898424e884c3fe0b7301a0951, state=null
+2022-08-29 10:47:56.042  INFO 30306 --- [main] b.c.PropertySourceBootstrapConfiguration : Located property source: [BootstrapPropertySource {name='bootstrapProperties-configClient'}, BootstrapPropertySource {name='bootstrapProperties-https://gitee.com/lei-yu-qi/smart_parking_config.git/SmartParkingServer.yml (document #1)'}, BootstrapPropertySource {name='bootstrapProperties-https://gitee.com/lei-yu-qi/smart_parking_config.git/SmartParkingServer.yml (document #0)'}]
+2022-08-29 10:47:56.759  WARN 30306 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'bus-env' contains invalid characters, please migrate to a valid format.
+2022-08-29 10:47:56.895  INFO 30306 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2022-08-29 10:47:56.903  INFO 30306 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 4ms. Found 0 JDBC repository interfaces.
+2022-08-29 10:47:56.930  WARN 30306 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'bus-refresh' contains invalid characters, please migrate to a valid format.
+2022-08-29 10:47:56.983  WARN 30306 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2022-08-29 10:47:57.156  INFO 30306 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=442d78e5-6698-3f66-8a88-f16ddd3a4adb
+2022-08-29 10:47:57.209  INFO 30306 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2022-08-29 10:47:57.213  INFO 30306 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2022-08-29 10:47:57.217  INFO 30306 --- [main] faultConfiguringBeanFactoryPostProcessor : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2022-08-29 10:47:57.452  INFO 30306 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'integrationChannelResolver' of type [org.springframework.integration.support.channel.BeanFactoryChannelResolver] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-08-29 10:47:57.456  INFO 30306 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'integrationDisposableAutoCreatedBeans' of type [org.springframework.integration.config.annotation.Disposables] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-08-29 10:47:57.492  INFO 30306 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration' of type [org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration$$EnhancerBySpringCGLIB$$1cd52097] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-08-29 10:47:57.509  INFO 30306 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'bindersHealthContributor' of type [org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration$BindersHealthContributor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-08-29 10:47:57.513  INFO 30306 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'bindersHealthIndicatorListener' of type [org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration$BindersHealthIndicatorListener] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-08-29 10:47:57.531  INFO 30306 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-08-29 10:47:58.002  WARN 30306 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2022-08-29 10:47:58.002  INFO 30306 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2022-08-29 10:47:58.011  INFO 30306 --- [main] c.netflix.config.DynamicPropertyFactory  : DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@8851ec
+2022-08-29 10:47:58.193  INFO 30306 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2022-08-29 10:47:58.280  INFO 30306 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'ClientUser' URL not provided. Will try picking an instance via load-balancing.
+2022-08-29 10:47:58.513  INFO 30306 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'ClientParkingLots' URL not provided. Will try picking an instance via load-balancing.
+2022-08-29 10:47:58.538  INFO 30306 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'ClientOrder' URL not provided. Will try picking an instance via load-balancing.
+2022-08-29 10:47:59.387  INFO 30306 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 23 endpoint(s) beneath base path '/actuator'
+2022-08-29 10:47:59.520  INFO 30306 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-08-29 10:47:59.609  WARN 30306 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2022-08-29 10:47:59.610  INFO 30306 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2022-08-29 10:47:59.739  INFO 30306 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-08-29 10:48:00.086  INFO 30306 --- [main] onConfiguration$FunctionBindingRegistrar : Functional binding is disabled due to the presense of @EnableBinding annotation in your configuration
+2022-08-29 10:48:00.386  INFO 30306 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-08-29 10:48:00.552  INFO 30306 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-08-29 10:48:00.651  INFO 30306 --- [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses Jersey
+2022-08-29 10:48:00.703  WARN 30306 --- [main] ockingLoadBalancerClientRibbonWarnLogger : You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+2022-08-29 10:48:00.879  INFO 30306 --- [main] o.s.c.s.m.DirectWithAttributesChannel    : Channel 'application-1.springCloudBusInput' has 1 subscriber(s).
+2022-08-29 10:48:00.891  INFO 30306 --- [main] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2022-08-29 10:48:00.891  INFO 30306 --- [main] o.s.i.channel.PublishSubscribeChannel    : Channel 'application-1.errorChannel' has 1 subscriber(s).
+2022-08-29 10:48:00.892  INFO 30306 --- [main] o.s.i.endpoint.EventDrivenConsumer       : started bean '_org.springframework.integration.errorLogger'
+2022-08-29 10:48:00.893  INFO 30306 --- [main] o.s.c.s.binder.DefaultBinderFactory      : Creating binder: rabbit
+2022-08-29 10:48:00.938  INFO 30306 --- [main] c.c.c.ConfigServicePropertySourceLocator : Fetching config from server at : http://localhost:9999
+2022-08-29 10:48:01.982  INFO 30306 --- [main] c.c.c.ConfigServicePropertySourceLocator : Located environment: name=SmartParkingServer, profiles=[data], label=master, version=43004183376da3b898424e884c3fe0b7301a0951, state=null
+2022-08-29 10:48:01.982  INFO 30306 --- [main] b.c.PropertySourceBootstrapConfiguration : Located property source: [BootstrapPropertySource {name='bootstrapProperties-configClient'}, BootstrapPropertySource {name='bootstrapProperties-https://gitee.com/lei-yu-qi/smart_parking_config.git/SmartParkingServer.yml (document #1)'}, BootstrapPropertySource {name='bootstrapProperties-https://gitee.com/lei-yu-qi/smart_parking_config.git/SmartParkingServer.yml (document #0)'}]
+2022-08-29 10:48:02.104  INFO 30306 --- [main] o.s.c.s.binder.DefaultBinderFactory      : Caching the binder: rabbit
+2022-08-29 10:48:02.104  INFO 30306 --- [main] o.s.c.s.binder.DefaultBinderFactory      : Retrieving cached binder: rabbit
+2022-08-29 10:48:02.194  INFO 30306 --- [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2022-08-29 10:48:02.243  INFO 30306 --- [main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#6f80cf5:0/SimpleConnection@5e24f013 [delegate=amqp://guest@127.0.0.1:5672/, localPort= 38414]
+2022-08-29 10:48:02.278  INFO 30306 --- [main] o.s.c.s.m.DirectWithAttributesChannel    : Channel 'application-1.springCloudBusOutput' has 1 subscriber(s).
+2022-08-29 10:48:02.292  INFO 30306 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2022-08-29 10:48:02.327  INFO 30306 --- [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2022-08-29 10:48:02.375  INFO 30306 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2022-08-29 10:48:02.375  INFO 30306 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2022-08-29 10:48:02.508  INFO 30306 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2022-08-29 10:48:02.508  INFO 30306 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2022-08-29 10:48:02.637  INFO 30306 --- [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-08-29 10:48:02.650  INFO 30306 --- [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2022-08-29 10:48:02.650  INFO 30306 --- [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2022-08-29 10:48:02.650  INFO 30306 --- [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2022-08-29 10:48:02.650  INFO 30306 --- [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2022-08-29 10:48:02.650  INFO 30306 --- [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2022-08-29 10:48:02.650  INFO 30306 --- [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2022-08-29 10:48:02.650  INFO 30306 --- [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2022-08-29 10:48:02.729  INFO 30306 --- [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2022-08-29 10:48:02.732  INFO 30306 --- [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2022-08-29 10:48:02.734  INFO 30306 --- [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2022-08-29 10:48:02.737  INFO 30306 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1661741282736 with initial instances count: 6
+2022-08-29 10:48:02.741  INFO 30306 --- [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application CLIENTADMINISTRATORS with eureka with status UP
+2022-08-29 10:48:02.742  INFO 30306 --- [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1661741282742, current=UP, previous=STARTING]
+2022-08-29 10:48:02.743  INFO 30306 --- [main] o.s.c.s.binder.DefaultBinderFactory      : Retrieving cached binder: rabbit
+2022-08-29 10:48:02.743  INFO 30306 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CLIENTADMINISTRATORS/10.12.65.75:ClientAdministrators:9000: registering service...
+2022-08-29 10:48:02.770  INFO 30306 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CLIENTADMINISTRATORS/10.12.65.75:ClientAdministrators:9000 - registration status: 204
+2022-08-29 10:48:02.798  INFO 30306 --- [main] c.s.b.r.p.RabbitExchangeQueueProvisioner : declaring queue for inbound: springCloudBus.anonymous.j_o8nkPrQser8n8yHlehJQ, bound to: springCloudBus
+2022-08-29 10:48:02.822  INFO 30306 --- [main] o.s.c.stream.binder.BinderErrorChannel   : Channel 'springCloudBus.anonymous.j_o8nkPrQser8n8yHlehJQ.errors' has 1 subscriber(s).
+2022-08-29 10:48:02.823  INFO 30306 --- [main] o.s.c.stream.binder.BinderErrorChannel   : Channel 'springCloudBus.anonymous.j_o8nkPrQser8n8yHlehJQ.errors' has 2 subscriber(s).
+2022-08-29 10:48:02.838  INFO 30306 --- [main] o.s.i.a.i.AmqpInboundChannelAdapter      : started bean 'inbound.springCloudBus.anonymous.j_o8nkPrQser8n8yHlehJQ'
+2022-08-29 10:48:02.839  INFO 30306 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2022-08-29 10:48:02.850  INFO 30306 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2022-08-29 10:48:02.887  INFO 30306 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2022-08-29 10:48:03.160 ERROR 30306 --- [main] c.e.a.s.AdministratorsServiceImpl        : 打印error
+2022-08-29 10:48:03.160  WARN 30306 --- [main] c.e.a.s.AdministratorsServiceImpl        : 打印warn
+2022-08-29 10:48:03.172  INFO 30306 --- [SpringContextShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application CLIENTADMINISTRATORS with eureka with status DOWN
+2022-08-29 10:48:03.173  INFO 30306 --- [SpringContextShutdownHook] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1661741283173, current=DOWN, previous=UP]
+2022-08-29 10:48:03.173  INFO 30306 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CLIENTADMINISTRATORS/10.12.65.75:ClientAdministrators:9000: registering service...
+2022-08-29 10:48:03.176  INFO 30306 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CLIENTADMINISTRATORS/10.12.65.75:ClientAdministrators:9000 - registration status: 204
+2022-08-29 10:48:03.182  INFO 30306 --- [SpringContextShutdownHook] o.s.a.r.l.SimpleMessageListenerContainer : Waiting for workers to finish.
+2022-08-29 10:48:03.846  INFO 30306 --- [SpringContextShutdownHook] o.s.a.r.l.SimpleMessageListenerContainer : Successfully waited for workers to finish.
+2022-08-29 10:48:03.847  INFO 30306 --- [SpringContextShutdownHook] o.s.i.a.i.AmqpInboundChannelAdapter      : stopped bean 'inbound.springCloudBus.anonymous.j_o8nkPrQser8n8yHlehJQ'
+2022-08-29 10:48:03.859  INFO 30306 --- [SpringContextShutdownHook] o.s.c.stream.binder.BinderErrorChannel   : Channel 'application-1.springCloudBus.anonymous.j_o8nkPrQser8n8yHlehJQ.errors' has 1 subscriber(s).
+2022-08-29 10:48:03.861  INFO 30306 --- [SpringContextShutdownHook] o.s.c.stream.binder.BinderErrorChannel   : Channel 'application-1.springCloudBus.anonymous.j_o8nkPrQser8n8yHlehJQ.errors' has 0 subscriber(s).
+2022-08-29 10:48:03.867  INFO 30306 --- [SpringContextShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : Removing {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2022-08-29 10:48:03.868  INFO 30306 --- [SpringContextShutdownHook] o.s.i.channel.PublishSubscribeChannel    : Channel 'application-1.errorChannel' has 0 subscriber(s).
+2022-08-29 10:48:03.868  INFO 30306 --- [SpringContextShutdownHook] o.s.i.endpoint.EventDrivenConsumer       : stopped bean '_org.springframework.integration.errorLogger'
+2022-08-29 10:48:03.871  INFO 30306 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-08-29 10:48:03.883  INFO 30306 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2022-08-29 10:48:03.888  INFO 30306 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-08-29 10:48:03.894  INFO 30306 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-08-29 10:48:03.895  INFO 30306 --- [SpringContextShutdownHook] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2022-08-29 10:48:06.898  INFO 30306 --- [SpringContextShutdownHook] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2022-08-29 10:48:06.904  INFO 30306 --- [SpringContextShutdownHook] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CLIENTADMINISTRATORS/10.12.65.75:ClientAdministrators:9000 - deregister  status: 200
+2022-08-29 10:48:06.928  INFO 30306 --- [SpringContextShutdownHook] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient

@@ -1,26 +1,17 @@
 server:
   port: 9000
 
+
 spring:
   #  服务名称------服务名称不能使用下划线，删除下划线或者使用中划线
   application:
     name: ClientAdministrators
 
-#    #指定项目使用的具体环境
-#  profiles:
-#    active: dev
 
-##指定日志级别
-#logging:
-#  level: trace
-#
-#  pattern:
-#    #指定控制台输出消息格式
-#    console: [%-5level] %d{yyyy-MM-dd HH:mm:ss} %c threadName=[%thread] %msg %n
-#    #指定日志文件输出消息格式
-#    file: [%-5level] %d{yyyy-MM-dd HH:mm:ss} %c threadName=[%thread] %msg %n
-#  #指定存放日志文件的目录，默认文件名为spring.log
-#  file:
-#    path: /log/Administrators/
+#指定日志级别
+logging:
+  level:
+    com.example.administrators: info
+  config: classpath:log4j2.xml
 
 

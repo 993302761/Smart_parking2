@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!--
+<!--日志级别以及优先级排序: OFF > FATAL > ERROR > WARN > INFO > DEBUG > TRACE > ALL
+
+                             All:最低等级的，用于打开所有日志记录.
+　　　　　                   　Trace:是追踪，就是程序推进一下.
+　　　　　　                   Debug:指出细粒度信息事件对调试应用程序是非常有帮助的.
+　　　　　                   　Info:消息在粗粒度级别上突出强调应用程序的运行过程.
+　　　　　                　   Warn:输出警告及warn以下级别的日志.
+　　　　　　                   Error:输出错误信息日志.
+　　　　　　                   Fatal:输出每个严重的错误事件将会导致应用程序的退出的日志.
+　　　　　　                   OFF:最高等级的，用于关闭所有日志记录.
+
     status="warn" 日志框架本身的输出日志级别，可以修改为debug
     monitorInterval="5" 自动加载配置文件的间隔时间，不低于 5秒；生产环境中修改配置文件，是热更新，无需重启应用
  -->
@@ -9,36 +19,36 @@
     使用时通过:${name}
     -->
     <properties>
-        <property name="LOG_HOME">logs</property>
+        <property name="LOG_HOME">logs/Administrators/</property>
     </properties>
+    <Property name="LOG_PATTERN">
+        %clr{%d{yyyy-MM-dd HH:mm:ss.SSS}}{faint} [%clr{%5p} ] %clr{${sys:PID}}{magenta} %clr{---}{faint} %clr{[%15.15t ]}{faint} %clr{%-40.40c{1.}}{cyan} %clr{:}{faint} %m%n%xwEx
+    </Property>
 
     <!-- 日志处理 -->
     <Appenders>
         <!-- 控制台输出 appender，SYSTEM_OUT输出黑色，SYSTEM_ERR输出红色 -->
-        <Console name="Console" target="SYSTEM_OUT">
-            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] [%-5level] %c{36}:%L --- %m%n" />
-        </Console>
+        <console name="Console" target="SYSTEM_OUT">
+            <!-- 只输出info及以上级别的信息 -->
+            <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+            <!--输出日志的格式：eg:10:41:25.084[时间] INFO[日志等级]  com.unicloud.sc.thirdapp.RegisterH5Application[类名] 29[行] main[方法名] - [消息内容] -->
+            <PatternLayout pattern="%clr{%d{yyyy-MM-dd HH:mm:ss.SSS}}{faint} [%clr{%5p} ] %clr{${sys:PID}}{magenta} %clr{---}{faint} %clr{[%15.15t ]}{faint} %clr{%-40.40c{1.}}{cyan} %clr{:}{faint} %m%n%xwEx"/>
+        </console>
 
-        <!-- 日志文件输出 appender -->
-        <File name="file" fileName="${LOG_HOME}/myfile.log">
-            <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5level] %l %c{36} - %m%n" />
+        <!--文件会打印出所有信息，这个log每次运行程序会自动清空，由append属性决定，这个也挺有用的，适合临时测试用-->
+        <File name="file" fileName="${LOG_HOME}/All.log" append="false">
+            <PatternLayout pattern="[%d{HH:mm:ss.SSS} %-5level] [%class{36} %L %M] - %msg%xEx%n"/>
         </File>
 
-        <!-- 使用随机读写流的日志文件输出 appender，性能提高 -->
-        <RandomAccessFile name="accessFile" fileName="${LOG_HOME}/myAcclog.log">
-            <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5level] %l %c{36} - %m%n" />
-        </RandomAccessFile>
 
         <!-- 按照一定规则拆分的日志文件的appender -->  <!-- 拆分后的文件 -->
-        <!-- filePattern="${LOG_HOME}/$${date:yyyy-MM-dd}/myrollog-%d{yyyy-MM-dd-HH-mm}-%i.log"> -->
-        <RollingFile name="rollingFile" fileName="${LOG_HOME}/myrollog.log"
-                     filePattern="${LOG_HOME}/$${date:yyyy-MM-dd}/myrollog-%d{yyyy-MM-dd}-%i.log">
+        <RollingFile name="RollingFileWarn" fileName="${LOG_HOME}/warn.log" filePattern="${LOG_HOME}/${date:yyyy-MM}/warn-%d{yyyy-MM-dd}-%i.log">
             <!-- 日志级别过滤器 -->
-            <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY" />
+            <ThresholdFilter level="warn" onMatch="ACCEPT" onMismatch="DENY" />
             <!-- 日志消息格式 -->
-            <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5level] %l %c{36} - %msg%n" />
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %class{36} %L %M - %msg%xEx%n"/>
             <Policies>
-                <!-- 在系统启动时，出发拆分规则，生产一个新的日志文件 -->
+                <!-- 在系统启动时，触发拆分规则，生产一个新的日志文件 -->
                 <OnStartupTriggeringPolicy />
                 <!-- 按照文件大小拆分，10MB -->
                 <SizeBasedTriggeringPolicy size="2MB" />
@@ -49,17 +59,35 @@
             <DefaultRolloverStrategy max="10" />
         </RollingFile>
 
+        <!-- 这个会打印出所有的error及以下级别的信息-->
+        <RollingFile name="RollingFileError" fileName="${LOG_HOME}/error.log" filePattern="${LOG_HOME}/${date:yyyy-MM}/error-%d{yyyy-MM-dd}-%i.log">
+            <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %class{36} %L %M - %msg%xEx%n"/>
+            <Policies>
+                <!-- 在系统启动时，触发拆分规则，生产一个新的日志文件 -->
+                <OnStartupTriggeringPolicy />
+                <!-- 按照文件大小拆分，默认10MB -->
+                <SizeBasedTriggeringPolicy size="2MB" />
+                <!-- 按照时间节点拆分，规则根据filePattern定义的 -->
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+        </RollingFile>
+
     </Appenders>
 
     <!-- logger 定义 -->
     <Loggers>
+        <!--过滤掉spring和mybatis的一些无用的DEBUG信息-->
+        <logger name="org.springframework" level="INFO"></logger>
+        <logger name="org.mybatis" level="INFO"></logger>
         <!-- 使用 rootLogger 配置 日志级别 level="trace" -->
-        <Root level="trace">
+        <Root level="info">
             <!-- 指定日志使用的处理器 -->
-            <!-- <AppenderRef ref="Console" />-->
+             <AppenderRef ref="Console" />
             <AppenderRef ref="file" />
-            <AppenderRef ref="rollingFile" />
-            <AppenderRef ref="accessFile" />
+            <AppenderRef ref="RollingFileWarn" />
+            <AppenderRef ref="RollingFileError" />
+
         </Root>
     </Loggers>
 </configuration>

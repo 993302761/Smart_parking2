@@ -1,0 +1,2 @@
+21:25:49.751 ERROR com.example.administrators.ModuleRegisterApplicationTests 18 contextLoads - 打印error
+21:25:49.751 WARN  com.example.administrators.ModuleRegisterApplicationTests 19 contextLoads - 打印warn

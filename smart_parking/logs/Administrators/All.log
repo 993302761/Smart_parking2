@@ -1,0 +1,105 @@
+[22:04:38.171 INFO ] [org.hibernate.validator.internal.util.Version 21 <clinit>] - HV000001: Hibernate Validator 6.1.7.Final
+[22:04:38.479 INFO ] [org.springframework.cloud.config.client.ConfigServicePropertySourceLocator 256 getRemoteEnvironment] - Fetching config from server at : http://localhost:9999
+[22:04:39.259 INFO ] [org.springframework.cloud.config.client.ConfigServicePropertySourceLocator 175 log] - Located environment: name=SmartParkingServer, profiles=[data], label=master, version=43004183376da3b898424e884c3fe0b7301a0951, state=null
+[22:04:39.260 INFO ] [org.springframework.cloud.bootstrap.config.PropertySourceBootstrapConfiguration 112 initialize] - Located property source: [BootstrapPropertySource {name='bootstrapProperties-configClient'}, BootstrapPropertySource {name='bootstrapProperties-https://gitee.com/lei-yu-qi/smart_parking_config.git/SmartParkingServer.yml (document #1)'}, BootstrapPropertySource {name='bootstrapProperties-https://gitee.com/lei-yu-qi/smart_parking_config.git/SmartParkingServer.yml (document #0)'}]
+[22:04:39.286 INFO ] [org.springframework.boot.SpringApplication 651 logStartupProfileInfo] - No active profile set, falling back to default profiles: default
+[22:04:39.741 WARN ] [org.springframework.boot.actuate.endpoint.EndpointId 155 logWarning] - Endpoint ID 'bus-env' contains invalid characters, please migrate to a valid format.
+[22:04:39.856 INFO ] [org.springframework.data.repository.config.RepositoryConfigurationDelegate 127 registerRepositoriesIn] - Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+[22:04:39.861 INFO ] [org.springframework.data.repository.config.RepositoryConfigurationDelegate 187 registerRepositoriesIn] - Finished Spring Data repository scanning in 3ms. Found 0 JDBC repository interfaces.
+[22:04:39.916 WARN ] [org.springframework.boot.actuate.endpoint.EndpointId 155 logWarning] - Endpoint ID 'bus-refresh' contains invalid characters, please migrate to a valid format.
+[22:04:39.953 WARN ] [org.springframework.boot.actuate.endpoint.EndpointId 155 logWarning] - Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+[22:04:40.061 INFO ] [org.springframework.cloud.context.scope.GenericScope 295 setSerializationId] - BeanFactory id=91c5c332-08b0-313d-aa22-a94b772afc7c
+[22:04:40.067 INFO ] [org.springframework.integration.config.DefaultConfiguringBeanFactoryPostProcessor 213 registerErrorChannel] - No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+[22:04:40.070 INFO ] [org.springframework.integration.config.DefaultConfiguringBeanFactoryPostProcessor 300 registerTaskScheduler] - No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+[22:04:40.072 INFO ] [org.springframework.integration.config.DefaultConfiguringBeanFactoryPostProcessor 460 registerHeaderChannelRegistry] - No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+[22:04:40.159 INFO ] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 335 postProcessAfterInitialization] - Bean 'integrationChannelResolver' of type [org.springframework.integration.support.channel.BeanFactoryChannelResolver] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[22:04:40.160 INFO ] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 335 postProcessAfterInitialization] - Bean 'integrationDisposableAutoCreatedBeans' of type [org.springframework.integration.config.annotation.Disposables] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[22:04:40.171 INFO ] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 335 postProcessAfterInitialization] - Bean 'org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration' of type [org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration$$EnhancerBySpringCGLIB$$794a0718] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[22:04:40.178 INFO ] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 335 postProcessAfterInitialization] - Bean 'bindersHealthContributor' of type [org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration$BindersHealthContributor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[22:04:40.178 INFO ] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 335 postProcessAfterInitialization] - Bean 'bindersHealthIndicatorListener' of type [org.springframework.cloud.stream.config.BindersHealthIndicatorAutoConfiguration$BindersHealthIndicatorListener] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[22:04:40.185 INFO ] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 335 postProcessAfterInitialization] - Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[22:04:40.187 INFO ] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 335 postProcessAfterInitialization] - Bean 'org.springframework.boot.autoconfigure.integration.IntegrationAutoConfiguration$IntegrationJmxConfiguration' of type [org.springframework.boot.autoconfigure.integration.IntegrationAutoConfiguration$IntegrationJmxConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[22:04:40.194 INFO ] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 335 postProcessAfterInitialization] - Bean 'org.springframework.boot.autoconfigure.jmx.JmxAutoConfiguration' of type [org.springframework.boot.autoconfigure.jmx.JmxAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[22:04:40.197 INFO ] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 335 postProcessAfterInitialization] - Bean 'mbeanServer' of type [com.sun.jmx.mbeanserver.JmxMBeanServer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[22:04:40.348 INFO ] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer 108 initialize] - Tomcat initialized with port(s): 9000 (http)
+[22:04:40.353 INFO ] [org.apache.juli.logging.DirectJDKLog 173 log] - Initializing ProtocolHandler ["http-nio-9000"]
+[22:04:40.353 INFO ] [org.apache.juli.logging.DirectJDKLog 173 log] - Starting service [Tomcat]
+[22:04:40.354 INFO ] [org.apache.juli.logging.DirectJDKLog 173 log] - Starting Servlet engine: [Apache Tomcat/9.0.41]
+[22:04:40.415 INFO ] [org.apache.juli.logging.DirectJDKLog 173 log] - Initializing Spring embedded WebApplicationContext
+[22:04:40.415 INFO ] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext 285 prepareWebApplicationContext] - Root WebApplicationContext: initialization completed in 1120 ms
+[22:04:40.481 WARN ] [com.netflix.config.sources.URLConfigurationSource 126 <init>] - No URLs will be polled as dynamic configuration sources.
+[22:04:40.481 INFO ] [com.netflix.config.sources.URLConfigurationSource 127 <init>] - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[22:04:40.487 INFO ] [com.netflix.config.DynamicPropertyFactory 281 getInstance] - DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@e01a26b
+[22:04:40.805 INFO ] [org.springframework.scheduling.concurrent.ExecutorConfigurationSupport 181 initialize] - Initializing ExecutorService 'taskScheduler'
+[22:04:40.861 INFO ] [org.springframework.cloud.openfeign.FeignClientFactoryBean 378 getTarget] - For 'ClientUser' URL not provided. Will try picking an instance via load-balancing.
+[22:04:41.024 INFO ] [org.springframework.cloud.openfeign.FeignClientFactoryBean 378 getTarget] - For 'ClientParkingLots' URL not provided. Will try picking an instance via load-balancing.
+[22:04:41.045 INFO ] [org.springframework.cloud.openfeign.FeignClientFactoryBean 378 getTarget] - For 'ClientOrder' URL not provided. Will try picking an instance via load-balancing.
+[22:04:41.471 INFO ] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver 58 <init>] - Exposing 22 endpoint(s) beneath base path '/actuator'
+[22:04:41.520 INFO ] [springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping 69 initHandlerMethods] - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[22:04:41.529 WARN ] [com.netflix.config.sources.URLConfigurationSource 126 <init>] - No URLs will be polled as dynamic configuration sources.
+[22:04:41.529 INFO ] [com.netflix.config.sources.URLConfigurationSource 127 <init>] - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[22:04:41.575 INFO ] [org.springframework.scheduling.concurrent.ExecutorConfigurationSupport 181 initialize] - Initializing ExecutorService 'applicationTaskExecutor'
+[22:04:41.708 INFO ] [org.springframework.cloud.stream.function.FunctionConfiguration$FunctionBindingRegistrar 755 afterPropertiesSet] - Functional binding is disabled due to the presense of @EnableBinding annotation in your configuration
+[22:04:41.837 INFO ] [com.zaxxer.hikari.HikariDataSource 110 getConnection] - HikariPool-1 - Starting...
+[22:04:41.949 INFO ] [com.zaxxer.hikari.HikariDataSource 123 getConnection] - HikariPool-1 - Start completed.
+[22:04:42.079 INFO ] [org.springframework.cloud.netflix.eureka.config.DiscoveryClientOptionalArgsConfiguration 78 discoveryClientOptionalArgs] - Eureka HTTP Client uses Jersey
+[22:04:42.095 WARN ] [org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger 106 logWarning] - You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+[22:04:42.166 INFO ] [org.springframework.integration.channel.AbstractSubscribableChannel 64 adjustCounterIfNecessary] - Channel 'application-1.springCloudBusInput' has 1 subscriber(s).
+[22:04:42.229 INFO ] [org.springframework.integration.monitor.IntegrationMBeanExporter 767 registerChannel] - Registering MessageChannel nullChannel
+[22:04:42.240 INFO ] [org.springframework.integration.monitor.IntegrationMBeanExporter 767 registerChannel] - Registering MessageChannel errorChannel
+[22:04:42.277 INFO ] [org.springframework.integration.monitor.IntegrationMBeanExporter 767 registerChannel] - Registering MessageChannel springCloudBusInput
+[22:04:42.296 INFO ] [org.springframework.integration.monitor.IntegrationMBeanExporter 767 registerChannel] - Registering MessageChannel springCloudBusOutput
+[22:04:42.303 INFO ] [org.springframework.integration.monitor.IntegrationMBeanExporter 785 registerHandler] - Registering MessageHandler errorLogger
+[22:04:42.314 INFO ] [org.springframework.integration.monitor.IntegrationMBeanExporter 785 registerHandler] - Registering MessageHandler org.springframework.cloud.stream.binding.StreamListenerMessageHandler@45144fdf
+[22:04:42.360 INFO ] [org.springframework.integration.endpoint.EventDrivenConsumer 107 logComponentSubscriptionEvent] - Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+[22:04:42.360 INFO ] [org.springframework.integration.channel.AbstractSubscribableChannel 64 adjustCounterIfNecessary] - Channel 'application-1.errorChannel' has 1 subscriber(s).
+[22:04:42.360 INFO ] [org.springframework.integration.endpoint.AbstractEndpoint 163 start] - started bean '_org.springframework.integration.errorLogger'
+[22:04:42.361 INFO ] [org.springframework.cloud.stream.binder.DefaultBinderFactory 243 getBinderInstance] - Creating binder: rabbit
+[22:04:42.406 INFO ] [org.springframework.cloud.config.client.ConfigServicePropertySourceLocator 256 getRemoteEnvironment] - Fetching config from server at : http://localhost:9999
+[22:04:43.103 INFO ] [org.springframework.cloud.config.client.ConfigServicePropertySourceLocator 175 log] - Located environment: name=SmartParkingServer, profiles=[data], label=master, version=43004183376da3b898424e884c3fe0b7301a0951, state=null
+[22:04:43.103 INFO ] [org.springframework.cloud.bootstrap.config.PropertySourceBootstrapConfiguration 112 initialize] - Located property source: [BootstrapPropertySource {name='bootstrapProperties-configClient'}, BootstrapPropertySource {name='bootstrapProperties-https://gitee.com/lei-yu-qi/smart_parking_config.git/SmartParkingServer.yml (document #1)'}, BootstrapPropertySource {name='bootstrapProperties-https://gitee.com/lei-yu-qi/smart_parking_config.git/SmartParkingServer.yml (document #0)'}]
+[22:04:43.177 INFO ] [org.springframework.cloud.stream.binder.DefaultBinderFactory 365 getBinderInstance] - Caching the binder: rabbit
+[22:04:43.178 INFO ] [org.springframework.cloud.stream.binder.DefaultBinderFactory 369 getBinderInstance] - Retrieving cached binder: rabbit
+[22:04:43.252 INFO ] [org.springframework.amqp.rabbit.connection.AbstractConnectionFactory 558 connectAddresses] - Attempting to connect to: [localhost:5672]
+[22:04:43.271 INFO ] [org.springframework.amqp.rabbit.connection.AbstractConnectionFactory 511 createBareConnection] - Created new connection: rabbitConnectionFactory#62b42406:0/SimpleConnection@e7b7395 [delegate=amqp://guest@127.0.0.1:5672/, localPort= 59158]
+[22:04:43.290 INFO ] [org.springframework.integration.channel.AbstractSubscribableChannel 64 adjustCounterIfNecessary] - Channel 'application-1.springCloudBusOutput' has 1 subscriber(s).
+[22:04:43.296 INFO ] [org.springframework.cloud.netflix.eureka.InstanceInfoFactory 72 create] - Setting initial instance status as: STARTING
+[22:04:43.315 INFO ] [com.netflix.discovery.DiscoveryClient 372 <init>] - Initializing Eureka in region us-east-1
+[22:04:43.343 INFO ] [com.netflix.discovery.provider.DiscoveryJerseyProvider 70 <init>] - Using JSON encoding codec LegacyJacksonJson
+[22:04:43.343 INFO ] [com.netflix.discovery.provider.DiscoveryJerseyProvider 71 <init>] - Using JSON decoding codec LegacyJacksonJson
+[22:04:43.415 INFO ] [com.netflix.discovery.provider.DiscoveryJerseyProvider 80 <init>] - Using XML encoding codec XStreamXml
+[22:04:43.415 INFO ] [com.netflix.discovery.provider.DiscoveryJerseyProvider 81 <init>] - Using XML decoding codec XStreamXml
+[22:04:43.522 INFO ] [com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver 43 getClusterEndpoints] - Resolving eureka endpoints via configuration
+[22:04:43.532 INFO ] [com.netflix.discovery.DiscoveryClient 1007 fetchRegistry] - Disable delta property : false
+[22:04:43.532 INFO ] [com.netflix.discovery.DiscoveryClient 1008 fetchRegistry] - Single vip registry refresh property : null
+[22:04:43.532 INFO ] [com.netflix.discovery.DiscoveryClient 1009 fetchRegistry] - Force full registry fetch : false
+[22:04:43.533 INFO ] [com.netflix.discovery.DiscoveryClient 1010 fetchRegistry] - Application is null : false
+[22:04:43.533 INFO ] [com.netflix.discovery.DiscoveryClient 1011 fetchRegistry] - Registered Applications size is zero : true
+[22:04:43.533 INFO ] [com.netflix.discovery.DiscoveryClient 1013 fetchRegistry] - Application version is -1: true
+[22:04:43.533 INFO ] [com.netflix.discovery.DiscoveryClient 1097 getAndStoreFullRegistry] - Getting all instance registry info from the eureka server
+[22:04:43.586 INFO ] [com.netflix.discovery.DiscoveryClient 1106 getAndStoreFullRegistry] - The response status is 200
+[22:04:43.587 INFO ] [com.netflix.discovery.DiscoveryClient 1321 initScheduledTasks] - Starting heartbeat executor: renew interval is: 30
+[22:04:43.589 INFO ] [com.netflix.discovery.InstanceInfoReplicator 60 <init>] - InstanceInfoReplicator onDemand update allowed rate per min is 4
+[22:04:43.591 INFO ] [com.netflix.discovery.DiscoveryClient 492 <init>] - Discovery Client initialized at timestamp 1661781883590 with initial instances count: 4
+[22:04:43.593 INFO ] [org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry 41 register] - Registering application CLIENTADMINISTRATORS with eureka with status UP
+[22:04:43.593 INFO ] [com.netflix.discovery.DiscoveryClient$3 1352 notify] - Saw local status change event StatusChangeEvent [timestamp=1661781883593, current=UP, previous=STARTING]
+[22:04:43.594 INFO ] [org.springframework.cloud.stream.binder.DefaultBinderFactory 369 getBinderInstance] - Retrieving cached binder: rabbit
+[22:04:43.594 INFO ] [com.netflix.discovery.DiscoveryClient 873 register] - DiscoveryClient_CLIENTADMINISTRATORS/10.12.65.75:ClientAdministrators:9000: registering service...
+[22:04:43.613 INFO ] [com.netflix.discovery.DiscoveryClient 882 register] - DiscoveryClient_CLIENTADMINISTRATORS/10.12.65.75:ClientAdministrators:9000 - registration status: 204
+[22:04:43.640 INFO ] [org.springframework.cloud.stream.binder.rabbit.provisioning.RabbitExchangeQueueProvisioner 237 doProvisionConsumerDestination] - declaring queue for inbound: springCloudBus.anonymous.WPpzlQcwSseSPlzIrFSGuA, bound to: springCloudBus
+[22:04:43.652 INFO ] [org.springframework.integration.channel.AbstractSubscribableChannel 64 adjustCounterIfNecessary] - Channel 'springCloudBus.anonymous.WPpzlQcwSseSPlzIrFSGuA.errors' has 1 subscriber(s).
+[22:04:43.653 INFO ] [org.springframework.integration.channel.AbstractSubscribableChannel 64 adjustCounterIfNecessary] - Channel 'springCloudBus.anonymous.WPpzlQcwSseSPlzIrFSGuA.errors' has 2 subscriber(s).
+[22:04:43.662 INFO ] [org.springframework.integration.endpoint.AbstractEndpoint 163 start] - started bean 'inbound.springCloudBus.anonymous.WPpzlQcwSseSPlzIrFSGuA'
+[22:04:43.663 INFO ] [org.apache.juli.logging.DirectJDKLog 173 log] - Starting ProtocolHandler ["http-nio-9000"]
+[22:04:43.674 INFO ] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer 220 start] - Tomcat started on port(s): 9000 (http) with context path ''
+[22:04:43.675 INFO ] [org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration 145 onApplicationEvent] - Updating port to 9000
+[22:04:43.682 INFO ] [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper 160 start] - Context refreshed
+[22:04:43.706 INFO ] [springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper 163 start] - Found 1 custom documentation plugin(s)
+[22:04:43.746 INFO ] [springfox.documentation.spring.web.scanners.ApiListingReferenceScanner 41 scan] - Scanning for api listing references
+[22:04:43.813 INFO ] [org.springframework.integration.monitor.IntegrationMBeanExporter 767 registerChannel] - Registering MessageChannel springCloudBus.anonymous.WPpzlQcwSseSPlzIrFSGuA.errors
+[22:04:43.869 INFO ] [org.springframework.boot.StartupInfoLogger 61 logStarted] - Started AdministratorsApplication in 5.953 seconds (JVM running for 6.531)
+[22:04:44.310 INFO ] [org.apache.juli.logging.DirectJDKLog 173 log] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[22:04:44.310 INFO ] [org.springframework.web.servlet.FrameworkServlet 525 initServletBean] - Initializing Servlet 'dispatcherServlet'
+[22:04:44.315 INFO ] [org.springframework.web.servlet.FrameworkServlet 547 initServletBean] - Completed initialization in 5 ms
+[22:04:44.315 INFO ] [org.springframework.cloud.config.client.ConfigServicePropertySourceLocator 256 getRemoteEnvironment] - Fetching config from server at : http://localhost:9999
+[22:04:44.957 INFO ] [org.springframework.cloud.config.client.ConfigServicePropertySourceLocator 175 log] - Located environment: name=SmartParkingServer, profiles=[data], label=master, version=43004183376da3b898424e884c3fe0b7301a0951, state=null
