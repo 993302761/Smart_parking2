@@ -126,9 +126,9 @@
     create table Vehicle_information(user_name varchar(11) not null,
                                      user_id varchar(20) not null,
                                      license_plate_number varchar(20) not null,
-                                     vehicle_photos varchar(50) not null,
-                                     registration varchar(50) not null,
-                                     driving_permit varchar(50) not null)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+                                     vehicle_photos varchar(60) not null,
+                                     registration varchar(60) not null,
+                                     driving_permit varchar(60) not null)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 

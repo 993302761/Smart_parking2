@@ -2,24 +2,16 @@ package com.example.vehicle.controller;
 
 
 
-import com.example.vehicle.entity.Vehicle_Blob_information;
-import com.example.vehicle.service.VehicleServiceImpl;
+import com.example.vehicle.serviceImpl.VehicleServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import java.io.IOException;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @Api(tags = "车辆信息绑定模块")
@@ -34,20 +26,17 @@ public class VehicleController {
 
 
     @ApiOperation(value = "绑定车辆")
-    @PostMapping(value = "/vehicle_binding", produces = "text/plain;charset=utf-8",consumes =  MediaType.MULTIPART_FORM_DATA_VALUE)
-//    @PostMapping(value = "/vehicle_binding/{user_name}/{user_id}/{license_plate_number}/{vehicle_photos_suffix}/{registration_suffix}/{driving_permit_suffix}", produces = "text/plain;charset=utf-8")
-    public String  vehicle_binding ( @RequestParam("user_name")String user_name,
-                                     @RequestParam("user_id")String user_id,
-                                     @RequestParam("license_plate_number")String license_plate_number,
-                                     @RequestParam("vehicle_photos")String vehicle_photos,
-                                     @RequestParam("registration")String registration,
-                                     @RequestParam("driving_permit")String driving_permit,
-                                     @RequestParam("vehicle_photos_suffix")String vehicle_photos_suffix,
-                                     @RequestParam("registration_suffix")String registration_suffix,
-                                     @RequestParam("driving_permit_suffix")String driving_permit_suffix)
+//    @PostMapping(value = "/vehicle_binding", produces = "text/plain;charset=utf-8",consumes =  MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PostMapping(value = "/vehicle_binding/{user_name}/{user_id}/{license_plate_number}/{vehicle_photos}/{registration}/{driving_permit}", produces = "text/plain;charset=utf-8")
+    public String  vehicle_binding ( @PathVariable("user_name")String user_name,
+                                     @PathVariable("user_id")String user_id,
+                                     @PathVariable("license_plate_number")String license_plate_number,
+                                     @PathVariable("vehicle_photos")String vehicle_photos,
+                                     @PathVariable("registration")String registration,
+                                     @PathVariable("driving_permit")String driving_permit)
     {
 
-        return vehicleService.add_Vehicle(user_name,user_id,license_plate_number,Base64.decodeBase64(vehicle_photos),Base64.decodeBase64(registration),Base64.decodeBase64(driving_permit),vehicle_photos_suffix,registration_suffix,driving_permit_suffix);
+        return vehicleService.add_Vehicle(user_name,user_id,license_plate_number,vehicle_photos,registration,driving_permit);
 
     }
 
@@ -91,23 +80,5 @@ public class VehicleController {
 
 
 
-    //TODO:更新的接口展示，只是展示可以将值获取
-    @PostMapping(value = "/Upload3")
-    @ResponseBody
-    public String Upload3(
-            String user_name,
-            String user_id,
-            String license,
-            MultipartFile vehicle,
-            MultipartFile regist,
-            MultipartFile driving){
-        System.out.println(user_name);
-        System.out.println(user_id);
-        System.out.println(license);
-        System.out.println(vehicle.getOriginalFilename());
-        System.out.println(regist.getOriginalFilename());
-        System.out.println(driving.getOriginalFilename());
-        return "Y";
-    }
 
 }

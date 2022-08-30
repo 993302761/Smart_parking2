@@ -39,20 +39,14 @@ public interface VehicleDao {
             " #{user_id}, " +
             "#{license_plate_number}, " +
             "#{vehicle_photos}, " +
-            "#{vehicle_photos_suffix}, " +
             "#{registration}, " +
-            "#{registration_suffix}, " +
-            "#{driving_permit}, " +
-            "#{driving_permit_suffix})")
+            "#{driving_permit})")
     int add_Vehicle(@Param("user_name") String user_name,
                     @Param("user_id")  String user_id,
                     @Param("license_plate_number")  String license_plate_number,
-                    @Param("vehicle_photos") Blob vehicle_photos,
-                    @Param("vehicle_photos_suffix")  String vehicle_photos_suffix,
-                    @Param("registration")  Blob registration,
-                    @Param("registration_suffix")  String registration_suffix,
-                    @Param("driving_permit")  Blob driving_permit,
-                    @Param("driving_permit_suffix")  String driving_permit_suffix);
+                    @Param("vehicle_photos") String vehicle_photos,
+                    @Param("registration")  String registration,
+                    @Param("driving_permit")  String driving_permit);
 
 
 

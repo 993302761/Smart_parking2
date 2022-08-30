@@ -931,17 +931,17 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Position>3</Position>
     </column>
     <column id="260" parent="238" name="vehicle_photos">
-      <DataType>varchar(50)|0s</DataType>
+      <DataType>varchar(60)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
     <column id="261" parent="238" name="registration">
-      <DataType>varchar(50)|0s</DataType>
+      <DataType>varchar(60)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
     <column id="262" parent="238" name="driving_permit">
-      <DataType>varchar(50)|0s</DataType>
+      <DataType>varchar(60)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>

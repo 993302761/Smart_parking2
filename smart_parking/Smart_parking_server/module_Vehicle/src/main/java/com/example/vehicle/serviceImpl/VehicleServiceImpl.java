@@ -1,11 +1,8 @@
-package com.example.vehicle.service;
+package com.example.vehicle.serviceImpl;
 
 
 import com.example.vehicle.dao.VehicleDao;
-import com.example.vehicle.entity.Vehicle_Blob_information;
-import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 import org.hibernate.Hibernate;
 
@@ -26,8 +23,7 @@ public class VehicleServiceImpl {
 
 
 
-    private final String filepath = "/home/lyq/UserVehicle/";
-    //存放图片的文件夹
+
 
 
     /**
@@ -40,7 +36,7 @@ public class VehicleServiceImpl {
      * @param driving_permit 车辆行驶证照片
      * @return 是否成功
      */
-    public String add_Vehicle(String user_name, String user_id,String license_plate_number, byte[] vehicle_photos,byte[] registration,byte[] driving_permit,String vehicle_photos_suffix,String registration_suffix,String driving_permit_suffix) {
+    public String add_Vehicle(String user_name, String user_id,String license_plate_number, String vehicle_photos,String registration,String driving_permit) {
         if (user_name==null||license_plate_number==null||user_id==null||vehicle_photos==null||registration==null||driving_permit==null){
             return "所填信息不完整";
         }
@@ -53,35 +49,13 @@ public class VehicleServiceImpl {
             return "错误：601";
         }
 
-
-        savePhone(user_name, license_plate_number, vehicle_photos, vehicle_photos_suffix,"vehicle_photo");
-        savePhone(user_name, license_plate_number, registration, registration_suffix,"registration");
-        savePhone(user_name, license_plate_number, driving_permit, driving_permit_suffix,"driving_permit");
-
-
-        Blob vehicle_photos0=Hibernate.createBlob(vehicle_photos);
-        //车辆照片
-
-
-        Blob registration0=Hibernate.createBlob(registration);
-        //机动车登记证照片
-
-
-        Blob driving_permit0=Hibernate.createBlob(driving_permit);
-        //车辆行驶证照片
-
-
-
         int i=vehicleDao.add_Vehicle(
                 user_name,
                 user_id,
                 license_plate_number,
-                vehicle_photos0,
-                vehicle_photos_suffix,
-                registration0,
-                registration_suffix,
-                driving_permit0,
-                driving_permit_suffix);
+                vehicle_photos,
+                registration,
+                driving_permit);
         if (i<=0){
             return "添加车辆信息失败";
         }
@@ -100,6 +74,7 @@ public class VehicleServiceImpl {
      * @return 是否保存成功
      */
     private boolean savePhone(String user_name,String license_plate_number,byte[] file,String suffix,String name)  {
+        String filepath="";//文件路径
         String filePath=filepath+user_name+"/"+license_plate_number;
         Path path = Paths.get(filePath);
         OutputStream out = null;
@@ -135,11 +110,6 @@ public class VehicleServiceImpl {
      * @return 是否成功
      */
     public String delete_User_Vehicle(String user_name,String license_plate_number) {
-        String path=filepath+user_name+"/"+license_plate_number;
-        File file=new File(path);
-        if (deleteFile(file)) {
-            System.out.println("文件删除成功！");
-        }
         int i = vehicleDao.deleteUserVehicle(user_name, license_plate_number);
         if (i<=0){
             return "删除车辆信息失败";

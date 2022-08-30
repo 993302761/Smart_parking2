@@ -100,7 +100,7 @@ public class UserController {
 
     })
     @DeleteMapping(value = "/deleteVehicle", produces = "application/json; charset=utf-8")
-    public ResponseEntity<String> deleteVehicle (String user_name, String license_plate_number, String UUID){
+    public String deleteVehicle (String user_name, String license_plate_number, String UUID){
         return userService.deleteVehicle(user_name,license_plate_number);
     }
 
@@ -113,7 +113,7 @@ public class UserController {
 
     })
     @GetMapping(value = "/getUserVehicle", produces = "application/json; charset=utf-8")
-    public Object getUserVehicle (String user_name,String UUID){
+    public List<String> getUserVehicle (String user_name,String UUID){
         return userService.getUserVehicle(user_name);
     }
 
@@ -178,7 +178,7 @@ public class UserController {
     @ApiOperation(value = "查找所有用户")
     @GetMapping(value = "/getAllUsers", produces = "application/json; charset=utf-8")
     public List<User> getAllUsers(){
-        return userService.getAllUsers2();
+        return userService.getAllUsers();
     }
 
 

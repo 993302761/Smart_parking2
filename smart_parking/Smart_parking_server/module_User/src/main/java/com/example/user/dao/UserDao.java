@@ -39,7 +39,7 @@ public interface UserDao {
      * 增加一个用户
      *
      * */
-    @Insert("INSERT INTO User VALUES(#{user_name}, #{password}, #{user_id})")
+    @Insert("INSERT INTO User VALUES(#{user_name}, #{password}, #{user_id},0)")
     int add_User(@Param("user_name") String user_name, @Param("password") String password,@Param("user_id")  String user_id);
 
 

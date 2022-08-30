@@ -5,13 +5,12 @@ import com.example.user.dao.UserDao;
 import com.example.user.entity.User_information;
 import com.feign.api.entity.user.User;
 import com.feign.api.service.ParkingLotFeignService;
+import com.feign.api.service.VehicleFeignService;
 import com.saltfish.example.demo.VehicleFileDao;
-import org.apache.tomcat.util.codec.binary.Base64;
+import org.springframework.context.annotation.Import;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -27,6 +26,10 @@ import java.util.concurrent.TimeUnit;
 
 
 @Service
+@Import({
+        com.saltfish.example.demo.VehicleFileDao.class,
+        com.saltfish.example.aseptcut.UploadAsept.class
+})
 public class UserServiceImpl  {
 
     @Resource
@@ -38,13 +41,15 @@ public class UserServiceImpl  {
     @Resource
     private VehicleFileDao vehicleFileDao;
 
+
     @Resource
-    private RestTemplate restTemplate;
+    private VehicleFeignService vehicleFeignService;
+
+
 
     @Resource
     private ParkingLotFeignService parkingLotFeignService;
 
-    private final String vehicleURl="http://ClientVehicle/Vehicle";
 
 
 
@@ -87,7 +92,7 @@ public class UserServiceImpl  {
             return "注册失败";
         }
         else {
-            s.append("注册成功");
+            s.append("注册成功  ");
         }
         s.append("车辆信息：");
 
@@ -131,10 +136,10 @@ public class UserServiceImpl  {
         String vehicle_photos_address = vehicleFileDao.uploadMult(vehicle_photos);
         String registration_address = vehicleFileDao.uploadMult(registration);
         String driving_permit_address = vehicleFileDao.uploadMult(driving_permit);
-        System.out.println(vehicle_photos_address);
-        System.out.println(registration_address);
-        System.out.println(driving_permit_address);
-        return null;
+        if (vehicle_photos_address==null||registration_address==null||driving_permit_address==null){
+            return "照片保存错误";
+        }
+        return vehicleFeignService.vehicle_binding(user_name,user_id,license_plate_number,vehicle_photos_address.replace('/','-'),registration_address.replace('/','-'),driving_permit_address.replace('/','-'));
     }
 
 
@@ -147,10 +152,8 @@ public class UserServiceImpl  {
      * @param license_plate_number 车牌号
      * @return 是否成功
      */
-    public ResponseEntity<String> deleteVehicle (String user_name, String license_plate_number){
-        String url=vehicleURl+"/deleteVehicle/"+user_name+"/"+license_plate_number;
-        ResponseEntity<String> exchange = restTemplate.exchange(url, HttpMethod.DELETE, null, String.class);
-        return exchange;
+    public String deleteVehicle (String user_name, String license_plate_number){
+        return vehicleFeignService.deleteVehicle(user_name,license_plate_number);
     }
 
 
@@ -162,10 +165,8 @@ public class UserServiceImpl  {
      * @param user_name 用户名
      * @return 是否成功
      */
-    public Object getUserVehicle (String user_name){
-        String url=vehicleURl+"/getUserVehicle/"+user_name;
-        Object s=restTemplate.getForObject(url,Object.class);
-        return s;
+    public List<String> getUserVehicle (String user_name){
+        return vehicleFeignService.getUserVehicle(user_name);
     }
 
 
@@ -327,27 +328,17 @@ public class UserServiceImpl  {
     public List<User> getAllUsers() {
         List<User> users = userDao.getAllUsers();
         List<User> newUsers=new ArrayList<>();
-        StringBuilder s=new StringBuilder();
         for (int i = 0; i < users.size(); i++) {
-            s.append(vehicleURl+"/getUserVehicle/"+users.get(i).getUser_name());
-            Object vehicle=restTemplate.getForObject(s.toString(),Object.class);
+            List<String> vehicle=vehicleFeignService.getUserVehicle(users.get(i).getUser_name());
             User t=users.get(i);
             t.setVehicle(vehicle);
             newUsers.add(t);
-            s.delete(0,s.length());
         }
         return newUsers;
     }
 
 
-    /**
-     * TODO：获取用户列表
-     * @return 用户列表
-     */
-    public List<User> getAllUsers2() {
-        List<User> users = userDao.getAllUsers();
-        return users;
-    }
+
 
 
 
