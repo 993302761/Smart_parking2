@@ -1,6 +1,5 @@
 package com.example.user.serviceImpl;
 
-import com.example.user.dao.VehicleFileDao;
 import com.feign.api.service.OrderFeignService;
 import com.feign.api.service.ParkingLotFeignService;
 import org.springframework.data.redis.core.RedisTemplate;

@@ -10,11 +10,10 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import java.io.File;
 
-import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class testDaoTest {
     @Autowired
-    testDao t;
+    VehicleFileDao t;
     @Test
     void getInfo() {
     }

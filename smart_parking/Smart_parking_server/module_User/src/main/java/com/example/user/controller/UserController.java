@@ -77,12 +77,9 @@ public class UserController {
                     user_name,
                     password,user_id,
                     license_plate_number,
-                    vehicle_photos.getBytes(),
-                    registration.getBytes(),
-                    driving_permit.getBytes(),
-                    vehicle_photos.getOriginalFilename(),
-                    registration.getOriginalFilename(),
-                    driving_permit.getOriginalFilename());
+                    vehicle_photos,
+                    registration,
+                    driving_permit);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -141,20 +138,12 @@ public class UserController {
                                    MultipartFile driving_permit,
                                    String UUID){
 
-        try {
             return userService.vehicle_binding(user_name,
                     user_id,
                     license_plate_number,
-                    vehicle_photos.getBytes(),
-                    registration.getBytes(),
-                    driving_permit.getBytes(),
-                    vehicle_photos.getOriginalFilename(),
-                    registration.getOriginalFilename(),
-                    driving_permit.getOriginalFilename());
-        } catch (IOException e) {
-            e.printStackTrace();
-            return "错误";
-        }
+                    vehicle_photos,
+                    registration,
+                    driving_permit);
     }
 
 

@@ -39,7 +39,7 @@ public class UploadAsept {
         //获取参数和函数参数名的对应map
         Map<String,Object> ParamMap = GetParamData(point);
         MultipartFile file = (MultipartFile) ParamMap.get(fileData);
-        String res = (String) point.proceed();
+        String res ;
         res = FastDFSClient.uploadFile_Mult(file);
         return res;
     }

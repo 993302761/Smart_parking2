@@ -3,12 +3,11 @@ package com.saltfish.example.demo;
 import com.saltfish.example.annotation.*;
 import org.csource.common.NameValuePair;
 import org.csource.fastdfs.FileInfo;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.multipart.MultipartFile;
 
 @Repository
-public class testDao {
+public class VehicleFileDao {
 
     //获取文件信息
     @GetFileInfo(GroupParam = "aaa",RemoteParam = "bbb")

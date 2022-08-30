@@ -2,10 +2,10 @@ package com.example.user.serviceImpl;
 
 
 import com.example.user.dao.UserDao;
-import com.example.user.dao.VehicleFileDao;
 import com.example.user.entity.User_information;
 import com.feign.api.entity.user.User;
 import com.feign.api.service.ParkingLotFeignService;
+import com.saltfish.example.demo.VehicleFileDao;
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.http.*;
@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import java.io.*;
@@ -60,21 +61,15 @@ public class UserServiceImpl  {
      * @param vehicle_photos 车辆照片
      * @param registration 机动车登记证照片
      * @param driving_permit 车辆行驶证照片
-     * @param vehicle_photos_suffix 车辆照片后缀
-     * @param registration_suffix 机动车登记证照片后缀
-     * @param driving_permit_suffix 车辆行驶证照片后缀
      * @return 是否成功
      */
     public String add_User(String user_name,
                            String password,
                            String user_id,
                            String license_plate_number,
-                           byte[] vehicle_photos,
-                           byte[] registration,
-                           byte[] driving_permit,
-                           String vehicle_photos_suffix,
-                           String registration_suffix,
-                           String driving_permit_suffix) throws IOException {
+                           MultipartFile vehicle_photos,
+                           MultipartFile registration,
+                           MultipartFile driving_permit) throws IOException {
 
         StringBuilder s=new StringBuilder("用户:");
 
@@ -98,7 +93,7 @@ public class UserServiceImpl  {
 
 
         try {
-            String vehicle=vehicle_binding(user_name,user_id,license_plate_number,vehicle_photos,registration,driving_permit,vehicle_photos_suffix,registration_suffix,driving_permit_suffix);
+            String vehicle=vehicle_binding(user_name,user_id,license_plate_number,vehicle_photos,registration,driving_permit);
             s.append(vehicle);
             return s.toString();
         }catch (Exception e){
@@ -129,38 +124,17 @@ public class UserServiceImpl  {
     public String vehicle_binding (String user_name,
                                    String user_id,
                                    String license_plate_number,
-                                   byte[] vehicle_photos,
-                                   byte[] registration,
-                                   byte[] driving_permit,
-                                   String vehicle_photos_suffix,
-                                   String registration_suffix,
-                                   String driving_permit_suffix){
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.MULTIPART_FORM_DATA);
-        MultiValueMap<String, Object> params = new LinkedMultiValueMap<>(9);
-        params.add("user_name"  , user_name);
-        params.add("user_id" ,user_id);
-        params.add("license_plate_number" ,license_plate_number);
-        params.add("vehicle_photos" , Base64.encodeBase64String(vehicle_photos));
-        params.add("registration" ,Base64.encodeBase64String(registration));
-        params.add("driving_permit" ,Base64.encodeBase64String(driving_permit));
-        params.add("vehicle_photos_suffix" ,vehicle_photos_suffix.substring(vehicle_photos_suffix.lastIndexOf(".")));
-        params.add("registration_suffix" ,registration_suffix.substring(registration_suffix.lastIndexOf(".")));
-        params.add("driving_permit_suffix" ,driving_permit_suffix.substring(driving_permit_suffix.lastIndexOf(".")));
+                                   MultipartFile vehicle_photos,
+                                   MultipartFile registration,
+                                   MultipartFile driving_permit){
 
-
-        String url=vehicleURl+"/vehicle_binding";
-        HttpEntity<MultiValueMap> requestEntity = new HttpEntity<>(params, headers);
-
-
-        try {
-            //服务间传输数据
-            String vehicle=restTemplate.postForObject(url,requestEntity,String.class);
-            return vehicle;
-        }catch (Exception e){
-            e.printStackTrace();
-            return "错误";
-        }
+        String vehicle_photos_address = vehicleFileDao.uploadMult(vehicle_photos);
+        String registration_address = vehicleFileDao.uploadMult(registration);
+        String driving_permit_address = vehicleFileDao.uploadMult(driving_permit);
+        System.out.println(vehicle_photos_address);
+        System.out.println(registration_address);
+        System.out.println(driving_permit_address);
+        return null;
     }
 
 
