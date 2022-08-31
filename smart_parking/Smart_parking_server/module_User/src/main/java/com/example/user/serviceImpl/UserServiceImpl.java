@@ -156,6 +156,7 @@ public class UserServiceImpl  {
             vehicleFileDao.deleteVehicleFile(vehicle_photos_address.replace('/','&'));
             vehicleFileDao.deleteVehicleFile(registration_address.replace('/','&'));
             vehicleFileDao.deleteVehicleFile(driving_permit_address.replace('/','&'));
+            e.printStackTrace();
             return "绑定信息失败";
         }
     }

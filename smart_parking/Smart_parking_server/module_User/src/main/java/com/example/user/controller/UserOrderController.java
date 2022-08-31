@@ -59,7 +59,7 @@ public class UserOrderController {
     })
     @PutMapping(value = "/complete_Order", produces = "text/plain;charset=utf-8")
     public String complete_Order (String user_name, String order_number, String UUID){
-        return userIntegralService.complete_Order(user_name,order_number);
+        return userOrderService.complete_Order(user_name,order_number);
     }
 
 

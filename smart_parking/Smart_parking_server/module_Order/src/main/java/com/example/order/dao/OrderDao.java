@@ -93,8 +93,8 @@ public interface OrderDao {
             "license_plate_number," +
             "payment_amount," +
             "order_status" +
-            " FROM Order_information WHERE parking_lot_number =#{parking_lot_number} and order_number =#{order_number}")
-    Order_information getOrderByParkingAndOrder(@Param("parking_lot_number") String parking_lot_number, @Param("order_number") String order_number);
+            " FROM Order_information WHERE parking_lot_number =#{parking_lot_number} and license_plate_number =#{license_plate_number} and order_status !=\"已取消\" and order_status !=\"已完成\" ")
+    Order_information getOrderByParkingAndOrder(@Param("parking_lot_number") String parking_lot_number, @Param("license_plate_number") String license_plate_number);
 
 
 

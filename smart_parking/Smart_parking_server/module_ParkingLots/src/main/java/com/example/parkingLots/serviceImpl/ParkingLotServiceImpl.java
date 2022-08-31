@@ -21,7 +21,7 @@ public class ParkingLotServiceImpl {
 
 
     @Resource
-    private RedisTemplate<String, String> redisTemplate;
+    private RedisTemplate<String, Integer> redisTemplate;
 
     @Resource
     private OrderFeignService orderFeignService;
@@ -131,7 +131,7 @@ public class ParkingLotServiceImpl {
        if (parking_num.getParking_spaces_num()<Integer.parseInt(Available_place_num)){
             return "数据错误";
         }
-        redisTemplate.opsForValue().set(parking_lot_number, Available_place_num);
+        redisTemplate.opsForValue().set(parking_lot_number, Integer.valueOf(Available_place_num));
         return "可用车位数量变更";
     }
 
@@ -169,8 +169,8 @@ public class ParkingLotServiceImpl {
             Parking_for_user p=parking_lot.get(i);
             boolean hasKey = redisTemplate.hasKey(p.getParking_lot_number());
             if(hasKey ){
-                String s = redisTemplate.opsForValue().get(parking_lot.get(i).getParking_lot_number());
-                p.setAvailable_parking_spaces_num(Integer.parseInt(s));
+                Integer s = redisTemplate.opsForValue().get(parking_lot.get(i).getParking_lot_number());
+                p.setAvailable_parking_spaces_num(s);
             }
             new_parking_lot.add(p);
         }

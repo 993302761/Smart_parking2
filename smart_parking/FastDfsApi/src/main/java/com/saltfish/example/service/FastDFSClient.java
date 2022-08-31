@@ -235,7 +235,7 @@ public class FastDFSClient {
      * 文件删除
      *
      * @param groupName      组/卷名，默认值：group1
-     * @param remoteFileName 文件名，例如："M00/00/00/wKgKZl9tkTCAJAanAADhaCZ_RF0495.jpg"
+     * @param remoteFileName 文件名，例如："M00&00&00/wKgKZl9tkTCAJAanAADhaCZ_RF0495.jpg"
      * @return 0为成功，非0为失败
      */
     public static int deleteFile(String groupName, String remoteFileName) {

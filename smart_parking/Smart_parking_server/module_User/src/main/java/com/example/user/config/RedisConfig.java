@@ -16,9 +16,9 @@ public class RedisConfig {
     @Bean(name = "redisTemplate")
     public RedisTemplate<String, Serializable> redisTemplate(LettuceConnectionFactory lettuceConnectionFactory) {
         RedisTemplate<String, Serializable> redisTemplate = new RedisTemplate<>();
-//        redisTemplate.setValueSerializer(new GenericJackson2JsonRedisSerializer());         //以json形式序列化
+        redisTemplate.setValueSerializer(new GenericJackson2JsonRedisSerializer());         //以json形式序列化
         //设置 value 的序列化方式为 JOSON
-        redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer(Object.class));
+//        redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer(Object.class));
         //设置 key 的序列化方式为 String
         redisTemplate.setKeySerializer(new StringRedisSerializer());
 

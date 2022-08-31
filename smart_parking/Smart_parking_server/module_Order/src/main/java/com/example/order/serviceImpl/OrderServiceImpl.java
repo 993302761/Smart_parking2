@@ -179,7 +179,6 @@ public class OrderServiceImpl {
     /**
      * TODO：订单支付完成
      * @param order_number 订单编号
-     * @return 是否成功
      */
     public void setMoney (String order_number){
         Order_information order = orderDao.getOrderByNumber(order_number);
@@ -216,6 +215,9 @@ public class OrderServiceImpl {
         }
         if (order.getOutTime()==null||order.getInTime()==null){
             return "请在订单结束后支付";
+        }
+        if (order.getOrder_status().equals("已完成")){
+            return "订单已完成";
         }
         return setStatus("已完成",order.getOrder_number());
     }

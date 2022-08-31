@@ -30,11 +30,11 @@ public class    OrderController {
     @ApiImplicitParams({
             @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String"),
             @ApiImplicitParam(name = "parking_lot_number", value = "停车场编号", required = true, dataType = "String"),
-            @ApiImplicitParam(name = "license_plate_number", value = "车牌号", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "license_plate_number", value = "车牌号", required = true, dataType = "String")
 
     })
-    @PostMapping(value = "/generate_order", produces = "text/plain;charset=utf-8")
-    public String  generate_order (String user_name,String license_plate_number,String parking_lot_number){
+    @PostMapping(value = "/generate_order/{user_name}/{license_plate_number}/{parking_lot_number}", produces = "text/plain;charset=utf-8")
+    public String  generate_order (@PathVariable String user_name,@PathVariable String license_plate_number,@PathVariable String parking_lot_number){
         return orderService.generate_order(user_name,license_plate_number,parking_lot_number);
     }
 
@@ -64,11 +64,11 @@ public class    OrderController {
     @ApiOperation(value = "app用户查找订单")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String"),
-            @ApiImplicitParam(name = "parking_lot_number", value = "停车场编号", required = true, dataType = "String")
+            @ApiImplicitParam(name = "order_number", value = "订单编号", required = true, dataType = "String")
     })
-    @GetMapping(value = "/userGetParkingOrder/{user_name}/{parking_lot_number}", produces = "application/json; charset=utf-8")
-    public Order_information userGetParkingOrder (@PathVariable String user_name, @PathVariable String parking_lot_number){
-        return orderService.userGetParkingOrder(user_name,parking_lot_number);
+    @GetMapping(value = "/userGetParkingOrder/{user_name}/{order_number}", produces = "application/json; charset=utf-8")
+    public Order_information userGetParkingOrder (@PathVariable String user_name, @PathVariable String order_number){
+        return orderService.userGetParkingOrder(user_name,order_number);
     }
 
 
