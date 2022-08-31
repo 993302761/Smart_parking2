@@ -9,6 +9,7 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
@@ -18,7 +19,6 @@ import java.util.concurrent.ConcurrentHashMap;
 @Component  //把普通pojo实例化到spring容器中
 @Aspect         //作用是把当前类标识为一个切面供容器读取
 public class DeleteAsept {
-
     //是指那些方法需要被执行"AOP"
     //    execution()：用于匹配方法执行的连接点
     //    args(): 用于匹配当前执行的方法传入的参数为指定类型的执行方法
@@ -50,7 +50,7 @@ public class DeleteAsept {
         //获取参数和函数参数名的对应map
         Map<String,Object> ParamMap = GetParamData(point);
         String PathParam = (String) ParamMap.get(IpPath);
-        int ins = PathParam.indexOf("/",2);
+        int ins = PathParam.indexOf("&",2);
         String groupname = PathParam.substring(1,ins);
         String MetaPath = PathParam.substring(ins+1);
         boolean res = (boolean) point.proceed();

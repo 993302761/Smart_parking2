@@ -22,13 +22,13 @@ public class VehicleFileDao {
     public String uploadFile(String path){return null;}
     //网站上传文件
     @DFSUpload(MultFile = "xxx")
-    public String uploadMult(MultipartFile xxx){return null;}
+    public String addVehicleFile(MultipartFile xxx){return null;}
     //下载文件
     @DFSDownLoad(DFSPath = "aaa",DownPath = "bbb")
     public boolean downxxx(String aaa,String bbb){return false;}
     //删除文件
     @DFSDelete(IpAddr = "aaa")
-    public boolean Delxxx(String aaa){return false;}
+    public boolean deleteVehicleFile(String aaa){return false;}
     //更换文件
     @DFSUpdate(Ipaddr = "aaa",LocalPath = "bbb")
     public String Updataexax(String aaa,String bbb){return "";}

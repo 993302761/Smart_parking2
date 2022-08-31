@@ -10,29 +10,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff0609dd-2a44-4fd0-9468-a5712daa4380" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/resources/static/upload2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/aseptcut/UploadAsept.class" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/aseptcut/UploadAsept.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/demo/testDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FastDfsApi/out/production/resources/fdfs_client.conf" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/out/production/resources/fdfs_client.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FastDfsApi/src/main/resources/fdfs_client.conf" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/src/main/resources/fdfs_client.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/aseptcut/DeleteAsept.class" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/aseptcut/DeleteAsept.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/demo/VehicleFileDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/out/production/classes/com/saltfish/example/demo/VehicleFileDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/aseptcut/DeleteAsept.java" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/aseptcut/DeleteAsept.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/demo/VehicleFileDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/demo/VehicleFileDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/service/FastDFSClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/service/FastDFSClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/src/test/java/com/saltfish/example/demo/testDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/src/test/java/com/saltfish/example/demo/testDaoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/out/production/classes/com/example/parkingLots/controller/ParkingLotsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/out/production/classes/com/example/parkingLots/controller/ParkingLotsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/out/production/classes/com/example/parkingLots/dao/ParkingLotDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/out/production/classes/com/example/parkingLots/dao/ParkingLotDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/out/production/classes/com/example/parkingLots/serviceImpl/ParkingLotServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/out/production/classes/com/example/parkingLots/serviceImpl/ParkingLotServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/src/main/java/com/example/parkingLots/controller/ParkingLotsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/src/main/java/com/example/parkingLots/controller/ParkingLotsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/src/main/java/com/example/parkingLots/dao/ParkingLotDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/src/main/java/com/example/parkingLots/dao/ParkingLotDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/src/main/java/com/example/parkingLots/serviceImpl/ParkingLotServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/src/main/java/com/example/parkingLots/serviceImpl/ParkingLotServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/classes/com/example/user/config/FastConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/classes/com/example/user/config/RestConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/classes/com/example/user/controller/TestContoller.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/classes/com/example/user/controller/TestContoller.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/classes/com/example/user/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/classes/com/example/user/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/classes/com/example/user/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/classes/com/example/user/dao/UserDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/classes/com/example/user/dao/test.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/classes/com/example/user/serviceImpl/UserOrderServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/classes/com/example/user/serviceImpl/UserOrderServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/classes/com/example/user/serviceImpl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/classes/com/example/user/serviceImpl/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/dao/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/UserApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/UserApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/config/RedisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/config/RedisConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/controller/TestContoller.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/controller/TestContoller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/serviceImpl/UserOrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/serviceImpl/UserOrderServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/serviceImpl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/serviceImpl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Vehicle/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Vehicle/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Vehicle/out/production/classes/com/example/vehicle/VehicleApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Vehicle/out/production/classes/com/example/vehicle/VehicleApplication.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Vehicle/out/production/classes/com/example/vehicle/controller/VehicleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Vehicle/out/production/classes/com/example/vehicle/controller/VehicleController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Vehicle/out/production/classes/com/example/vehicle/dao/VehicleDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Vehicle/out/production/classes/com/example/vehicle/dao/VehicleDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Vehicle/out/production/classes/com/example/vehicle/service/VehicleServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Vehicle/out/production/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Vehicle/out/production/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Vehicle/src/main/java/com/example/vehicle/VehicleApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Vehicle/src/main/java/com/example/vehicle/VehicleApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Vehicle/out/production/classes/com/example/vehicle/serviceImpl/VehicleServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Vehicle/out/production/classes/com/example/vehicle/serviceImpl/VehicleServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Vehicle/src/main/java/com/example/vehicle/controller/VehicleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Vehicle/src/main/java/com/example/vehicle/controller/VehicleController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Vehicle/src/main/java/com/example/vehicle/dao/VehicleDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Vehicle/src/main/java/com/example/vehicle/dao/VehicleDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Vehicle/src/main/java/com/example/vehicle/service/VehicleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Vehicle/src/main/java/com/example/vehicle/serviceImpl/VehicleServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Vehicle/src/main/java/com/example/vehicle/entity/Vehicle_Blob.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Vehicle/src/main/java/com/example/vehicle/entity/Vehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Vehicle/src/main/java/com/example/vehicle/entity/Vehicle_Blob_information.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Vehicle/src/main/java/com/example/vehicle/entity/Vehicle_information.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Vehicle/src/main/java/com/example/vehicle/entity/Vehicle_MultipartFile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Vehicle/src/main/java/com/example/vehicle/entity/Vehicle_MultipartFile_information.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Vehicle/src/main/java/com/example/vehicle/serviceImpl/VehicleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Vehicle/src/main/java/com/example/vehicle/serviceImpl/VehicleServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/out/production/classes/com/feign/api/entity/user/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/out/production/classes/com/feign/api/entity/user/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/out/production/classes/com/feign/api/service/VehicleFeignService.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/out/production/classes/com/feign/api/service/VehicleFeignService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/src/main/java/com/feign/api/service/VehicleFeignService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/src/main/java/com/feign/api/service/VehicleFeignService.java" afterDir="false" />
     </list>
@@ -313,7 +329,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Smart_parking_server/module_Administrators/src/main/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/resources/static" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -327,11 +343,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/resources/static" />
       <recent name="$PROJECT_DIR$/Smart_parking_server/module_Administrators/src/main/resources" />
       <recent name="$PROJECT_DIR$/ProjectSetUp" />
       <recent name="$PROJECT_DIR$/Smart_parking_server/module_Integral/src/main/resources" />
       <recent name="$PROJECT_DIR$/EurekaServer/Eureka-Server01/src/main/resources" />
-      <recent name="$PROJECT_DIR$/EurekaServer/Eureka-Server02/src/main/resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -356,7 +372,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ModuleRegisterApplicationTests">
+  <component name="RunManager" selected="JUnit.testDaoTest.delxxx">
     <configuration name="smart_parking [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -430,17 +446,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="smart_parking.Smart_parking_server.module_User.test" />
+    <configuration name="testDaoTest.delxxx" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="smart_parking.FastDfsApi.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.user.*" />
+          <option name="PATTERN" value="com.saltfish.example.demo.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.example.user" />
-      <option name="MAIN_CLASS_NAME" value="com.example.user.UserApplicationTests" />
-      <option name="METHOD_NAME" value="contextLoads" />
+      <option name="PACKAGE_NAME" value="com.saltfish.example.demo" />
+      <option name="MAIN_CLASS_NAME" value="com.saltfish.example.demo.testDaoTest" />
+      <option name="METHOD_NAME" value="delxxx" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -549,7 +565,6 @@
     <list>
       <item itemvalue="Gradle.smart_parking:FastDfsApi [build]" />
       <item itemvalue="Gradle.smart_parking [dependencies]" />
-      <item itemvalue="JUnit.UserApplicationTests.contextLoads" />
       <item itemvalue="JUnit.ModuleRegisterApplicationTests.contextLoads" />
       <item itemvalue="JUnit.ModuleRegisterApplicationTests" />
       <item itemvalue="Spring Boot.AdministratorsApplication " />
@@ -565,14 +580,15 @@
       <item itemvalue="Spring Boot.IntegralApplication" />
       <item itemvalue="Spring Boot.IntegralApplication (1)" />
       <item itemvalue="Spring Boot.FastApplication (1)" />
+      <item itemvalue="JUnit.testDaoTest.delxxx" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.testDaoTest.delxxx" />
         <item itemvalue="JUnit.ModuleRegisterApplicationTests" />
         <item itemvalue="JUnit.ModuleRegisterApplicationTests.contextLoads" />
         <item itemvalue="Gradle.smart_parking [dependencies]" />
         <item itemvalue="Gradle.smart_parking:FastDfsApi [build]" />
-        <item itemvalue="JUnit.UserApplicationTests.contextLoads" />
       </list>
     </recent_temporary>
   </component>
@@ -700,7 +716,9 @@
       <workItem from="1661357484018" duration="2549000" />
       <workItem from="1661360270639" duration="983000" />
       <workItem from="1661728845486" duration="19368000" />
-      <workItem from="1661856769926" duration="9594000" />
+      <workItem from="1661856769926" duration="10855000" />
+      <workItem from="1661924661721" duration="2271000" />
+      <workItem from="1661941474191" duration="12587000" />
     </task>
     <servers />
   </component>
@@ -756,7 +774,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/src/main/java/com/example/parkingLots/serviceImpl/ParkingLotServiceImpl.java</url>
-          <line>198</line>
+          <line>197</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -774,6 +792,16 @@
           <line>4</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/aseptcut/DeleteAsept.java</url>
+          <line>56</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/FastDfsApi/src/main/java/com/saltfish/example/service/FastDFSClient.java</url>
+          <line>241</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.net.ConnectException" package="java.net" />
           <option name="timeStamp" value="4" />
@@ -785,10 +813,6 @@
         <breakpoint enabled="true" type="java-exception">
           <properties class="org.springframework.data.redis.RedisConnectionFailureException" package="org.springframework.data.redis" />
           <option name="timeStamp" value="22" />
-        </breakpoint>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="org.springframework.beans.factory.NoSuchBeanDefinitionException" package="org.springframework.beans.factory" />
-          <option name="timeStamp" value="23" />
         </breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.ClassCastException" package="java.lang" />

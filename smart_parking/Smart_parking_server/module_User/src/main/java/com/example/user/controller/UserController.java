@@ -99,7 +99,7 @@ public class UserController {
             @ApiImplicitParam(name = "UUID", value = "通用唯一识别码", required = true, dataType = "String")
 
     })
-    @DeleteMapping(value = "/deleteVehicle", produces = "application/json; charset=utf-8")
+    @DeleteMapping(value = "/deleteVehicle", produces = "text/plain; charset=utf-8")
     public String deleteVehicle (String user_name, String license_plate_number, String UUID){
         return userService.deleteVehicle(user_name,license_plate_number);
     }
@@ -186,11 +186,12 @@ public class UserController {
 
     @ApiOperation(value = "删除某位用户")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String")
+            @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "UUID", value = "通用唯一识别码", required = true, dataType = "String")
     })
     @DeleteMapping(value = "/delete_User")
-    public void delete_User(String user_name){
-        userService.delete_User(user_name);
+    public String delete_User(String user_name,String UUID){
+        return userService.delete_User(user_name,UUID);
     }
 
 

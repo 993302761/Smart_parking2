@@ -13,5 +13,11 @@ public class TestContoller {
         return  "/upload.html";
     }
 
+    //跳到网页
+    @RequestMapping("/b")
+    public String index2(){
+        return  "/upload2.html";
+    }
+
 
 }

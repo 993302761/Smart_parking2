@@ -1,10 +1,8 @@
 package com.example.vehicle.dao;
 
-import com.example.vehicle.entity.Vehicle_Blob;
-import com.example.vehicle.entity.Vehicle_Blob_information;
+import com.example.vehicle.entity.Vehicle;
 import org.apache.ibatis.annotations.*;
 
-import java.sql.Blob;
 import java.util.List;
 
 @Mapper
@@ -13,12 +11,26 @@ public interface VehicleDao {
 
 
     /**
-     * 查找用户绑定的车辆信息
+     * 查找用户绑定的车牌号
      * */
     @Select("SELECT license_plate_number FROM Vehicle_information WHERE user_name =#{user_name}")
     List<String> find_Vehicle(@Param("user_name") String user_name);
 
 
+
+    /**
+     * 查找用户绑定的所有车辆信息
+     * */
+    @Select("SELECT license_plate_number,vehicle_photos,registration,driving_permit FROM Vehicle_information WHERE user_name =#{user_name}")
+    List<Vehicle> find_Vehicle_Message(@Param("user_name") String user_name);
+
+
+
+    /**
+     * 查找用户绑定的车辆信息
+     * */
+    @Select("SELECT license_plate_number,vehicle_photos,registration,driving_permit FROM Vehicle_information WHERE user_name =#{user_name} and license_plate_number =#{license_plate_number}")
+    Vehicle find_User_Vehicle(@Param("user_name") String user_name,@Param("license_plate_number") String license_plate_number);
 
 
     /**
@@ -59,5 +71,12 @@ public interface VehicleDao {
     int deleteUserVehicle(@Param("user_name") String user_name,@Param("license_plate_number")  String license_plate_number);
 
 
+
+    /**
+     * 删除某用户的所有车辆信息
+     *
+     */
+    @Delete("delete from Vehicle_information where user_name =#{user_name} ")
+    int deleteAllVehicle(@Param("user_name") String user_name);
 
 }

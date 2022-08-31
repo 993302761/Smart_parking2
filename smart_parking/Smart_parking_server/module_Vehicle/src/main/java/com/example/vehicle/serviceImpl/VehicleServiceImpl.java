@@ -2,12 +2,16 @@ package com.example.vehicle.serviceImpl;
 
 
 import com.example.vehicle.dao.VehicleDao;
+import com.example.vehicle.entity.Vehicle;
+import com.saltfish.example.demo.VehicleFileDao;
+import org.springframework.context.annotation.Import;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.hibernate.Hibernate;
 
 import javax.annotation.Resource;
 import java.io.*;
+import java.net.SocketException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -16,12 +20,18 @@ import java.sql.SQLException;
 import java.util.List;
 
 @Service
+@Import({
+        com.saltfish.example.demo.VehicleFileDao.class,
+        com.saltfish.example.aseptcut.DeleteAsept.class
+})
 public class VehicleServiceImpl {
 
     @Resource
     private VehicleDao vehicleDao;
 
 
+    @Resource
+    private VehicleFileDao vehicleFileDao;
 
 
 
@@ -110,15 +120,44 @@ public class VehicleServiceImpl {
      * @return 是否成功
      */
     public String delete_User_Vehicle(String user_name,String license_plate_number) {
+        Vehicle user_vehicle = vehicleDao.find_User_Vehicle(user_name, license_plate_number);
+        if (user_vehicle == null) {
+            return "未绑定此车辆";
+        }
+
+        vehicleFileDao.deleteVehicleFile(user_vehicle.getVehicle_photos());
+        vehicleFileDao.deleteVehicleFile(user_vehicle.getDriving_permit());
+        vehicleFileDao.deleteVehicleFile(user_vehicle.getRegistration());
         int i = vehicleDao.deleteUserVehicle(user_name, license_plate_number);
+        if (i <= 0) {
+            return "删除车辆信息失败";
+        } else {
+            return "删除成功";
+        }
+    }
+
+
+
+    /**
+     * TODO：删除用户的所有车辆信息
+     * @param user_name 用户名
+     * @return 是否成功
+     */
+    public String delete_All_Vehicle(String user_name) {
+        List<Vehicle> userVehicle = vehicleDao.find_Vehicle_Message(user_name);
+        for (int i = 0; i < userVehicle.size(); i++) {
+            Vehicle s = userVehicle.get(i);
+            vehicleFileDao.deleteVehicleFile(s.getVehicle_photos());
+            vehicleFileDao.deleteVehicleFile(s.getRegistration());
+            vehicleFileDao.deleteVehicleFile(s.getDriving_permit());
+        }
+        int i = vehicleDao.deleteAllVehicle(user_name);
         if (i<=0){
             return "删除车辆信息失败";
         }else {
             return "删除成功";
         }
     }
-
-
 
 
 

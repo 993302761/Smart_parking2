@@ -9,7 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableFeignClients(basePackages = "com.feign.api")
 
 //@ComponentScan(basePackages = "com.saltfish.example")
-public class  UserApplication {
+public class    UserApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(UserApplication.class, args);

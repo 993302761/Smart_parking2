@@ -64,7 +64,14 @@ public class VehicleController {
     }
 
 
-
+    @ApiOperation(value = "删除某用户的所有车辆信息")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String")
+    })
+    @DeleteMapping(value = "/deleteAllVehicle/{user_name}", produces = "text/plain; charset=utf-8")
+    public String deleteAllVehicle (@PathVariable String user_name){
+        return vehicleService.delete_All_Vehicle(user_name);
+    }
 
 
     @ApiOperation(value = "检测车牌号与用户名是否匹配")

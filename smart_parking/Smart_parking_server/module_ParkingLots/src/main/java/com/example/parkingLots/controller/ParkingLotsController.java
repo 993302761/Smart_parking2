@@ -66,9 +66,9 @@ public class ParkingLotsController {
             @ApiImplicitParam(name = "parking_lot_number", value = "停车场编号", required = true, dataType = "String"),
             @ApiImplicitParam(name = "Available_place_num", value = "可用车位数量", required = true, dataType = "String")
     })
-    @PutMapping(value = "/change_parking_space", produces = "text/json; charset=utf-8")
-    public void change_parking_space (String parking_lot_number ,String Available_place_num){
-        parkingLotService.change_parking_space(parking_lot_number,Available_place_num);
+    @PutMapping(value = "/change_parking_space", produces = "text/plain; charset=utf-8")
+    public String change_parking_space (String parking_lot_number ,String Available_place_num){
+        return parkingLotService.change_parking_space(parking_lot_number,Available_place_num);
     }
 
 
@@ -78,7 +78,7 @@ public class ParkingLotsController {
     @ApiImplicitParams({
             @ApiImplicitParam(name = "parking_lot_number", value = "停车场编号", required = true, dataType = "String"),
     })
-    @GetMapping(value = "/getParkingName/{parking_lot_number}", produces = "text/json; charset=utf-8")
+    @GetMapping(value = "/getParkingName/{parking_lot_number}", produces = "text/plain; charset=utf-8")
     public String getParkingName (@PathVariable String parking_lot_number ){
         return parkingLotService.getParkingName(parking_lot_number);
     }

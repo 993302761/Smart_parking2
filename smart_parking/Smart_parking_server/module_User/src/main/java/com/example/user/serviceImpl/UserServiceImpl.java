@@ -7,6 +7,7 @@ import com.feign.api.entity.user.User;
 import com.feign.api.service.ParkingLotFeignService;
 import com.feign.api.service.VehicleFeignService;
 import com.saltfish.example.demo.VehicleFileDao;
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import org.springframework.context.annotation.Import;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.http.*;
@@ -133,13 +134,30 @@ public class UserServiceImpl  {
                                    MultipartFile registration,
                                    MultipartFile driving_permit){
 
-        String vehicle_photos_address = vehicleFileDao.uploadMult(vehicle_photos);
-        String registration_address = vehicleFileDao.uploadMult(registration);
-        String driving_permit_address = vehicleFileDao.uploadMult(driving_permit);
+        int vehicleNumber = vehicleFeignService.check_license_plate_number(user_name, license_plate_number);
+        if (vehicleNumber==1){
+            return "该车辆已注册，请勿重复注册";
+        }else if (vehicleNumber>1){
+            return "数据错误";
+        }else if (vehicleNumber<0){
+            return "错误：601";
+        }
+
+        String vehicle_photos_address = vehicleFileDao.addVehicleFile(vehicle_photos);
+        String registration_address = vehicleFileDao.addVehicleFile(registration);
+        String driving_permit_address = vehicleFileDao.addVehicleFile(driving_permit);
         if (vehicle_photos_address==null||registration_address==null||driving_permit_address==null){
             return "照片保存错误";
         }
-        return vehicleFeignService.vehicle_binding(user_name,user_id,license_plate_number,vehicle_photos_address.replace('/','-'),registration_address.replace('/','-'),driving_permit_address.replace('/','-'));
+        try {
+            String s = vehicleFeignService.vehicle_binding(user_name, user_id, license_plate_number, vehicle_photos_address.replace('/', '&'), registration_address.replace('/', '&'), driving_permit_address.replace('/', '&'));
+            return s;
+        }catch (Exception e){
+            vehicleFileDao.deleteVehicleFile(vehicle_photos_address.replace('/','&'));
+            vehicleFileDao.deleteVehicleFile(registration_address.replace('/','&'));
+            vehicleFileDao.deleteVehicleFile(driving_permit_address.replace('/','&'));
+            return "绑定信息失败";
+        }
     }
 
 
@@ -343,10 +361,13 @@ public class UserServiceImpl  {
 
 
     /**
-     * TODO：删除所有用户
+     * TODO：删除用户
      */
-    public void delete_User (String user_name){
+    public String delete_User (String user_name,String UUID){
         userDao.delete_User(user_name);
+        String key=md5(user_name+UUID);
+        redisTemplate.delete(key);
+        return vehicleFeignService.deleteAllVehicle(user_name);
     }
 
 

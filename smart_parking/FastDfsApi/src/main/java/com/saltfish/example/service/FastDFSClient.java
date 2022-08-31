@@ -240,6 +240,7 @@ public class FastDFSClient {
      */
     public static int deleteFile(String groupName, String remoteFileName) {
         int result = -1;
+        remoteFileName = remoteFileName.replaceAll("&","/");
         try {
             // 根据组名和文件名通过 Storage 客户端删除文件
             result = storageClient.delete_file(groupName == null ? "group1" : groupName, remoteFileName);

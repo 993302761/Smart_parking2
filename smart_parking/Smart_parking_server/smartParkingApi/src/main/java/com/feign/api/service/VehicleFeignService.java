@@ -12,19 +12,23 @@ public interface VehicleFeignService {
     int check_license_plate_number (@PathVariable("user_name") String user_name, @PathVariable("license_plate_number") String license_plate_number);
 
     @PostMapping(value = "/Vehicle/vehicle_binding/{user_name}/{user_id}/{license_plate_number}/{vehicle_photos}/{registration}/{driving_permit}")
-    String  vehicle_binding ( @PathVariable("user_name")String user_name,
-                              @PathVariable("user_id")String user_id,
-                              @PathVariable("license_plate_number")String license_plate_number,
-                              @PathVariable("vehicle_photos")String vehicle_photos,
+    String  vehicle_binding ( @PathVariable("user_name") String user_name,
+                              @PathVariable("user_id") String user_id,
+                              @PathVariable("license_plate_number") String license_plate_number,
+                              @PathVariable("vehicle_photos") String vehicle_photos,
                               @PathVariable("registration")String registration,
                               @PathVariable("driving_permit")String driving_permit);
 
 
-    @DeleteMapping(value = "/deleteVehicle/{user_name}/{license_plate_number}")
-    String deleteVehicle (@PathVariable String user_name, @PathVariable String license_plate_number);
+    @DeleteMapping(value = "/Vehicle/deleteVehicle/{user_name}/{license_plate_number}")
+    String deleteVehicle (@PathVariable("user_name") String user_name, @PathVariable("license_plate_number") String license_plate_number);
 
 
-    @GetMapping(value = "/getUserVehicle/{user_name}")
-    List<String> getUserVehicle (@PathVariable String user_name);
+    @DeleteMapping(value = "/Vehicle/deleteAllVehicle/{user_name}")
+    String deleteAllVehicle (@PathVariable("user_name") String user_name);
+
+
+    @GetMapping(value = "/Vehicle/getUserVehicle/{user_name}")
+    List<String> getUserVehicle (@PathVariable("user_name") String user_name);
 
 }

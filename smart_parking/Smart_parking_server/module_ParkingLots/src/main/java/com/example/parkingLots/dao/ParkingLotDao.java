@@ -32,9 +32,16 @@ public interface ParkingLotDao {
     /**
      * 根据停车场编号查找停车场信息
      * */
-    @Select("SELECT pctr_id,pctr_password FROM Parking_lot_information WHERE parking_lot_number =#{parking_lot_number}")
+    @Select("SELECT pctr_id," +
+            "pctr_password," +
+            "parking_lot_name," +
+            "parking_in_the_city," +
+            "parking_lot_number," +
+            "parking_spaces_num," +
+            "billing_rules," +
+            "longitude," +
+            "latitude FROM Parking_lot_information WHERE parking_lot_number =#{parking_lot_number}")
     Parking_lot_information getParkingByPNumber(@Param("parking_lot_number") String parking_lot_number);
-
 
 
     /**

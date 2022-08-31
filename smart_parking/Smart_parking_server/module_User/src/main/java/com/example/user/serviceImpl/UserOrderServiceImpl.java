@@ -33,10 +33,13 @@ public class UserOrderServiceImpl {
     public String  generate_order (String user_name,String license_plate_number,String parking_lot_number){
         boolean hasKey = redisTemplate.hasKey(parking_lot_number);
         if(hasKey){
+            String s = redisTemplate.opsForValue().get(parking_lot_number);
+            if (Integer.parseInt(s)<=0){
+                return "车位已满";
+            }
             redisTemplate.opsForValue().increment(parking_lot_number,-1);   //车位自减
         }
-//        return orderFeignService.generate_order(user_name,license_plate_number,parking_lot_number);
-        return null;
+        return orderFeignService.generate_order(user_name,license_plate_number,parking_lot_number);
     }
 
 

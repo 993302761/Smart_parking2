@@ -28,7 +28,7 @@ class testDaoTest {
         FileItem fileItem = FastDFSClient.getMultipartFile(f, "145.png");
         MultipartFile multipartFile = new CommonsMultipartFile(fileItem);
 
-        System.out.println(t.uploadMult(multipartFile));
+        System.out.println(t.addVehicleFile(multipartFile));
     }
 
     @Test
@@ -37,6 +37,7 @@ class testDaoTest {
 
     @Test
     void delxxx() {
+        t.deleteVehicleFile("-group1-M00-00-00-CgxBS2MPS0eAeQ-qAAw5QmSKugA852.png");
     }
 
     @Test

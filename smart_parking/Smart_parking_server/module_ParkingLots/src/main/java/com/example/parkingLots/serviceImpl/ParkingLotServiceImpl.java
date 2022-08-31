@@ -123,17 +123,16 @@ public class ParkingLotServiceImpl {
      * @param parking_lot_number 停车场编号
      * @param Available_place_num 当前可用停车位
      */
-    public void change_parking_space(String parking_lot_number ,String Available_place_num){
+    public String change_parking_space(String parking_lot_number ,String Available_place_num){
         Parking_lot_information parking_num = parkingLotDao.getParkingByPNumber(parking_lot_number);
         if (parking_num==null){
-            System.out.println("无此停车场");
-            return;
+            return "无此停车场";
         }
-        if (parking_num.getParking_spaces_num()<Integer.parseInt(Available_place_num)){
-            System.out.println("数据错误");
-            return;
+       if (parking_num.getParking_spaces_num()<Integer.parseInt(Available_place_num)){
+            return "数据错误";
         }
         redisTemplate.opsForValue().set(parking_lot_number, Available_place_num);
+        return "可用车位数量变更";
     }
 
 
