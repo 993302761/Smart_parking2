@@ -101,8 +101,8 @@ public class ParkingLotsController {
             @ApiImplicitParam(name = "parking_lot_number", value = "停车场编号", required = true, dataType = "String"),
             @ApiImplicitParam(name = "order_number", value = "订单编号", required = true, dataType = "String")
     })
-    @PutMapping(value = "/parking_cancellation_Order", produces = "text/plain;charset=utf-8")
-    public String parking_cancellation_Order (String parking_lot_number, String order_number){
+    @PutMapping(value = "/parking_cancellation_Order/{parking_lot_number}/{order_number}", produces = "text/plain;charset=utf-8")
+    public String parking_cancellation_Order (@PathVariable String parking_lot_number,@PathVariable  String order_number){
         return parkingLotService.parking_cancellation_Order(parking_lot_number,order_number);
     }
 

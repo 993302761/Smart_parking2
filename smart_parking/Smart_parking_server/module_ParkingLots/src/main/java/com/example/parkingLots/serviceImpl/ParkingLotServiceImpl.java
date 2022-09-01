@@ -145,8 +145,7 @@ public class ParkingLotServiceImpl {
      * @return 是否成功
      */
     public String parking_cancellation_Order (String parking_lot_number, String order_number){
-        String s=orderFeignService.parking_cancellation_Order(parking_lot_number,order_number);
-        return s;
+        return orderFeignService.parking_cancellation_Order(parking_lot_number,order_number);
     }
 
 

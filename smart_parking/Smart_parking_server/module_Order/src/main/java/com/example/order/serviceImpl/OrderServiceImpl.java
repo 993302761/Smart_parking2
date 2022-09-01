@@ -5,6 +5,7 @@ import com.example.order.dao.OrderDao;
 import com.feign.api.entity.order.Order_information;
 import com.feign.api.service.ParkingLotFeignService;
 import com.feign.api.service.VehicleFeignService;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -26,6 +27,13 @@ public class OrderServiceImpl {
 
     @Resource
     private VehicleFeignService vehicleFeignService;
+
+
+
+    @Resource
+    private RedisTemplate<String, Integer> redisTemplate;
+
+
 
     /**
      * TODO：生成订单
@@ -60,6 +68,23 @@ public class OrderServiceImpl {
         int incomplete_Order=orderDao.find_Incomplete_Order(user_name);
         if (incomplete_Order>0){
             return "您还有进行中或未支付的订单，请完成订单后再预约";
+        }
+
+        boolean hasKey = redisTemplate.hasKey(parking_lot_number);
+        if(hasKey) {
+            Integer s = redisTemplate.opsForValue().get(parking_lot_number);
+            if (s <= 0) {
+                return "车位已满";
+            }
+            try {
+                redisTemplate.opsForValue().increment(parking_lot_number, -1);   //车位自减
+            } catch (Exception e) {
+                redisTemplate.opsForValue().increment(parking_lot_number, 1);        //车位自增
+                e.printStackTrace();
+                return "预约失败";
+            }
+        }else {
+            return "停车场车位异常，请移步其他停车场";
         }
 
         int i = orderDao.add_Order(order_number, generation_time, user_name,  null, null, parkingName, parking_lot_number, license_plate_number, 0, "等待进入");
@@ -154,12 +179,17 @@ public class OrderServiceImpl {
      * @return 是否成功
      */
     public String setStatus_out (String license_plate_number ,String parking_lot_number) {
+
         Order_information order = orderDao.getOrderByParkingAndOrder(parking_lot_number, license_plate_number);
         if (order==null){
             return "未找到此订单";
         }
         if (order.getOutTime()!=null){
             return "订单错误";
+        }
+        String s=add_available_parking_spaces_num(order.getUser_name(),order.getOrder_number());
+        if (s!=null){
+            return s;
         }
         //判断停车场是否存在
         String parkingName=parkingLotFeignService.getParkingName(parking_lot_number);
@@ -177,21 +207,23 @@ public class OrderServiceImpl {
 
 
     /**
-     * TODO：订单支付完成
+     * TODO：收费情况
      * @param order_number 订单编号
      */
-    public void setMoney (String order_number){
+    public String setMoney (String order_number){
+
         Order_information order = orderDao.getOrderByNumber(order_number);
         //获取停车场的收费标准
         Float billing_rules= Float.valueOf(parkingLotFeignService.getParkingBilling_rules(order.getParking_lot_number()));
         int hours = (int) ((order.getOutTime().getTime() - order.getInTime().getTime()) / (1000 * 60* 60));
         float money=hours*billing_rules;
         orderDao.set_money(money,order.getOrder_number());
+        return "已完成";
     }
 
 
     /**
-     * TODO：订单支付完成
+     * TODO：用户查找订单
      * @param user_name 用户名
      * @param parking_lot_number 订单编号
      * @return 是否成功
@@ -209,6 +241,8 @@ public class OrderServiceImpl {
      * @return 是否成功
      */
     public String complete_Order (String user_name,String order_number){
+
+
         Order_information order = orderDao.userGetOrderByNumber(user_name,order_number);
         if (order==null){
             return "未找到订单";
@@ -225,12 +259,39 @@ public class OrderServiceImpl {
 
 
     /**
+     * TODO：车位自增
+     * @param user_name 用户名
+     * @param order_number 订单编号
+     * @return 是否成功
+     */
+    public String add_available_parking_spaces_num (String user_name,String order_number){
+
+        Order_information order_information = userGetParkingOrder(user_name, order_number);
+        if (order_information==null){
+            return "订单不存在";
+        }
+        boolean hasKey = redisTemplate.hasKey(order_information.getParking_lot_number());
+        if(hasKey){
+            redisTemplate.opsForValue().increment(order_information.getParking_lot_number(),1);        //车位自增
+            return null;
+        }else {
+            return "停车场信息异常";
+        }
+    }
+
+
+
+    /**
      * TODO：app取消订单
      * @param user_name 用户名
      * @param order_number 订单编号
      * @return 是否成功
      */
     public String app_cancellation_Order (String user_name,String order_number){
+        String s=add_available_parking_spaces_num(user_name,order_number);
+        if (s!=null){
+            return s;
+        }
         Order_information order = orderDao.userGetOrderByNumber(user_name,order_number);
         if (order==null){
             return "未找到订单";
@@ -254,9 +315,16 @@ public class OrderServiceImpl {
      * @return 是否成功
      */
     public String parking_cancellation_Order (String parking_lot_number,String order_number){
-        Order_information order = orderDao.getOrderByParkingAndOrder(parking_lot_number, order_number);
+        Order_information orderByNumber = getOrderByNumber(order_number);
+        String s=add_available_parking_spaces_num(orderByNumber.getUser_name(),order_number);
+        if (s!=null){
+            return s;
+        }
+        Order_information order = orderDao.getOrderByNumber(order_number);
         if (order==null){
             return "未找到订单";
+        }else if (!parking_lot_number.equals(order.getParking_lot_number())){
+            return "未找到此订单";
         }
         else if (order.getOrder_status().equals("已取消")){
             return "请勿重复取消订单";

@@ -8,6 +8,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class UserOrderServiceImpl {
@@ -21,9 +22,6 @@ public class UserOrderServiceImpl {
 
 
 
-    @Resource
-    private RedisTemplate<String, Integer> redisTemplate;
-
 
     /**
      * TODO：app开始订单
@@ -33,25 +31,7 @@ public class UserOrderServiceImpl {
      * @return 是否成功
      */
     public String  generate_order (String user_name,String license_plate_number,String parking_lot_number){
-        boolean hasKey = redisTemplate.hasKey(parking_lot_number);
-        if(hasKey) {
-            Integer s = redisTemplate.opsForValue().get(parking_lot_number);
-            System.out.println(s);
-            if (s <= 0) {
-                return "车位已满";
-            }
-            redisTemplate.opsForValue().increment(parking_lot_number, -1);   //车位自减
-            try {
-                String generateOrder = orderFeignService.generate_order(user_name, license_plate_number, parking_lot_number);
-                return generateOrder;
-            } catch (Exception e) {
-                redisTemplate.opsForValue().increment(parking_lot_number, 1);        //车位自增
-                e.printStackTrace();
-                return "预约失败";
-            }
-        }else {
-            return "停车场车位异常，请移步其他停车场";
-        }
+        return orderFeignService.generate_order(user_name, license_plate_number, parking_lot_number);
     }
 
 
@@ -69,20 +49,22 @@ public class UserOrderServiceImpl {
 
 
     /**
+     * TODO：获取某位用户的订单列表
+     * @param user_name 所查找的用户
+     * @return 用户订单
+     */
+    public List<Order_information> getOrderByUsername(String user_name) {
+        return orderFeignService.getUserOrder(user_name);
+    }
+
+
+    /**
      * TODO：订单支付完成
      * @param user_name 用户名
      * @param order_number 订单号
      * @return 是否成功
      */
     public String complete_Order (String user_name, String order_number){
-        Order_information order_information = orderFeignService.userGetParkingOrder(user_name, order_number);
-        if (order_information==null){
-            return "订单不存在";
-        }
-        boolean hasKey = redisTemplate.hasKey(order_information.getParking_lot_number());
-        if(hasKey){
-            redisTemplate.opsForValue().increment(order_information.getParking_lot_number(),1);        //车位自增
-        }
         return orderFeignService.complete_Order(user_name,order_number);
     }
 

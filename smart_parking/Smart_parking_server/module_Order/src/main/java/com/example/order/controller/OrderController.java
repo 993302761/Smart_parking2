@@ -44,8 +44,8 @@ public class    OrderController {
     @ApiImplicitParams({
             @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String"),
     })
-    @GetMapping(value = "/getOrderByUsername",produces = "application/json; charset=utf-8")
-    public List<Order_information> getUserOrder (String user_name){
+    @GetMapping(value = "/getOrderByUsername/{user_name}",produces = "application/json; charset=utf-8")
+    public List<Order_information> getUserOrder (@PathVariable String user_name){
         return orderService.getOrderByUsername(user_name);
     }
 

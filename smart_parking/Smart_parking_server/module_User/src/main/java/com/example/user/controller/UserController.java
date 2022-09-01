@@ -2,6 +2,7 @@ package com.example.user.controller;
 
 import com.example.user.serviceImpl.UserServiceImpl;
 
+import com.feign.api.entity.order.Order_information;
 import com.feign.api.entity.user.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -156,6 +157,9 @@ public class UserController {
     public String getUserId(@PathVariable String user_name){
         return userService.getUserId(user_name);
     }
+
+
+
 
 
 

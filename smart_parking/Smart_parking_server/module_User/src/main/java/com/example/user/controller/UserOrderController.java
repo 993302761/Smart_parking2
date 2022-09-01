@@ -2,6 +2,7 @@ package com.example.user.controller;
 
 import com.example.user.serviceImpl.UserIntegralServiceImpl;
 import com.example.user.serviceImpl.UserOrderServiceImpl;
+import com.feign.api.entity.order.Order_information;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @RestController
 @Api(tags = "用户订单模块")
@@ -80,7 +82,15 @@ public class UserOrderController {
     }
 
 
-
+    @ApiOperation(value = "app获取用户订单")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "UUID", value = "通用唯一识别码", required = true, dataType = "String")
+    })
+    @GetMapping(value = "/getUserOrder/{user_name}/{UUID}",produces = "application/json; charset=utf-8")
+    public List<Order_information> getUserOrder (@PathVariable String user_name,@PathVariable String UUID){
+        return userOrderService.getOrderByUsername(user_name);
+    }
 
 
     @ApiOperation(value = "获取某一区域停车场情况")
