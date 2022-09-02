@@ -1,13 +1,11 @@
 package com.example.user.controller;
 
-import com.example.user.serviceImpl.UserIntegralServiceImpl;
 import com.example.user.serviceImpl.UserOrderServiceImpl;
 import com.feign.api.entity.order.Order_information;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -20,9 +18,6 @@ public class UserOrderController {
 
     @Resource
     private UserOrderServiceImpl userOrderService;
-
-    @Resource
-    private UserIntegralServiceImpl userIntegralService;
 
 
     @ApiOperation(value = "app开始订单")

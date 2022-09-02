@@ -4,6 +4,7 @@ import com.feign.api.entity.order.Order_information;
 import com.feign.api.service.OrderFeignService;
 import com.feign.api.service.ParkingLotFeignService;
 import io.swagger.models.auth.In;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +21,8 @@ public class UserOrderServiceImpl {
     @Resource
     private ParkingLotFeignService parkingLotFeignService;
 
-
+    @Resource
+    private RabbitTemplate rabbitTemplate;
 
 
     /**
@@ -65,6 +67,7 @@ public class UserOrderServiceImpl {
      * @return 是否成功
      */
     public String complete_Order (String user_name, String order_number){
+        rabbitTemplate.convertAndSend("IntegralExchange","addIntegral",user_name);
         return orderFeignService.complete_Order(user_name,order_number);
     }
 

@@ -18,17 +18,19 @@ import javax.annotation.Resource;
 
 @Component
 public class IntegralController {
-//Fanout  广播， Direct  路由， Topic   话题
 
+    @Resource
+    private IntegralServiceImpl integralService;
 
+    //Fanout  广播， Direct  路由， Topic   话题
     //Direct  路由
     @RabbitListener(bindings = @QueueBinding(
-            value = @Queue(name = "Integral"),
-            exchange = @Exchange(name = "IntegralExchange",type = ExchangeTypes.DIRECT),
+            value = @Queue(name = "Integral"),      //组
+            exchange = @Exchange(name = "IntegralExchange",type = ExchangeTypes.DIRECT),  //交换机
             key = {"addIntegral"}
     ))
-    public void complete_Order(String message){
-        System.out.println(message);
+    public void complete_Order(String user_name){
+        integralService.addIntegral(user_name);
     }
 
 }

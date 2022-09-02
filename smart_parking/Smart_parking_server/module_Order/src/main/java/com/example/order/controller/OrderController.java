@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 @Component
@@ -20,7 +21,7 @@ import java.util.List;
 public class    OrderController {
 
 
-    @Autowired(required = false)
+    @Resource
     private OrderServiceImpl orderService;
 
 
