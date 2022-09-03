@@ -12,5 +12,8 @@ dependencies {
     
     implementation project(":Smart_parking_server:smartParkingApi")
 
+
+    //RabbitMQ消息序列化改为JSON
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml'
 }
 

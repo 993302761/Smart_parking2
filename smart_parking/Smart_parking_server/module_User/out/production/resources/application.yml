@@ -15,4 +15,9 @@ spring:
     listener:
       simple:
         prefetch: 1   #每次只能获取一条消息，处理完才能获取下一条（提升消息处理速度，避免消息堆积）
-
+    publisher-confirm-type: correlated   #开启publisher-confirm，支持两种类型
+                                          #simple同步等待confirm结果，直到超时
+                                          #correlated 异步回调，定义一个ConfirmCallBack,MQ返回结果时回调ConfirmCallBack
+    publisher-returns: true       #开启publisher-returns，同样是CallBack机制，不过是定义ReturnCallBack
+    template:
+      mandatory: true         #定义消息路由失败时策略，true则调用ReturnCallBack，false直接丢弃消息

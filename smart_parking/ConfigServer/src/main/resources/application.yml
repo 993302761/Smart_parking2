@@ -15,21 +15,6 @@ spring:
           search-paths: Smart_parking_config  #目录
       label: master   #分支
 
-#    #是否启用springcloud config bus
-#    bus:
-#      enabled: true
-#      trace:
-#        enabled: true   #开启跟踪总线事件
-#
-#    stream:
-#      kafka:
-#        binder:
-#          #Kafka的消息中间件服务器地址
-#          brokers: localhost:9092
-#          # 是否自动创建主题
-#          auto-create-topics: true
-#          #zookeeper默认地址
-#          zk_nodes: localhost:2181
 
 #rabbitmq相关配置
   rabbitmq:
@@ -44,6 +29,8 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8651/eureka/,http://localhost:8652/eureka/
+      register-with-eureka: true      #是否将自己注册到注册中心，默认为true
+      fetch-registry: true            #是否从注册中心获取注册信息，默认为true
 
 #暴露bus刷新配置端点
 management:

@@ -7,11 +7,14 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.amqp.core.ExchangeTypes;
+import org.springframework.amqp.rabbit.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
 
 @Component
@@ -25,17 +28,17 @@ public class    OrderController {
     private OrderServiceImpl orderService;
 
 
-
-
-    @ApiOperation(value = "订单生成")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String"),
-            @ApiImplicitParam(name = "parking_lot_number", value = "停车场编号", required = true, dataType = "String"),
-            @ApiImplicitParam(name = "license_plate_number", value = "车牌号", required = true, dataType = "String")
-
-    })
-    @PostMapping(value = "/generate_order/{user_name}/{license_plate_number}/{parking_lot_number}", produces = "text/plain;charset=utf-8")
-    public String  generate_order (@PathVariable String user_name,@PathVariable String license_plate_number,@PathVariable String parking_lot_number){
+    //死信队列
+    @RabbitListener(bindings = @QueueBinding(
+            value = @Queue(name = "dlGenerateOrder", autoDelete = "false",durable = "true"),
+            exchange = @Exchange(name = "dlOrderExchange", autoDelete = "false"),  //交换机
+            key = {"AddOrder"}
+    ))
+    //@RabbitListener 标注在类上面表示当有收到消息的时候，就交给 @RabbitHandler 的方法处理，根据接受的参数类型进入具体的方法中。
+    public String  generate_order (HashMap order){
+        String user_name= (String) order.get("user_name");
+        String license_plate_number= (String) order.get("license_plate_number");
+        String parking_lot_number= (String) order.get("parking_lot_number");
         return orderService.generate_order(user_name,license_plate_number,parking_lot_number);
     }
 
