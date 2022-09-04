@@ -92,7 +92,7 @@ public class OrderServiceImpl {
             return "订单生成失败";
         }
         else {
-            return "订单开始";
+            return order_number;
         }
 
     }
@@ -104,6 +104,22 @@ public class OrderServiceImpl {
      */
     public List<Order_information> getAllOrders() {
         return orderDao.getAllOrders();
+    }
+
+
+
+
+    /**
+     * TODO：判断订单是否超时
+     * @return 判断结果
+     */
+    public String orderTimeout(String user_name,String order_number) {
+        Order_information order = orderDao.getOrderByNumber(order_number);
+        if (order.getOrder_status().equals("等待进入")){
+            String s = app_cancellation_Order(user_name, order_number);
+            return "订单："+order_number+" 已超时 "+s;
+        }
+        return null;
     }
 
 

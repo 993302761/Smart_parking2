@@ -5,3 +5,20 @@ spring:
   #  服务名称------服务名称不能使用下划线，删除下划线或者使用中划线
   application:
     name: ClientOrder
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    virtual-host: /   #虚拟主机
+    username: guest
+    password: guest
+    listener:
+      simple:
+        prefetch: 1   #每次只能获取一条消息，处理完才能获取下一条（提升消息处理速度，避免消息堆积）
+        acknowledge-mode: auto    #设置消息确认机制
+        retry:
+          enabled: true   #开启消费失败重试
+          initial-interval: 1000    #设置失败等待时长为1s
+          multiplier: 2   #下次失败的等待时长的倍数
+          max-attempts: 3  #最大重试次数  次数耗尽则丢弃
+          stateless: true   #true为无状态，false为有，如果业务中包含事务则改为false

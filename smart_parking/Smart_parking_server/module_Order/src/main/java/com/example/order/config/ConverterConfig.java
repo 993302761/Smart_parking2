@@ -28,16 +28,16 @@ public class ConverterConfig {
     //设置组
     @Bean
     public Queue ttlQueue(){
-        return QueueBuilder.durable("GenerateOrder")
+        return QueueBuilder.durable("Order")
                 .ttl(600000)                                 //设置十分钟的超时时间
                 .deadLetterExchange("dlOrderExchange")      //设置死信交换机
-                .deadLetterRoutingKey("AddOrder")           //设置死信交换机的RoutingKey
+                .deadLetterRoutingKey("orderTimeout")           //设置死信交换机的RoutingKey
                 .build();
     }
 
 
     @Bean
     public Binding binding(){
-        return BindingBuilder.bind(ttlQueue()).to(ttlExchange()).with("addOrder");
+        return BindingBuilder.bind(ttlQueue()).to(ttlExchange()).with("Timeout");
     }
 }

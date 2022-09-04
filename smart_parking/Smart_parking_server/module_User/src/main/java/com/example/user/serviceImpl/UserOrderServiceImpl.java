@@ -3,17 +3,15 @@ package com.example.user.serviceImpl;
 import com.feign.api.entity.order.Order_information;
 import com.feign.api.service.OrderFeignService;
 import com.feign.api.service.ParkingLotFeignService;
-import io.swagger.models.auth.In;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.math.NumberUtils;
 import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 
 @Service
@@ -39,12 +37,22 @@ public class UserOrderServiceImpl {
      * @return 是否成功
      */
     public String  generate_order (String user_name,String license_plate_number,String parking_lot_number){
-        HashMap<String,String> order=new HashMap<>();
-        order.put("user_name",user_name);
-        order.put("license_plate_number",license_plate_number);
-        order.put("parking_lot_number",parking_lot_number);
-        rabbitTemplate.convertAndSend("OrderExchange","addOrder",order,setConfirmCallback());
-        return "订单消息已发送";
+        try {
+            String s = orderFeignService.generate_order(user_name, license_plate_number, parking_lot_number);
+            HashMap<String,String> map=new HashMap();
+            map.put("user_name",user_name);
+            map.put("order_number",s);
+            if (NumberUtils.isParsable(s)){
+                rabbitTemplate.convertAndSend("OrderExchange","Timeout",map,setConfirmCallback());
+                return "订单 "+s+" 已开始";
+            }else {
+                return s;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return "服务异常";
+        }
+
     }
 
 
@@ -90,7 +98,7 @@ public class UserOrderServiceImpl {
      * @return 用户订单
      */
     public List<Order_information> getOrderByUsername(String user_name) {
-        return orderFeignService.getUserOrder(user_name);
+        return orderFeignService.getOrderByUsername(user_name);
     }
 
 
