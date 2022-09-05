@@ -22,7 +22,6 @@ import java.util.List;
 @RestController
 @Api(tags = "用户模块")
 @RequestMapping("/User")
-@DefaultProperties(defaultFallback ="err")
 public class UserController {
 
 
@@ -39,7 +38,6 @@ public class UserController {
             @ApiImplicitParam(name = "UUID", value = "通用唯一识别码", required = true, dataType = "String")
     })
     @GetMapping(value = "/app_login/{user_name}/{password}/{UUID}", produces = "text/plain;charset=utf-8")
-    @HystrixCommand
     public String app_login(@PathVariable String user_name,@PathVariable String password,@PathVariable String UUID){
         return userService.login_User(user_name,password,UUID);
     }
@@ -52,7 +50,6 @@ public class UserController {
             @ApiImplicitParam(name = "password", value = "密码", required = true, dataType = "String")
     })
     @GetMapping(value = "/app_register1", produces = "application/json;charset=utf-8")
-    @HystrixCommand
     public boolean app_register1(String user_name, String password){
         return userService.find(user_name);
     }
@@ -70,7 +67,6 @@ public class UserController {
             @ApiImplicitParam(name = "driving_permit", value = "车辆行驶证照片", required = true, dataType = "MultipartFile"),
    })
     @PostMapping(value = "/app_register2", produces = "text/plain;charset=utf-8")
-    @HystrixCommand
     public String app_register2(String user_name,
                                 String password,
                                 String user_id,
@@ -78,7 +74,6 @@ public class UserController {
                                 MultipartFile vehicle_photos,
                                 MultipartFile registration,
                                 MultipartFile driving_permit){
-
         try {
 
             return userService.add_User(
@@ -108,7 +103,6 @@ public class UserController {
 
     })
     @DeleteMapping(value = "/deleteVehicle", produces = "text/plain; charset=utf-8")
-    @HystrixCommand
     public String deleteVehicle (String user_name, String license_plate_number, String UUID){
         return userService.deleteVehicle(user_name,license_plate_number);
     }
@@ -122,7 +116,6 @@ public class UserController {
 
     })
     @GetMapping(value = "/getUserVehicle", produces = "application/json; charset=utf-8")
-    @HystrixCommand
     public List<String> getUserVehicle (String user_name,String UUID){
         return userService.getUserVehicle(user_name);
     }
@@ -140,7 +133,6 @@ public class UserController {
             @ApiImplicitParam(name = "UUID", value = "通用唯一识别码", required = true, dataType = "String")
     })
     @PostMapping(value = "/vehicle_binding", produces = "text/plain;charset=utf-8")
-    @HystrixCommand
     public String vehicle_binding (String user_name,
                                    String user_id,
                                    String license_plate_number,
@@ -164,7 +156,6 @@ public class UserController {
             @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String")
     })
     @GetMapping(value = "/getUserId/{user_name}", produces = "text/plain;charset=utf-8")
-    @HystrixCommand
     public String getUserId(@PathVariable String user_name){
         return userService.getUserId(user_name);
     }
@@ -183,7 +174,6 @@ public class UserController {
             @ApiImplicitParam(name = "UUID", value = "通用唯一识别码", required = true, dataType = "String")
     })
     @GetMapping(value = "/getParkingLot", produces = "application/json;charset=utf-8")
-    @HystrixCommand
     public Object getParkingLot (String parking_lot_name,String city,String user_name,String UUID){
         return userService.getParkingLot(parking_lot_name,city);
     }
@@ -193,7 +183,6 @@ public class UserController {
 
     @ApiOperation(value = "查找所有用户")
     @GetMapping(value = "/getAllUsers", produces = "application/json; charset=utf-8")
-    @HystrixCommand
     public List<User> getAllUsers(){
         return userService.getAllUsers();
     }
@@ -207,14 +196,10 @@ public class UserController {
             @ApiImplicitParam(name = "UUID", value = "通用唯一识别码", required = true, dataType = "String")
     })
     @DeleteMapping(value = "/delete_User")
-    @HystrixCommand
     public String delete_User(String user_name,String UUID){
         return userService.delete_User(user_name,UUID);
     }
 
 
-    private String err(){
-        return "用户访问接口错误，请稍后再试";
-    }
 
 }

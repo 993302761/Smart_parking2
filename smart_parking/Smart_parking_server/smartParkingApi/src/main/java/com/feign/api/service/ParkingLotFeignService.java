@@ -3,12 +3,15 @@ package com.feign.api.service;
 import com.feign.api.entity.parkingLots.Parking;
 import com.feign.api.entity.parkingLots.Parking_for_user;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
-@FeignClient(value = "ClientParkingLots" )
+@Component
+@FeignClient(value = "ClientParkingLots" ,fallback = ParkingLotFeignServiceDegradation.class)
+
 public interface ParkingLotFeignService {
 
     @GetMapping("/ParkingLots/getAllParking")

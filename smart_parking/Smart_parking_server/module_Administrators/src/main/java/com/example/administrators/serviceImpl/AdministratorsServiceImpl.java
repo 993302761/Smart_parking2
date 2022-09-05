@@ -6,18 +6,19 @@ import com.example.administrators.entity.Administrators;
 import com.feign.api.service.OrderFeignService;
 import com.feign.api.service.ParkingLotFeignService;
 import com.feign.api.service.UserFeignService;
-import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Import;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.concurrent.TimeUnit;
 
 @Service
-@DefaultProperties(defaultFallback ="err")
+@Import({
+        com.feign.api.service.ParkingLotFeignServiceDegradation.class,
+        com.feign.api.service.OrderFeignServiceDegradation.class,
+        com.feign.api.service.UserFeignServiceDegradation.class
+})
 public class AdministratorsServiceImpl {
 
     @Resource
@@ -63,11 +64,7 @@ public class AdministratorsServiceImpl {
      * TODO：获取用户列表
      * @return 用户列表
      */
-//    @HystrixCommand(fallbackMethod = "err",commandProperties = {    //没有fallback则使用全局的，否则则用指定的
-//            //配置命令执行的超时时间为3秒
-//            @HystrixProperty(name = "execution.isolation.thread.timeoutinMilliseconds", value = "3000")
-//    })
-    @HystrixCommand
+
     public Object getAllUsers() {
         return userFeignService.getAllUsers();
     }
@@ -77,7 +74,6 @@ public class AdministratorsServiceImpl {
      * TODO：获取停车场列表
      * @return 获取停车场列表
      */
-    @HystrixCommand
     public Object getAllParking() {
         return parkingLotFeignService.getAllParking();
     }
@@ -87,14 +83,10 @@ public class AdministratorsServiceImpl {
      * TODO：获取订单列表
      * @return 获取订单列表
      */
-    @HystrixCommand
     public Object getAllOrder() {
         return orderFeignService.getAllOrders();
     }
 
 
-    private String err(){
-        return "超级管理员访问接口错误，请稍后再试";
-    }
 
 }

@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
+
 @RestController
 @Api(tags = "超级管理员模块")
 @RequestMapping("/Administrators")
@@ -19,7 +21,7 @@ public class AdministratorsController {
 
 
 
-    @Autowired(required = false)
+    @Resource
     private AdministratorsServiceImpl administratorsService;
 
 
@@ -46,6 +48,7 @@ public class AdministratorsController {
     @ApiOperation(value = "查找所有停车场")
     @GetMapping(value = "/getAllParking", produces = "application/json; charset=utf-8")
     public Object getAllParking()  {
+
         return administratorsService.getAllParking();
     }
 

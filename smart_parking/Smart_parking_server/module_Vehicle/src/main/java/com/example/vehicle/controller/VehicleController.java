@@ -19,8 +19,6 @@ import java.util.List;
 @RestController
 @Api(tags = "车辆信息绑定模块")
 @RequestMapping("/Vehicle")
-@DefaultProperties(defaultFallback ="err")
-
 public class VehicleController {
 
 
@@ -95,10 +93,6 @@ public class VehicleController {
         return vehicleService.check_license_plate_number(user_name,license_plate_number);
     }
 
-
-    private String err(){
-        return "订单系统繁忙，请稍后再试";
-    }
 
 
 }

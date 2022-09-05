@@ -28,6 +28,8 @@ import java.util.concurrent.TimeUnit;
 
 @Service
 @Import({
+        com.feign.api.service.ParkingLotFeignServiceDegradation.class,
+        com.feign.api.service.VehicleFeignServiceDegradation.class,
         com.saltfish.example.demo.VehicleFileDao.class,
         com.saltfish.example.aseptcut.UploadAsept.class
 })
@@ -140,7 +142,7 @@ public class UserServiceImpl  {
         }else if (vehicleNumber>1){
             return "数据错误";
         }else if (vehicleNumber<0){
-            return "错误：601";
+            return "访问错误";
         }
 
         String vehicle_photos_address = vehicleFileDao.addVehicleFile(vehicle_photos);

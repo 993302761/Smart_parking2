@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 
 import java.util.List;
 
-@FeignClient(value = "ClientOrder" )
+@FeignClient(value = "ClientOrder" ,fallback = OrderFeignServiceDegradation.class)
 public interface OrderFeignService {
 
 

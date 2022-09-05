@@ -5,6 +5,7 @@ import com.example.order.dao.OrderDao;
 import com.feign.api.entity.order.Order_information;
 import com.feign.api.service.ParkingLotFeignService;
 import com.feign.api.service.VehicleFeignService;
+import org.springframework.context.annotation.Import;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,10 @@ import java.util.Date;
 import java.util.List;
 
 @Service
+@Import({
+        com.feign.api.service.ParkingLotFeignServiceDegradation.class,
+        com.feign.api.service.VehicleFeignServiceDegradation.class
+})
 public class OrderServiceImpl {
 
 

@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.context.annotation.Import;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -16,6 +17,10 @@ import java.util.UUID;
 
 @Service
 @Slf4j
+@Import({
+        com.feign.api.service.ParkingLotFeignServiceDegradation.class,
+        com.feign.api.service.OrderFeignServiceDegradation.class
+})
 public class UserOrderServiceImpl {
 
 

@@ -1,7 +1,8 @@
-10:27:07.820 WARN  org.springframework.boot.actuate.endpoint.EndpointId 155 logWarning - Endpoint ID 'bus-env' contains invalid characters, please migrate to a valid format.
-10:27:07.994 WARN  org.springframework.boot.actuate.endpoint.EndpointId 155 logWarning - Endpoint ID 'bus-refresh' contains invalid characters, please migrate to a valid format.
-10:27:08.031 WARN  org.springframework.boot.actuate.endpoint.EndpointId 155 logWarning - Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
-10:27:08.042 WARN  org.springframework.boot.actuate.endpoint.EndpointId 155 logWarning - Endpoint ID 'hystrix.stream' contains invalid characters, please migrate to a valid format.
-10:27:08.684 WARN  com.netflix.config.sources.URLConfigurationSource 126 <init> - No URLs will be polled as dynamic configuration sources.
-10:27:09.933 WARN  com.netflix.config.sources.URLConfigurationSource 126 <init> - No URLs will be polled as dynamic configuration sources.
-10:27:10.568 WARN  org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger 106 logWarning - You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+11:41:15.195 WARN  org.springframework.boot.actuate.endpoint.EndpointId 155 logWarning - Endpoint ID 'bus-env' contains invalid characters, please migrate to a valid format.
+11:41:15.380 WARN  org.springframework.boot.actuate.endpoint.EndpointId 155 logWarning - Endpoint ID 'bus-refresh' contains invalid characters, please migrate to a valid format.
+11:41:15.421 WARN  org.springframework.boot.actuate.endpoint.EndpointId 155 logWarning - Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+11:41:15.431 WARN  org.springframework.boot.actuate.endpoint.EndpointId 155 logWarning - Endpoint ID 'hystrix.stream' contains invalid characters, please migrate to a valid format.
+11:41:16.065 WARN  com.netflix.config.sources.URLConfigurationSource 126 <init> - No URLs will be polled as dynamic configuration sources.
+11:41:17.254 WARN  com.netflix.config.sources.URLConfigurationSource 126 <init> - No URLs will be polled as dynamic configuration sources.
+11:41:17.846 WARN  org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger 106 logWarning - You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+11:42:21.643 WARN  com.netflix.discovery.TimedSupervisorTask 90 run - task supervisor shutting down, can't accept the task

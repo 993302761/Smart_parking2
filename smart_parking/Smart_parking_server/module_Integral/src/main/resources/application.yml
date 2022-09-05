@@ -7,7 +7,6 @@ spring:
     name: ClientIntegral
 
   rabbitmq:
-
     listener:
       simple:
         prefetch: 1   #每次只能获取一条消息，处理完才能获取下一条（提升消息处理速度，避免消息堆积）

@@ -6,14 +6,20 @@ import com.example.parkingLots.entity.Parking_lot_information;
 import com.feign.api.entity.parkingLots.Parking;
 import com.feign.api.entity.parkingLots.Parking_for_user;
 import com.feign.api.service.OrderFeignService;
+import org.springframework.context.annotation.Import;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @Service
+@Import({
+        com.feign.api.service.ParkingLotFeignServiceDegradation.class,
+        com.feign.api.service.OrderFeignServiceDegradation.class
+})
 public class ParkingLotServiceImpl {
 
     @Resource

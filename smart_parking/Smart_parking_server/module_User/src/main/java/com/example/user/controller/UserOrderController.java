@@ -16,7 +16,6 @@ import java.util.List;
 @RestController
 @Api(tags = "用户订单模块")
 @RequestMapping("/UserOrder")
-@DefaultProperties(defaultFallback ="err")
 public class UserOrderController {
 
     @Resource
@@ -32,7 +31,6 @@ public class UserOrderController {
 
     })
     @PostMapping(value = "/generate_order", produces = "text/plain;charset=utf-8")
-    @HystrixCommand
     public String  generate_order (String user_name,String license_plate_number,String parking_lot_number,String UUID){
         return userOrderService.generate_order(user_name,license_plate_number,parking_lot_number);
     }
@@ -46,7 +44,6 @@ public class UserOrderController {
             @ApiImplicitParam(name = "UUID", value = "通用唯一识别码", required = true, dataType = "String")
     })
     @GetMapping(value = "/findOrder", produces = "application/json; charset=utf-8")
-    @HystrixCommand
     public Object findOrder (String user_name,String order_number,String UUID){
         return userOrderService.findOrder(user_name,order_number);
     }
@@ -60,7 +57,6 @@ public class UserOrderController {
             @ApiImplicitParam(name = "UUID", value = "通用唯一识别码", required = true, dataType = "String")
     })
     @PutMapping(value = "/complete_Order", produces = "text/plain;charset=utf-8")
-    @HystrixCommand
     public String complete_Order (String user_name, String order_number, String UUID){
         return userOrderService.complete_Order(user_name,order_number);
     }
@@ -78,7 +74,6 @@ public class UserOrderController {
             @ApiImplicitParam(name = "UUID", value = "通用唯一识别码", required = true, dataType = "String")
     })
     @PutMapping(value = "/app_cancellation_Order", produces = "text/plain;charset=utf-8")
-    @HystrixCommand
     public String app_cancellation_Order (String user_name, String order_number, String UUID){
           return userOrderService.app_cancellation_Order(user_name,order_number);
     }
@@ -90,7 +85,6 @@ public class UserOrderController {
             @ApiImplicitParam(name = "UUID", value = "通用唯一识别码", required = true, dataType = "String")
     })
     @GetMapping(value = "/getUserOrder/{user_name}/{UUID}",produces = "application/json; charset=utf-8")
-    @HystrixCommand
     public List<Order_information> getUserOrder (@PathVariable String user_name,@PathVariable String UUID){
         return userOrderService.getOrderByUsername(user_name);
     }
@@ -103,15 +97,12 @@ public class UserOrderController {
             @ApiImplicitParam(name = "UUID", value = "通用唯一识别码", required = true, dataType = "String")
     })
     @GetMapping(value = "/get_parking_lot", produces = "application/json; charset=utf-8")
-    @HystrixCommand
     public Object get_parking_lot (String user_name , String city, String UUID){
         return userOrderService.get_parking_lot(city);
     }
 
 
-    private String err(){
-        return "用户订单访问错误，请稍后再试";
-    }
+
 
 
 
