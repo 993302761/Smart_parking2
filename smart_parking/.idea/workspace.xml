@@ -10,16 +10,61 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff0609dd-2a44-4fd0-9468-a5712daa4380" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/src/main/java/com/example/administrators/Degradation/UserFeignServiceDegradation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/Administrators/2022-09/error-2022-08-29-1.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/Administrators/2022-09/error-2022-09-04-1.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/Administrators/2022-09/error-2022-09-04-2.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/Administrators/2022-09/error-2022-09-04-3.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/Administrators/2022-09/error-2022-09-04-4.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/Administrators/2022-09/error-2022-09-05-1.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/Administrators/2022-09/warn-2022-08-29-1.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/Administrators/2022-09/warn-2022-09-04-1.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/Administrators/2022-09/warn-2022-09-04-2.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/Administrators/2022-09/warn-2022-09-04-3.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/Administrators/2022-09/warn-2022-09-04-4.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/Administrators/2022-09/warn-2022-09-05-1.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Order/out/production/classes/com/example/order/controller/OrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Order/out/production/classes/com/example/order/controller/OrderController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Order/out/production/classes/com/example/order/serviceImpl/OrderServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Order/out/production/classes/com/example/order/serviceImpl/OrderServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Order/src/main/java/com/example/order/config/ConverterConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Order/src/main/java/com/example/order/config/ConverterConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Order/src/main/java/com/example/order/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Order/src/main/java/com/example/order/controller/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Order/src/main/java/com/example/order/serviceImpl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Order/src/main/java/com/example/order/serviceImpl/OrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/src/main/java/com/example/parkingLots/controller/ParkingLotsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/src/main/java/com/example/parkingLots/controller/ParkingLotsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/classes/com/example/user/serviceImpl/UserOrderServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/classes/com/example/user/serviceImpl/UserOrderServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/serviceImpl/UserOrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/serviceImpl/UserOrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/logs/Administrators/2022-08-29/myrollog-2022-08-29-1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/logs/Administrators/2022-08-29/myrollog-2022-08-29-2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/logs/Administrators/2022-08-29/myrollog-2022-08-29-3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/logs/Administrators/2022-08-29/myrollog-2022-08-29-4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/logs/Administrators/2022-08-29/myrollog-2022-08-29-5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/logs/Administrators/2022-08-29/myrollog-2022-08-29-6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/logs/Administrators/2022-08-29/myrollog-2022-08-29-7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/logs/Administrators/2022-08-29/myrollog-2022-08-29-8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/logs/Administrators/2022-08-29/warn-2022-08-29-1.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/Administrators/2022-09/warn-2022-09-05-2.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/logs/Administrators/2022-08/warn-2022-08-29-1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/logs/Administrators/Administrators.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/logs/Administrators/AdministratorsAll.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/logs/Administrators/error.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/logs/Administrators/myAcclog.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/logs/Administrators/myfile.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/logs/Administrators/myrollog.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/Administrators/2022-09/warn-2022-09-05-3.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/logs/Administrators/spring.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/logs/Administrators/warn.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/Administrators/2022-09/warn-2022-09-05-4.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/out/production/classes/com/example/administrators/AdministratorsApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/out/production/classes/com/example/administrators/AdministratorsApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/out/production/classes/com/example/administrators/serviceImpl/AdministratorsServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/out/production/classes/com/example/administrators/serviceImpl/AdministratorsServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/src/main/java/com/example/administrators/AdministratorsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/src/main/java/com/example/administrators/AdministratorsApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/src/main/java/com/example/administrators/serviceImpl/AdministratorsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/src/main/java/com/example/administrators/serviceImpl/AdministratorsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Integral/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Integral/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Order/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Order/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/classes/com/example/user/UserApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/classes/com/example/user/UserApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/classes/com/example/user/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/classes/com/example/user/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/UserApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/UserApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/controller/UserOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/controller/UserOrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/src/main/java/com/feign/api/service/OrderFeignService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/src/main/java/com/feign/api/service/OrderFeignService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/src/main/java/com/feign/api/service/ParkingLotFeignService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/src/main/java/com/feign/api/service/ParkingLotFeignService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/src/main/java/com/feign/api/service/UserFeignService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/src/main/java/com/feign/api/service/UserFeignService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/src/main/java/com/feign/api/service/VehicleFeignService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/src/main/java/com/feign/api/service/VehicleFeignService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/Administrators/All.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/Administrators/All.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/Administrators/error.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/Administrators/error.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/Administrators/warn.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/Administrators/warn.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -298,7 +343,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Smart_parking_server/module_Order/src/main/java/com/example/order" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/src/main/resources" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -312,25 +357,25 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/src/main/resources" />
       <recent name="$PROJECT_DIR$/Smart_parking_server/module_Order/src/main/java/com/example/order" />
       <recent name="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/resources/static" />
       <recent name="$PROJECT_DIR$/Smart_parking_server/module_Administrators/src/main/resources" />
       <recent name="$PROJECT_DIR$/ProjectSetUp" />
-      <recent name="$PROJECT_DIR$/Smart_parking_server/module_Integral/src/main/resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/src/main/java" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/Smart_parking_server" />
       <recent name="$PROJECT_DIR$/Smart_parking_server/module_Administrators/src/main/java/com/example/administrators/service" />
       <recent name="$PROJECT_DIR$/Smart_parking_server/API" />
-      <recent name="$PROJECT_DIR$/smart_parking_server/module_User/src/main/resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.administrators.Degradation" />
       <recent name="com.example.order.config" />
       <recent name="com.example.Integral.config" />
       <recent name="com.example.user.config" />
       <recent name="com.feign.api.entity.user" />
-      <recent name="com.feign.api.service" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -692,7 +737,8 @@
       <workItem from="1662031651564" duration="995000" />
       <workItem from="1662033871192" duration="5600000" />
       <workItem from="1662099504782" duration="13574000" />
-      <workItem from="1662287461931" duration="4633000" />
+      <workItem from="1662287461931" duration="9881000" />
+      <workItem from="1662342731629" duration="2970000" />
     </task>
     <servers />
   </component>

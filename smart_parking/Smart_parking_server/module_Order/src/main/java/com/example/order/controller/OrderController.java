@@ -3,6 +3,8 @@ package com.example.order.controller;
 import com.example.order.serviceImpl.OrderServiceImpl;
 
 import com.feign.api.entity.order.Order_information;
+import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -23,6 +25,7 @@ import java.util.List;
 @Api(tags = "订单模块")
 @RequestMapping("/Order")
 @Slf4j
+@DefaultProperties(defaultFallback ="err")
 public class    OrderController {
 
 
@@ -37,6 +40,7 @@ public class    OrderController {
             key = {"orderTimeout"}
     ))
     //@RabbitListener 标注在类上面表示当有收到消息的时候，就交给 @RabbitHandler 的方法处理，根据接受的参数类型进入具体的方法中。
+    @HystrixCommand
     public void   orderTimeout (HashMap<String,String> map){
         log.info(orderService.orderTimeout( map.get("user_name"),  map.get("order_number")));
     }
@@ -50,6 +54,7 @@ public class    OrderController {
 
     })
     @PostMapping(value = "/generate_order/{user_name}/{license_plate_number}/{parking_lot_number}", produces = "application/json; charset=utf-8")
+    @HystrixCommand
     public String  generate_order (@PathVariable String user_name,@PathVariable String license_plate_number,@PathVariable String parking_lot_number){
         return orderService.generate_order(user_name,license_plate_number,parking_lot_number);
     }
@@ -61,6 +66,7 @@ public class    OrderController {
             @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String"),
     })
     @GetMapping(value = "/getOrderByUsername/{user_name}",produces = "application/json; charset=utf-8")
+    @HystrixCommand
     public List<Order_information> getOrderByUsername (@PathVariable String user_name){
         return orderService.getOrderByUsername(user_name);
     }
@@ -71,6 +77,7 @@ public class    OrderController {
             @ApiImplicitParam(name = "parking_lot_number", value = "停车场编号", required = true, dataType = "String")
     })
     @GetMapping(value = "/getParkingOrder", produces = "application/json; charset=utf-8")
+    @HystrixCommand
     public List<Order_information> getParkingOrder (String parking_lot_number){
         return orderService.getParkingOrders(parking_lot_number);
     }
@@ -83,6 +90,7 @@ public class    OrderController {
             @ApiImplicitParam(name = "order_number", value = "订单编号", required = true, dataType = "String")
     })
     @GetMapping(value = "/userGetParkingOrder/{user_name}/{order_number}", produces = "application/json; charset=utf-8")
+    @HystrixCommand
     public Order_information userGetParkingOrder (@PathVariable String user_name, @PathVariable String order_number){
         return orderService.userGetParkingOrder(user_name,order_number);
     }
@@ -94,6 +102,7 @@ public class    OrderController {
             @ApiImplicitParam(name = "order_number", value = "订单编号", required = true, dataType = "String"),
     })
     @GetMapping(value = "/getOrderByNumber", produces = "application/json; charset=utf-8")
+    @HystrixCommand
     public Order_information getOrderByNumber (String order_number){
         return orderService.getOrderByNumber(order_number);
     }
@@ -106,6 +115,7 @@ public class    OrderController {
             @ApiImplicitParam(name = "parking_lot_number", value = "停车场编号", required = true, dataType = "String")
     })
     @PutMapping(value = "/setStatus_in", produces = "text/plain;charset=utf-8")
+    @HystrixCommand
     public String setStatus_in (String license_plate_number ,String parking_lot_number){
         return orderService.setStatus_in(license_plate_number,parking_lot_number);
     }
@@ -118,6 +128,7 @@ public class    OrderController {
             @ApiImplicitParam(name = "parking_lot_number", value = "停车场编号", required = true, dataType = "String")
     })
     @PutMapping(value = "/setStatus_out", produces = "text/plain;charset=utf-8")
+    @HystrixCommand
     public String setStatus_out (String license_plate_number ,String parking_lot_number){
         return orderService.setStatus_out(license_plate_number,parking_lot_number);
     }
@@ -130,6 +141,7 @@ public class    OrderController {
             @ApiImplicitParam(name = "order_number", value = "订单编号", required = true, dataType = "String")
     })
     @PutMapping(value = "/complete_Order/{user_name}/{order_number}", produces = "text/plain;charset=utf-8")
+    @HystrixCommand
     public String complete_Order (@PathVariable String user_name,@PathVariable String order_number){
         return orderService.complete_Order(user_name,order_number);
     }
@@ -142,6 +154,7 @@ public class    OrderController {
             @ApiImplicitParam(name = "order_number", value = "订单编号", required = true, dataType = "String"),
     })
     @PutMapping(value = "/app_cancellation_Order/{user_name}/{order_number}", produces = "text/plain;charset=utf-8")
+    @HystrixCommand
     public String app_cancellation_Order (@PathVariable String user_name,@PathVariable String order_number){
         return orderService.app_cancellation_Order(user_name,order_number);
     }
@@ -154,6 +167,7 @@ public class    OrderController {
             @ApiImplicitParam(name = "order_number", value = "订单编号", required = true, dataType = "String")
     })
     @PutMapping(value = "/parking_cancellation_Order/{parking_lot_number}/{order_number}", produces = "text/plain;charset=utf-8")
+    @HystrixCommand
     public String parking_cancellation_Order (@PathVariable String parking_lot_number,@PathVariable String order_number){
         return orderService.parking_cancellation_Order(parking_lot_number,order_number);
     }
@@ -163,9 +177,13 @@ public class    OrderController {
 
     @ApiOperation(value = "获取所有订单")
     @GetMapping(value = "/getAllOrders")
+    @HystrixCommand
     public List<Order_information> getAllOrders (){
         return orderService.getAllOrders();
     }
 
 
+    private String err(){
+        return "订单系统繁忙，请稍后再试";
+    }
 }

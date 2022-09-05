@@ -4,6 +4,8 @@ import com.example.parkingLots.serviceImpl.ParkingLotServiceImpl;
 
 import com.feign.api.entity.parkingLots.Parking;
 import com.feign.api.entity.parkingLots.Parking_for_user;
+import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -17,6 +19,8 @@ import java.util.List;
 @RestController
 @Api(tags = "停车场管理员模块")
 @RequestMapping("/ParkingLots")
+@DefaultProperties(defaultFallback ="err")
+
 public class ParkingLotsController {
 
     @Resource
@@ -31,6 +35,7 @@ public class ParkingLotsController {
             @ApiImplicitParam(name = "pctr_id", value = "停车场管理员账号", required = true, dataType = "String")
     })
     @GetMapping(value = "/parking_login", produces = "text/plain;charset=utf-8")
+    @HystrixCommand
     public String parking_login( String pctr_id, String pctr_password){
         return parkingLotService.login_Parking(pctr_id,pctr_password);
     }
@@ -49,6 +54,7 @@ public class ParkingLotsController {
             @ApiImplicitParam(name = "pctr_id", value = "停车场管理员账号", required = true, dataType = "String")
     })
     @PostMapping(value = "/parking_register", produces = "text/plain;charset=utf-8")
+    @HystrixCommand
     public String parking_register(String pctr_id,
                                    String pctr_password,
                                    String parking_lot_name,
@@ -68,6 +74,7 @@ public class ParkingLotsController {
             @ApiImplicitParam(name = "Available_place_num", value = "可用车位数量", required = true, dataType = "String")
     })
     @PutMapping(value = "/change_parking_space", produces = "text/plain; charset=utf-8")
+    @HystrixCommand
     public String change_parking_space (String parking_lot_number ,String Available_place_num){
         return parkingLotService.change_parking_space(parking_lot_number,Available_place_num);
     }
@@ -80,6 +87,7 @@ public class ParkingLotsController {
             @ApiImplicitParam(name = "parking_lot_number", value = "停车场编号", required = true, dataType = "String"),
     })
     @GetMapping(value = "/getParkingName/{parking_lot_number}", produces = "text/plain; charset=utf-8")
+    @HystrixCommand
     public String getParkingName (@PathVariable String parking_lot_number ){
         return parkingLotService.getParkingName(parking_lot_number);
     }
@@ -92,6 +100,7 @@ public class ParkingLotsController {
             @ApiImplicitParam(name = "parking_lot_number", value = "停车场编号", required = true, dataType = "String")
     })
     @GetMapping(value = "/getParkingBilling_rules/{parking_lot_number}", produces = "text/plain; charset=utf-8")
+    @HystrixCommand
     public String getParkingBilling_rules (@PathVariable String parking_lot_number ){
         return parkingLotService.getParkingBilling_rules(parking_lot_number);
     }
@@ -103,6 +112,7 @@ public class ParkingLotsController {
             @ApiImplicitParam(name = "order_number", value = "订单编号", required = true, dataType = "String")
     })
     @PutMapping(value = "/parking_cancellation_Order/{parking_lot_number}/{order_number}", produces = "text/plain;charset=utf-8")
+    @HystrixCommand
     public String parking_cancellation_Order (@PathVariable String parking_lot_number,@PathVariable  String order_number){
         return parkingLotService.parking_cancellation_Order(parking_lot_number,order_number);
     }
@@ -114,6 +124,7 @@ public class ParkingLotsController {
             @ApiImplicitParam(name = "city", value = "所在城市", required = true, dataType = "String")
     })
     @GetMapping(value = "/getParkingLot/{parking_lot_name}/{city}", produces = "application/json;charset=utf-8")
+    @HystrixCommand
     public List<Parking_for_user> getParkingLot (@PathVariable String parking_lot_name, @PathVariable String city){
         return parkingLotService.getParkingLot(parking_lot_name,city);
     }
@@ -124,6 +135,7 @@ public class ParkingLotsController {
             @ApiImplicitParam(name = "city", value = "所在城市", required = true, dataType = "String"),
     })
     @GetMapping(value = "/get_parking_lot/{city}", produces = "application/json; charset=utf-8")
+    @HystrixCommand
     public List<Parking_for_user> get_parking_lot (@PathVariable String city){
         return parkingLotService.get_parking_lot(city);
     }
@@ -133,6 +145,7 @@ public class ParkingLotsController {
 
     @ApiOperation(value = "查找所有停车场管理员")
     @GetMapping(value = "/getAllParking", produces = "application/json; charset=utf-8")
+    @HystrixCommand
     public List<Parking> getAllParking(){
         return parkingLotService.getAllParking();
     }
@@ -142,8 +155,14 @@ public class ParkingLotsController {
 
     @ApiOperation(value = "删除所有停车场")
     @DeleteMapping(value = "/delete_Parking")
+    @HystrixCommand
     public void delete_Parking(){
         parkingLotService.delete_Parking();
+    }
+
+
+    private String err(){
+        return "停车场管理员访问接口错误，请稍后再试";
     }
 
 }

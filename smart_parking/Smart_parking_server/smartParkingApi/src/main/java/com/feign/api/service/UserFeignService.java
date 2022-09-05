@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
-@FeignClient("ClientUser")
+@FeignClient(value = "ClientUser")
 public interface UserFeignService {
 
     @GetMapping("/User/getAllUsers")

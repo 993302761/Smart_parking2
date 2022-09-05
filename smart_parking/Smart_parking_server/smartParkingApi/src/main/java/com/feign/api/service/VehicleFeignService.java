@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@FeignClient("ClientVehicle")
+@FeignClient(value = "ClientVehicle")
 public interface VehicleFeignService {
 
     @GetMapping(value = "/Vehicle/check_license_plate_number/{user_name}/{license_plate_number}")
