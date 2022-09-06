@@ -209,6 +209,11 @@ public class ParkingLotServiceImpl {
      * @return 所有停车场列表
      */
     public List<Parking> getAllParking() {
+//        try {
+//            TimeUnit.SECONDS.sleep(5);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         return parkingLotDao.getAllParking();
     }
 

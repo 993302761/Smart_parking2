@@ -1,6 +1,0 @@
-22:02:44.199 WARN  org.springframework.boot.actuate.endpoint.EndpointId 155 logWarning - Endpoint ID 'bus-env' contains invalid characters, please migrate to a valid format.
-22:02:44.370 WARN  org.springframework.boot.actuate.endpoint.EndpointId 155 logWarning - Endpoint ID 'bus-refresh' contains invalid characters, please migrate to a valid format.
-22:02:44.404 WARN  org.springframework.boot.actuate.endpoint.EndpointId 155 logWarning - Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
-22:02:44.924 WARN  com.netflix.config.sources.URLConfigurationSource 126 <init> - No URLs will be polled as dynamic configuration sources.
-22:02:45.969 WARN  com.netflix.config.sources.URLConfigurationSource 126 <init> - No URLs will be polled as dynamic configuration sources.
-22:02:46.531 WARN  org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger 106 logWarning - You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.

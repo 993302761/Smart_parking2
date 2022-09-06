@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import java.util.List;
 
 @Component
-@FeignClient(value = "ClientParkingLots" ,fallback = ParkingLotFeignServiceDegradation.class)
+@FeignClient(value = "ClientParkingLots" ,fallbackFactory = ParkingLotFeignServiceDegradation.class)
 
 public interface ParkingLotFeignService {
 

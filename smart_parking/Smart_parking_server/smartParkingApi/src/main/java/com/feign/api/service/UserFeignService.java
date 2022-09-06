@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
-@FeignClient(value = "ClientUser",fallback = UserFeignServiceDegradation.class)
+@FeignClient(value = "ClientUser",fallbackFactory = UserFeignServiceDegradation.class)
 public interface UserFeignService {
 
     @GetMapping("/User/getAllUsers")
