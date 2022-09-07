@@ -326,8 +326,34 @@ public class OrderServiceImpl {
         else if (order.getOutTime()!=null||order.getInTime()!=null){
             return "订单进行中不可取消，若要取消可联系停车场";
         }
-
         return setStatus("已取消",order.getOrder_number());
+    }
+
+
+
+    /**
+     * TODO：超级管理员取消订单
+     * @param order_number 订单编号
+     * @return 是否成功
+     */
+    public String cancelOrder (String order_number){
+        Order_information order = getOrderByNumber(order_number);
+        if (order==null){
+            return "未找到订单";
+        }
+        else if (order.getOrder_status().equals("已取消")){
+            return "请勿重复取消订单";
+        }
+        else if (order.getOrder_status().equals("已完成")){
+            return "订单已完成";
+        }
+        boolean hasKey = redisTemplate.hasKey(order.getParking_lot_number());
+        if(hasKey){
+            redisTemplate.opsForValue().increment(order.getParking_lot_number(),1);        //车位自增
+            return setStatus("已取消",order.getOrder_number());
+        }else {
+            return "停车场信息异常";
+        }
     }
 
 

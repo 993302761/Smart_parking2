@@ -41,4 +41,8 @@ public interface OrderFeignService {
 
     @GetMapping(value = "/Order/getOrderByUsername/{user_name}")
     List<Order_information> getOrderByUsername (@PathVariable("user_name") String user_name);
+
+
+    @PutMapping(value = "/Order/cancelOrder/{order_number}")
+    String cancelOrder (@PathVariable("order_number") String order_number);
 }

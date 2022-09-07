@@ -67,6 +67,12 @@ public class OrderFeignServiceDegradation implements FallbackFactory<OrderFeignS
                 log.error("getOrderByUsername 服务出现异常，异常信息：" + cause);
                 return order;
             }
+
+            @Override
+            public String cancelOrder(String order_number) {
+                log.error("cancelOrder 服务出现异常，异常信息：" + cause);
+                return "系统繁忙，超级管理员订单取消失败，请稍后再试";
+            }
         };
     }
 }

@@ -7,10 +7,7 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -57,6 +54,35 @@ public class AdministratorsController {
     @GetMapping(value = "/getAllOrder", produces = "application/json; charset=utf-8")
     public Object getAllOrder()  {
         return administratorsService.getAllOrder();
+    }
+
+
+    @ApiOperation(value = "停车场信息更改")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "billing_rules", value = "计费规则  (元/小时)", required = true, dataType = "float",example = "0"),
+            @ApiImplicitParam(name = "parking_spaces_num", value = "车位数量", required = true, dataType = "int",example = "0"),
+            @ApiImplicitParam(name = "parking_in_the_city", value = "停车场所在地", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "parking_lot_name", value = "停车场名", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "pctr_id", value = "停车场管理员账号", required = true, dataType = "String")
+    })
+    @PutMapping(value = "/updateParking", produces = "text/plain;charset=utf-8")
+    public String updateParking(String pctr_id,
+                                String parking_lot_name,
+                                String parking_in_the_city,
+                                Integer parking_spaces_num,
+                                float billing_rules){
+        return administratorsService.updateParking(pctr_id,parking_lot_name,parking_in_the_city,parking_spaces_num,billing_rules);
+    }
+
+
+
+    @ApiOperation(value = "超级管理员取消订单")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "order_number", value = "订单编号", required = true, dataType = "String")
+    })
+    @PutMapping(value = "/cancelOrder/{order_number}", produces = "text/plain;charset=utf-8")
+    public String cancelOrder (@PathVariable  String order_number){
+        return administratorsService.cancelOrder(order_number);
     }
 
 

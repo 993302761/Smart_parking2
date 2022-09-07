@@ -1,14 +1,14 @@
-13:33:44.444 WARN  org.springframework.boot.actuate.endpoint.EndpointId 155 logWarning - Endpoint ID 'bus-env' contains invalid characters, please migrate to a valid format.
-13:33:44.614 WARN  org.springframework.boot.actuate.endpoint.EndpointId 155 logWarning - Endpoint ID 'bus-refresh' contains invalid characters, please migrate to a valid format.
-13:33:44.649 WARN  org.springframework.boot.actuate.endpoint.EndpointId 155 logWarning - Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
-13:33:44.659 WARN  org.springframework.boot.actuate.endpoint.EndpointId 155 logWarning - Endpoint ID 'hystrix.stream' contains invalid characters, please migrate to a valid format.
-13:33:45.293 WARN  com.netflix.config.sources.URLConfigurationSource 126 <init> - No URLs will be polled as dynamic configuration sources.
-13:33:46.526 WARN  com.netflix.config.sources.URLConfigurationSource 126 <init> - No URLs will be polled as dynamic configuration sources.
-13:33:47.185 WARN  org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger 106 logWarning - You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
-13:34:46.030 WARN  com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient 130 execute - Request execution failed with message: java.net.ConnectException: 拒绝连接 (Connection refused)
-13:34:46.031 WARN  com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient 130 execute - Request execution failed with message: java.net.ConnectException: 拒绝连接 (Connection refused)
-13:34:46.032 WARN  com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient 130 execute - Request execution failed with message: java.net.ConnectException: 拒绝连接 (Connection refused)
-13:34:46.032 WARN  com.netflix.discovery.DiscoveryClient 878 register - DiscoveryClient_CLIENTADMINISTRATORS/10.12.65.75:ClientAdministrators:9000 - registration failed Retry limit reached; giving up on completing the request com.netflix.discovery.shared.transport.TransportException: Retry limit reached; giving up on completing the request
+22:46:21.604 WARN  org.springframework.boot.actuate.endpoint.EndpointId 155 logWarning - Endpoint ID 'bus-env' contains invalid characters, please migrate to a valid format.
+22:46:21.841 WARN  org.springframework.boot.actuate.endpoint.EndpointId 155 logWarning - Endpoint ID 'bus-refresh' contains invalid characters, please migrate to a valid format.
+22:46:21.895 WARN  org.springframework.boot.actuate.endpoint.EndpointId 155 logWarning - Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+22:46:21.909 WARN  org.springframework.boot.actuate.endpoint.EndpointId 155 logWarning - Endpoint ID 'hystrix.stream' contains invalid characters, please migrate to a valid format.
+22:46:22.659 WARN  com.netflix.config.sources.URLConfigurationSource 126 <init> - No URLs will be polled as dynamic configuration sources.
+22:46:24.086 WARN  com.netflix.config.sources.URLConfigurationSource 126 <init> - No URLs will be polled as dynamic configuration sources.
+22:46:24.841 WARN  org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger 106 logWarning - You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+22:46:56.059 WARN  com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient 130 execute - Request execution failed with message: java.net.ConnectException: 拒绝连接 (Connection refused)
+22:46:56.060 WARN  com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient 130 execute - Request execution failed with message: java.net.ConnectException: 拒绝连接 (Connection refused)
+22:46:56.061 WARN  com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient 130 execute - Request execution failed with message: java.net.ConnectException: 拒绝连接 (Connection refused)
+22:46:56.061 WARN  com.netflix.discovery.DiscoveryClient 878 register - DiscoveryClient_CLIENTADMINISTRATORS/10.12.65.75:ClientAdministrators:9000 - registration failed Retry limit reached; giving up on completing the request com.netflix.discovery.shared.transport.TransportException: Retry limit reached; giving up on completing the request
 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:139) ~[eureka-client-1.10.14.jar:1.10.14]
 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-1.10.14.jar:1.10.14]
 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59) ~[eureka-client-1.10.14.jar:1.10.14]
@@ -25,7 +25,7 @@
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_251]
 	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_251]
 
-13:34:46.035 WARN  com.netflix.discovery.InstanceInfoReplicator 125 run - There was a problem with the instance info replicator com.netflix.discovery.shared.transport.TransportException: Retry limit reached; giving up on completing the request
+22:46:56.064 WARN  com.netflix.discovery.InstanceInfoReplicator 125 run - There was a problem with the instance info replicator com.netflix.discovery.shared.transport.TransportException: Retry limit reached; giving up on completing the request
 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:139) ~[eureka-client-1.10.14.jar:1.10.14]
 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-1.10.14.jar:1.10.14]
 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59) ~[eureka-client-1.10.14.jar:1.10.14]
@@ -42,9 +42,11 @@
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_251]
 	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_251]
 
-13:34:48.976 WARN  com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient 130 execute - Request execution failed with message: java.net.ConnectException: 拒绝连接 (Connection refused)
-13:34:48.978 WARN  com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient 130 execute - Request execution failed with message: java.net.ConnectException: 拒绝连接 (Connection refused)
-13:34:48.978 ERROR com.netflix.discovery.DiscoveryClient 907 renew - DiscoveryClient_CLIENTADMINISTRATORS/10.12.65.75:ClientAdministrators:9000 - was unable to send heartbeat! com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+22:46:58.704 WARN  com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient 130 execute - Request execution failed with message: java.net.ConnectException: 拒绝连接 (Connection refused)
+22:46:58.706 WARN  com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient 130 execute - Request execution failed with message: java.net.ConnectException: 拒绝连接 (Connection refused)
+22:46:58.708 WARN  com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient 130 execute - Request execution failed with message: java.net.ConnectException: 拒绝连接 (Connection refused)
+22:46:58.709 WARN  com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient 130 execute - Request execution failed with message: java.net.ConnectException: 拒绝连接 (Connection refused)
+22:46:58.710 ERROR com.netflix.discovery.DiscoveryClient 907 renew - DiscoveryClient_CLIENTADMINISTRATORS/10.12.65.75:ClientAdministrators:9000 - was unable to send heartbeat! com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-1.10.14.jar:1.10.14]
 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89) ~[eureka-client-1.10.14.jar:1.10.14]
 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$3.execute(EurekaHttpClientDecorator.java:92) ~[eureka-client-1.10.14.jar:1.10.14]
@@ -58,12 +60,10 @@
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_251]
 	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_251]
 
-13:34:48.981 WARN  com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient 130 execute - Request execution failed with message: java.net.ConnectException: 拒绝连接 (Connection refused)
-13:34:48.981 WARN  com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient 130 execute - Request execution failed with message: java.net.ConnectException: 拒绝连接 (Connection refused)
-13:34:48.982 WARN  com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient 130 execute - Request execution failed with message: java.net.ConnectException: 拒绝连接 (Connection refused)
-13:34:49.110 WARN  com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient 130 execute - Request execution failed with message: java.net.ConnectException: 拒绝连接 (Connection refused)
-13:34:49.111 WARN  com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient 130 execute - Request execution failed with message: java.net.ConnectException: 拒绝连接 (Connection refused)
-13:34:49.111 ERROR com.netflix.discovery.DiscoveryClient 975 unregister - DiscoveryClient_CLIENTADMINISTRATORS/10.12.65.75:ClientAdministrators:9000 - de-registration failedCannot execute request on any known server com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+22:46:58.712 WARN  com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient 130 execute - Request execution failed with message: java.net.ConnectException: 拒绝连接 (Connection refused)
+22:46:59.820 WARN  com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient 130 execute - Request execution failed with message: java.net.ConnectException: 拒绝连接 (Connection refused)
+22:46:59.821 WARN  com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient 130 execute - Request execution failed with message: java.net.ConnectException: 拒绝连接 (Connection refused)
+22:46:59.821 ERROR com.netflix.discovery.DiscoveryClient 975 unregister - DiscoveryClient_CLIENTADMINISTRATORS/10.12.65.75:ClientAdministrators:9000 - de-registration failedCannot execute request on any known server com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-1.10.14.jar:1.10.14]
 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71) ~[eureka-client-1.10.14.jar:1.10.14]
 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74) ~[eureka-client-1.10.14.jar:1.10.14]

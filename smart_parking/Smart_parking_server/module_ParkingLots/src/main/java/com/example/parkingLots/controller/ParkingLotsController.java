@@ -62,6 +62,25 @@ public class ParkingLotsController {
 
 
 
+    @ApiOperation(value = "停车场信息更改")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "billing_rules", value = "计费规则  (元/小时)", required = true, dataType = "float",example = "0"),
+            @ApiImplicitParam(name = "parking_spaces_num", value = "车位数量", required = true, dataType = "int",example = "0"),
+            @ApiImplicitParam(name = "parking_in_the_city", value = "停车场所在地", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "parking_lot_name", value = "停车场名", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "pctr_id", value = "停车场管理员账号", required = true, dataType = "String")
+    })
+    @PutMapping(value = "/updateParking/{pctr_id}/{parking_lot_name}/{parking_in_the_city}/{parking_spaces_num}/{billing_rules}", produces = "text/plain;charset=utf-8")
+    public String updateParking(@PathVariable String pctr_id,
+                                @PathVariable   String parking_lot_name,
+                                @PathVariable    String parking_in_the_city,
+                                @PathVariable   Integer parking_spaces_num,
+                                @PathVariable    float billing_rules){
+        return parkingLotService.updateParking(pctr_id,parking_lot_name,parking_in_the_city,parking_spaces_num,billing_rules);
+    }
+
+
+
     @ApiOperation(value = "车位情况变化")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "parking_lot_number", value = "停车场编号", required = true, dataType = "String"),

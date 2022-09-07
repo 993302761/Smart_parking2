@@ -1,0 +1,1 @@
+13:33:19.265 ERROR com.feign.api.service.ParkingLotFeignServiceDegradation$1 64 updateParking - updateParking 服务出现异常，异常信息：java.lang.RuntimeException: com.netflix.client.ClientException: Load balancer does not have available server for client: ClientParkingLots

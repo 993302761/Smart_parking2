@@ -81,6 +81,40 @@ public class ParkingLotServiceImpl {
 
 
 
+
+    /**
+     * TODO：更新停车场信息
+     * @param pctr_id 停车场管理员账号
+     * @param parking_lot_name 停车场名
+     * @param parking_in_the_city 停车场所在城市
+     * @param parking_spaces_num 停车场总车位数
+     * @param billing_rules 定价
+     * @return 是否成功
+     */
+    public String updateParking(String pctr_id,
+                              String parking_lot_name,
+                              String parking_in_the_city,
+                              Integer parking_spaces_num,
+                              float billing_rules) {
+        if (pctr_id==null  || parking_lot_name==null || parking_in_the_city==null || parking_spaces_num==null) {
+            return "请输入完整信息";
+        }
+        Parking_lot_information parkingLotInformation = parkingLotDao.getParkingByPid(pctr_id);
+        if (parkingLotInformation == null) {
+            return "该停车场未注册";
+        }
+        int i = parkingLotDao.updateParking(parking_lot_name,parking_in_the_city,parking_spaces_num,billing_rules,pctr_id);
+        if (i==1){
+            return "更新成功";
+        }else {
+            return "更新失败";
+        }
+    }
+
+
+
+
+
     /**
      * TODO：停车场管理员登录
      * @param pctr_id 停车场管理员账号

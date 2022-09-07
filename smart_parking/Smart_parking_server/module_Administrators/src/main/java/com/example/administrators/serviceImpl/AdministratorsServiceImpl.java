@@ -88,5 +88,27 @@ public class AdministratorsServiceImpl {
     }
 
 
+    /**
+     * TODO：更新停车场信息
+     * @param pctr_id 停车场管理员账号
+     * @param parking_lot_name 停车场名
+     * @param parking_in_the_city 停车场所在城市
+     * @param parking_spaces_num 停车场总车位数
+     * @param billing_rules 定价
+     * @return 是否成功
+     */
+    public String updateParking(String pctr_id, String parking_lot_name, String parking_in_the_city, Integer parking_spaces_num, float billing_rules) {
+        return parkingLotFeignService.updateParking(pctr_id, parking_lot_name, parking_in_the_city, parking_spaces_num, billing_rules);
+    }
 
+
+
+    /**
+     * TODO：超级管理员取消订单
+     * @param order_number 订单编号
+     * @return 是否成功
+     */
+    public String cancelOrder( String order_number) {
+        return orderFeignService.cancelOrder(order_number);
+    }
 }

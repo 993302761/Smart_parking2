@@ -98,6 +98,24 @@ public interface ParkingLotDao {
     List<Parking_for_user> get_parking_lot(@Param("city") String city);
 
 
+
+    /**
+     * 修改停车场信息
+     * */
+    @Update("UPDATE Parking_lot_information SET " +
+            "parking_lot_name=#{parking_lot_name}," +
+            "parking_in_the_city=#{parking_in_the_city}," +
+            "parking_spaces_num=#{parking_spaces_num}," +
+            "billing_rules=#{billing_rules}  WHERE pctr_id=#{pctr_id}")
+    int updateParking(@Param("parking_lot_name") String parking_lot_name,
+                      @Param("parking_in_the_city") String parking_in_the_city,
+                      @Param("parking_spaces_num") Integer parking_spaces_num,
+                      @Param("billing_rules") float billing_rules,
+                      @Param("pctr_id") String pctr_id);
+
+
+
+
     /**
      * 删除所有已注册的停车场
      */

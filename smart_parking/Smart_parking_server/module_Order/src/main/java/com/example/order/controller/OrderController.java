@@ -146,6 +146,14 @@ public class    OrderController {
         return orderService.app_cancellation_Order(user_name,order_number);
     }
 
+    @ApiOperation(value = "超级管理员订单取消")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "order_number", value = "订单编号", required = true, dataType = "String")
+    })
+    @PutMapping(value = "/cancelOrder/{order_number}", produces = "text/plain;charset=utf-8")
+    public String cancelOrder (@PathVariable String order_number){
+        return orderService.cancelOrder(order_number);
+    }
 
 
     @ApiOperation(value = "停车场订单取消")
