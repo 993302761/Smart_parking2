@@ -2,11 +2,14 @@ package com.example.order.serviceImpl;
 
 import com.example.order.dao.OrderDao;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.feign.api.entity.order.Order_information;
 import com.feign.api.service.ParkingLotFeignService;
 import com.feign.api.service.VehicleFeignService;
 import org.springframework.context.annotation.Import;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -33,7 +36,11 @@ public class OrderServiceImpl {
     @Resource
     private VehicleFeignService vehicleFeignService;
 
+    @Resource
+    private StringRedisTemplate stringRedisTemplate;
 
+    //json序列化工具
+    private final static ObjectMapper mapper=new ObjectMapper();
 
     @Resource
     private RedisTemplate<String, Integer> redisTemplate;
@@ -402,6 +409,15 @@ public class OrderServiceImpl {
     }
 
 
-
+    /**
+     * TODO：向redis中存储对象
+     * @param key
+     * @param value
+     */
+    public void setRedisValue (String key, Object value) throws JsonProcessingException {
+        //手动序列化
+        String json=mapper.writeValueAsString(value);
+        stringRedisTemplate.opsForValue().set(key,json);
+    }
 
 }

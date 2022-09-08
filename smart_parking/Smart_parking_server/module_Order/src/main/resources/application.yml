@@ -7,7 +7,6 @@ spring:
     name: ClientOrder
 
   rabbitmq:
-
     listener:
       simple:
         prefetch: 1   #每次只能获取一条消息，处理完才能获取下一条（提升消息处理速度，避免消息堆积）
@@ -18,3 +17,11 @@ spring:
           multiplier: 2   #下次失败的等待时长的倍数
           max-attempts: 3  #最大重试次数  次数耗尽则丢弃
           stateless: true   #true为无状态，false为有，如果业务中包含事务则改为false
+
+  redis:
+    lettuce:
+      pool:
+        max-active: 8 #最大连接，默认
+        max-idle: 8 #最大空闲连接，默认
+        min-idle: 0 #最小空闲连接，默认
+        max-wait: 100ms #连接等待时间

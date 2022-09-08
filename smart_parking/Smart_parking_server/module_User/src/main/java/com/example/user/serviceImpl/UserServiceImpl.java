@@ -3,16 +3,16 @@ package com.example.user.serviceImpl;
 
 import com.example.user.dao.UserDao;
 import com.example.user.entity.User_information;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.feign.api.entity.user.User;
 import com.feign.api.service.ParkingLotFeignService;
 import com.feign.api.service.VehicleFeignService;
 import com.saltfish.example.demo.VehicleFileDao;
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import org.springframework.context.annotation.Import;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.http.*;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
@@ -49,12 +49,15 @@ public class UserServiceImpl  {
     private VehicleFeignService vehicleFeignService;
 
 
+    @Resource
+    private StringRedisTemplate stringRedisTemplate;
 
     @Resource
     private ParkingLotFeignService parkingLotFeignService;
 
 
-
+    //json序列化工具
+    private final static ObjectMapper mapper=new ObjectMapper();
 
 
 
@@ -359,7 +362,16 @@ public class UserServiceImpl  {
     }
 
 
-
+    /**
+     * TODO：从redis中获取对象
+     * @param key
+     */
+    public Object getRedisValue (String key,Class clazz) throws JsonProcessingException {
+        String value=stringRedisTemplate.opsForValue().get(key);
+        //反序列化
+        Object userInformation=mapper.readValue(value,clazz);
+        return userInformation;
+    }
 
 
 

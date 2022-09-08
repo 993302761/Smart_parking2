@@ -27,7 +27,7 @@ public class AdministratorsController {
     @ApiOperation(value = "超级管理员登录", notes = "输入超级管理员账号和密码登录")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "ctr_password", value = "密码", required = true, dataType = "String"),
-            @ApiImplicitParam(name = "ctr_id", value = "超级管理员登录", required = true, dataType = "String")
+            @ApiImplicitParam(name = "ctr_id", value = "超级管理员账号", required = true, dataType = "String")
     })
     @GetMapping(value = "/controller_login/{ctr_id}/{ctr_password}", produces = "text/plain;charset=utf-8")
     public String controller_login(@PathVariable String ctr_id,@PathVariable  String ctr_password){
@@ -45,7 +45,6 @@ public class AdministratorsController {
     @ApiOperation(value = "查找所有停车场")
     @GetMapping(value = "/getAllParking", produces = "application/json; charset=utf-8")
     public Object getAllParking()  {
-
         return administratorsService.getAllParking();
     }
 

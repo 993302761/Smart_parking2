@@ -15,12 +15,16 @@ public class RedisConfig {
     @Bean(name = "redisTemplate")
     public RedisTemplate<String, Serializable> redisTemplate(LettuceConnectionFactory lettuceConnectionFactory) {
         RedisTemplate<String, Serializable> redisTemplate = new RedisTemplate<>();
-        redisTemplate.setValueSerializer(new GenericJackson2JsonRedisSerializer());         //以json形式序列化
-        //设置 value 的序列化方式为 JOSON
-//        redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer(Object.class));
-        //设置 key 的序列化方式为 String
-        redisTemplate.setKeySerializer(new StringRedisSerializer());
 
+        GenericJackson2JsonRedisSerializer redisSerializer = new GenericJackson2JsonRedisSerializer();
+        StringRedisSerializer serializer = new StringRedisSerializer();
+        //设置 value 和 HashValue 的序列化方式为 JOSON
+        redisTemplate.setValueSerializer(redisSerializer);
+        redisTemplate.setHashValueSerializer(redisSerializer);
+        //设置 key 和 HashKey 的序列化a方式为 String
+        redisTemplate.setKeySerializer(serializer);
+        redisTemplate.setHashKeySerializer(serializer);
+        //设置连接工厂
         redisTemplate.setConnectionFactory(lettuceConnectionFactory);
         return redisTemplate;
     }
