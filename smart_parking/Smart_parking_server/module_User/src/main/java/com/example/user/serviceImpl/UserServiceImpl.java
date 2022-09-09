@@ -10,7 +10,6 @@ import com.feign.api.service.ParkingLotFeignService;
 import com.feign.api.service.VehicleFeignService;
 import com.saltfish.example.demo.VehicleFileDao;
 import org.springframework.context.annotation.Import;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -38,8 +37,6 @@ public class UserServiceImpl  {
     @Resource
     private UserDao userDao;
 
-    @Resource
-    private RedisTemplate<String, String> redisTemplate;
 
     @Resource
     private VehicleFileDao vehicleFileDao;
@@ -281,7 +278,7 @@ public class UserServiceImpl  {
      */
     public boolean check_UUID(String UUID,String user_name){
         String key=md5(user_name+UUID);
-        boolean hasKey = redisTemplate.hasKey(key);
+        boolean hasKey = stringRedisTemplate.hasKey(key);
         if(hasKey){
             return true;
         } else {
@@ -335,8 +332,8 @@ public class UserServiceImpl  {
                 curDate.get(Calendar.SECOND));
         long second = (nextDate.getTimeInMillis() - curDate.getTimeInMillis()) / 1000;
         String key=md5(user_name+UUID);
-        redisTemplate.opsForValue().set(key, null);
-        Boolean expire = redisTemplate.expire(key, second, TimeUnit.SECONDS);
+        stringRedisTemplate.opsForValue().set(key, null);
+        Boolean expire = stringRedisTemplate.expire(key, second, TimeUnit.SECONDS);
         return expire;
     }
 
@@ -381,7 +378,7 @@ public class UserServiceImpl  {
     public String delete_User (String user_name,String UUID){
         userDao.delete_User(user_name);
         String key=md5(user_name+UUID);
-        redisTemplate.delete(key);
+        stringRedisTemplate.delete(key);
         return vehicleFeignService.deleteAllVehicle(user_name);
     }
 

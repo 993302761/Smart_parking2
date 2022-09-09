@@ -64,6 +64,12 @@ public class ParkingLotFeignServiceDegradation implements FallbackFactory<Parkin
                 log.error("updateParking 服务出现异常，异常信息：" + cause);
                 return "系统繁忙，停车场信息更新失败，请稍后再试";
             }
+
+            @Override
+            public int findParkingLot(String parking_lot_number) {
+                log.error("findParkingLot 服务出现异常，异常信息：" + cause);
+                return -1;
+            }
         };
     }
 }

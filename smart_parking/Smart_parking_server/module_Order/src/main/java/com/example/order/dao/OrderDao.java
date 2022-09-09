@@ -164,18 +164,15 @@ public interface OrderDao {
      * */
     @Insert("INSERT INTO Order_information VALUES(#{order_number}, #{generation_time}, #{user_name}, #{inTime},#{outTime}, #{parking_lot_name}, #{parking_lot_number}, #{license_plate_number}, #{payment_amount},  #{order_status})")
     int add_Order(@Param("order_number") String order_number,
-                  @Param("generation_time")  String generation_time,
+                  @Param("generation_time")  Timestamp generation_time,
                   @Param("user_name")  String user_name,
-                  @Param("inTime") String inTime,
-                  @Param("outTime") String outTime,
+                  @Param("inTime") Timestamp inTime,
+                  @Param("outTime") Timestamp outTime,
                   @Param("parking_lot_name") String parking_lot_name,
                   @Param("parking_lot_number") String parking_lot_number,
                   @Param("license_plate_number") String license_plate_number,
                   @Param("payment_amount") float payment_amount,
                   @Param("order_status") String order_status);
-
-
-
 
 
 }

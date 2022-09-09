@@ -57,6 +57,11 @@ public interface ParkingLotDao {
     @Select("SELECT billing_rules FROM Parking_lot_information WHERE parking_lot_number =#{parking_lot_number}")
     Float getParkingBilling_rules(@Param("parking_lot_number") String parking_lot_number);
 
+    /**
+     * 判断停车场是否存在
+     * */
+    @Select("SELECT count(1) FROM Parking_lot_information WHERE parking_lot_number =#{parking_lot_number} ")
+    int findParkingLot(@Param("parking_lot_number") String parking_lot_number);
 
 
 

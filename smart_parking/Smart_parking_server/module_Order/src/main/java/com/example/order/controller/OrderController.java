@@ -146,6 +146,8 @@ public class    OrderController {
         return orderService.app_cancellation_Order(user_name,order_number);
     }
 
+
+
     @ApiOperation(value = "超级管理员订单取消")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "order_number", value = "订单编号", required = true, dataType = "String")
@@ -169,6 +171,7 @@ public class    OrderController {
 
 
 
+
     @ApiOperation(value = "获取所有订单")
     @GetMapping(value = "/getAllOrders")
     public List<Order_information> getAllOrders (){
@@ -176,7 +179,4 @@ public class    OrderController {
     }
 
 
-    private String err(){
-        return "订单系统繁忙，请稍后再试";
-    }
 }

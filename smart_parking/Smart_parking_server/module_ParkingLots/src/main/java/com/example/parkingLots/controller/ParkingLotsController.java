@@ -92,6 +92,15 @@ public class ParkingLotsController {
     }
 
 
+    @ApiOperation(value = "判断停车场是否存在")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "parking_lot_number", value = "停车场编号", required = true, dataType = "String")
+    })
+    @GetMapping(value = "/change_parking_space", produces = "text/plain; charset=utf-8")
+    public int  findParkingLot  (String parking_lot_number ){
+        return parkingLotService.findParkingLot(parking_lot_number);
+    }
+
 
 
     @ApiOperation(value = "根据停车场编号查找停车场名")

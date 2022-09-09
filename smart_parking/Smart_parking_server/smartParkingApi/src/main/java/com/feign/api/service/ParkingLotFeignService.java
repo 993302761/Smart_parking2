@@ -39,4 +39,7 @@ public interface ParkingLotFeignService {
                          @PathVariable("parking_spaces_num") Integer parking_spaces_num,
                          @PathVariable("billing_rules") float billing_rules);
 
+
+    @GetMapping(value = "/change_parking_space")
+    int  findParkingLot  (String parking_lot_number );
 }

@@ -76,18 +76,20 @@
 
 
 
-        Order_information                  //订单信息表
+        Order                  //订单信息表
         {
          order_number:订单编号
-         generation_time：订单生成时间
-        user_name：用户名
-        inTime：进入时间
-        outTime：离开时间
-        parking_lot_name：停车场名
-        parking_lot_number ：停车场编号
-        license_plate_number ：车牌号
-        payment_amount ：支付金额
-        order_status :订单状态
+         order_information :订单信息
+             {   generation_time：订单生成时间
+                 user_name：用户名
+                 inTime：进入时间
+                 outTime：离开时间
+                 parking_lot_name：停车场名
+                 parking_lot_number ：停车场编号
+                 license_plate_number ：车牌号
+                 payment_amount ：支付金额
+                 order_status :订单状态
+                 }
         }
 
 
@@ -178,16 +180,8 @@
 
 
 订单信息表
-    create table Order_information( order_number varchar(50)  primary key,
-                                 generation_time datetime(0) not null,
-                                 user_name varchar(11) not null,
-                                 inTime datetime(0),
-                                 outTime datetime(0),
-                                 parking_lot_name varchar(50),
-                                 parking_lot_number varchar(20) not null,
-                                 license_plate_number varchar(20) not null,
-                                 payment_amount float,
-                                 order_status varchar(20) not null)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+    create table Order( order_number varchar(50)  primary key,
+                         order_information varchar(500))ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 

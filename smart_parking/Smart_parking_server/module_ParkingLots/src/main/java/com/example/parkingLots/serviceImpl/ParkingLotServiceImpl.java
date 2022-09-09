@@ -29,7 +29,7 @@ public class ParkingLotServiceImpl {
     private ParkingLotDao parkingLotDao;
 
     @Resource
-    private RedisTemplate<String, Integer> redisTemplate;
+    private StringRedisTemplate stringRedisTemplate;
 
     @Resource
     private OrderFeignService orderFeignService;
@@ -154,8 +154,13 @@ public class ParkingLotServiceImpl {
     }
 
 
-
-
+    /**
+     * TODO：判断停车场是否存在
+     * @param parking_lot_number 停车场编号
+     */
+    public int  findParkingLot  (String parking_lot_number ){
+        return parkingLotDao.findParkingLot(parking_lot_number);
+    }
 
 
 
@@ -173,7 +178,7 @@ public class ParkingLotServiceImpl {
        if (parking_num.getParking_spaces_num()<Integer.parseInt(Available_place_num)){
             return "数据错误";
         }
-        redisTemplate.opsForValue().set(parking_lot_number, Integer.valueOf(Available_place_num));
+        stringRedisTemplate.opsForValue().set(parking_lot_number, Available_place_num);
         return "可用车位数量变更";
     }
 
@@ -208,10 +213,10 @@ public class ParkingLotServiceImpl {
         List<Parking_for_user> new_parking_lot=new ArrayList<>();
         for (int i = 0; i < parking_lot.size(); i++) {
             Parking_for_user p=parking_lot.get(i);
-            boolean hasKey = redisTemplate.hasKey(p.getParking_lot_number());
+            boolean hasKey = stringRedisTemplate.hasKey(p.getParking_lot_number());
             if(hasKey ){
-                Integer s = redisTemplate.opsForValue().get(parking_lot.get(i).getParking_lot_number());
-                p.setAvailable_parking_spaces_num(s);
+                String  s = stringRedisTemplate.opsForValue().get(parking_lot.get(i).getParking_lot_number());
+                p.setAvailable_parking_spaces_num(Integer.parseInt(s));
             }
             new_parking_lot.add(p);
         }
