@@ -1,14 +1,20 @@
 package com.feign.api.entity.parkingLots;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
 
-@Data                   //生成get set equals toString等方法
-@NoArgsConstructor      //生成无参构造方法
-@EqualsAndHashCode(callSuper = true)
+
+
 public class Parking_for_user extends Parking {
 
     private int available_parking_spaces_num;     //可用车位数量
+
+
+    public int getAvailable_parking_spaces_num() {
+        return available_parking_spaces_num;
+    }
+
+    public void setAvailable_parking_spaces_num(int available_parking_spaces_num) {
+        this.available_parking_spaces_num = available_parking_spaces_num;
+    }
+
 
 }

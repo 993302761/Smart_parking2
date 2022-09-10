@@ -1,6 +1,6 @@
 package com.feign.api.service;
 
-import com.feign.api.entity.order.Order_information;
+import com.feign.api.entity.order.Order;
 import feign.hystrix.FallbackFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -17,9 +17,9 @@ public class OrderFeignServiceDegradation implements FallbackFactory<OrderFeignS
     public OrderFeignService create(Throwable cause) {
         return new OrderFeignService() {
             @Override
-            public List<Order_information> getAllOrders() {
-                List<Order_information> order =new ArrayList<>();
-                Order_information s=new Order_information();
+            public List<Order> getAllOrders() {
+                List<Order> order =new ArrayList<>();
+                Order s=new Order();
                 s.setOrder_number("系统繁忙，获取所有订单失败，请稍后再试");
                 order.add(s);
                 log.error("getAllOrders 服务出现异常，异常信息：" + cause);
@@ -39,8 +39,8 @@ public class OrderFeignServiceDegradation implements FallbackFactory<OrderFeignS
             }
 
             @Override
-            public Order_information userGetParkingOrder(String user_name, String parking_lot_number) {
-                Order_information s=new Order_information();
+            public Order userGetParkingOrder(String user_name, String parking_lot_number) {
+                Order s=new Order();
                 s.setOrder_number("系统繁忙，app用户查找订单失败，请稍后再试");
                 log.error("userGetParkingOrder 服务出现异常，异常信息：" + cause);
                 return s;
@@ -59,9 +59,9 @@ public class OrderFeignServiceDegradation implements FallbackFactory<OrderFeignS
             }
 
             @Override
-            public List<Order_information> getOrderByUsername(String user_name) {
-                List<Order_information> order =new ArrayList<>();
-                Order_information s=new Order_information();
+            public List<Order> getOrderByUsername(String user_name) {
+                List<Order> order =new ArrayList<>();
+                Order s=new Order();
                 s.setOrder_number("系统繁忙，用户 "+user_name+" 获取订单失败，请稍后再试");
                 order.add(s);
                 log.error("getOrderByUsername 服务出现异常，异常信息：" + cause);

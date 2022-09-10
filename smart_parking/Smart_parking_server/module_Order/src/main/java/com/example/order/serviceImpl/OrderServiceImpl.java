@@ -4,7 +4,7 @@ import com.example.order.dao.OrderDao;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.feign.api.entity.order.Order_information;
+import com.feign.api.entity.order.Order;
 import com.feign.api.service.ParkingLotFeignService;
 import com.feign.api.service.VehicleFeignService;
 import org.springframework.context.annotation.Import;
@@ -56,9 +56,8 @@ public class OrderServiceImpl {
         String generation_time= formatter.format(date);
 
         //生成订单编号
-        String order_number;
-        order_number = user_name;
-        order_number += System.currentTimeMillis();
+        StringBuffer order_number = null;
+        order_number .append(user_name + '-' + parking_lot_number + '-' + System.currentTimeMillis())  ;
 
         //判断停车场是否存在
         String parkingName=parkingLotFeignService.getParkingName(parking_lot_number);
@@ -103,7 +102,7 @@ public class OrderServiceImpl {
         }
 
         //订单信息存入Redis
-        Order_information order=new Order_information(order_number, Timestamp.valueOf(generation_time), user_name,  null, null, parkingName, parking_lot_number, license_plate_number, 0, "等待进入");
+        Order order=new Order(order_number, Timestamp.valueOf(generation_time), user_name,  null, null, parkingName, parking_lot_number, license_plate_number, 0, "等待进入");
 
         setRedisValue(order_number,order);
 
@@ -118,9 +117,9 @@ public class OrderServiceImpl {
      * TODO：获取所有订单列表
      * @return 所有订单
      */
-    public List<Order_information> getAllOrders() {
-        List<Order_information> orderList = orderDao.getAllOrders();
-        Order_information userInformation= null;
+    public List<Order> getAllOrders() {
+        List<Order> orderList = orderDao.getAllOrders();
+        Order userInformation= null;
         Map<Object, Object> order = stringRedisTemplate.opsForHash().entries("Order");
         Set<Object> keySet = order.keySet();
         Iterator<Object> iterator = keySet.iterator();
@@ -129,7 +128,7 @@ public class OrderServiceImpl {
             String value= (String) order.get(key);
             try {
                 //反序列化
-                userInformation = mapper.readValue(value, Order_information.class);
+                userInformation = mapper.readValue(value, Order.class);
                 orderList.add(userInformation);
             } catch (JsonProcessingException e) {
                 e.printStackTrace();
@@ -144,7 +143,7 @@ public class OrderServiceImpl {
      * @return 判断结果
      */
     public String orderTimeout(String user_name,String order_number) {
-        Order_information order = orderDao.getOrderByNumber(order_number);
+        Order order = orderDao.getOrderByNumber(order_number);
         if (order.getOrder_status().equals("等待进入")){
             String s = app_cancellation_Order(user_name, order_number);
             return "订单："+order_number+" 已超时 "+s;
@@ -161,7 +160,7 @@ public class OrderServiceImpl {
      * @param user_name 所查找的用户
      * @return 用户订单
      */
-    public List<Order_information> getOrderByUsername(String user_name) {
+    public List<Order> getOrderByUsername(String user_name) {
         return orderDao.getOrderByUsername(user_name);
     }
 
@@ -173,7 +172,7 @@ public class OrderServiceImpl {
      * @param parking_lot_number 停车场编号
      * @return 停车场订单
      */
-    public List<Order_information> getParkingOrders(String parking_lot_number) {
+    public List<Order> getParkingOrders(String parking_lot_number) {
         return orderDao.getOrderByParking(parking_lot_number);
     }
 
@@ -187,7 +186,7 @@ public class OrderServiceImpl {
      * @param order_number 订单号
      * @return 查找订单
      */
-    public Order_information getOrderByNumber(String order_number) {
+    public Order getOrderByNumber(String order_number) {
         return orderDao.getOrderByNumber(order_number);
     }
 
@@ -202,7 +201,7 @@ public class OrderServiceImpl {
      * @return 是否成功
      */
     public String setStatus_in (String license_plate_number ,String parking_lot_number) {
-        Order_information order = (Order_information) getRedisValue(order_number, Order_information.class);
+        Order order = (Order) getRedisValue(order_number, Order.class);
 
         if (order==null){
             return "未找到此订单";
@@ -229,7 +228,7 @@ public class OrderServiceImpl {
      */
     public String setStatus_out (String license_plate_number ,String parking_lot_number) {
 
-        Order_information order = (Order_information) getRedisValue(order_number, Order_information.class);
+        Order order = (Order) getRedisValue(order_number, Order.class);
         if (order==null){
             return "未找到此订单";
         }
@@ -261,7 +260,7 @@ public class OrderServiceImpl {
      */
     public String setMoney (String order_number){
 
-        Order_information order = (Order_information) getRedisValue(order_number, Order_information.class);
+        Order order = (Order) getRedisValue(order_number, Order.class);
         //获取停车场的收费标准
         Float billing_rules= Float.valueOf(parkingLotFeignService.getParkingBilling_rules(order.getParking_lot_number()));
         int hours = (int) ((order.getOutTime().getTime() - order.getInTime().getTime()) / (1000 * 60* 60));
@@ -277,7 +276,7 @@ public class OrderServiceImpl {
      * @param parking_lot_number 订单编号
      * @return 是否成功
      */
-    public Order_information userGetParkingOrder ( String user_name, String parking_lot_number){
+    public Order userGetParkingOrder (String user_name, String parking_lot_number){
        return orderDao.userGetOrderByNumber(user_name,parking_lot_number);
     }
 
@@ -292,7 +291,7 @@ public class OrderServiceImpl {
     public String complete_Order (String user_name,String order_number){
 
 
-        Order_information order = (Order_information) getRedisValue(order_number, Order_information.class);
+        Order order = (Order) getRedisValue(order_number, Order.class);
         if (order==null){
             return "未找到订单";
         }
@@ -315,7 +314,7 @@ public class OrderServiceImpl {
      */
     public String add_available_parking_spaces_num (String user_name,String order_number){
 
-        Order_information order = (Order_information) getRedisValue(order_number, Order_information.class);
+        Order order = (Order) getRedisValue(order_number, Order.class);
         if (order==null){
             return "订单不存在";
         }
@@ -341,7 +340,7 @@ public class OrderServiceImpl {
         if (s!=null){
             return s;
         }
-        Order_information order = (Order_information) getRedisValue(order_number, Order_information.class);
+        Order order = (Order) getRedisValue(order_number, Order.class);
         if (order==null){
             return "未找到订单";
         }
@@ -365,7 +364,7 @@ public class OrderServiceImpl {
      * @return 是否成功
      */
     public String cancelOrder (String order_number){
-        Order_information order = (Order_information) getRedisValue(order_number, Order_information.class);
+        Order order = (Order) getRedisValue(order_number, Order.class);
         if (order==null){
             return "未找到订单";
         }
@@ -391,12 +390,12 @@ public class OrderServiceImpl {
      * @return 是否成功
      */
     public String parking_cancellation_Order (String parking_lot_number,String order_number){
-        Order_information orderByNumber = getOrderByNumber(order_number);
+        Order orderByNumber = getOrderByNumber(order_number);
         String s=add_available_parking_spaces_num(orderByNumber.getUser_name(),order_number);
         if (s!=null){
             return s;
         }
-        Order_information order = (Order_information) getRedisValue(order_number, Order_information.class);
+        Order order = (Order) getRedisValue(order_number, Order.class);
         if (order==null){
             return "未找到订单";
         }else if (!parking_lot_number.equals(order.getParking_lot_number())){
@@ -422,19 +421,19 @@ public class OrderServiceImpl {
      * @return 是否成功
      * */
     public String setStatus (String status,String parking_lot_number,String license_plate_number){
-        Order_information order = (Order_information) getRedisValue(parking_lot_number,license_plate_number, Order_information.class);
+        Order order = (Order) getRedisValue(parking_lot_number,license_plate_number, Order.class);
         order.setOrder_status(status);
         if (status.equals("已取消")||status.equals("已完成")){
-            orderDao.add_Order(order.getOrder_number(),
-                    order.getGeneration_time(),
-                    order.getUser_name(),
-                    order.getInTime(),
-                    order.getOutTime(),
-                    order.getParking_lot_name(),
-                    order.getParking_lot_number(),
-                    order.getLicense_plate_number(),
-                    order.getPayment_amount(),
-                    order.getOrder_status());
+//            orderDao.add_Order(order.getOrder_number(),
+//                    order.getGeneration_time(),
+//                    order.getUser_name(),
+//                    order.getInTime(),
+//                    order.getOutTime(),
+//                    order.getParking_lot_name(),
+//                    order.getParking_lot_number(),
+//                    order.getLicense_plate_number(),
+//                    order.getPayment_amount(),
+//                    order.getOrder_status());
             deleteRedisValue(parking_lot_number,license_plate_number);
         }else {
             setRedisValue(parking_lot_number,license_plate_number, order);
@@ -449,7 +448,7 @@ public class OrderServiceImpl {
      * @param license_plate_number  车牌号
      * @param order                 订单信息
      */
-    public void setRedisValue (String parking_lot_number,String license_plate_number, Order_information order)  {
+    public void setRedisValue (String parking_lot_number,String license_plate_number, Order order)  {
         //手动序列化
         String jsonValue= null;
         try {

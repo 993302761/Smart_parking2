@@ -1,9 +1,7 @@
 package com.example.user.controller;
 
 import com.example.user.serviceImpl.UserOrderServiceImpl;
-import com.feign.api.entity.order.Order_information;
-import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.feign.api.entity.order.Order;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -85,7 +83,7 @@ public class UserOrderController {
             @ApiImplicitParam(name = "UUID", value = "通用唯一识别码", required = true, dataType = "String")
     })
     @GetMapping(value = "/getUserOrder/{user_name}/{UUID}",produces = "application/json; charset=utf-8")
-    public List<Order_information> getUserOrder (@PathVariable String user_name,@PathVariable String UUID){
+    public List<Order> getUserOrder (@PathVariable String user_name, @PathVariable String UUID){
         return userOrderService.getOrderByUsername(user_name);
     }
 

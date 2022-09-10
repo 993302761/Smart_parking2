@@ -1,6 +1,6 @@
 package com.example.user.serviceImpl;
 
-import com.feign.api.entity.order.Order_information;
+import com.feign.api.entity.order.Order;
 import com.feign.api.service.OrderFeignService;
 import com.feign.api.service.ParkingLotFeignService;
 import lombok.extern.slf4j.Slf4j;
@@ -102,7 +102,7 @@ public class UserOrderServiceImpl {
      * @param user_name 所查找的用户
      * @return 用户订单
      */
-    public List<Order_information> getOrderByUsername(String user_name) {
+    public List<Order> getOrderByUsername(String user_name) {
         return orderFeignService.getOrderByUsername(user_name);
     }
 

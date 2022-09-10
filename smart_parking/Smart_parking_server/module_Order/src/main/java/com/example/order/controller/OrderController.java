@@ -2,15 +2,13 @@ package com.example.order.controller;
 
 import com.example.order.serviceImpl.OrderServiceImpl;
 
-import com.feign.api.entity.order.Order_information;
+import com.feign.api.entity.order.Order;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.amqp.core.ExchangeTypes;
 import org.springframework.amqp.rabbit.annotation.*;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
@@ -61,7 +59,7 @@ public class    OrderController {
             @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String"),
     })
     @GetMapping(value = "/getOrderByUsername/{user_name}",produces = "application/json; charset=utf-8")
-    public List<Order_information> getOrderByUsername (@PathVariable String user_name){
+    public List<Order> getOrderByUsername (@PathVariable String user_name){
         return orderService.getOrderByUsername(user_name);
     }
 
@@ -71,7 +69,7 @@ public class    OrderController {
             @ApiImplicitParam(name = "parking_lot_number", value = "停车场编号", required = true, dataType = "String")
     })
     @GetMapping(value = "/getParkingOrder", produces = "application/json; charset=utf-8")
-    public List<Order_information> getParkingOrder (String parking_lot_number){
+    public List<Order> getParkingOrder (String parking_lot_number){
         return orderService.getParkingOrders(parking_lot_number);
     }
 
@@ -83,7 +81,7 @@ public class    OrderController {
             @ApiImplicitParam(name = "order_number", value = "订单编号", required = true, dataType = "String")
     })
     @GetMapping(value = "/userGetParkingOrder/{user_name}/{order_number}", produces = "application/json; charset=utf-8")
-    public Order_information userGetParkingOrder (@PathVariable String user_name, @PathVariable String order_number){
+    public Order userGetParkingOrder (@PathVariable String user_name, @PathVariable String order_number){
         return orderService.userGetParkingOrder(user_name,order_number);
     }
 
@@ -94,7 +92,7 @@ public class    OrderController {
             @ApiImplicitParam(name = "order_number", value = "订单编号", required = true, dataType = "String"),
     })
     @GetMapping(value = "/getOrderByNumber", produces = "application/json; charset=utf-8")
-    public Order_information getOrderByNumber (String order_number){
+    public Order getOrderByNumber (String order_number){
         return orderService.getOrderByNumber(order_number);
     }
 
@@ -174,7 +172,7 @@ public class    OrderController {
 
     @ApiOperation(value = "获取所有订单")
     @GetMapping(value = "/getAllOrders")
-    public List<Order_information> getAllOrders (){
+    public List<Order> getAllOrders (){
         return orderService.getAllOrders();
     }
 

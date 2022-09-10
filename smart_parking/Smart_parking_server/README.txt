@@ -180,8 +180,8 @@
 
 
 订单信息表
-    create table Order( order_number varchar(50)  primary key,
-                         order_information varchar(500))ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+     create table Order_information(order_number varchar(80)  primary key,order_message varchar(500) )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 

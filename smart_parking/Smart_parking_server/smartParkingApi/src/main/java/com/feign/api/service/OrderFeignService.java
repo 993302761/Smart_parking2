@@ -1,6 +1,6 @@
 package com.feign.api.service;
 
-import com.feign.api.entity.order.Order_information;
+import com.feign.api.entity.order.Order;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,7 +14,7 @@ public interface OrderFeignService {
 
 
     @GetMapping("/Order/getAllOrders")
-    List<Order_information> getAllOrders();
+    List<Order> getAllOrders();
 
 
     @PutMapping(value = "/Order/parking_cancellation_Order/{parking_lot_number}/{order_number}")
@@ -28,7 +28,7 @@ public interface OrderFeignService {
 
 
     @GetMapping(value = "/Order/userGetParkingOrder/{user_name}/{parking_lot_number}")
-    Order_information userGetParkingOrder (@PathVariable("user_name") String user_name,@PathVariable("parking_lot_number") String parking_lot_number);
+    Order userGetParkingOrder (@PathVariable("user_name") String user_name, @PathVariable("parking_lot_number") String parking_lot_number);
 
 
     @PutMapping(value = "/Order/complete_Order/{user_name}/{order_number}")
@@ -40,7 +40,7 @@ public interface OrderFeignService {
 
 
     @GetMapping(value = "/Order/getOrderByUsername/{user_name}")
-    List<Order_information> getOrderByUsername (@PathVariable("user_name") String user_name);
+    List<Order> getOrderByUsername (@PathVariable("user_name") String user_name);
 
 
     @PutMapping(value = "/Order/cancelOrder/{order_number}")
