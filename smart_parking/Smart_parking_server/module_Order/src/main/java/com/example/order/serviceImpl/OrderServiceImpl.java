@@ -12,6 +12,8 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -50,14 +52,12 @@ public class OrderServiceImpl {
      * @param parking_lot_number 停车场编号
      * @return 是否成功
      */
-    public String generate_order(String user_name,String license_plate_number,String parking_lot_number) {
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Date date = new Date(System.currentTimeMillis());
-        String generation_time= formatter.format(date);
+    public String generate_order(String user_name,String license_plate_number,String parking_lot_number,String generation_time) {
+
 
         //生成订单编号
         StringBuffer order_number = null;
-        order_number .append(user_name + '-' + parking_lot_number + '-' + System.currentTimeMillis())  ;
+        order_number .append(user_name + '-' + parking_lot_number + '-' + generation_time)  ;
 
         //判断停车场是否存在
         String parkingName=parkingLotFeignService.getParkingName(parking_lot_number);
@@ -76,13 +76,6 @@ public class OrderServiceImpl {
         }
 
 
-        //检查是否有未完成订单
-        int incomplete_Order=orderDao.find_Incomplete_Order(user_name);
-        if (incomplete_Order>0){
-            return "您还有进行中或未支付的订单，请完成订单后再预约";
-        }else if (incomplete_Order<0){
-            return "数据异常";
-        }
 
         boolean hasKey = stringRedisTemplate.hasKey(parking_lot_number);
         if(hasKey) {
@@ -102,12 +95,11 @@ public class OrderServiceImpl {
         }
 
         //订单信息存入Redis
-        Order order=new Order(order_number, Timestamp.valueOf(generation_time), user_name,  null, null, parkingName, parking_lot_number, license_plate_number, 0, "等待进入");
+        Order order=new Order(order_number.toString(), Timestamp.valueOf(generation_time), user_name,  null, null, parkingName, parking_lot_number, license_plate_number, 0, "等待进入");
 
-        setRedisValue(order_number,order);
+        setRedisValue(parking_lot_number,license_plate_number,order);
 
-        return order_number;
-
+        return order_number.toString();
     }
 
 
@@ -136,6 +128,7 @@ public class OrderServiceImpl {
         }
         return orderList;
     }
+
 
 
     /**
@@ -201,8 +194,7 @@ public class OrderServiceImpl {
      * @return 是否成功
      */
     public String setStatus_in (String license_plate_number ,String parking_lot_number) {
-        Order order = (Order) getRedisValue(order_number, Order.class);
-
+        Order order = (Order) getRedisValue(parking_lot_number,license_plate_number, Order.class);
         if (order==null){
             return "未找到此订单";
         }
@@ -213,7 +205,7 @@ public class OrderServiceImpl {
         Date date = new Date(System.currentTimeMillis());
         String generation_time= formatter.format(date);
         orderDao.vehicle_entry(generation_time,order.getOrder_number());
-        return setStatus("进行中",order.getOrder_number());
+        return setStatus("进行中",parking_lot_number,license_plate_number);
     }
 
 
@@ -308,13 +300,13 @@ public class OrderServiceImpl {
 
     /**
      * TODO：车位自增
-     * @param user_name 用户名
-     * @param order_number 订单编号
+     * @param license_plate_number 车牌号
+     * @param parking_lot_number 停车场编号
      * @return 是否成功
      */
-    public String add_available_parking_spaces_num (String user_name,String order_number){
+    public String add_available_parking_spaces_num (String license_plate_number ,String parking_lot_number){
 
-        Order order = (Order) getRedisValue(order_number, Order.class);
+        Order order = (Order) getRedisValue(parking_lot_number,license_plate_number, Order.class);
         if (order==null){
             return "订单不存在";
         }

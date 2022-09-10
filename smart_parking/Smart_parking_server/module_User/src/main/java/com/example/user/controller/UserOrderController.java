@@ -30,7 +30,7 @@ public class UserOrderController {
     })
     @PostMapping(value = "/generate_order", produces = "text/plain;charset=utf-8")
     public String  generate_order (String user_name,String license_plate_number,String parking_lot_number,String UUID){
-        return userOrderService.generate_order(user_name,license_plate_number,parking_lot_number);
+        return userOrderService.generate_order(user_name,license_plate_number,parking_lot_number,UUID);
     }
 
 
@@ -56,7 +56,7 @@ public class UserOrderController {
     })
     @PutMapping(value = "/complete_Order", produces = "text/plain;charset=utf-8")
     public String complete_Order (String user_name, String order_number, String UUID){
-        return userOrderService.complete_Order(user_name,order_number);
+        return userOrderService.complete_Order(user_name,order_number,UUID);
     }
 
 

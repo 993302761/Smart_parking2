@@ -22,8 +22,8 @@ public interface OrderFeignService {
                                        @PathVariable("order_number") String order_number);
 
 
-    @PostMapping(value = "/Order/generate_order/{user_name}/{license_plate_number}/{parking_lot_number}")
-    String  generate_order (@PathVariable("user_name") String user_name,@PathVariable("license_plate_number") String license_plate_number,@PathVariable("parking_lot_number") String parking_lot_number);
+    @PostMapping(value = "/Order/generate_order/{user_name}/{license_plate_number}/{parking_lot_number}/{generation_time}")
+    String  generate_order (@PathVariable("user_name") String user_name,@PathVariable("license_plate_number") String license_plate_number,@PathVariable("parking_lot_number") String parking_lot_number,@PathVariable("generation_time") String generation_time);
 
 
 

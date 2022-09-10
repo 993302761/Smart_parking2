@@ -292,7 +292,7 @@ public class UserServiceImpl  {
      * @param data 字符串
      * @return 加密后的编码
      */
-    public String md5(String data){
+    public static String md5(String data){
         try {
             // 获得MD5摘要算法的 MessageDigest 对象
             MessageDigest messageDigest=MessageDigest.getInstance("md5");
@@ -332,7 +332,7 @@ public class UserServiceImpl  {
                 curDate.get(Calendar.SECOND));
         long second = (nextDate.getTimeInMillis() - curDate.getTimeInMillis()) / 1000;
         String key=md5(user_name+UUID);
-        stringRedisTemplate.opsForValue().set(key, null);
+        stringRedisTemplate.opsForValue().set(key, "0");
         Boolean expire = stringRedisTemplate.expire(key, second, TimeUnit.SECONDS);
         return expire;
     }
