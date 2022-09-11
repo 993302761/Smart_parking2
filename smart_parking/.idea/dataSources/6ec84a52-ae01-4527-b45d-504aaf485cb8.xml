@@ -814,15 +814,48 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <CollationName>utf8_general_ci</CollationName>
     </table>
     <column id="236" parent="235" name="order_number">
-      <DataType>varchar(80)|0s</DataType>
+      <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="237" parent="235" name="order_message">
-      <DataType>varchar(500)|0s</DataType>
+    <column id="237" parent="235" name="generation_time">
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <key id="238" parent="235" name="PRIMARY">
+    <column id="238" parent="235" name="user_name">
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="239" parent="235" name="inTime">
+      <DataType>datetime|0s</DataType>
+      <Position>4</Position>
+    </column>
+    <column id="240" parent="235" name="outTime">
+      <DataType>datetime|0s</DataType>
+      <Position>5</Position>
+    </column>
+    <column id="241" parent="235" name="parking_lot_number">
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+    </column>
+    <column id="242" parent="235" name="license_plate_number">
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+    </column>
+    <column id="243" parent="235" name="payment_amount">
+      <DataType>float|0s</DataType>
+      <Position>8</Position>
+    </column>
+    <column id="244" parent="235" name="order_status">
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>9</Position>
+    </column>
+    <key id="245" parent="235" name="PRIMARY">
       <ColNames>order_number</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>

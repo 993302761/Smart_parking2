@@ -3,6 +3,7 @@ package com.example.order.dao;
 import com.feign.api.entity.order.Order;
 import org.apache.ibatis.annotations.*;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 @Mapper
@@ -11,7 +12,15 @@ public interface OrderDao {
     /**
      * 根据订单号查找订单
      * */
-    @Select("SELECT order_number,order_message from Order_information WHERE order_number =#{order_number} ")
+    @Select("select order_number," +
+            "generation_time," +
+            "user_name," +
+            "inTime," +
+            "outTime," +
+            "parking_lot_number," +
+            "license_plate_number," +
+            "payment_amount，" +
+            "order_status from Order_information WHERE order_number =#{order_number} ")
     Order getOrderByNumber(@Param("order_number") String order_number);
 
 
@@ -90,11 +99,21 @@ public interface OrderDao {
 
 
     /**
-     * 获取订单列表
+     * 获取已完成的订单列表
      *
      */
-    @Select("select order_number,order_message from Order_information")
+    @Select("select order_number," +
+            "generation_time," +
+            "user_name," +
+            "inTime," +
+            "outTime," +
+            "parking_lot_number," +
+            "license_plate_number," +
+            "payment_amount，" +
+            "order_status from Order_information")
     List<Order> getAllOrders();
+
+
 
 
 
@@ -102,9 +121,12 @@ public interface OrderDao {
      * 新增一条订单
      *
      * */
-    @Insert("INSERT INTO Order_information VALUES(#{order_number}, #{order_message})")
+    @Insert("INSERT INTO Order_information(order_number,generation_time,user_name,parking_lot_number,license_plate_number,order_status) VALUES(#{order_number}, #{generation_time}, #{user_name},  #{parking_lot_number}, #{license_plate_number,\"进行中\")")
     int add_Order(@Param("order_number") String order_number,
-                  @Param("order_message")  String order_message);
+                  @Param("generation_time")  String generation_time,
+                  @Param("user_name")  String user_name,
+                  @Param("parking_lot_number")  String parking_lot_number,
+                  @Param("license_plate_number")  String license_plate_number);
 
 
 }

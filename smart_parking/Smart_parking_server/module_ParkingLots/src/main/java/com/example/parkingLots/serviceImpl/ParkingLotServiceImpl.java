@@ -8,7 +8,7 @@ import com.feign.api.entity.parkingLots.Parking;
 import com.feign.api.entity.parkingLots.Parking_for_user;
 import com.feign.api.service.OrderFeignService;
 import org.springframework.context.annotation.Import;
-import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -26,7 +26,7 @@ public class ParkingLotServiceImpl {
     private ParkingLotDao parkingLotDao;
 
     @Resource
-    private StringRedisTemplate stringRedisTemplate;
+    private RedisTemplate<String,String> redisTemplate;
 
     @Resource
     private OrderFeignService orderFeignService;
@@ -175,7 +175,7 @@ public class ParkingLotServiceImpl {
        if (parking_num.getParking_spaces_num()<Integer.parseInt(Available_place_num)){
             return "数据错误";
         }
-        stringRedisTemplate.opsForValue().set(parking_lot_number, Available_place_num);
+        redisTemplate.opsForValue().set(parking_lot_number, Available_place_num);
         return "可用车位数量变更";
     }
 
@@ -210,9 +210,9 @@ public class ParkingLotServiceImpl {
         List<Parking_for_user> new_parking_lot=new ArrayList<>();
         for (int i = 0; i < parking_lot.size(); i++) {
             Parking_for_user p=parking_lot.get(i);
-            boolean hasKey = stringRedisTemplate.hasKey(p.getParking_lot_number());
+            boolean hasKey = redisTemplate.hasKey(p.getParking_lot_number());
             if(hasKey ){
-                String  s = stringRedisTemplate.opsForValue().get(parking_lot.get(i).getParking_lot_number());
+                String  s = redisTemplate.opsForValue().get(parking_lot.get(i).getParking_lot_number());
                 p.setAvailable_parking_spaces_num(Integer.parseInt(s));
             }
             new_parking_lot.add(p);

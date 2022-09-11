@@ -113,7 +113,7 @@
 
 用户表
 
-    create table User(user_name varchar(11) primary key,
+    create table User(user_name varchar(20) primary key,
                       password varchar(50) not null,
                       user_id varchar(20) not null,
                       integral int not null);
@@ -125,7 +125,7 @@
 
 车辆信息表
 
-    create table Vehicle_information(user_name varchar(11) not null,
+    create table Vehicle_information(user_name varchar(20) not null,
                                      user_id varchar(20) not null,
                                      license_plate_number varchar(20) not null,
                                      vehicle_photos varchar(60) not null,
@@ -137,7 +137,7 @@
 
 停车场信息
 
-    create table Parking_lot_information(pctr_id varchar(11) primary key,
+    create table Parking_lot_information(pctr_id varchar(20) primary key,
                                          pctr_password varchar(50) not null,
                                          parking_lot_name varchar(50) not null,
                                          parking_in_the_city varchar(50) not null,
@@ -157,7 +157,7 @@
 超级管理员
 
 
-    create table Administrators(ctr_id varchar(11) primary key,
+    create table Administrators(ctr_id varchar(20) primary key,
                                 ctr_password varchar(50) not null);
 
 
@@ -181,7 +181,15 @@
 
 订单信息表
 
-     create table Order_information(order_number varchar(80)  primary key,order_message varchar(500) )ENGINE=InnoDB DEFAULT CHARSET=utf8;
+         create table Order_information( order_number varchar(50)  primary key,
+                                      generation_time datetime(0) not null,
+                                      user_name varchar(20) not null,
+                                      inTime datetime(0),
+                                      outTime datetime(0),
+                                      parking_lot_number varchar(20) not null,
+                                      license_plate_number varchar(20) not null,
+                                      payment_amount float,
+                                      order_status varchar(20) not null)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 

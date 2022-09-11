@@ -10,11 +10,12 @@ public class Order {
     private String user_name;                 //用户名
     private Timestamp inTime;                 //进入时间
     private Timestamp outTime;                //离开时间
-    private String parking_lot_name;          //停车场名
     private String parking_lot_number ;       //停车场编号
     private String license_plate_number ;     //车牌号
     private float payment_amount ;            //支付金额
     private String order_status ;             //订单状态
+
+
 
     public String toMessage() {
         return "{" +
@@ -22,7 +23,6 @@ public class Order {
                 ", user_name='" + user_name + '\'' +
                 ", inTime=" + inTime +
                 ", outTime=" + outTime +
-                ", parking_lot_name='" + parking_lot_name + '\'' +
                 ", parking_lot_number='" + parking_lot_number + '\'' +
                 ", license_plate_number='" + license_plate_number + '\'' +
                 ", payment_amount=" + payment_amount +
@@ -30,13 +30,12 @@ public class Order {
                 '}';
     }
 
-    public Order(String order_number, Timestamp generation_time, String user_name, Timestamp inTime, Timestamp outTime, String parking_lot_name, String parking_lot_number, String license_plate_number, float payment_amount, String order_status) {
+    public Order(String order_number, Timestamp generation_time, String user_name, Timestamp inTime, Timestamp outTime, String parking_lot_number, String license_plate_number, float payment_amount, String order_status) {
         this.order_number = order_number;
         this.generation_time = generation_time;
         this.user_name = user_name;
         this.inTime = inTime;
         this.outTime = outTime;
-        this.parking_lot_name = parking_lot_name;
         this.parking_lot_number = parking_lot_number;
         this.license_plate_number = license_plate_number;
         this.payment_amount = payment_amount;
@@ -86,13 +85,7 @@ public class Order {
         this.outTime = outTime;
     }
 
-    public String getParking_lot_name() {
-        return parking_lot_name;
-    }
 
-    public void setParking_lot_name(String parking_lot_name) {
-        this.parking_lot_name = parking_lot_name;
-    }
 
     public String getParking_lot_number() {
         return parking_lot_number;

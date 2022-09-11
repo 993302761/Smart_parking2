@@ -4,19 +4,15 @@ import com.feign.api.entity.order.Order;
 import com.feign.api.service.OrderFeignService;
 import com.feign.api.service.ParkingLotFeignService;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.math.NumberUtils;
 import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.context.annotation.Import;
-import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 @Slf4j
@@ -37,7 +33,7 @@ public class UserOrderServiceImpl {
     private RabbitTemplate rabbitTemplate;
 
     @Resource
-    private StringRedisTemplate stringRedisTemplate;
+    private RedisTemplate<String ,String> redisTemplate;
 
 
     /**
@@ -53,15 +49,9 @@ public class UserOrderServiceImpl {
             Date date = new Date(System.currentTimeMillis());
             String generation_time= formatter.format(date);
             String key=UserServiceImpl.md5(user_name+UUID);
-            boolean hasKey = stringRedisTemplate.hasKey(key);
-            if(!hasKey){
-                return "数据错误-3";
-            }
-            int s1 = Integer.parseInt(stringRedisTemplate.opsForValue().get(key));
-            if (s1==1){
-                return "您还有未完成的订单，请完成后再预约";
-            }else if (s1>1){
-                return "数据错误-4";
+            Set<String> hasKey = redisTemplate.keys(user_name+"-*");
+            if(hasKey.isEmpty()){
+                return "您还有订单未完成，请完成后再预约";
             }
             String s = orderFeignService.generate_order(user_name, license_plate_number, parking_lot_number,generation_time);
             HashMap<String,String> map=new HashMap();
@@ -69,7 +59,7 @@ public class UserOrderServiceImpl {
             map.put("order_number",s);
             if (s.equals(user_name + '-' + parking_lot_number + '-' + generation_time)){
                 rabbitTemplate.convertAndSend("OrderExchange","Timeout",map,setConfirmCallback());
-                stringRedisTemplate.opsForValue().increment(key, 1);
+                redisTemplate.opsForValue().increment(key, 1);
                 return "订单 "+s+" 已开始";
             }else {
                 return s;
@@ -136,14 +126,14 @@ public class UserOrderServiceImpl {
      */
     public String complete_Order (String user_name, String order_number, String UUID){
         String key=UserServiceImpl.md5(user_name+UUID);
-        boolean hasKey = stringRedisTemplate.hasKey(key);
+        boolean hasKey = redisTemplate.hasKey(key);
         if(!hasKey){
             return "数据错误-1";
         }
-        if (!stringRedisTemplate.opsForValue().get(key).equals("1")){
+        if (!redisTemplate.opsForValue().get(key).equals("1")){
             return "数据错误-2";
         }
-        stringRedisTemplate.opsForValue().increment(key, -1);
+        redisTemplate.opsForValue().increment(key, -1);
 
         rabbitTemplate.convertAndSend("IntegralExchange","addIntegral",user_name,setConfirmCallback());
         return orderFeignService.complete_Order(user_name,order_number);
