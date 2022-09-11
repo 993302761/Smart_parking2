@@ -154,6 +154,7 @@ public class OrderServiceImpl {
      * @return 用户订单
      */
     public List<Order> getOrderByUsername(String user_name) {
+        有问题
         return orderDao.getOrderByUsername(user_name);
     }
 
@@ -166,6 +167,7 @@ public class OrderServiceImpl {
      * @return 停车场订单
      */
     public List<Order> getParkingOrders(String parking_lot_number) {
+        有问题
         return orderDao.getOrderByParking(parking_lot_number);
     }
 
@@ -180,6 +182,7 @@ public class OrderServiceImpl {
      * @return 查找订单
      */
     public Order getOrderByNumber(String order_number) {
+        有问题
         return orderDao.getOrderByNumber(order_number);
     }
 
@@ -220,7 +223,7 @@ public class OrderServiceImpl {
      */
     public String setStatus_out (String license_plate_number ,String parking_lot_number) {
 
-        Order order = (Order) getRedisValue(order_number, Order.class);
+        Order order = (Order) getRedisValue(parking_lot_number,license_plate_number, Order.class);
         if (order==null){
             return "未找到此订单";
         }
@@ -252,7 +255,7 @@ public class OrderServiceImpl {
      */
     public String setMoney (String order_number){
 
-        Order order = (Order) getRedisValue(order_number, Order.class);
+        Order order = (Order) getRedisValue(parking_lot_number,license_plate_number, Order.class);
         //获取停车场的收费标准
         Float billing_rules= Float.valueOf(parkingLotFeignService.getParkingBilling_rules(order.getParking_lot_number()));
         int hours = (int) ((order.getOutTime().getTime() - order.getInTime().getTime()) / (1000 * 60* 60));
@@ -265,11 +268,12 @@ public class OrderServiceImpl {
     /**
      * TODO：用户查找订单
      * @param user_name 用户名
-     * @param parking_lot_number 订单编号
+     * @param order_number 订单编号
      * @return 是否成功
      */
-    public Order userGetParkingOrder (String user_name, String parking_lot_number){
-       return orderDao.userGetOrderByNumber(user_name,parking_lot_number);
+    public Order userGetParkingOrder (String user_name, String order_number){
+        有问题
+       return orderDao.userGetOrderByNumber(user_name,order_number);
     }
 
 
@@ -283,7 +287,7 @@ public class OrderServiceImpl {
     public String complete_Order (String user_name,String order_number){
 
 
-        Order order = (Order) getRedisValue(order_number, Order.class);
+        Order order = (Order) getRedisValue(parking_lot_number,license_plate_number, Order.class);
         if (order==null){
             return "未找到订单";
         }
