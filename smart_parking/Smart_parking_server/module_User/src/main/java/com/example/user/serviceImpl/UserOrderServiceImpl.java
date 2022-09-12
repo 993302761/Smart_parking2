@@ -57,7 +57,7 @@ public class UserOrderServiceImpl {
             HashMap<String,String> map=new HashMap();
             map.put("user_name",user_name);
             map.put("order_number",s);
-            if (s.equals(user_name + '-' + parking_lot_number + '-' + generation_time)){
+            if (s.equals(user_name + '-' + parking_lot_number + '-' + license_plate_number)){
                 rabbitTemplate.convertAndSend("OrderExchange","Timeout",map,setConfirmCallback());
                 redisTemplate.opsForValue().increment(key, 1);
                 return "订单 "+s+" 已开始";

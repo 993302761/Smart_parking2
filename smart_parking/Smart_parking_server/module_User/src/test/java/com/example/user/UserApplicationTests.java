@@ -1,13 +1,16 @@
 package com.example.user;
 
+import com.example.user.entity.User_information;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.feign.api.entity.user.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 
 import javax.annotation.Resource;
+import java.util.*;
 
 @SpringBootTest
 class UserApplicationTests {
@@ -23,13 +26,8 @@ class UserApplicationTests {
 
     @Test
     void contextLoads() throws JsonProcessingException {
-
-        redisTemplate.opsForHash().put("test", "test1", 111);
-        Object o = redisTemplate.opsForHash().get("test", "test2");
-        if (o == null) {
-            System.out.println("ok");
-        } else {
-            System.out.println("no");
-        }
+        StringBuffer order_number = new StringBuffer();
+        order_number.append("13213"+'5'+"8789")  ;
+        System.out.println(order_number);
     }
 }

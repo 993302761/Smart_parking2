@@ -36,7 +36,7 @@ public class    OrderController {
     ))
     //@RabbitListener 标注在类上面表示当有收到消息的时候，就交给 @RabbitHandler 的方法处理，根据接受的参数类型进入具体的方法中。
     public void   orderTimeout (HashMap<String,String> map){
-        log.info(orderService.orderTimeout( map.get("user_name"),  map.get("order_number")));
+        log.info(orderService.orderTimeout(  map.get("order_number")));
     }
 
 
@@ -84,7 +84,7 @@ public class    OrderController {
     })
     @GetMapping(value = "/userGetParkingOrder/{user_name}/{order_number}", produces = "application/json; charset=utf-8")
     public Order userGetParkingOrder (@PathVariable String user_name, @PathVariable String order_number){
-        return orderService.userGetParkingOrder(user_name,order_number);
+        return orderService.getOrderByNumber(order_number);
     }
 
 
@@ -131,7 +131,7 @@ public class    OrderController {
     })
     @PutMapping(value = "/complete_Order/{user_name}/{order_number}", produces = "text/plain;charset=utf-8")
     public String complete_Order (@PathVariable String user_name,@PathVariable String order_number){
-        return orderService.complete_Order(user_name,order_number);
+        return orderService.complete_Order(order_number);
     }
 
 
@@ -165,7 +165,7 @@ public class    OrderController {
     })
     @PutMapping(value = "/parking_cancellation_Order/{parking_lot_number}/{order_number}", produces = "text/plain;charset=utf-8")
     public String parking_cancellation_Order (@PathVariable String parking_lot_number,@PathVariable String order_number){
-        return orderService.parking_cancellation_Order(parking_lot_number,order_number);
+        return orderService.cancelOrder(order_number);
     }
 
 
