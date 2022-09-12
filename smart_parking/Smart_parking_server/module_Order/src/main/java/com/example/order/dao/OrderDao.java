@@ -48,12 +48,11 @@ public interface OrderDao {
 
 
 
-    //待定存在
-//    /**
-//     * 根据停车场编号和车牌号查找订单
-//     * */
-//    @Select("SELECT order_number,order_message FROM Order_information WHERE parking_lot_number =#{parking_lot_number} and license_plate_number =#{license_plate_number} and order_status !=\"已取消\" and order_status !=\"已完成\" ")
-//    Order_information getOrderByParkingAndOrder(@Param("parking_lot_number") String parking_lot_number, @Param("license_plate_number") String license_plate_number);
+    /**
+     * 获取订单某条信息
+     * */
+    @Select("SELECT #{message} FROM Order_information WHERE order_number =#{order_number}  ")
+    Object getOrderMessage(@Param("message") String message, @Param("order_number") String order_number);
 
 
 
@@ -127,6 +126,14 @@ public interface OrderDao {
                   @Param("user_name")  String user_name,
                   @Param("parking_lot_number")  String parking_lot_number,
                   @Param("license_plate_number")  String license_plate_number);
+
+
+
+    /**
+     * 设置订单状态
+     * */
+    @Update("UPDATE Order_information SET order_status=#{order_status} WHERE order_number=#{order_number}")
+    int setStatus(@Param("order_status") String order_status,@Param("order_number") String order_number);
 
 
 }

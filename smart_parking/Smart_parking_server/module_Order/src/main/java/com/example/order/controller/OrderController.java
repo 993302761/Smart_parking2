@@ -143,7 +143,7 @@ public class    OrderController {
     })
     @PutMapping(value = "/app_cancellation_Order/{user_name}/{order_number}", produces = "text/plain;charset=utf-8")
     public String app_cancellation_Order (@PathVariable String user_name,@PathVariable String order_number){
-        return orderService.app_cancellation_Order(user_name,order_number);
+        return orderService.app_cancellation_Order(order_number);
     }
 
 

@@ -2,13 +2,11 @@ package com.example.order.serviceImpl;
 
 import com.example.order.dao.OrderDao;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.feign.api.entity.order.Order;
 import com.feign.api.service.ParkingLotFeignService;
 import com.feign.api.service.VehicleFeignService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Import;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +21,7 @@ import java.util.*;
         com.feign.api.service.ParkingLotFeignServiceDegradation.class,
         com.feign.api.service.VehicleFeignServiceDegradation.class
 })
+@Slf4j
 public class OrderServiceImpl {
 
 
@@ -36,7 +35,7 @@ public class OrderServiceImpl {
     private VehicleFeignService vehicleFeignService;
 
     @Resource
-    private RedisTemplate<String,Object> RedisTemplate;
+    private RedisTemplate<String,Object> redisTemplate;
 
 
 
@@ -76,16 +75,16 @@ public class OrderServiceImpl {
 
 
         //检测是否还有空车位
-        boolean hasKey = RedisTemplate.hasKey(parking_lot_number);
+        boolean hasKey = redisTemplate.hasKey(parking_lot_number);
         if(hasKey) {
-            String s = (String) RedisTemplate.opsForValue().get(parking_lot_number);
+            String s = (String) redisTemplate.opsForValue().get(parking_lot_number);
             if (Integer.parseInt(s) <= 0) {
                 return "车位已满";
             }
             try {
-                RedisTemplate.opsForValue().increment(parking_lot_number, -1);   //车位自减
+                redisTemplate.opsForValue().increment(parking_lot_number, -1);   //车位自减
             } catch (Exception e) {
-                RedisTemplate.opsForValue().increment(parking_lot_number, 1);        //车位自增
+                redisTemplate.opsForValue().increment(parking_lot_number, 1);        //车位自增
                 e.printStackTrace();
                 return "预约失败";
             }
@@ -96,8 +95,8 @@ public class OrderServiceImpl {
         //记录订单
         orderDao.add_Order(order_number.toString(),generation_time,user_name,parking_lot_number,license_plate_number);
 
-        //订单存入redis
-        RedisTemplate.opsForHash().put(order_number.toString(),"billing_rules",billing_rules);
+        //订单信息存入redis
+        redisTemplate.opsForHash().put(order_number.toString(),"billing_rules",billing_rules);
 
         return order_number.toString();
     }
@@ -110,24 +109,21 @@ public class OrderServiceImpl {
      * @return 所有订单
      */
     public List<Order> getAllOrders() {
+        未完成
         List<Order> orderList = orderDao.getAllOrders();
-        Order userInformation= null;
-        Set<String> order = RedisTemplate.keys("*Order");
-        Iterator<String> iterator = order.iterator();
-        while (iterator.hasNext()){
-            Object key=iterator.next();
-            String value= (String) order.get(key);
-            try {
-                //反序列化
-                userInformation = mapper.readValue(value, Order.class);
-                orderList.add(userInformation);
-            } catch (JsonProcessingException e) {
-                e.printStackTrace();
+        for (int i = 0; i < orderList.size(); i++) {
+            Order o=orderList.get(i);
+            if (o.getOrder_status().equals("进行中")){
+
             }
         }
         return orderList;
     }
 
+
+    public Order getOrderMessage(Order o){
+        o.setInTime((Timestamp) redisTemplate.opsForHash().get(o.getOrder_number(),"inTime"));
+    }
 
 
     /**
@@ -135,10 +131,19 @@ public class OrderServiceImpl {
      * @return 判断结果
      */
     public String orderTimeout(String user_name,String order_number) {
-        Order order = orderDao.getOrderByNumber(order_number);
-        if (order.getOrder_status().equals("等待进入")){
-            String s = app_cancellation_Order(user_name, order_number);
-            return "订单："+order_number+" 已超时 "+s;
+        Boolean key = redisTemplate.hasKey(order_number);
+        if (!key){
+            Order order = orderDao.getOrderByNumber(order_number);
+            if (order==null){
+                return "无此订单";
+            }else {
+                return "订单 "+order.getOrder_status();
+            }
+        }
+        Object inTime = redisTemplate.opsForHash().get(order_number, "inTime");
+        if (inTime==null){
+            redisTemplate.delete(order_number);
+            return "订单："+order_number+" 已超时 ";
         }
         return null;
     }
@@ -303,19 +308,17 @@ public class OrderServiceImpl {
 
     /**
      * TODO：车位自增
-     * @param license_plate_number 车牌号
-     * @param parking_lot_number 停车场编号
-     * @return 是否成功
+     * @param order_number 订单编号
      */
-    public String add_available_parking_spaces_num (String license_plate_number ,String parking_lot_number){
-
-        Order order = (Order) getRedisValue(parking_lot_number,license_plate_number, Order.class);
-        if (order==null){
+    public String add_available_parking_spaces_num (String order_number){
+        Boolean key = redisTemplate.hasKey(order_number);
+        if (!key){
             return "订单不存在";
         }
-        boolean hasKey = RedisTemplate.hasKey(order.getParking_lot_number());
+        String parking_lot_number=order_number.substring(order_number.indexOf("-")+1,order_number.lastIndexOf("-"));
+        boolean hasKey = redisTemplate.hasKey(parking_lot_number);
         if(hasKey){
-            RedisTemplate.opsForValue().increment(order.getParking_lot_number(),1);        //车位自增
+            redisTemplate.opsForValue().increment(parking_lot_number,1);        //车位自增
             return null;
         }else {
             return "停车场信息异常";
@@ -326,29 +329,37 @@ public class OrderServiceImpl {
 
     /**
      * TODO：app取消订单
-     * @param user_name 用户名
      * @param order_number 订单编号
      * @return 是否成功
      */
-    public String app_cancellation_Order (String user_name,String order_number){
-        String s=add_available_parking_spaces_num(user_name,order_number);
+    public String app_cancellation_Order (String order_number){
+        String s=add_available_parking_spaces_num(order_number);
         if (s!=null){
             return s;
         }
-        Order order = (Order) getRedisValue(order_number, Order.class);
-        if (order==null){
-            return "未找到订单";
+        Boolean key = redisTemplate.hasKey(order_number);
+        if (key){
+            String order_status = (String) redisTemplate.opsForHash().get(order_number, "order_status");
+            if (order_status.equals("等待进入")){
+                orderDao.setStatus("已取消",order_number);
+                redisTemplate.delete(order_number);
+                return "订单："+order_number+" 已取消 ";
+            }
+            return "订单"+order_status+"，不可取消";
+        }else {
+            Order order = orderDao.getOrderByNumber(order_number);
+            if (order==null){
+                return "无此订单";
+            }else if (order.getOrder_status().equals("已取消")){
+                return "请勿重复取消订单";
+            }
+            else if (order.getOrder_status().equals("已完成")){
+                return "订单已完成";
+            }else {
+                log.error(order.getOrder_number()+" "+order.getOrder_status());
+                return "数据缓存错误";
+            }
         }
-        else if (order.getOrder_status().equals("已取消")){
-            return "请勿重复取消订单";
-        }
-        else if (order.getOrder_status().equals("已完成")){
-            return "订单已完成";
-        }
-        else if (order.getOutTime()!=null||order.getInTime()!=null){
-            return "订单进行中不可取消，若要取消可联系停车场";
-        }
-        return setStatus("已取消",order.getOrder_number());
     }
 
 
@@ -369,9 +380,9 @@ public class OrderServiceImpl {
         else if (order.getOrder_status().equals("已完成")){
             return "订单已完成";
         }
-        boolean hasKey = RedisTemplate.hasKey(order.getParking_lot_number());
+        boolean hasKey = redisTemplate.hasKey(order.getParking_lot_number());
         if(hasKey){
-            RedisTemplate.opsForValue().increment(order.getParking_lot_number(),1);        //车位自增
+            redisTemplate.opsForValue().increment(order.getParking_lot_number(),1);        //车位自增
             return setStatus("已取消",order.getOrder_number());
         }else {
             return "停车场信息异常";
@@ -409,32 +420,32 @@ public class OrderServiceImpl {
 
 
     /**
-     * TODO：修改订单状态
-     * @param status 状态信息
-     * @param parking_lot_number 停车场编号
-     * @param license_plate_number 车牌号
+     * TODO：添加订单状态信息
+     * @param name 订单信息名
+     * @param order_number 订单编号
+     * @param message 订单信息
      * @return 是否成功
      * */
-    public String setStatus (String status,String parking_lot_number,String license_plate_number){
-        Order order = (Order) getRedisValue(parking_lot_number,license_plate_number, Order.class);
-        order.setOrder_status(status);
-        if (status.equals("已取消")||status.equals("已完成")){
-//            orderDao.add_Order(order.getOrder_number(),
-//                    order.getGeneration_time(),
-//                    order.getUser_name(),
-//                    order.getInTime(),
-//                    order.getOutTime(),
-//                    order.getParking_lot_name(),
-//                    order.getParking_lot_number(),
-//                    order.getLicense_plate_number(),
-//                    order.getPayment_amount(),
-//                    order.getOrder_status());
-            deleteRedisValue(parking_lot_number,license_plate_number);
-        }else {
-            setRedisValue(parking_lot_number,license_plate_number, order);
+    public String setStatus (String order_number,String name,Order  message){
+        Boolean hasKey = redisTemplate.hasKey(order_number);
+        if (!hasKey){
+            Order order = orderDao.getOrderByNumber(order_number);
+            if (order==null){
+                return "订单不存在";
+            }
+            return "订单已结束";
         }
-        return "订单:"+order.getOrder_number()+" 状态修改为："+status;
+        Object o = redisTemplate.opsForHash().get(order_number, name);
+        if (o!=null){
+            return "请勿重复设置 "+name;
+        }
+        redisTemplate.opsForHash().put(order_number,name,message);
+
+        return "订单:"+order_number+" 添加订单状态信息："+name+" 成功";
     }
+
+
+
 
 
 //    /**
