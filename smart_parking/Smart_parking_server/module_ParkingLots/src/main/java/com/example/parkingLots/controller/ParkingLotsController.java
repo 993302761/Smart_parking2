@@ -84,10 +84,10 @@ public class ParkingLotsController {
     @ApiOperation(value = "车位情况变化")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "parking_lot_number", value = "停车场编号", required = true, dataType = "String"),
-            @ApiImplicitParam(name = "Available_place_num", value = "可用车位数量", required = true, dataType = "String")
+            @ApiImplicitParam(name = "Available_place_num", value = "可用车位数量", required = true, dataType = "int")
     })
     @PutMapping(value = "/change_parking_space", produces = "text/plain; charset=utf-8")
-    public String change_parking_space (String parking_lot_number ,String Available_place_num){
+    public String change_parking_space (String parking_lot_number ,int Available_place_num){
         return parkingLotService.change_parking_space(parking_lot_number,Available_place_num);
     }
 

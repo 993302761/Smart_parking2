@@ -35,8 +35,8 @@ public class    OrderController {
             key = {"orderTimeout"}
     ))
     //@RabbitListener 标注在类上面表示当有收到消息的时候，就交给 @RabbitHandler 的方法处理，根据接受的参数类型进入具体的方法中。
-    public void   orderTimeout (HashMap<String,String> map){
-        log.info(orderService.orderTimeout(  map.get("order_number")));
+    public void   orderTimeout (String order_number){
+        log.info(orderService.orderTimeout( order_number));
     }
 
 
@@ -45,12 +45,10 @@ public class    OrderController {
             @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String"),
             @ApiImplicitParam(name = "license_plate_number", value = "车牌号", required = true, dataType = "String"),
             @ApiImplicitParam(name = "parking_lot_number", value = "停车场编号", required = true, dataType = "String"),
-            @ApiImplicitParam(name = "generation_time", value = "订单生成时间", required = true, dataType = "String")
-
-
+            @ApiImplicitParam(name = "generation_time", value = "订单生成时间", required = true, dataType = "long")
     })
     @PostMapping(value = "/generate_order/{user_name}/{license_plate_number}/{parking_lot_number}/{generation_time}", produces = "application/json; charset=utf-8")
-    public String  generate_order (@PathVariable String user_name,@PathVariable String license_plate_number,@PathVariable String parking_lot_number,@PathVariable String generation_time){
+    public String  generate_order (@PathVariable String user_name,@PathVariable String license_plate_number,@PathVariable String parking_lot_number,@PathVariable long generation_time){
         return orderService.generate_order(user_name,license_plate_number,parking_lot_number,generation_time);
     }
 
@@ -77,26 +75,16 @@ public class    OrderController {
 
 
 
-    @ApiOperation(value = "app用户查找订单")
+    @ApiOperation(value = "查找订单")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String"),
             @ApiImplicitParam(name = "order_number", value = "订单编号", required = true, dataType = "String")
     })
-    @GetMapping(value = "/userGetParkingOrder/{user_name}/{order_number}", produces = "application/json; charset=utf-8")
-    public Order userGetParkingOrder (@PathVariable String user_name, @PathVariable String order_number){
+    @GetMapping(value = "/userGetParkingOrder/{order_number}", produces = "application/json; charset=utf-8")
+    public Order userGetParkingOrder (@PathVariable String order_number){
         return orderService.getOrderByNumber(order_number);
     }
 
 
-
-    @ApiOperation(value = "根据订单编号搜索订单")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "order_number", value = "订单编号", required = true, dataType = "String"),
-    })
-    @GetMapping(value = "/getOrderByNumber", produces = "application/json; charset=utf-8")
-    public Order getOrderByNumber (String order_number){
-        return orderService.getOrderByNumber(order_number);
-    }
 
 
 
@@ -156,6 +144,8 @@ public class    OrderController {
     public String cancelOrder (@PathVariable String order_number){
         return orderService.cancelOrder(order_number);
     }
+
+
 
 
     @ApiOperation(value = "停车场订单取消")

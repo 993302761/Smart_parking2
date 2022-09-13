@@ -56,12 +56,12 @@ public class UserOrderServiceImpl {
             if(num==1){
                 return "您还有订单未完成，请完成后再预约";
             }
-            String s = orderFeignService.generate_order(user_name, license_plate_number, parking_lot_number,generation_time);
-            HashMap<String,String> map=new HashMap();
-            map.put("user_name",user_name);
-            map.put("order_number",s);
-            if (s.equals(user_name + '-' + parking_lot_number + '-' + generation_time)){
-                rabbitTemplate.convertAndSend("OrderExchange","Timeout",map,setConfirmCallback());
+            String s = orderFeignService.generate_order(user_name, license_plate_number, parking_lot_number,System.currentTimeMillis());
+            if (s==null){
+                return "错误";
+            }
+            if (s.equals(user_name + '-' + parking_lot_number + '-' + license_plate_number+'&'+System.currentTimeMillis())){
+                rabbitTemplate.convertAndSend("OrderExchange","Timeout",s,setConfirmCallback());
                 redisTemplate.opsForValue().increment(key, 1);
                 return "订单 "+s+" 已开始";
             }else {
@@ -80,7 +80,7 @@ public class UserOrderServiceImpl {
      * @return 是否成功
      */
     public Object findOrder (String user_name,String order_number){
-        return orderFeignService.userGetParkingOrder(user_name,order_number);
+        return orderFeignService.userGetParkingOrder(order_number);
     }
 
 

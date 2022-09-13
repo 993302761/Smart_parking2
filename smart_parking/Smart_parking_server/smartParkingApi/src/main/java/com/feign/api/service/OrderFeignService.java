@@ -23,12 +23,12 @@ public interface OrderFeignService {
 
 
     @PostMapping(value = "/Order/generate_order/{user_name}/{license_plate_number}/{parking_lot_number}/{generation_time}")
-    String  generate_order (@PathVariable("user_name") String user_name,@PathVariable("license_plate_number") String license_plate_number,@PathVariable("parking_lot_number") String parking_lot_number,@PathVariable("generation_time") String generation_time);
+    String  generate_order (@PathVariable("user_name") String user_name,@PathVariable("license_plate_number") String license_plate_number,@PathVariable("parking_lot_number") String parking_lot_number,@PathVariable("generation_time") long generation_time);
 
 
 
-    @GetMapping(value = "/Order/userGetParkingOrder/{user_name}/{parking_lot_number}")
-    Order userGetParkingOrder (@PathVariable("user_name") String user_name, @PathVariable("parking_lot_number") String parking_lot_number);
+    @GetMapping(value = "/Order/userGetParkingOrder/{parking_lot_number}")
+    Order userGetParkingOrder ( @PathVariable("parking_lot_number") String parking_lot_number);
 
 
     @PutMapping(value = "/Order/complete_Order/{user_name}/{order_number}")

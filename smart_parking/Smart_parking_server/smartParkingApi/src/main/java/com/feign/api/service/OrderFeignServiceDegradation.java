@@ -33,13 +33,13 @@ public class OrderFeignServiceDegradation implements FallbackFactory<OrderFeignS
             }
 
             @Override
-            public String generate_order(String user_name, String license_plate_number, String parking_lot_number,String generation_time) {
+            public String generate_order(String user_name, String license_plate_number, String parking_lot_number,long generation_time) {
                 log.error("generate_order 服务出现异常，异常信息：" + cause);
                 return "系统繁忙，APP新增用户失败,请稍后再试";
             }
 
             @Override
-            public Order userGetParkingOrder(String user_name, String parking_lot_number) {
+            public Order userGetParkingOrder( String parking_lot_number) {
                 Order s=new Order();
                 s.setOrder_number("系统繁忙，app用户查找订单失败，请稍后再试");
                 log.error("userGetParkingOrder 服务出现异常，异常信息：" + cause);

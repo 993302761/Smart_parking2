@@ -29,7 +29,6 @@ class UserApplicationTests {
     void contextLoads() throws JsonProcessingException {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date date = new Date(System.currentTimeMillis());
-        String generation_time= formatter.format(date);
-        System.out.println(generation_time);
+        System.out.println(System.currentTimeMillis());
     }
 }

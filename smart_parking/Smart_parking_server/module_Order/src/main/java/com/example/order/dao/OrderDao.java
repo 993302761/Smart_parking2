@@ -19,7 +19,7 @@ public interface OrderDao {
             "outTime," +
             "parking_lot_number," +
             "license_plate_number," +
-            "payment_amount，" +
+            "payment_amount," +
             "order_status from Order_information WHERE order_number =#{order_number} ")
     Order getOrderByNumber(@Param("order_number") String order_number);
 
@@ -136,7 +136,7 @@ public interface OrderDao {
      * 新增一条订单
      *
      * */
-    @Insert("INSERT INTO Order_information(order_number,generation_time,user_name,parking_lot_number,license_plate_number,order_status) VALUES(#{order_number}, #{generation_time}, #{user_name},  #{parking_lot_number}, #{license_plate_number,\"进行中\")")
+    @Insert("INSERT INTO Order_information(order_number,generation_time,user_name,parking_lot_number,license_plate_number,order_status) VALUES(#{order_number}, #{generation_time}, #{user_name},  #{parking_lot_number}, #{license_plate_number},\"进行中\")")
     int addOrder(@Param("order_number") String order_number,
                  @Param("generation_time")  String generation_time,
                  @Param("user_name")  String user_name,
