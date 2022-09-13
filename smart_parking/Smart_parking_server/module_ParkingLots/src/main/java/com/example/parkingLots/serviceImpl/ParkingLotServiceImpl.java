@@ -62,9 +62,8 @@ public class ParkingLotServiceImpl {
         }
 
         //生成停车场编号
-        StringBuilder parking_lot_number=new StringBuilder();
-        parking_lot_number .append(pctr_id) ;
-        parking_lot_number .append(System.currentTimeMillis()) ;
+        StringBuilder parking_lot_number=new StringBuilder(pctr_id+System.currentTimeMillis());
+
 
         int update = parkingLotDao.add_Parking(pctr_id, pctr_password, parking_lot_name, parking_in_the_city, parking_lot_number.toString(), parking_spaces_num, billing_rules, longitude, latitude);
         if (update > 0) {
@@ -168,10 +167,11 @@ public class ParkingLotServiceImpl {
      * @param Available_place_num 当前可用停车位
      */
     public String change_parking_space(String parking_lot_number ,String Available_place_num){
-        Parking_lot_information parking_num = parkingLotDao.getParkingByPNumber(parking_lot_number);
+        Parking parking_num = parkingLotDao.getParkingByPNumber(parking_lot_number);
         if (parking_num==null){
             return "无此停车场";
         }
+        System.out.println(parking_num);
        if (parking_num.getParking_spaces_num()<Integer.parseInt(Available_place_num)){
             return "数据错误";
         }
@@ -247,11 +247,6 @@ public class ParkingLotServiceImpl {
      * @return 所有停车场列表
      */
     public List<Parking> getAllParking() {
-//        try {
-//            TimeUnit.SECONDS.sleep(5);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
         return parkingLotDao.getAllParking();
     }
 

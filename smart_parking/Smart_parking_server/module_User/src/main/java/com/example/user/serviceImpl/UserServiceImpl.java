@@ -10,7 +10,7 @@ import com.feign.api.service.ParkingLotFeignService;
 import com.feign.api.service.VehicleFeignService;
 import com.saltfish.example.demo.VehicleFileDao;
 import org.springframework.context.annotation.Import;
-import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -47,7 +47,7 @@ public class UserServiceImpl  {
 
 
     @Resource
-    private StringRedisTemplate stringRedisTemplate;
+    private RedisTemplate redisTemplate;
 
     @Resource
     private ParkingLotFeignService parkingLotFeignService;
@@ -278,7 +278,7 @@ public class UserServiceImpl  {
      */
     public boolean check_UUID(String UUID,String user_name){
         String key=md5(user_name+UUID);
-        boolean hasKey = stringRedisTemplate.hasKey(key);
+        boolean hasKey = redisTemplate.hasKey(key);
         if(hasKey){
             return true;
         } else {
@@ -332,8 +332,8 @@ public class UserServiceImpl  {
                 curDate.get(Calendar.SECOND));
         long second = (nextDate.getTimeInMillis() - curDate.getTimeInMillis()) / 1000;
         String key=md5(user_name+UUID);
-        stringRedisTemplate.opsForValue().set(key, "0");
-        Boolean expire = stringRedisTemplate.expire(key, second, TimeUnit.SECONDS);
+        redisTemplate.opsForValue().set(key, 0);
+        Boolean expire = redisTemplate.expire(key, second, TimeUnit.SECONDS);
         return expire;
     }
 
@@ -364,7 +364,7 @@ public class UserServiceImpl  {
      * @param key
      */
     public Object getRedisValue (String key,Class clazz) throws JsonProcessingException {
-        String value=stringRedisTemplate.opsForValue().get(key);
+        String value= (String) redisTemplate.opsForValue().get(key);
         //反序列化
         Object userInformation=mapper.readValue(value,clazz);
         return userInformation;
@@ -378,7 +378,7 @@ public class UserServiceImpl  {
     public String delete_User (String user_name,String UUID){
         userDao.delete_User(user_name);
         String key=md5(user_name+UUID);
-        stringRedisTemplate.delete(key);
+        redisTemplate.delete(key);
         return vehicleFeignService.deleteAllVehicle(user_name);
     }
 

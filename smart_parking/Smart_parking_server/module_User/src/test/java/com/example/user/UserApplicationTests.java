@@ -10,6 +10,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 
 import javax.annotation.Resource;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 @SpringBootTest
@@ -26,8 +27,9 @@ class UserApplicationTests {
 
     @Test
     void contextLoads() throws JsonProcessingException {
-        StringBuffer order_number = new StringBuffer();
-        order_number.append("13213"+'5'+"8789")  ;
-        System.out.println(order_number);
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date = new Date(System.currentTimeMillis());
+        String generation_time= formatter.format(date);
+        System.out.println(generation_time);
     }
 }

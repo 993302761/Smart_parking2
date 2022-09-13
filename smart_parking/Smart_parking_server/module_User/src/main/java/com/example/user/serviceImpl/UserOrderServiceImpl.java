@@ -33,7 +33,7 @@ public class UserOrderServiceImpl {
     private RabbitTemplate rabbitTemplate;
 
     @Resource
-    private RedisTemplate<String ,String> redisTemplate;
+    private RedisTemplate redisTemplate;
 
 
     /**
@@ -44,30 +44,30 @@ public class UserOrderServiceImpl {
      * @return 是否成功
      */
     public String  generate_order (String user_name,String license_plate_number,String parking_lot_number,String UUID){
-        try {
+
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             Date date = new Date(System.currentTimeMillis());
             String generation_time= formatter.format(date);
+            System.out.println(generation_time);
+
             String key=UserServiceImpl.md5(user_name+UUID);
-            Set<String> hasKey = redisTemplate.keys(user_name+"-*");
-            if(hasKey.isEmpty()){
+
+            int num = (int) redisTemplate.opsForValue().get(key);
+            if(num==1){
                 return "您还有订单未完成，请完成后再预约";
             }
             String s = orderFeignService.generate_order(user_name, license_plate_number, parking_lot_number,generation_time);
             HashMap<String,String> map=new HashMap();
             map.put("user_name",user_name);
             map.put("order_number",s);
-            if (s.equals(user_name + '-' + parking_lot_number + '-' + license_plate_number)){
+            if (s.equals(user_name + '-' + parking_lot_number + '-' + generation_time)){
                 rabbitTemplate.convertAndSend("OrderExchange","Timeout",map,setConfirmCallback());
                 redisTemplate.opsForValue().increment(key, 1);
                 return "订单 "+s+" 已开始";
             }else {
                 return s;
             }
-        }catch (Exception e){
-            e.printStackTrace();
-            return "服务异常";
-        }
+
 
     }
 

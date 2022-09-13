@@ -22,6 +22,10 @@ public interface ParkingLotDao {
     /**
      * 查找停车场管理员信息
      * */
+    @Results({
+            @Result(property = "pctr_id", column = "pctr_id"),
+            @Result(property = "pctr_password", column = "pctr_password")
+    })
     @Select("SELECT pctr_id,pctr_password FROM Parking_lot_information WHERE pctr_id =#{pctr_id}")
     Parking_lot_information getParkingByPid(@Param("pctr_id") String pctr_id);
 
@@ -32,16 +36,18 @@ public interface ParkingLotDao {
     /**
      * 根据停车场编号查找停车场信息
      * */
-    @Select("SELECT pctr_id," +
-            "pctr_password," +
-            "parking_lot_name," +
-            "parking_in_the_city," +
-            "parking_lot_number," +
-            "parking_spaces_num," +
-            "billing_rules," +
-            "longitude," +
-            "latitude FROM Parking_lot_information WHERE parking_lot_number =#{parking_lot_number}")
-    Parking_lot_information getParkingByPNumber(@Param("parking_lot_number") String parking_lot_number);
+    @Results({
+            @Result(property = "parking_lot_name", column = "parking_lot_name"),
+            @Result(property = "parking_in_the_city", column = "parking_in_the_city"),
+            @Result(property = "parking_lot_number", column = "parking_lot_number"),
+            @Result(property = "parking_spaces_num", column = "parking_spaces_num"),
+            @Result(property = "billing_rules", column = "billing_rules"),
+            @Result(property = "longitude", column = "longitude"),
+            @Result(property = "latitude", column = "latitude")
+    })
+    @Select("SELECT parking_lot_name,parking_in_the_city,parking_lot_number,parking_spaces_num,billing_rules,longitude,latitude  FROM Parking_lot_information WHERE parking_lot_number =#{parking_lot_number}")
+    Parking getParkingByPNumber(@Param("parking_lot_number") String parking_lot_number);
+
 
 
     /**
@@ -51,11 +57,14 @@ public interface ParkingLotDao {
     String getParkingName(@Param("parking_lot_number") String parking_lot_number);
 
 
+
     /**
      * 根据停车场编号查找停车场计费
      * */
     @Select("SELECT billing_rules FROM Parking_lot_information WHERE parking_lot_number =#{parking_lot_number}")
     Float getParkingBilling_rules(@Param("parking_lot_number") String parking_lot_number);
+
+
 
     /**
      * 判断停车场是否存在
@@ -68,6 +77,15 @@ public interface ParkingLotDao {
     /**
      * 获取停车场管理员列表
      */
+    @Results({
+            @Result(property = "parking_lot_name", column = "parking_lot_name"),
+            @Result(property = "parking_in_the_city", column = "parking_in_the_city"),
+            @Result(property = "parking_lot_number", column = "parking_lot_number"),
+            @Result(property = "parking_spaces_num", column = "parking_spaces_num"),
+            @Result(property = "billing_rules", column = "billing_rules"),
+            @Result(property = "longitude", column = "longitude"),
+            @Result(property = "latitude", column = "latitude")
+    })
     @Select("select parking_lot_name," +
             "parking_in_the_city," +
             "parking_lot_number," +

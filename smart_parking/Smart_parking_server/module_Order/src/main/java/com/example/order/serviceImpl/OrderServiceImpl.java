@@ -54,7 +54,7 @@ public class OrderServiceImpl {
 
 
         //生成订单编号
-        StringBuilder order_number = new StringBuilder(user_name + '-' + parking_lot_number + '-' + license_plate_number);
+        StringBuilder order_number = new StringBuilder(user_name + '-' + parking_lot_number + '-' + generation_time);
 
         //获取停车场收费标准
         String billing_rules=parkingLotFeignService.getParkingBilling_rules(parking_lot_number);
