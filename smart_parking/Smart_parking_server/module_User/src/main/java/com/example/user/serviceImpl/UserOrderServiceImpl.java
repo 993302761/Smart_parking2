@@ -45,30 +45,31 @@ public class UserOrderServiceImpl {
      */
     public String  generate_order (String user_name,String license_plate_number,String parking_lot_number,String UUID){
 
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            Date date = new Date(System.currentTimeMillis());
-            String generation_time= formatter.format(date);
-            System.out.println(generation_time);
-
-            String key=UserServiceImpl.md5(user_name+UUID);
-
-            int num = (int) redisTemplate.opsForValue().get(key);
-            if(num==1){
-                return "您还有订单未完成，请完成后再预约";
+        String key=UserServiceImpl.md5(user_name+UUID);
+        Boolean hasKey = redisTemplate.hasKey(key);
+        if (!hasKey){
+            return "找不到此用户";
+        }
+        int num = (int) redisTemplate.opsForValue().get(key);
+        if(num==1){
+            return "您还有订单未完成，请完成后再预约";
+        }
+        long l = System.currentTimeMillis();
+        String s = orderFeignService.generate_order(user_name, license_plate_number, parking_lot_number,l);
+        if (s==null){
+            return "错误";
+        }
+        String s1=user_name + '-' + parking_lot_number + '-' + license_plate_number+'&'+l;
+        if (s.equals(s1)){
+            rabbitTemplate.convertAndSend("OrderExchange","Timeout",s,setConfirmCallback());
+            Long aLong = redisTemplate.opsForValue().increment(key);
+            if (aLong==-1){
+                return "数据错误-3";
             }
-            String s = orderFeignService.generate_order(user_name, license_plate_number, parking_lot_number,System.currentTimeMillis());
-            if (s==null){
-                return "错误";
-            }
-            if (s.equals(user_name + '-' + parking_lot_number + '-' + license_plate_number+'&'+System.currentTimeMillis())){
-                rabbitTemplate.convertAndSend("OrderExchange","Timeout",s,setConfirmCallback());
-                redisTemplate.opsForValue().increment(key, 1);
-                return "订单 "+s+" 已开始";
-            }else {
-                return s;
-            }
-
-
+            return "订单 "+s+" 已开始";
+        }else {
+            return s+" 失败";
+        }
     }
 
 
@@ -130,10 +131,11 @@ public class UserOrderServiceImpl {
         if(!hasKey){
             return "数据错误-1";
         }
-        if (!redisTemplate.opsForValue().get(key).equals("1")){
+        int o = (int) redisTemplate.opsForValue().get(key);
+        if (!(o==1)){
             return "数据错误-2";
         }
-        redisTemplate.opsForValue().increment(key, -1);
+        redisTemplate.opsForValue().decrement(key);
 
         rabbitTemplate.convertAndSend("IntegralExchange","addIntegral",user_name,setConfirmCallback());
         return orderFeignService.complete_Order(user_name,order_number);

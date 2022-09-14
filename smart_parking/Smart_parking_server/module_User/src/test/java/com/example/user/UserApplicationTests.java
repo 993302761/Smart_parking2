@@ -1,6 +1,7 @@
 package com.example.user;
 
 import com.example.user.entity.User_information;
+import com.example.user.serviceImpl.UserServiceImpl;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.feign.api.entity.user.User;
@@ -27,8 +28,9 @@ class UserApplicationTests {
 
     @Test
     void contextLoads() throws JsonProcessingException {
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Date date = new Date(System.currentTimeMillis());
-        System.out.println(System.currentTimeMillis());
+
+        String key= UserServiceImpl.md5("123"+"123");
+        Long increment = redisTemplate.opsForValue().decrement(key);
+        System.out.println(increment);
     }
 }

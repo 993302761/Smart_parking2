@@ -363,11 +363,13 @@ public class OrderServiceImpl {
             Order order = orderDao.getOrderByNumber(order_number);
             if (order==null){
                 return "未找到订单";
-            }else {
-                return "订单已完成";
+            }else if (order.getOrder_status().equals("已完成")||order.getOrder_status().equals("已取消")){
+                return "订单已完成，请勿重复支付";
             }
         }
         String outTime = (String) redisTemplate.opsForHash().get(order_number, "outTime");
+        System.out.println(order_number);
+        System.out.println(outTime);
         if (outTime==null){
             return "订单未完成，请在完成后支付";
         }
