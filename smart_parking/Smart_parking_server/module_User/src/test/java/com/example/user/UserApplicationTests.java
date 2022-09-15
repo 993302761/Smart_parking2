@@ -29,8 +29,8 @@ class UserApplicationTests {
     @Test
     void contextLoads() throws JsonProcessingException {
 
-        String key= UserServiceImpl.md5("123"+"123");
-        Long increment = redisTemplate.opsForValue().decrement(key);
-        System.out.println(increment);
+        int hours=0;
+        hours+=0.7;
+        System.out.println(hours);
     }
 }

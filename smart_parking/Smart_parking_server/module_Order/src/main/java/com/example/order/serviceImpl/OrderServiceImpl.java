@@ -253,7 +253,7 @@ public class OrderServiceImpl {
         String generation_time= getTime();
         String s=getOrderByLP(license_plate_number,parking_lot_number);
         if (s==null){
-            return "订单错误";
+            return null;
         }
         return setMessage(s,"inTime",generation_time);
     }
@@ -316,7 +316,7 @@ public class OrderServiceImpl {
     public String getOrderByLP(String license_plate_number ,String parking_lot_number){
         Set<String> keys = redisTemplate.keys("*-" + parking_lot_number + "-" + license_plate_number+"&*");
         if (keys==null){
-            return "错误";
+            return null;
         }
         if (keys.isEmpty()){
             return null;
@@ -337,7 +337,9 @@ public class OrderServiceImpl {
      * @param billing_rules 价格
      */
     public void setMoney (Timestamp inTime,Timestamp outTime,String billing_rules,String order_number){
-        int hours = (int) ((inTime.getTime() - outTime.getTime()) / (1000 * 60* 60));
+        int hours = (int) ((outTime.getTime() - inTime.getTime()) / (1000 * 60* 60));
+        int minutes=(int) (((outTime.getTime()  - inTime.getTime())/1000-hours*(60*60))/60);
+        hours+=minutes/60.0+0.7;
         float money=hours*Float.parseFloat(billing_rules);
         setMessage(order_number,"payment_amount", String.valueOf(money));
     }
@@ -367,15 +369,18 @@ public class OrderServiceImpl {
                 return "订单已完成，请勿重复支付";
             }
         }
+        String inTime = (String) redisTemplate.opsForHash().get(order_number, "inTime");
+        if (inTime==null){
+            orderDao.updateOrder(null,null,null,"已取消",order_number);
+            return "订单未完成，请在完成后支付";
+        }
+
         String outTime = (String) redisTemplate.opsForHash().get(order_number, "outTime");
-        System.out.println(order_number);
-        System.out.println(outTime);
         if (outTime==null){
             return "订单未完成，请在完成后支付";
         }
         Map<Object, Object> map = redisTemplate.opsForHash().entries(order_number);
         Iterator<Map.Entry<Object, Object>> iterator = map.entrySet().iterator();
-        String inTime=null;
         String payment_amount=null;
         while (iterator.hasNext()){
             Map.Entry<Object, Object> entry=iterator.next();
@@ -439,7 +444,7 @@ public class OrderServiceImpl {
             if (inTime==null){
                 orderDao.setStatus("已取消",order_number);
                 redisTemplate.delete(order_number);
-                return "订单："+order_number+" 已取消 ";
+                return "订单已取消";
             }
             return "订单进行中，不可取消";
         }else {
@@ -497,7 +502,7 @@ public class OrderServiceImpl {
                     case "outTime":outTime= (String) entry.getValue();break;
                 }
             }
-            orderDao.updateOrder(inTime,outTime,payment_amount,"已完成",order_number);
+            orderDao.updateOrder(inTime,outTime,payment_amount,"已取消",order_number);
             redisTemplate.delete(order_number);
             return "订单 "+order_number+" 已取消";
         }

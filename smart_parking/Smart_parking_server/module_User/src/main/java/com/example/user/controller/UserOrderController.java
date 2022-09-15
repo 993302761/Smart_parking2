@@ -73,7 +73,7 @@ public class UserOrderController {
     })
     @PutMapping(value = "/app_cancellation_Order", produces = "text/plain;charset=utf-8")
     public String app_cancellation_Order (String user_name, String order_number, String UUID){
-          return userOrderService.app_cancellation_Order(user_name,order_number);
+          return userOrderService.app_cancellation_Order(user_name,order_number,UUID);
     }
 
 

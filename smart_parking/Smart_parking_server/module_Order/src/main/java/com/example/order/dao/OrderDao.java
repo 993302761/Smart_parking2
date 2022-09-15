@@ -124,7 +124,7 @@ public interface OrderDao {
             "outTime," +
             "parking_lot_number," +
             "license_plate_number," +
-            "payment_amount，" +
+            "payment_amount," +
             "order_status from Order_information")
     List<Order> getAllOrders();
 

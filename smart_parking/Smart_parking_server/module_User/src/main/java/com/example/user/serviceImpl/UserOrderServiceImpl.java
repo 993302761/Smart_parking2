@@ -135,10 +135,13 @@ public class UserOrderServiceImpl {
         if (!(o==1)){
             return "数据错误-2";
         }
-        redisTemplate.opsForValue().decrement(key);
 
         rabbitTemplate.convertAndSend("IntegralExchange","addIntegral",user_name,setConfirmCallback());
-        return orderFeignService.complete_Order(user_name,order_number);
+        String s = orderFeignService.complete_Order(user_name, order_number);
+        if (s.equals("支付完成")){
+            redisTemplate.opsForValue().decrement(key);
+        }
+        return s;
     }
 
 
@@ -149,8 +152,13 @@ public class UserOrderServiceImpl {
      * @param order_number 订单号
      * @return 是否成功
      */
-    public String app_cancellation_Order (String user_name,String order_number){
-        return orderFeignService.app_cancellation_Order(user_name,order_number);
+    public String app_cancellation_Order (String user_name,String order_number,String UUID){
+        String s = orderFeignService.app_cancellation_Order(user_name, order_number);
+        if (s.equals("订单已取消")){
+            String key=UserServiceImpl.md5(user_name+UUID);
+            redisTemplate.opsForValue().decrement(key);
+        }
+        return s;
     }
 
 
