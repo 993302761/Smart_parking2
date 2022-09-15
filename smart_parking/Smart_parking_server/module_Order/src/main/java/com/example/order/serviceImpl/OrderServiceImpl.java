@@ -58,12 +58,18 @@ public class OrderServiceImpl {
         StringBuilder order_number = new StringBuilder(user_name + '-' + parking_lot_number + '-' + license_plate_number+'&'+generation_time);
 
         //获取停车场收费标准
-        String billing_rules=parkingLotFeignService.getParkingBilling_rules(parking_lot_number);
-        if (billing_rules==null){
-            return "停车场不存在";
-        }else if (billing_rules.equals("系统繁忙，查找停车场名失败，请稍后再试")){
-            return "停车场服务异常";
+        Object billingRules =redisTemplate.opsForHash().get(parking_lot_number, "billing_rules");
+        if (billingRules==null){
+            String billing_rules=parkingLotFeignService.getParkingBilling_rules(parking_lot_number);
+            if (billing_rules==null){
+                return "停车场不存在";
+            }else if (billing_rules.equals("系统繁忙，查找停车场名失败，请稍后再试")){
+                return "停车场服务异常";
+            }
+            //订单信息存入redis
+            redisTemplate.opsForHash().put(parking_lot_number,"billing_rules",billing_rules);
         }
+
 
         //检查车辆信息是否注册
         int check=vehicleFeignService.check_license_plate_number(user_name,license_plate_number);
@@ -81,14 +87,14 @@ public class OrderServiceImpl {
         }
         //检测是否还有空车位
         if(hasKey) {
-            int s = (int) redisTemplate.opsForValue().get(parking_lot_number);
+            int s = (int) redisTemplate.opsForHash().get(parking_lot_number,"Available_place_num");
             if (s <= 0) {
                 return "车位已满";
             }
             try {
-                redisTemplate.opsForValue().increment(parking_lot_number, -1);   //车位自减
+                redisTemplate.opsForHash().increment(parking_lot_number,"Available_place_num", -1);   //车位自减
             } catch (Exception e) {
-                redisTemplate.opsForValue().increment(parking_lot_number, 1);        //车位自增
+                redisTemplate.opsForHash().increment(parking_lot_number,"Available_place_num", 1);        //车位自增
                 e.printStackTrace();
                 return "预约失败";
             }
@@ -101,10 +107,7 @@ public class OrderServiceImpl {
         if (i==0){
             return "信息错误";
         }
-
-        //订单信息存入redis
-        redisTemplate.opsForHash().put(order_number.toString(),"billing_rules",billing_rules);
-
+        redisTemplate.opsForHash().put(order_number.toString(),"inTime",null);
         return order_number.toString();
     }
 
@@ -273,7 +276,7 @@ public class OrderServiceImpl {
         String generation_time= getTime();
         String s=getOrderByLP(license_plate_number,parking_lot_number);
         if (s==null){
-            return "订单错误";
+            return null;
         }
         String inTime = (String) redisTemplate.opsForHash().get(s, "inTime");
         if (inTime==null){
@@ -285,7 +288,7 @@ public class OrderServiceImpl {
             return s0;
         }
 
-        String billing_rules = (String) redisTemplate.opsForHash().get(s, "billing_rules");
+        String billing_rules = (String) redisTemplate.opsForHash().get(parking_lot_number, "billing_rules");
         setMoney(Timestamp.valueOf(inTime),Timestamp.valueOf(generation_time),billing_rules,s);
         return setMessage(s,"outTime",generation_time);
     }
@@ -416,7 +419,7 @@ public class OrderServiceImpl {
             return "错误";
         }
         if(hasKey){
-            redisTemplate.opsForValue().increment(parking_lot_number,1);        //车位自增
+            redisTemplate.opsForHash().increment(parking_lot_number,"Available_place_num",1);        //车位自增
             return null;
         }else {
             return "停车场信息异常";

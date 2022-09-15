@@ -29,8 +29,5 @@ class UserApplicationTests {
     @Test
     void contextLoads() throws JsonProcessingException {
 
-        int hours=0;
-        hours+=0.7;
-        System.out.println(hours);
     }
 }

@@ -125,6 +125,7 @@ public class ParkingLotsController {
     }
 
 
+
     @ApiOperation(value = "停车场订单取消")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "parking_lot_number", value = "停车场编号", required = true, dataType = "String"),
@@ -136,6 +137,7 @@ public class ParkingLotsController {
     }
 
 
+
     @ApiOperation(value = "查找停车场")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "parking_lot_name", value = "停车场名", required = true, dataType = "String"),
@@ -145,6 +147,7 @@ public class ParkingLotsController {
     public List<Parking_for_user> getParkingLot (@PathVariable String parking_lot_name, @PathVariable String city){
         return parkingLotService.getParkingLot(parking_lot_name,city);
     }
+
 
 
     @ApiOperation(value = "获取某一区域停车场情况")
