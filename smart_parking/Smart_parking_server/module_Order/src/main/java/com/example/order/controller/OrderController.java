@@ -77,13 +77,24 @@ public class    OrderController {
 
     @ApiOperation(value = "查找订单")
     @ApiImplicitParams({
+            @ApiImplicitParam(name = "user_name", value = "用户名", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "order_number", value = "订单编号", required = true, dataType = "String")
+    })
+    @GetMapping(value = "/checkOpenOrder/{user_name}/{order_number}", produces = "application/json; charset=utf-8")
+    public int checkOpenOrder (@PathVariable String user_name,@PathVariable String order_number){
+        return orderService.checkOpenOrder(user_name,order_number);
+    }
+
+
+
+    @ApiOperation(value = "查找某用户进行中的订单")
+    @ApiImplicitParams({
             @ApiImplicitParam(name = "order_number", value = "订单编号", required = true, dataType = "String")
     })
     @GetMapping(value = "/userGetParkingOrder/{order_number}", produces = "application/json; charset=utf-8")
     public Order userGetParkingOrder (@PathVariable String order_number){
         return orderService.getOrderByNumber(order_number);
     }
-
 
 
 

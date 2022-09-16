@@ -152,6 +152,7 @@ public class UserServiceImpl  {
             return "照片保存错误";
         }
         try {
+
             String s = vehicleFeignService.vehicle_binding(user_name, user_id, license_plate_number, vehicle_photos_address.replace('/', '&'), registration_address.replace('/', '&'), driving_permit_address.replace('/', '&'));
             return s;
         }catch (Exception e){

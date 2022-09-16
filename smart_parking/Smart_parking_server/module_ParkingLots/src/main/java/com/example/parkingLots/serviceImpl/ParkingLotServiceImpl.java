@@ -98,6 +98,7 @@ public class ParkingLotServiceImpl {
         if (parkingLotInformation == null) {
             return "该停车场未注册";
         }
+        redisTemplate.opsForHash().delete(parking_lot_name,"billing_rules");
         int i = parkingLotDao.updateParking(parking_lot_name,parking_in_the_city,parking_spaces_num,billing_rules,pctr_id);
         if (i==1){
             return "更新成功";
@@ -209,7 +210,7 @@ public class ParkingLotServiceImpl {
         List<Parking_for_user> new_parking_lot=new ArrayList<>();
         for (int i = 0; i < parking_lot.size(); i++) {
             Parking_for_user p=parking_lot.get(i);
-            boolean hasKey = redisTemplate.hasKey(p.getParking_lot_number());
+            Boolean hasKey = redisTemplate.hasKey(p.getParking_lot_number());
             if(hasKey ){
                 Object  s =  redisTemplate.opsForHash().get(parking_lot.get(i).getParking_lot_number(),"Available_place_num");
                 if (s==null){
@@ -229,14 +230,22 @@ public class ParkingLotServiceImpl {
      * @return 根据停车场编号查找停车场名
      */
     public String getParkingName(String parking_lot_number) {
-        return parkingLotDao.getParkingName(parking_lot_number);
+        String name = (String) redisTemplate.opsForHash().get(parking_lot_number, "parking_lot_name");
+        if (name==null){
+            name=parkingLotDao.getParkingName(parking_lot_number);
+            if (name==null){
+                return null;
+            }
+            redisTemplate.opsForHash().put(parking_lot_number,"parking_lot_name",name);
+        }
+        return name;
     }
 
 
 
     /**
-     * TODO：根据停车场编号查找停车场名
-     * @return 根据停车场编号查找停车场名
+     * TODO：根据停车场编号获取停车场收费标准
+     * @return 停车场收费标准
      */
     public String getParkingBilling_rules(String parking_lot_number) {
         float s= parkingLotDao.getParkingBilling_rules(parking_lot_number);

@@ -72,11 +72,15 @@ public class OrderServiceImpl {
 
 
         //检查车辆信息是否注册
-        int check=vehicleFeignService.check_license_plate_number(user_name,license_plate_number);
-        if (check==0){
-            return "未注册车辆信息";
-        }else if (check==-1){
-            return "车辆信息服务异常";
+        Boolean key = redisTemplate.hasKey(user_name + license_plate_number);
+        if (!key) {
+            int check=vehicleFeignService.check_license_plate_number(user_name,license_plate_number);
+            if (check==0){
+                return "未注册车辆信息";
+            }else if (check==-1){
+                return "车辆信息服务异常";
+            }
+            redisTemplate.opsForValue().set(user_name+license_plate_number,null);
         }
 
 
@@ -226,7 +230,7 @@ public class OrderServiceImpl {
 
 
     /**
-     * 获取Redis中的订单信息
+     * TODO：获取Redis中的订单信息
      * @param order 订单
      * @param order_number  订单号
      */
@@ -545,6 +549,13 @@ public class OrderServiceImpl {
     }
 
 
-
-
+    /**
+     * TODO：查找用户是否有未完成订单
+     * @param user_name
+     * @param order_number
+     * @return
+     */
+    public int checkOpenOrder(String user_name, String order_number) {
+        return orderDao.checkOpenOrder(user_name,order_number);
+    }
 }
