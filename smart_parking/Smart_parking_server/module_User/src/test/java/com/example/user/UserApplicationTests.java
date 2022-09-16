@@ -28,6 +28,6 @@ class UserApplicationTests {
 
     @Test
     void contextLoads() throws JsonProcessingException {
-
+        redisTemplate.opsForValue().set("456",null);
     }
 }

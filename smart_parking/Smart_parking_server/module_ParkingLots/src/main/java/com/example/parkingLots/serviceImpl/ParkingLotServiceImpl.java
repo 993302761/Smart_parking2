@@ -7,6 +7,7 @@ import com.example.parkingLots.entity.Parking_lot_information;
 import com.feign.api.entity.parkingLots.Parking;
 import com.feign.api.entity.parkingLots.Parking_for_user;
 import com.feign.api.service.OrderFeignService;
+import org.apache.commons.lang.BooleanUtils;
 import org.springframework.context.annotation.Import;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @Service
 @Import({
@@ -80,31 +82,46 @@ public class ParkingLotServiceImpl {
     /**
      * TODO：更新停车场信息
      * @param pctr_id 停车场管理员账号
-     * @param parking_lot_name 停车场名
+     * @param parking_lot_number 停车场编号
      * @param parking_in_the_city 停车场所在城市
      * @param parking_spaces_num 停车场总车位数
      * @param billing_rules 定价
      * @return 是否成功
      */
     public String updateParking(String pctr_id,
-                              String parking_lot_name,
+                              String parking_lot_number,
                               String parking_in_the_city,
                               Integer parking_spaces_num,
                               float billing_rules) {
-        if (pctr_id==null  || parking_lot_name==null || parking_in_the_city==null || parking_spaces_num==null) {
+        if (pctr_id==null  || parking_lot_number==null || parking_in_the_city==null || parking_spaces_num==null) {
             return "请输入完整信息";
         }
-        Parking_lot_information parkingLotInformation = parkingLotDao.getParkingByPid(pctr_id);
-        if (parkingLotInformation == null) {
-            return "该停车场未注册";
+        try {
+
+            Boolean key = redisTemplate.hasKey(parking_lot_number);
+            if (BooleanUtils.isFalse(key)) {
+                return "该停车场未注册";
+            }
+
+            //redis互斥锁   解决缓存击穿
+            Boolean absent = redisTemplate.opsForValue().setIfAbsent("updateParking", "1", 10, TimeUnit.SECONDS);
+            if (BooleanUtils.isFalse(absent)) {
+                Thread.sleep(50);
+                return updateParking(pctr_id, parking_lot_number, parking_in_the_city, parking_spaces_num, billing_rules);
+            }
+            int i = parkingLotDao.updateParking(parking_in_the_city, parking_spaces_num, billing_rules, pctr_id);
+            if (i == 1) {
+                redisTemplate.opsForHash().delete(parking_lot_number, "billing_rules");
+                return "更新成功";
+            }
+        }catch (InterruptedException e){
+            throw new RuntimeException(e);
+        }finally {
+            //redis释放互斥锁
+            redisTemplate.delete("updateParking");
         }
-        redisTemplate.opsForHash().delete(parking_lot_name,"billing_rules");
-        int i = parkingLotDao.updateParking(parking_lot_name,parking_in_the_city,parking_spaces_num,billing_rules,pctr_id);
-        if (i==1){
-            return "更新成功";
-        }else {
-            return "更新失败";
-        }
+        return "更新失败";
+
     }
 
 
@@ -211,7 +228,7 @@ public class ParkingLotServiceImpl {
         for (int i = 0; i < parking_lot.size(); i++) {
             Parking_for_user p=parking_lot.get(i);
             Boolean hasKey = redisTemplate.hasKey(p.getParking_lot_number());
-            if(hasKey ){
+            if(BooleanUtils.isTrue(hasKey) ){
                 Object  s =  redisTemplate.opsForHash().get(parking_lot.get(i).getParking_lot_number(),"Available_place_num");
                 if (s==null){
                     s=0;
@@ -230,13 +247,17 @@ public class ParkingLotServiceImpl {
      * @return 根据停车场编号查找停车场名
      */
     public String getParkingName(String parking_lot_number) {
-        String name = (String) redisTemplate.opsForHash().get(parking_lot_number, "parking_lot_name");
-        if (name==null){
-            name=parkingLotDao.getParkingName(parking_lot_number);
-            if (name==null){
+        Boolean key = redisTemplate.hasKey(parking_lot_number);
+        String name;
+        if(BooleanUtils.isTrue(key)) {
+            name = (String) redisTemplate.opsForHash().get(parking_lot_number, "parking_lot_name");
+        }else {
+            name = parkingLotDao.getParkingName(parking_lot_number);
+            if (name == null) {
+                redisTemplate.opsForValue().set(parking_lot_number, null, 5, TimeUnit.MINUTES);
                 return null;
             }
-            redisTemplate.opsForHash().put(parking_lot_number,"parking_lot_name",name);
+            redisTemplate.opsForHash().put(parking_lot_number, "parking_lot_name", name);
         }
         return name;
     }

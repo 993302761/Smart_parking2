@@ -6,6 +6,7 @@ import com.feign.api.entity.order.Order;
 import com.feign.api.service.ParkingLotFeignService;
 import com.feign.api.service.VehicleFeignService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang.BooleanUtils;
 import org.springframework.context.annotation.Import;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,7 @@ import javax.annotation.Resource;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 @Service
 @Import({
@@ -58,22 +60,18 @@ public class OrderServiceImpl {
         StringBuilder order_number = new StringBuilder(user_name + '-' + parking_lot_number + '-' + license_plate_number+'&'+generation_time);
 
         //获取停车场收费标准
-        Object billingRules =redisTemplate.opsForHash().get(parking_lot_number, "billing_rules");
-        if (billingRules==null){
-            String billing_rules=parkingLotFeignService.getParkingBilling_rules(parking_lot_number);
-            if (billing_rules==null){
-                return "停车场不存在";
-            }else if (billing_rules.equals("系统繁忙，查找停车场名失败，请稍后再试")){
-                return "停车场服务异常";
-            }
-            //订单信息存入redis
-            redisTemplate.opsForHash().put(parking_lot_number,"billing_rules",billing_rules);
+        String s1 = setBilling_rules(parking_lot_number);
+        if (s1!=null){
+            return s1;
         }
 
 
         //检查车辆信息是否注册
         Boolean key = redisTemplate.hasKey(user_name + license_plate_number);
-        if (!key) {
+        if (key==null){
+            return "错误-1";
+        }
+        if (BooleanUtils.isFalse(key)) {
             int check=vehicleFeignService.check_license_plate_number(user_name,license_plate_number);
             if (check==0){
                 return "未注册车辆信息";
@@ -87,12 +85,15 @@ public class OrderServiceImpl {
 
         Boolean hasKey = redisTemplate.hasKey(parking_lot_number);
         if (hasKey==null){
-            return "错误";
+            return "错误-2";
         }
         //检测是否还有空车位
-        if(hasKey) {
-            int s = (int) redisTemplate.opsForHash().get(parking_lot_number,"Available_place_num");
-            if (s <= 0) {
+        if(BooleanUtils.isTrue(hasKey)) {
+            Object s =  redisTemplate.opsForHash().get(parking_lot_number,"Available_place_num");
+            if (s==null){
+                return "车位信息异常";
+            }
+            if ((int)s <= 0) {
                 return "车位已满";
             }
             try {
@@ -179,7 +180,7 @@ public class OrderServiceImpl {
         if (key==null){
             return "错误";
         }
-        if (!key){
+        if (BooleanUtils.isFalse(key)){
             Order order = orderDao.getOrderByNumber(order_number);
             if (order==null){
                 return "无此订单";
@@ -214,9 +215,10 @@ public class OrderServiceImpl {
         if (key==null){
             return null;
         }
-        if (key) {
+        if (BooleanUtils.isTrue(key)) {
             Order order = orderDao.getOrderByNumber(order_number);
             if (order == null) {
+                redisTemplate.opsForValue().set(order_number,null,5, TimeUnit.MINUTES);
                 return null;
             }
             order = getMessage(order, order_number);
@@ -293,10 +295,37 @@ public class OrderServiceImpl {
         }
 
         String billing_rules = (String) redisTemplate.opsForHash().get(parking_lot_number, "billing_rules");
+        if (billing_rules==null){
+            String s1 = setBilling_rules(parking_lot_number);
+            if (s1!=null){
+                return s1;
+            }
+        }
         setMoney(Timestamp.valueOf(inTime),Timestamp.valueOf(generation_time),billing_rules,s);
         return setMessage(s,"outTime",generation_time);
     }
 
+
+
+    /**
+     * TODO:获取停车场的价格
+     * @param parking_lot_number 停车场编号
+     * @return 价格
+     */
+    public String setBilling_rules(String parking_lot_number){
+        Object billingRules =redisTemplate.opsForHash().get(parking_lot_number, "billing_rules");
+        if (billingRules==null){
+            String billing_rules=parkingLotFeignService.getParkingBilling_rules(parking_lot_number);
+            if (billing_rules==null){
+                return "停车场不存在";
+            }else if (billing_rules.equals("系统繁忙，查找停车场名失败，请稍后再试")){
+                return "停车场服务异常";
+            }
+            //订单信息存入redis
+            redisTemplate.opsForHash().put(parking_lot_number,"billing_rules",billing_rules);
+        }
+        return null;
+    }
 
 
 
@@ -368,7 +397,7 @@ public class OrderServiceImpl {
         if (key==null){
             return "错误";
         }
-        if (!key){
+        if (BooleanUtils.isFalse(key)){
             Order order = orderDao.getOrderByNumber(order_number);
             if (order==null){
                 return "未找到订单";
@@ -414,7 +443,7 @@ public class OrderServiceImpl {
         if (key==null){
             return "错误";
         }
-        if (!key){
+        if (BooleanUtils.isFalse(key)){
             return "订单不存在";
         }
         String parking_lot_number=order_number.substring(order_number.indexOf("-")+1,order_number.lastIndexOf("-"));
@@ -422,7 +451,7 @@ public class OrderServiceImpl {
         if (hasKey==null){
             return "错误";
         }
-        if(hasKey){
+        if(BooleanUtils.isTrue(hasKey)){
             redisTemplate.opsForHash().increment(parking_lot_number,"Available_place_num",1);        //车位自增
             return null;
         }else {
@@ -446,7 +475,7 @@ public class OrderServiceImpl {
         if (key==null){
             return "错误-1";
         }
-        if (key){
+        if (BooleanUtils.isTrue(key)){
             String inTime = (String) redisTemplate.opsForHash().get(order_number, "inTime");
             if (inTime==null){
                 orderDao.setStatus("已取消",order_number);
@@ -487,7 +516,7 @@ public class OrderServiceImpl {
         if (key==null){
             return "错误";
         }
-        if (!key){
+        if (BooleanUtils.isFalse(key)){
             Order order = orderDao.getOrderByNumber(order_number);
             if (order==null){
                 return "无此订单";
@@ -532,7 +561,7 @@ public class OrderServiceImpl {
         if (hasKey==null){
             return "错误";
         }
-        if (!hasKey){
+        if (BooleanUtils.isFalse(hasKey)){
             Order order = orderDao.getOrderByNumber(order_number);
             if (order==null){
                 return "订单不存在";
@@ -553,7 +582,7 @@ public class OrderServiceImpl {
      * TODO：查找用户是否有未完成订单
      * @param user_name
      * @param order_number
-     * @return
+     * @return 订单数
      */
     public int checkOpenOrder(String user_name, String order_number) {
         return orderDao.checkOpenOrder(user_name,order_number);

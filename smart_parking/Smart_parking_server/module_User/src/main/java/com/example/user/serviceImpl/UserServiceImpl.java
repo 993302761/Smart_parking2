@@ -53,8 +53,7 @@ public class UserServiceImpl  {
     private ParkingLotFeignService parkingLotFeignService;
 
 
-    //json序列化工具
-    private final static ObjectMapper mapper=new ObjectMapper();
+
 
 
 
@@ -324,18 +323,18 @@ public class UserServiceImpl  {
      */
     public boolean set_UUID(String UUID,String user_name){
         //设置过期时间为一个月
-        Calendar curDate = Calendar.getInstance();
-        Calendar nextDate = new GregorianCalendar(curDate.get(Calendar.YEAR),
-                curDate.get(Calendar.MONTH) + 1,
-                curDate.get(Calendar.DAY_OF_MONTH),
-                curDate.get(Calendar.HOUR_OF_DAY),
-                curDate.get(Calendar.MINUTE),
-                curDate.get(Calendar.SECOND));
-        long second = (nextDate.getTimeInMillis() - curDate.getTimeInMillis()) / 1000;
+//        Calendar curDate = Calendar.getInstance();
+//        Calendar nextDate = new GregorianCalendar(curDate.get(Calendar.YEAR),
+//                curDate.get(Calendar.MONTH) + 1,
+//                curDate.get(Calendar.DAY_OF_MONTH),
+//                curDate.get(Calendar.HOUR_OF_DAY),
+//                curDate.get(Calendar.MINUTE),
+//                curDate.get(Calendar.SECOND));
+//        long second = (nextDate.getTimeInMillis() - curDate.getTimeInMillis()) / 1000;
         String key=md5(user_name+UUID);
-        redisTemplate.opsForValue().set(key, 0);
-        Boolean expire = redisTemplate.expire(key, second, TimeUnit.SECONDS);
-        return expire;
+        redisTemplate.opsForValue().set(key, 0,15,TimeUnit.DAYS);
+//        Boolean expire = redisTemplate.expire(key, second, TimeUnit.SECONDS);
+        return true;
     }
 
 
@@ -360,16 +359,6 @@ public class UserServiceImpl  {
     }
 
 
-    /**
-     * TODO：从redis中获取对象
-     * @param key
-     */
-    public Object getRedisValue (String key,Class clazz) throws JsonProcessingException {
-        String value= (String) redisTemplate.opsForValue().get(key);
-        //反序列化
-        Object userInformation=mapper.readValue(value,clazz);
-        return userInformation;
-    }
 
 
 

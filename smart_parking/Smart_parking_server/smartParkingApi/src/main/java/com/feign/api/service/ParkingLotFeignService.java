@@ -32,9 +32,9 @@ public interface ParkingLotFeignService {
     List<Parking_for_user> getParkingLot (@PathVariable("parking_lot_name") String parking_lot_name, @PathVariable("city") String city);
 
 
-    @PutMapping(value = "/ParkingLots/updateParking/{pctr_id}/{parking_lot_name}/{parking_in_the_city}/{parking_spaces_num}/{billing_rules}")
+    @PutMapping(value = "/ParkingLots/updateParking/{pctr_id}/{parking_lot_number}/{parking_in_the_city}/{parking_spaces_num}/{billing_rules}")
     String updateParking(@PathVariable("pctr_id") String pctr_id,
-                         @PathVariable("parking_lot_name") String parking_lot_name,
+                         @PathVariable("parking_lot_number") String parking_lot_number,
                          @PathVariable("parking_in_the_city") String parking_in_the_city,
                          @PathVariable("parking_spaces_num") Integer parking_spaces_num,
                          @PathVariable("billing_rules") float billing_rules);
