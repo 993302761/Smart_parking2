@@ -66,4 +66,8 @@
 
 
 
+## `配置`
+
+https://raw.githubusercontent.com/993302761/Smart_parking2.0/main/smart_parking/ProjectSetUp/gradle%E8%AE%BE%E7%BD%AE.png
+
 
