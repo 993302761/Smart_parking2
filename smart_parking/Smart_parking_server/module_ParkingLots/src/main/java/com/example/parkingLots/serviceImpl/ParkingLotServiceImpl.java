@@ -9,13 +9,17 @@ import com.feign.api.entity.parkingLots.Parking_for_user;
 import com.feign.api.service.OrderFeignService;
 import org.apache.commons.lang.BooleanUtils;
 import org.springframework.context.annotation.Import;
+import org.springframework.data.geo.Point;
+import org.springframework.data.redis.connection.RedisGeoCommands;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 @Service
 @Import({
@@ -64,11 +68,14 @@ public class ParkingLotServiceImpl {
         }
 
         //生成停车场编号
-        StringBuilder parking_lot_number=new StringBuilder(pctr_id+System.currentTimeMillis());
+        String parking_lot_number=pctr_id+System.currentTimeMillis();
 
 
         int update = parkingLotDao.add_Parking(pctr_id, pctr_password, parking_lot_name, parking_in_the_city, parking_lot_number.toString(), parking_spaces_num, billing_rules, longitude, latitude);
         if (update > 0) {
+            redisTemplate.opsForHash().put(parking_lot_number,"longitude",longitude);
+            redisTemplate.opsForHash().put(parking_lot_number,"latitude",latitude);
+            redisTemplate.opsForHash().put(parking_lot_number,"billing_rules",billing_rules);
             return "注册成功";
         } else {
             return "注册失败";
@@ -263,6 +270,33 @@ public class ParkingLotServiceImpl {
     }
 
 
+    /**
+     * TODO：获取周边所有停车场
+     * @param latitude 维度
+     * @param longitude 经度
+     * @return 停车场列表
+     */
+    public String peripheralParking(String latitude, String longitude) {
+        List<Parking> parkingList = getAllParking();
+        //list关于城市分组
+        Map<String, List<Parking>> map = parkingList.stream().collect(Collectors.groupingBy(Parking::getParking_in_the_city));
+        for (Map.Entry<String, List<Parking>> entry : map.entrySet()) {
+            String key = entry.getKey();
+            List<Parking> value = entry.getValue();
+            List<RedisGeoCommands.GeoLocation<Object>> locations=new ArrayList<>(value.size());
+            //写入redis
+            for (Parking parking : value) {
+                locations.add(new RedisGeoCommands.GeoLocation<>(
+                        parking.getParking_lot_number(),
+                        new Point(Double.parseDouble(parking.getLatitude()),Double.parseDouble(parking.getLongitude()))
+                ));
+            }
+            redisTemplate.opsForGeo().add(key, locations);
+        }
+        return latitude;
+    }
+
+
 
     /**
      * TODO：根据停车场编号获取停车场收费标准
@@ -291,6 +325,7 @@ public class ParkingLotServiceImpl {
     public void delete_Parking (){
         parkingLotDao.delete_Parking();
     }
+
 
 
 }

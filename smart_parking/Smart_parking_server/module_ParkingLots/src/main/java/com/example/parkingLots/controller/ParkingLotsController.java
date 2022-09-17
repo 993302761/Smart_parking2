@@ -37,6 +37,19 @@ public class ParkingLotsController {
 
 
 
+    @ApiOperation(value = "获取周边所有停车场")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "latitude", value = "纬度", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "longitude", value = "经度", required = true, dataType = "String")
+    })
+    @PostMapping(value = "/parking_register/{latitude}/{longitude}", produces = "text/plain;charset=utf-8")
+    public String peripheralParking(@PathVariable String latitude,
+                                    @PathVariable String longitude){
+        return parkingLotService.peripheralParking(latitude,longitude);
+    }
+
+
+
     @ApiOperation(value = "停车场管理员注册")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "latitude", value = "纬度", required = true, dataType = "String"),
@@ -59,6 +72,7 @@ public class ParkingLotsController {
                                    String latitude){
         return parkingLotService.add_Parking(pctr_id,pctr_password,parking_lot_name,parking_in_the_city,parking_spaces_num,billing_rules,longitude,latitude);
     }
+
 
 
 
