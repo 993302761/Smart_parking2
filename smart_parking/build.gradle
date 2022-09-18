@@ -2,7 +2,7 @@
 buildscript {
     ext {
         //定义一个变量，统一规定springboot的版本
-        springBootVersion = '2.3.8.RELEASE'
+        springBootVersion = '2.3.12.RELEASE'
         springCloudVersion = 'Hoxton.SR12'
         netflixVersion = '2.2.7.RELEASE'
     }

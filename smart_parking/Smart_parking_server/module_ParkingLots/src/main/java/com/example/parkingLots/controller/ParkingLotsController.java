@@ -9,10 +9,13 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.data.geo.Point;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @Api(tags = "停车场管理员模块")
@@ -40,12 +43,14 @@ public class ParkingLotsController {
     @ApiOperation(value = "获取周边所有停车场")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "latitude", value = "纬度", required = true, dataType = "String"),
-            @ApiImplicitParam(name = "longitude", value = "经度", required = true, dataType = "String")
+            @ApiImplicitParam(name = "longitude", value = "经度", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "city", value = "城市", required = true, dataType = "String")
     })
-    @PostMapping(value = "/parking_register/{latitude}/{longitude}", produces = "text/plain;charset=utf-8")
-    public String peripheralParking(@PathVariable String latitude,
-                                    @PathVariable String longitude){
-        return parkingLotService.peripheralParking(latitude,longitude);
+    @GetMapping(value = "/parking_register/{latitude}/{longitude}/{city}", produces = "application/json;charset=utf-8")
+    public HashMap<String, Point> peripheralParking(@PathVariable String latitude,
+                                                    @PathVariable String longitude,
+                                                    @PathVariable String city){
+        return parkingLotService.peripheralParking(latitude,longitude,city);
     }
 
 

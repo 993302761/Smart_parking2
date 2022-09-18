@@ -15,8 +15,15 @@
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/out/production/classes/com/example/parkingLots/controller/ParkingLotsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/out/production/classes/com/example/parkingLots/controller/ParkingLotsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/out/production/classes/com/example/parkingLots/dao/ParkingLotDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/out/production/classes/com/example/parkingLots/dao/ParkingLotDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/out/production/classes/com/example/parkingLots/serviceImpl/ParkingLotServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/out/production/classes/com/example/parkingLots/serviceImpl/ParkingLotServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/src/main/java/com/example/parkingLots/controller/ParkingLotsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/src/main/java/com/example/parkingLots/controller/ParkingLotsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/src/main/java/com/example/parkingLots/serviceImpl/ParkingLotServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/src/main/java/com/example/parkingLots/serviceImpl/ParkingLotServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/out/production/classes/com/feign/api/service/ParkingLotFeignService.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/out/production/classes/com/feign/api/service/ParkingLotFeignService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/out/production/classes/com/feign/api/service/ParkingLotFeignServiceDegradation$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/out/production/classes/com/feign/api/service/ParkingLotFeignServiceDegradation$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,6 +128,16 @@
                 <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
                 <item name="org.springframework.boot:spring-boot-starter-data-redis:2.3.1.RELEASE" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
               </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="smart_parking" type="f1a62948:ProjectNode" />
+                <item name="Smart_parking_server" type="2d1252cf:ModuleNode" />
+                <item name="module_ParkingLots" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="org.springframework.boot:spring-boot-starter-data-redis:2.3.1.RELEASE" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="org.springframework.boot:spring-boot-dependencies:2.3.1.RELEASE" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
             </expand>
             <select />
           </tree_state>
@@ -207,7 +224,7 @@
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.37320977" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -614,7 +631,9 @@
       <workItem from="1663122704487" duration="7064000" />
       <workItem from="1663218924834" duration="12519000" />
       <workItem from="1663304196195" duration="13048000" />
-      <workItem from="1663379512247" duration="5859000" />
+      <workItem from="1663379512247" duration="8851000" />
+      <workItem from="1663498278945" duration="4991000" />
+      <workItem from="1663505261641" duration="6060000" />
     </task>
     <servers />
   </component>
@@ -697,6 +716,11 @@
           <url>file://$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/serviceImpl/UserOrderServiceImpl.java</url>
           <line>57</line>
           <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/src/main/java/com/example/parkingLots/serviceImpl/ParkingLotServiceImpl.java</url>
+          <line>285</line>
+          <option name="timeStamp" value="36" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.net.ConnectException" package="java.net" />
