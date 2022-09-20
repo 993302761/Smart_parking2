@@ -2,6 +2,7 @@ package com.example.user.controller;
 
 import com.example.user.serviceImpl.UserServiceImpl;
 
+import com.feign.api.entity.parkingLots.Parking_for_user;
 import com.feign.api.entity.user.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -156,6 +157,19 @@ public class UserController {
     }
 
 
+
+    @ApiOperation(value = "获取周边所有停车场")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "latitude", value = "纬度", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "longitude", value = "经度", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "city", value = "城市", required = true, dataType = "String")
+    })
+    @GetMapping(value = "/parking_register/{latitude}/{longitude}/{city}", produces = "application/json;charset=utf-8")
+    public List<Parking_for_user> peripheralParking(@PathVariable String latitude,
+                                                    @PathVariable String longitude,
+                                                    @PathVariable String city){
+        return userService.peripheralParking(latitude,longitude,city);
+    }
 
 
 

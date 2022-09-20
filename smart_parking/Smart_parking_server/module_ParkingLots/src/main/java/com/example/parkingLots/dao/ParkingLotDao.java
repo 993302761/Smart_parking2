@@ -28,7 +28,6 @@ public interface ParkingLotDao {
 
 
 
-
     /**
      * 根据停车场编号查找停车场信息
      * */
@@ -112,6 +111,29 @@ public interface ParkingLotDao {
                       @Param("parking_spaces_num") Integer parking_spaces_num,
                       @Param("billing_rules") float billing_rules,
                       @Param("pctr_id") String pctr_id);
+
+
+
+    /**
+     * 查找停车场信息
+     * */
+    @Results({
+            @Result(property = "parking_lot_name", column = "parking_lot_name"),
+            @Result(property = "parking_in_the_city", column = "parking_in_the_city"),
+            @Result(property = "parking_lot_number", column = "parking_lot_number"),
+            @Result(property = "parking_spaces_num", column = "parking_spaces_num"),
+            @Result(property = "billing_rules", column = "billing_rules"),
+            @Result(property = "longitude", column = "longitude"),
+            @Result(property = "latitude", column = "latitude")
+    })
+    @Select("SELECT parking_lot_name," +
+            "parking_in_the_city," +
+            "parking_lot_number," +
+            "parking_spaces_num," +
+            "billing_rules," +
+            "longitude," +
+            "latitude FROM Parking_lot_information WHERE parking_lot_number =#{parking_lot_number}")
+    Parking_for_user getParkingForNearby(@Param("parking_lot_number") String parking_lot_number);
 
 
 

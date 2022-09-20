@@ -15,10 +15,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
@@ -72,11 +69,12 @@ public class ParkingLotServiceImpl {
         String parking_lot_number=pctr_id+System.currentTimeMillis();
 
 
-        int update = parkingLotDao.add_Parking(pctr_id, pctr_password, parking_lot_name, parking_in_the_city, parking_lot_number.toString(), parking_spaces_num, billing_rules, longitude, latitude);
+        int update = parkingLotDao.add_Parking(pctr_id, pctr_password, parking_lot_name, parking_in_the_city, parking_lot_number, parking_spaces_num, billing_rules, longitude, latitude);
         if (update > 0) {
             redisTemplate.opsForHash().put(parking_lot_number,"longitude",longitude);
             redisTemplate.opsForHash().put(parking_lot_number,"latitude",latitude);
             redisTemplate.opsForHash().put(parking_lot_number,"billing_rules",billing_rules);
+            setParkingMassage();
             return "注册成功";
         } else {
             return "注册失败";
@@ -228,6 +226,9 @@ public class ParkingLotServiceImpl {
      * @return 某一区域停车场情况
      */
     public List<Parking_for_user> get_parking_lot(String city){
+        if (city==null){
+            return null;
+        }
 
         List<Parking_for_user> parking_lot = parkingLotDao.get_parking_lot(city);
         if (parking_lot.isEmpty()){
@@ -251,6 +252,86 @@ public class ParkingLotServiceImpl {
 
 
 
+
+
+
+
+
+    /**
+     * TODO：获取周边所有停车场
+     * @param latitude 维度
+     * @param longitude 经度
+     * @return 停车场列表
+     */
+    public List<Parking_for_user> peripheralParking(String latitude, String longitude, String city) {
+        if (latitude==null||longitude==null||city==null){
+            return null;
+        }else if (Double.parseDouble(latitude)<0||Double.parseDouble(latitude)>90.0){
+            return null;
+        }else if (Double.parseDouble(longitude)<0||Double.parseDouble(longitude)>180.0){
+            return null;
+        }
+        Boolean key = redisTemplate.hasKey(city);
+        if (BooleanUtils.isFalse(key)){
+            setParkingMassage();
+        }
+        GeoResults<RedisGeoCommands.GeoLocation<Object>> radius = redisTemplate.opsForGeo().radius(
+                city,
+                new Circle(Double.parseDouble(longitude), Double.parseDouble(latitude),Metrics.KILOMETERS.getMultiplier()),
+                RedisGeoCommands.GeoRadiusCommandArgs.newGeoRadiusArgs().includeDistance().includeCoordinates().sortAscending().limit(10)
+        );
+        List<GeoResult<RedisGeoCommands.GeoLocation<Object>>> content = radius.getContent();
+
+        List<Parking_for_user> new_parking_lot=new ArrayList<>();
+        content.forEach(result -> {
+            //获取停车场编号
+            String number = (String) result.getContent().getName();
+            //获取停车场位置
+            Boolean hasKey = redisTemplate.hasKey(number);
+            if(BooleanUtils.isTrue(hasKey) ){
+                Object  s =  redisTemplate.opsForHash().get(number,"Available_place_num");
+                if (s!=null&&(int)s>0){
+                    Parking_for_user parking1=parkingLotDao.getParkingForNearby(number);
+                    parking1.setAvailable_parking_spaces_num((int)s);
+                    new_parking_lot.add(parking1);
+                }
+            }
+        });
+        return new_parking_lot;
+    }
+
+
+
+
+
+    /**
+     * TODO:更新Redis中的停车场位置信息
+     */
+    public void setParkingMassage(){
+        //将停车场信息存入redis
+        List<Parking> parkingList = getAllParking();
+        //list关于城市分组
+        Map<String, List<Parking>> map = parkingList.stream().collect(Collectors.groupingBy(Parking::getParking_in_the_city));
+        for (Map.Entry<String, List<Parking>> entry : map.entrySet()) {
+            String key = entry.getKey();
+            List<Parking> value = entry.getValue();
+            List<RedisGeoCommands.GeoLocation<Object>> locations=new ArrayList<>(value.size());
+            //写入redis
+            for (Parking parking : value) {
+                locations.add(new RedisGeoCommands.GeoLocation<>(
+                        parking.getParking_lot_number(),
+                        new Point(Double.parseDouble(parking.getLongitude()),Double.parseDouble(parking.getLatitude()))
+                ));
+            }
+            redisTemplate.opsForGeo().add(key, locations);
+        }
+    }
+
+
+
+
+
+
     /**
      * TODO：根据停车场编号查找停车场名
      * @return 根据停车场编号查找停车场名
@@ -270,60 +351,6 @@ public class ParkingLotServiceImpl {
         }
         return name;
     }
-
-
-    /**
-     * TODO：获取周边所有停车场
-     * @param latitude 维度
-     * @param longitude 经度
-     * @return 停车场列表
-     */
-    public HashMap<String, Point> peripheralParking(String latitude, String longitude, String city) {
-        if (latitude==null||longitude==null||city==null){
-            return null;
-        }
-        //将停车场信息存入redis
-        List<Parking> parkingList = getAllParking();
-        //list关于城市分组
-        Map<String, List<Parking>> map = parkingList.stream().collect(Collectors.groupingBy(Parking::getParking_in_the_city));
-        for (Map.Entry<String, List<Parking>> entry : map.entrySet()) {
-            String key = entry.getKey();
-            List<Parking> value = entry.getValue();
-            List<RedisGeoCommands.GeoLocation<Object>> locations=new ArrayList<>(value.size());
-            //写入redis
-            for (Parking parking : value) {
-                locations.add(new RedisGeoCommands.GeoLocation<>(
-                        parking.getParking_lot_name(),
-                        new Point(Double.parseDouble(parking.getLatitude()),Double.parseDouble(parking.getLongitude()))
-                ));
-            }
-            redisTemplate.opsForGeo().add(key, locations);
-        }
-
-        GeoResults<RedisGeoCommands.GeoLocation<Object>> radius = redisTemplate.opsForGeo().radius(
-                city,
-                new Circle(Double.parseDouble(latitude),Double.parseDouble(longitude), Metrics.KILOMETERS.getMultiplier()),
-                RedisGeoCommands.GeoRadiusCommandArgs.newGeoRadiusArgs().includeDistance().includeCoordinates().sortAscending().limit(5)
-        );
-
-        if (radius==null){
-            return null;
-        }
-        List<GeoResult<RedisGeoCommands.GeoLocation<Object>>> content = radius.getContent();
-
-        HashMap<String,Point> parking=new HashMap<>();
-        content.forEach(result -> {
-            //获取停车场编号
-            String name = (String) result.getContent().getName();
-            //获取停车场位置
-            Point point = result.getContent().getPoint();
-            parking.put(name,point);
-        });
-        return parking;
-    }
-
-
-
 
 
 

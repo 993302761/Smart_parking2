@@ -40,6 +40,11 @@ public interface ParkingLotFeignService {
                          @PathVariable("billing_rules") float billing_rules);
 
 
-    @GetMapping(value = "/change_parking_space")
+    @GetMapping(value = "/ParkingLots/change_parking_space")
     int  findParkingLot  (String parking_lot_number );
+
+    @GetMapping(value = "/ParkingLots/parking_register/{latitude}/{longitude}/{city}", produces = "application/json;charset=utf-8",consumes = "application/json;charset=UTF-8")
+     List<Parking_for_user> peripheralParking(@PathVariable("latitude") String latitude,
+                                                    @PathVariable("longitude") String longitude,
+                                                    @PathVariable("city") String city);
 }

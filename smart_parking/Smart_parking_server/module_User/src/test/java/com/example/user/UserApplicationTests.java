@@ -7,12 +7,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.feign.api.entity.user.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.geo.Metrics;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 
 import javax.annotation.Resource;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 @SpringBootTest
 class UserApplicationTests {
@@ -28,6 +30,6 @@ class UserApplicationTests {
 
     @Test
     void contextLoads() throws JsonProcessingException {
-        redisTemplate.opsForValue().set("456",null);
+        System.out.println(Metrics.KILOMETERS.getMultiplier());
     }
 }

@@ -5,6 +5,7 @@ import com.example.user.dao.UserDao;
 import com.example.user.entity.User_information;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.feign.api.entity.parkingLots.Parking_for_user;
 import com.feign.api.entity.user.User;
 import com.feign.api.service.ParkingLotFeignService;
 import com.feign.api.service.VehicleFeignService;
@@ -373,6 +374,18 @@ public class UserServiceImpl  {
     }
 
 
+
+
+    /**
+     * TODO：获取周边所有停车场
+     * @param latitude 维度
+     * @param longitude 经度
+     * @param city 所在城市
+     * @return 停车场列表
+     */
+    public List<Parking_for_user> peripheralParking(String latitude, String longitude, String city) {
+        return parkingLotFeignService.peripheralParking(latitude, longitude, city);
+    }
 
 
 }

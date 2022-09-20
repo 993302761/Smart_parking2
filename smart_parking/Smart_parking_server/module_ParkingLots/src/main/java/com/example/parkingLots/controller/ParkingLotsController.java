@@ -47,7 +47,7 @@ public class ParkingLotsController {
             @ApiImplicitParam(name = "city", value = "城市", required = true, dataType = "String")
     })
     @GetMapping(value = "/parking_register/{latitude}/{longitude}/{city}", produces = "application/json;charset=utf-8")
-    public HashMap<String, Point> peripheralParking(@PathVariable String latitude,
+    public List<Parking_for_user> peripheralParking(@PathVariable String latitude,
                                                     @PathVariable String longitude,
                                                     @PathVariable String city){
         return parkingLotService.peripheralParking(latitude,longitude,city);

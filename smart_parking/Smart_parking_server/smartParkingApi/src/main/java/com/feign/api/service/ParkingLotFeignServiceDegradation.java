@@ -70,6 +70,13 @@ public class ParkingLotFeignServiceDegradation implements FallbackFactory<Parkin
                 log.error("findParkingLot 服务出现异常，异常信息：" + cause);
                 return -1;
             }
+
+            @Override
+            public List<Parking_for_user> peripheralParking(String latitude, String longitude, String city) {
+                Parking_for_user user=new Parking_for_user();
+                user.setParking_lot_name("系统繁忙，周边停车场查找失败，请稍后再试");
+                return (List<Parking_for_user>) user;
+            }
         };
     }
 }
