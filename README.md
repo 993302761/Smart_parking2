@@ -1,13 +1,14 @@
 # `Smart_parking2.8`
 <a href="https://www.oscs1024.com/project/oscs/993302761/Smart_parking2.0?ref=badge_small" alt="OSCS Status"><img src="https://www.oscs1024.com/platform/badge/993302761/Smart_parking2.0.svg?size=small"/></a>
 
-### `	The product is based on the data, collection and analysis of the Internet of Things and artificial intelligence to solve the problems of difficult parking in modern cities, difficult to find parking spaces, and unbalanced utilization of urban parking spaces.
+### `	 Brief introduction 
+	The product is based on the data, collection and analysis of the Internet of Things and artificial intelligence to solve the problems of difficult parking in modern cities, difficult to find parking spaces, and unbalanced utilization of urban parking spaces.
 
 
-The system shows the remaining parking spaces in various places in the city to users through mobile phone APP and makes corresponding route planning for users. Different preferential charging policies are formulated for parking spaces according to different durations.
+	The system shows the remaining parking spaces in various places in the city to users through mobile phone APP and makes corresponding route planning for users. Different preferential charging policies are formulated for parking spaces according to different durations.
 
 
-The image recognition technology is used to identify the license plate number, and the user's integrity is determined by recording the parking space and identifying the license plate number. Based on the above data, the parking of target visitors is planned to promote the balance of urban parking space utilization.
+	The image recognition technology is used to identify the license plate number, and the user's integrity is determined by recording the parking space and identifying the license plate number. Based on the above data, the parking of target visitors is planned to promote the balance of urban parking space utilization.
 
 `
 
