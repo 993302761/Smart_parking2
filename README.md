@@ -37,6 +37,25 @@
 
 * This project is in response to the Several Opinions of the CPC Central Committee and the State Council on Further Strengthening the Management of Urban Planning and Construction and the Provisions on Economical and Intensive Use of Land and other documents, to achieve reasonable allocation of parking facilities, improve space utilization efficiency and promote the economical and intensive use of land; Make full use of the ground and underground space, and promote the multi-functional three-dimensional development and composite utilization of construction land; Encourage the participation of social capital, accelerate the construction of urban parking, and gradually alleviate the parking problem.
 
+
+
+## `  Update Details  `
+
+* Join FastDFS
+
+* Join springAMQP
+
+* Opening fuse and service degradation 
+
+* Log system to be completed
+
+* Enable cross domain
+
+* Change kafka to RabbitMQ (kafka is suitable for massive data transmission, and has low requirements for data security, and can be used to transmit log data)
+
+* Optimize Redis, solve the problem of cache penetration and cache breakdown, and realize the function of nearby parking lot through GEO
+
+
 ##  ` Module introduction `
 
 ###  `smart_parking_server`
@@ -100,18 +119,3 @@
 			Build and run using   ---->>> IntelliJ IDEA
 			Run tests using   ---->>> IntelliJ IDEA
 
-## `  Update Details  `
-
-* Join FastDFS
-
-* Join springAMQP
-
-* Opening fuse and service degradation 
-
-* Log system to be completed
-
-* Enable cross domain
-
-* Change kafka to RabbitMQ (kafka is suitable for massive data transmission, and has low requirements for data security, and can be used to transmit log data)
-
-* Optimize Redis, solve the problem of cache penetration and cache breakdown, and realize the function of nearby parking lot through GEO
