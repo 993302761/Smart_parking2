@@ -99,3 +99,19 @@
 	
 			Build and run using   ---->>> IntelliJ IDEA
 			Run tests using   ---->>> IntelliJ IDEA
+
+## `  Update Details  `
+
+* Join FastDFS
+
+* Join springAMQP
+
+* Opening fuse and service degradation 
+
+* Log system to be completed
+
+* Enable cross domain
+
+* Change kafka to RabbitMQ (kafka is suitable for massive data transmission, and has low requirements for data security, and can be used to transmit log data)
+
+* Optimize Redis, solve the problem of cache penetration and cache breakdown, and realize the function of nearby parking lot through GEO
