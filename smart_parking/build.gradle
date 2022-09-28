@@ -58,7 +58,7 @@ subprojects {
         testImplementation("junit:junit:${junit_version}")
 
         //bus-RabbitMQ
-        implementation 'org.springframework.cloud:spring-cloud-starter-bus-amqp'
+        implementation 'org.springframework.cloud:spring-cloud-starter-bus-amqp:3.0.3'
         //监控模块
         implementation 'org.springframework.boot:spring-boot-starter-actuator'
 

@@ -10,38 +10,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff0609dd-2a44-4fd0-9468-a5712daa4380" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/logs/Administrators/2022-09/error-2022-09-07-7.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/Administrators/2022-09/warn-2022-09-07-7.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/out/production/classes/com/example/parkingLots/controller/ParkingLotsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/out/production/classes/com/example/parkingLots/controller/ParkingLotsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/out/production/classes/com/example/parkingLots/dao/ParkingLotDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/out/production/classes/com/example/parkingLots/dao/ParkingLotDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/out/production/classes/com/example/parkingLots/serviceImpl/ParkingLotServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/out/production/classes/com/example/parkingLots/serviceImpl/ParkingLotServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/src/main/java/com/example/parkingLots/controller/ParkingLotsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/src/main/java/com/example/parkingLots/controller/ParkingLotsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/src/main/java/com/example/parkingLots/dao/ParkingLotDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/src/main/java/com/example/parkingLots/dao/ParkingLotDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/src/main/java/com/example/parkingLots/serviceImpl/ParkingLotServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/src/main/java/com/example/parkingLots/serviceImpl/ParkingLotServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/classes/com/example/user/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/classes/com/example/user/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/classes/com/example/user/serviceImpl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/classes/com/example/user/serviceImpl/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/out/production/classes/com/example/administrators/serviceImpl/AdministratorsServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/out/production/classes/com/example/administrators/serviceImpl/AdministratorsServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/src/main/java/com/example/administrators/serviceImpl/AdministratorsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/src/main/java/com/example/administrators/serviceImpl/AdministratorsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/resources/META-INF/MANIFEST.MF" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/out/test/classes/com/example/user/UserApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/out/test/classes/com/example/user/UserApplicationTests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/serviceImpl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/java/com/example/user/serviceImpl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/src/test/java/com/example/user/UserApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/test/java/com/example/user/UserApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/build/classes/java/main/com/feign/api/entity/order/Order_information.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/build/classes/java/main/com/feign/api/entity/parkingLots/Parking.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/build/classes/java/main/com/feign/api/entity/parkingLots/Parking.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/build/classes/java/main/com/feign/api/entity/parkingLots/Parking_for_user.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/build/classes/java/main/com/feign/api/entity/parkingLots/Parking_for_user.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/build/classes/java/main/com/feign/api/entity/user/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/build/classes/java/main/com/feign/api/entity/user/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/build/classes/java/main/com/feign/api/service/OrderFeignService.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/build/classes/java/main/com/feign/api/service/OrderFeignService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/build/classes/java/main/com/feign/api/service/ParkingLotFeignService.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/build/classes/java/main/com/feign/api/service/ParkingLotFeignService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/build/classes/java/main/com/feign/api/service/UserFeignService.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/build/classes/java/main/com/feign/api/service/UserFeignService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/build/classes/java/main/com/feign/api/service/VehicleFeignService.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/build/classes/java/main/com/feign/api/service/VehicleFeignService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/src/main/java/com/feign/api/service/ParkingLotFeignService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/src/main/java/com/feign/api/service/ParkingLotFeignService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/src/main/java/com/feign/api/service/ParkingLotFeignServiceDegradation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/src/main/java/com/feign/api/service/ParkingLotFeignServiceDegradation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/out/production/classes/com/feign/api/service/VehicleFeignServiceDegradation$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/out/production/classes/com/feign/api/service/VehicleFeignServiceDegradation$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/src/main/java/com/feign/api/service/VehicleFeignServiceDegradation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/src/main/java/com/feign/api/service/VehicleFeignServiceDegradation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/Administrators/All.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/Administrators/All.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/Administrators/error.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/Administrators/error.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/Administrators/warn.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/Administrators/warn.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,20 +103,14 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="smart_parking" type="f1a62948:ProjectNode" />
                 <item name="Smart_parking_server" type="2d1252cf:ModuleNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="smart_parking" type="f1a62948:ProjectNode" />
-                <item name="Smart_parking_server" type="2d1252cf:ModuleNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="smart_parking" type="f1a62948:ProjectNode" />
                 <item name="Smart_parking_server" type="2d1252cf:ModuleNode" />
                 <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
               </path>
             </expand>
             <select />
@@ -163,8 +140,18 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/Smart_parking3/FastDfsScript/fastdfs_stop.sh" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/build.gradle" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Smart_parking_server/module_Vehicle/src/main/resources/bootstrap.yml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Smart_parking3/FastDfsScript/storage_monitor.sh" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Smart_parking3/FastDfsScript/fastdfs_start.sh" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/GateWay/GateWay_Web/src/main/resources/application.yml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/FastDfsApi/src/main/resources/fdfs_client.conf" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Smart_parking_server/build.gradle" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/src/main/java/com/example/parkingLots/serviceImpl/ParkingLotServiceImpl.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/logs/Administrators/2022-09/error-2022-09-06-1.log" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Smart_parking_server/smartParkingApi/src/main/java/com/feign/api/service/UserFeignService.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Smart_parking_server/smartParkingApi/src/main/java/com/feign/api/entity/user/User.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
@@ -175,6 +162,7 @@
     </option>
     <option name="myId2Visible">
       <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="false" />
         <entry key="com.haulmont.jpb.jpaPalette" value="false" />
         <entry key="com.haulmont.jpb.jpaStructure" value="false" />
       </map>
@@ -217,25 +205,25 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Smart_parking3" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.37320977" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
   </component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/Smart_parking_server/module_Vehicle/src/main/java/com/example/vehicle" />
       <recent name="$PROJECT_DIR$/Smart_parking_server/module_ParkingLots/src/main/java/com/example/parkingLots" />
       <recent name="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/src/main/resources" />
       <recent name="$PROJECT_DIR$/Smart_parking_server/module_Order/src/main/java/com/example/order" />
-      <recent name="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/resources/static" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/src/main/java" />
@@ -457,6 +445,9 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Gradle.smart_parking:Smart_parking_server [testClasses]" />
+      <item itemvalue="Gradle.smart_parking:Smart_parking_server [build]" />
+      <item itemvalue="Gradle.smart_parking:Smart_parking_server [jar]" />
       <item itemvalue="JUnit.testDaoTest.delxxx" />
       <item itemvalue="JUnit.UserApplicationTests.contextLoads" />
       <item itemvalue="Spring Boot.AdministratorsApplication " />
@@ -472,9 +463,6 @@
       <item itemvalue="Spring Boot.IntegralApplication" />
       <item itemvalue="Spring Boot.IntegralApplication (1)" />
       <item itemvalue="Spring Boot.FastApplication (1)" />
-      <item itemvalue="Gradle.smart_parking:Smart_parking_server [testClasses]" />
-      <item itemvalue="Gradle.smart_parking:Smart_parking_server [build]" />
-      <item itemvalue="Gradle.smart_parking:Smart_parking_server [jar]" />
     </list>
     <recent_temporary>
       <list>
@@ -644,7 +632,24 @@
       <workItem from="1663505261641" duration="6434000" />
       <workItem from="1663561166619" duration="4972000" />
       <workItem from="1663591838104" duration="1337000" />
-      <workItem from="1663671616872" duration="6758000" />
+      <workItem from="1663671616872" duration="8496000" />
+      <workItem from="1663729061892" duration="599000" />
+      <workItem from="1663765501374" duration="582000" />
+      <workItem from="1663767162106" duration="1331000" />
+      <workItem from="1663823342059" duration="2365000" />
+      <workItem from="1663916271651" duration="82000" />
+      <workItem from="1663916426578" duration="3015000" />
+      <workItem from="1663919779459" duration="1501000" />
+      <workItem from="1663994357804" duration="462000" />
+      <workItem from="1664001610473" duration="615000" />
+      <workItem from="1664003386611" duration="31000" />
+      <workItem from="1664022980047" duration="1070000" />
+      <workItem from="1664024427300" duration="1830000" />
+      <workItem from="1664033985964" duration="17000" />
+      <workItem from="1664088410347" duration="8000" />
+      <workItem from="1664153974795" duration="5000" />
+      <workItem from="1664277164418" duration="1895000" />
+      <workItem from="1664343989637" duration="326000" />
     </task>
     <servers />
   </component>

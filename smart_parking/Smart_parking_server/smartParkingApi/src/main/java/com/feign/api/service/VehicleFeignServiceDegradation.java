@@ -43,7 +43,7 @@ public class VehicleFeignServiceDegradation implements FallbackFactory<VehicleFe
             @Override
             public List<String> getUserVehicle(String user_name) {
                 List<String> s=new ArrayList<>();
-                s.add("获取用户绑定的车辆列表");
+                s.add("系统繁忙，获取用户绑定的车辆列表失败，请稍后再试");
                 log.error("getUserVehicle 服务出现异常，异常信息：" + cause);
                 return s;
             }

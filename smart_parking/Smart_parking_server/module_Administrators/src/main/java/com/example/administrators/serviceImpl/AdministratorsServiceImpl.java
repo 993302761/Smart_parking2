@@ -3,6 +3,7 @@ package com.example.administrators.serviceImpl;
 import com.example.administrators.dao.AdministratorsDao;
 import com.example.administrators.entity.Administrators;
 
+import com.feign.api.entity.user.User;
 import com.feign.api.service.OrderFeignService;
 import com.feign.api.service.ParkingLotFeignService;
 import com.feign.api.service.UserFeignService;
@@ -12,6 +13,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 @Import({
@@ -66,7 +68,11 @@ public class AdministratorsServiceImpl {
      */
 
     public Object getAllUsers() {
-        return userFeignService.getAllUsers();
+        long l = System.currentTimeMillis();
+        List<User> allUsers = userFeignService.getAllUsers();
+        long i = System.currentTimeMillis();
+        System.out.println(i-l);
+        return allUsers;
     }
 
 

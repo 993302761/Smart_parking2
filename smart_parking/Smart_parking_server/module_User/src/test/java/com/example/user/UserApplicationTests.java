@@ -30,6 +30,16 @@ class UserApplicationTests {
 
     @Test
     void contextLoads() throws JsonProcessingException {
-        System.out.println(Metrics.KILOMETERS.getMultiplier());
+
+        long l = System.currentTimeMillis();
+        System.out.println(l);
+        try {
+            Thread.sleep(10);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        long i = System.currentTimeMillis();
+        System.out.println(i);
+        System.out.println(i-l);
     }
 }
