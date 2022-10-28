@@ -10,21 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff0609dd-2a44-4fd0-9468-a5712daa4380" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/logs/Administrators/2022-09/error-2022-09-07-7.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/Administrators/2022-09/warn-2022-09-07-7.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.5.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5.1/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/out/production/classes/com/example/administrators/serviceImpl/AdministratorsServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/out/production/classes/com/example/administrators/serviceImpl/AdministratorsServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FastDfsApi/out/test/classes/com/saltfish/example/demo/testDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/FastDfsApi/out/test/classes/com/saltfish/example/demo/testDaoTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/src/main/java/com/example/administrators/serviceImpl/AdministratorsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_Administrators/src/main/java/com/example/administrators/serviceImpl/AdministratorsServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/out/production/resources/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/out/test/classes/com/example/user/UserApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/out/test/classes/com/example/user/UserApplicationTests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/module_User/src/test/java/com/example/user/UserApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/module_User/src/test/java/com/example/user/UserApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/out/production/classes/com/feign/api/service/VehicleFeignServiceDegradation$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/out/production/classes/com/feign/api/service/VehicleFeignServiceDegradation$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/src/main/java/com/feign/api/service/VehicleFeignServiceDegradation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Smart_parking_server/smartParkingApi/src/main/java/com/feign/api/service/VehicleFeignServiceDegradation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/Administrators/All.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/Administrators/All.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/Administrators/error.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/Administrators/error.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/Administrators/warn.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/Administrators/warn.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,6 +74,9 @@
         <task path="$PROJECT_DIR$/Smart_parking_server/module_User">
           <activation />
         </task>
+        <task path="$PROJECT_DIR$/GateWay">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
@@ -97,20 +87,37 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="smart_parking" type="f1a62948:ProjectNode" />
-                <item name="Smart_parking_server" type="2d1252cf:ModuleNode" />
+                <item name="GateWay" type="2d1252cf:ModuleNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="smart_parking" type="f1a62948:ProjectNode" />
-                <item name="Smart_parking_server" type="2d1252cf:ModuleNode" />
+                <item name="GateWay" type="2d1252cf:ModuleNode" />
+                <item name="GateWay_User" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="smart_parking" type="f1a62948:ProjectNode" />
+                <item name="GateWay" type="2d1252cf:ModuleNode" />
+                <item name="GateWay_User" type="2d1252cf:ModuleNode" />
                 <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="smart_parking" type="f1a62948:ProjectNode" />
-                <item name="Smart_parking_server" type="2d1252cf:ModuleNode" />
+                <item name="GateWay" type="2d1252cf:ModuleNode" />
+                <item name="GateWay_User" type="2d1252cf:ModuleNode" />
                 <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
                 <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="smart_parking" type="f1a62948:ProjectNode" />
+                <item name="GateWay" type="2d1252cf:ModuleNode" />
+                <item name="GateWay_User" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="org.springframework.cloud:spring-cloud-config-client:2.2.8.RELEASE" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
               </path>
             </expand>
             <select />
@@ -207,7 +214,9 @@
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -248,7 +257,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UserApplicationTests.contextLoads">
+  <component name="RunManager" selected="JUnit.testDaoTest.uploadFile">
     <configuration name="smart_parking:Smart_parking_server [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -328,7 +337,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="testDaoTest.delxxx" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="testDaoTest.uploadFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="smart_parking.FastDfsApi.test" />
       <extension name="coverage">
         <pattern>
@@ -338,7 +347,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.saltfish.example.demo" />
       <option name="MAIN_CLASS_NAME" value="com.saltfish.example.demo.testDaoTest" />
-      <option name="METHOD_NAME" value="delxxx" />
+      <option name="METHOD_NAME" value="uploadFile" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -448,8 +457,8 @@
       <item itemvalue="Gradle.smart_parking:Smart_parking_server [testClasses]" />
       <item itemvalue="Gradle.smart_parking:Smart_parking_server [build]" />
       <item itemvalue="Gradle.smart_parking:Smart_parking_server [jar]" />
-      <item itemvalue="JUnit.testDaoTest.delxxx" />
       <item itemvalue="JUnit.UserApplicationTests.contextLoads" />
+      <item itemvalue="JUnit.testDaoTest.uploadFile" />
       <item itemvalue="Spring Boot.AdministratorsApplication " />
       <item itemvalue="Spring Boot.ConfigServerApplication" />
       <item itemvalue="Spring Boot.EurekaServer01Application" />
@@ -466,11 +475,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.testDaoTest.uploadFile" />
         <item itemvalue="JUnit.UserApplicationTests.contextLoads" />
         <item itemvalue="Gradle.smart_parking:Smart_parking_server [jar]" />
         <item itemvalue="Gradle.smart_parking:Smart_parking_server [build]" />
         <item itemvalue="Gradle.smart_parking:Smart_parking_server [testClasses]" />
-        <item itemvalue="JUnit.testDaoTest.delxxx" />
       </list>
     </recent_temporary>
   </component>
@@ -649,7 +658,23 @@
       <workItem from="1664088410347" duration="8000" />
       <workItem from="1664153974795" duration="5000" />
       <workItem from="1664277164418" duration="1895000" />
-      <workItem from="1664343989637" duration="326000" />
+      <workItem from="1664343989637" duration="708000" />
+      <workItem from="1664546439514" duration="1000" />
+      <workItem from="1664679638293" duration="3301000" />
+      <workItem from="1664765240487" duration="2387000" />
+      <workItem from="1664797683021" duration="146000" />
+      <workItem from="1664799759080" duration="607000" />
+      <workItem from="1664800487079" duration="155000" />
+      <workItem from="1664891054178" duration="1901000" />
+      <workItem from="1664957222303" duration="754000" />
+      <workItem from="1664966074344" duration="2000" />
+      <workItem from="1664966084061" duration="1955000" />
+      <workItem from="1664976204127" duration="357000" />
+      <workItem from="1665051577313" duration="601000" />
+      <workItem from="1665314434294" duration="323000" />
+      <workItem from="1665648222347" duration="607000" />
+      <workItem from="1666799101118" duration="148000" />
+      <workItem from="1666875638198" duration="4000" />
     </task>
     <servers />
   </component>

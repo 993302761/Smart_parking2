@@ -35,7 +35,6 @@ public class AdministratorsServiceImpl {
     @Resource
     private OrderFeignService orderFeignService;
 
-
     private static final Logger LOGGER= LoggerFactory.getLogger(AdministratorsServiceImpl.class);
 
 
